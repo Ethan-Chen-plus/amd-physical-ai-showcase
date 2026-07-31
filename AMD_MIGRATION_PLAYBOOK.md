@@ -40,6 +40,7 @@
 - Pi0.5 与 GR00T 已按同一 `16 tasks x 50 episodes` 视频协议完成匹配评估：
   Pi0.5 `142/800`，GR00T `230/800`。
 - 正式结果 JSON 与 SHA 见成果站和 `WORKSPACE_MEMORY.md`；随机策略 smoke 不计入模型成绩。
+- 独立 showcase 录像：AMD 395 上真实 `CloseFridge` 两回合为 `1/2`，center/left/right/eye_in_hand 四视角合成 `1920x1080@20fps`；只提升可视化，不改变策略输入或正式分母。
 - 边界：Pi0.5 ROCm/JAX 的官方兼容路径已单独隔离，不能用短 smoke 替代正式结果。
 
 ### Every Embodied VLA

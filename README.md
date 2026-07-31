@@ -17,6 +17,10 @@ The migration evidence page is available at
 RoboCasa365 evidence, policy boundaries, and the unresolved DexDojo/DexJoCo
 identity without exposing private machine paths.
 
+The RoboCasa365 gallery also includes a separate high-resolution, four-view
+showcase rollout. It is presentation evidence only; the formal 16-task x
+50-episode score remains unchanged.
+
 ## Local preview
 
 ```bash
