@@ -266,6 +266,51 @@ footer { padding: 34px 0; background: var(--surface); border-top: 1px solid var(
 .rocm-logo { width: 86px; max-height: 34px; object-fit: contain; }
 .footer-note { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid var(--line); }
 
+.migration-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); gap: 46px; align-items: end; min-height: 430px; padding-block: 82px 72px; }
+.migration-hero h1 { max-width: 760px; margin: 12px 0 20px; font-size: clamp(44px, 6vw, 78px); line-height: .98; letter-spacing: -2px; }
+.migration-hero p { max-width: 720px; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.75; }
+.migration-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.migration-callout { padding: 24px; border: 1px solid var(--line); border-top: 3px solid var(--red); background: var(--surface); }
+.migration-callout strong { display: block; margin-top: 14px; font-size: 16px; }
+.migration-callout p { margin-top: 9px; font-size: 14px; line-height: 1.65; }
+.migration-section { padding-block: 84px; }
+.migration-dark { background: var(--dark); color: #fff; }
+.migration-soft { background: var(--soft); border-block: 1px solid var(--line); }
+.gate-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--line); background: var(--line); }
+.gate-grid article { position: relative; min-height: 188px; padding: 24px; background: var(--surface); }
+.gate-grid article > span { position: absolute; top: 19px; right: 21px; color: var(--muted); font-size: 11px; }
+.gate-grid article > svg { width: 26px; height: 26px; margin: 20px 0 18px; color: var(--red); }
+.gate-grid h3 { margin: 0 0 8px; font-size: 18px; }
+.gate-grid p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.detail-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(240px, .5fr); gap: 48px; align-items: stretch; }
+.detail-copy > p { max-width: 750px; margin: 0 0 24px; color: var(--muted); font-size: 17px; line-height: 1.75; }
+.migration-dark .detail-copy > p { color: #c5cad1; }
+.evidence-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.migration-dark .evidence-list { border-color: #3a3f47; }
+.evidence-list li { display: grid; grid-template-columns: 88px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.55; }
+.migration-dark .evidence-list li { border-color: #3a3f47; }
+.evidence-list strong { color: var(--red); }
+.migration-dark .evidence-list span { color: #c5cad1; }
+.evidence-list code, .next-project code { padding: 2px 5px; border-radius: 3px; background: var(--soft); font-size: .92em; }
+.migration-dark .evidence-list code { background: #252a31; }
+.detail-stat { display: flex; flex-direction: column; justify-content: center; padding: 28px; border: 1px solid #3a3f47; background: var(--dark-2); }
+.detail-stat strong { color: #fff; font-size: 42px; line-height: 1.1; }
+.detail-stat span { margin: 5px 0 22px; color: #929aa5; font-size: 12px; }
+.detail-stat span:last-child { margin-bottom: 0; }
+.score-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; min-height: 190px; background: var(--line); }
+.score-pair div { display: flex; flex-direction: column; justify-content: center; padding: 24px; background: var(--surface); }
+.score-pair b { font-size: 45px; line-height: 1; }
+.score-pair small { margin-top: 8px; color: var(--muted); font-size: 12px; }
+.policy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.policy-grid article { min-height: 205px; display: flex; flex-direction: column; align-items: flex-start; padding: 24px; border: 1px solid var(--line); background: var(--surface); }
+.policy-grid h3 { margin: 0 0 12px; font-size: 18px; }
+.policy-grid p { flex: 1; margin: 0 0 20px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.next-project { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 30px; border: 1px solid var(--line); background: var(--surface); }
+.next-project h3 { margin: 0 0 12px; font-size: 20px; }
+.next-project p { max-width: 820px; margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.next-project a { color: var(--red); font-weight: 750; }
+.next-project > svg { flex: none; width: 42px; height: 42px; color: var(--red); }
+
 @media (max-width: 980px) {
   .site-header { grid-template-columns: 1fr auto; }
   .desktop-nav { display: none; }
@@ -280,6 +325,10 @@ footer { padding: 34px 0; background: var(--surface); border-top: 1px solid var(
   .pipeline li { border-bottom: 1px solid var(--line); }
   .pipeline li:nth-child(2n) { border-right: 0; }
   .pipeline li:last-child { border-bottom: 0; }
+  .migration-hero, .detail-layout { grid-template-columns: 1fr; }
+  .detail-stat { min-height: 180px; }
+  .gate-grid { grid-template-columns: 1fr 1fr; }
+  .policy-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 680px) {
@@ -295,6 +344,7 @@ footer { padding: 34px 0; background: var(--surface); border-top: 1px solid var(
   .command-button { padding-inline: 10px; }
   .lead-caption { align-items: flex-start; }
   .metrics-grid, .status-strip, .project-grid, .benchmark-grid, .media-grid, .pipeline { grid-template-columns: 1fr; }
+  .gate-grid, .policy-grid, .score-pair { grid-template-columns: 1fr; }
   .metric { min-height: 116px; border-right: 0; border-bottom: 1px solid #32363d; }
   .metric:last-child { border-bottom: 0; }
   .status-strip { gap: 10px; }
@@ -307,6 +357,10 @@ footer { padding: 34px 0; background: var(--surface); border-top: 1px solid var(
   .footer-inner { grid-template-columns: 1fr; }
   .rocm-logo { justify-self: start; }
   .footer-brand { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .migration-hero { min-height: 0; padding-block: 52px; }
+  .migration-hero h1 { letter-spacing: -1px; }
+  .migration-section { padding-block: 62px; }
+  .next-project { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {

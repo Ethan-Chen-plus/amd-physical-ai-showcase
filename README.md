@@ -12,6 +12,11 @@ The site intentionally contains only public-safe assets:
 The private competition adapters, credentials, machine addresses, raw datasets,
 and unpublished training code are not included.
 
+The migration evidence page is available at
+`migrations.html`; it records the six-layer acceptance gates, DISCOVERSE and
+RoboCasa365 evidence, policy boundaries, and the unresolved DexDojo/DexJoCo
+identity without exposing private machine paths.
+
 ## Local preview
 
 ```bash
