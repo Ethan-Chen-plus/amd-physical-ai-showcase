@@ -77,8 +77,8 @@
       </section>
 
       <section class="migration-section page-shell" id="next">
-        <div class="section-heading"><div><span class="section-index">05 / NEXT ADAPTER</span><h2>DexDojo 先确认名字，再开迁移仓库</h2></div><span class="result-chip diagnostic">待确认</span></div>
-        <div class="next-project"><div><h3>目前没有找到精确的 <code>DexDojo</code> 上游仓库</h3><p>公开检索到的相近项目是 <a href="https://dexjoco.github.io/" target="_blank" rel="noreferrer">DexJoCo</a>，代码入口为 <a href="https://github.com/brave-eai/dexjoco" target="_blank" rel="noreferrer">brave-eai/dexjoco</a>。它们不是同一个名字，不能直接替换。</p><p>你确认链接后，我会在现有私有比赛仓库中建立独立组件，补齐 AMD 环境、资产下载、仿真、数据、训练、推理、视频和结果清单，再决定是否拆成单独私有仓库。</p></div><i data-lucide="circle-help"></i></div>
+        <div class="section-heading"><div><span class="section-index">05 / POLICY ADAPTER</span><h2>DexJoCo：从单任务原生 JAX 到多任务策略</h2></div><span class="result-chip active">进行中</span></div>
+        <div class="next-project"><div><h3>AMD ROCm 上的 Pi0.5 原生 JAX 路线已通过单任务闭环</h3><p>上游代码为 <a href="https://github.com/brave-eai/dexjoco" target="_blank" rel="noreferrer">brave-eai/dexjoco</a>，官方权重为 <a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">DexJoCo/DexJoCo-Pi05</a>。我们使用 AMD 官方 ROCm JAX 0.10 环境直接恢复 Orbax 参数，没有把 JAX 转成 PyTorch。</p><p>当前已完成 <code>water_plant</code>、<code>rand_obj</code>、4 个固定 seed、4/4 成功和 MP4 输出；下一步仅下载官方 <code>pi05_dexjoco_multi_task</code>，再按任务抽样评估，不同时下载两套 11 任务单模型。</p></div><i data-lucide="circle-check"></i></div>
       </section>
     </main>
 

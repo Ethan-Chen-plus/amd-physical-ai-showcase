@@ -101,7 +101,7 @@
         <div class="section-heading">
           <div>
             <span class="section-index">01 / PROJECTS</span>
-            <h2 id="projects-title">六条互相补强的实验线</h2>
+            <h2 id="projects-title">七条互相补强的实验线</h2>
           </div>
           <p>从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。</p>
         </div>
@@ -153,6 +153,21 @@
               <div><dt>Expert data</dt><dd>500 eps</dd></div>
             </dl>
             <div class="card-links"><a href="migrations.html#discoverse">迁移细节 <i data-lucide="arrow-up-right"></i></a><a href="https://github.com/discoverse-dev/DISCOVERSE" target="_blank" rel="noreferrer">上游项目 <i data-lucide="external-link"></i></a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <span class="project-icon blue"><i data-lucide="hand"></i></span>
+              <span class="result-chip diagnostic">单任务预检</span>
+            </div>
+            <h3>DexJoCo · Pi0.5 原生 JAX</h3>
+            <p>在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成 water_plant 闭环和视频输出；多任务权重正在断点下载。</p>
+            <dl class="project-facts">
+              <div><dt>任务</dt><dd>water_plant</dd></div>
+              <div><dt>固定 seed</dt><dd>4 / 4</dd></div>
+              <div><dt>下一步</dt><dd>multi-task</dd></div>
+            </dl>
+            <div class="card-links"><a href="migrations.html#next">迁移细节 <i data-lucide="arrow-up-right"></i></a><a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">官方权重 <i data-lucide="external-link"></i></a></div>
           </article>
 
           <article class="project-card">
@@ -257,6 +272,10 @@
         </div>
         <div class="media-grid" id="media-grid">
           <article class="media-card" data-outcome="success">
+            <video controls playsinline preload="metadata" poster="assets/posters/dexjoco/water-plant-seed0-success.jpg"><source src="assets/videos/dexjoco/water-plant-seed0-success.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>DexJoCo · Pi0.5 native JAX 0.10</span><h3>water_plant · seed 0 成功</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="media-card" data-outcome="success">
             <video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-success.jpg"><source src="assets/videos/smolvla-cup-success.mp4" type="video/mp4" /></video>
             <div class="media-copy"><div><span>Every Embodied · SmolVLA</span><h3>红杯严格成功</h3></div><span class="result-chip success">success</span></div>
           </article>
@@ -318,7 +337,7 @@
           <a href="https://huggingface.co/Datawhale/every-embodied-act-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>ACT 诊断权重</strong><small>保留负结果，解释 loss 与物理成功的差异</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><i data-lucide="cloud-download"></i><span><strong>RoboWits 中间 checkpoint</strong><small>W7900 训练备份，不作为正式成绩</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="SHA256SUMS" target="_blank" rel="noreferrer"><i data-lucide="shield-check"></i><span><strong>公开媒体校验清单</strong><small>站内代表视频与结果 JSON 的 SHA256</small></span><i data-lucide="arrow-up-right"></i></a>
-          <a href="migrations.html"><i data-lucide="route"></i><span><strong>AMD 迁移细节</strong><small>六级验收矩阵、难点、边界和 DexDojo 待确认项</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="migrations.html"><i data-lucide="route"></i><span><strong>AMD 迁移细节</strong><small>六级验收矩阵、难点、边界和 DexJoCo JAX 路线</small></span><i data-lucide="arrow-up-right"></i></a>
         </div>
       </section>
     </main>
