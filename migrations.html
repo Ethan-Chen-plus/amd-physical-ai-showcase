@@ -21,6 +21,7 @@
       <nav class="desktop-nav" aria-label="迁移记录导航">
         <a href="#matrix">验收矩阵</a>
         <a href="#discoverse">DISCOVERSE</a>
+        <a href="#jax">ROCm JAX</a>
         <a href="#robocasa">RoboCasa365</a>
         <a href="#next">下一条迁移</a>
       </nav>
@@ -58,6 +59,12 @@
           <div class="section-heading light"><div><span class="section-index">02 / SIMULATOR</span><h2>DISCOVERSE：目前最完整的迁移线</h2></div><span class="result-chip success">18 / 18 runtime</span></div>
           <div class="detail-layout"><div class="detail-copy"><p>本地迁移工作区覆盖 MuJoCo 任务、AIRBOT/MMK2、专家数据、策略训练/推理、ROS2、LiDAR、3DGS 和 MP4 输出。</p><ul class="evidence-list"><li><strong>运行</strong><span>核心 smoke 18/18；AIRBOT 12/12；MMK2 8/8</span></li><li><strong>专家</strong><span><code>block_bridge_place</code> 严格回放 31/31；500 episodes 专家数据</span></li><li><strong>负结果</strong><span>学习策略仍按严格物理谓词报告，不把 loss 或视频生成当成功</span></li><li><strong>边界</strong><span>RealSense、手柄、实体机械臂和 ROS2 外设需要对应硬件</span></li></ul></div><div class="detail-stat"><strong>500</strong><span>expert episodes</span><strong>31 / 31</strong><span>block bridge strict replay</span></div></div>
         </div>
+      </section>
+
+      <section class="migration-section page-shell" id="jax">
+        <div class="section-heading"><div><span class="section-index">03 / JAX RUNTIME</span><h2>ROCm JAX / OpenPI：官方路线与真实边界</h2></div><span class="result-chip success">JAX 0.10.0 已验证</span></div>
+        <div class="detail-layout"><div class="detail-copy"><p>这条迁移线不是为了“把 JAX 改成 PyTorch”。Pi0/Pi0.5 的官方 OpenPI 实现本来就是 JAX/Flax，因此我们先按 AMD 官方路径验证原生 JAX，再把无法在当前硬件算子上稳定执行的分支单独记录。</p><ul class="evidence-list"><li><strong>官方入口</strong><span><a href="https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/jax/install.html?fam=all&os=linux&jax-ver=0.10.0&i=docker&w=compute" target="_blank" rel="noreferrer">ROCm JAX 安装指南</a>；对应 Docker 镜像为 <code>rocm/jax:rocm7.14-jax0.10.0-py3.12</code></span></li><li><strong>已完成</strong><span>JAX GPU backend、官方 75k Pi0.5 checkpoint、tokenizer、归一化统计和 OpenPI 加载链路均已通过</span></li><li><strong>算子修复</strong><span>隔离 Gemma softmax 路径，避开 gfx1151 的 64 KiB shared-memory 限制；MuJoCo 视频使用 OSMesa 做无窗口渲染</span></li><li><strong>诊断证据</strong><span>真实 RoboCasa seed 9 完成 <code>1/1</code> pretrain rollout；这是迁移诊断，不是正式成功率</span></li><li><strong>正式结果</strong><span>同一 16 任务 × 50 episodes 协议下，Pi0.5 为 <code>142/800 = 17.75%</code>；完整 JSON、视频和 SHA 已归档</span></li></ul></div><div class="detail-stat"><strong>0.10.0</strong><span>ROCm JAX</span><strong>1 / 1</strong><span>diagnostic rollout</span><strong>142 / 800</strong><span>formal Pi0.5 result</span></div></div>
+        <div class="next-project"><div><h3>为什么仍有“JAX 转 PyTorch”的分支？</h3><p>官方 RoboCasa365 路线已经用原生 JAX 跑通，不能和 DexJoCo 混为一谈。DexJoCo 当前旧 OpenPI 环境的 JAX 0.8.2 虽能识别 GPU，但 gfx1151 的 GEMM 触发 <code>hipGetFuncBySymbol</code>；因此我们准备了 CPU-JAX 导出到 SafeTensors、再用 AMD PyTorch 推理的兜底路线。它是兼容性桥接，不是对官方 JAX 结果的替代，也尚未产生策略成功率。</p></div><i data-lucide="split"></i></div>
       </section>
 
       <section class="migration-section page-shell" id="robocasa">

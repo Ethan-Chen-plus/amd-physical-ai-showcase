@@ -15,6 +15,14 @@
 
 ## 已验证迁移
 
+### ROCm JAX / OpenPI
+
+- 官方安装入口：[AMD ROCm JAX 0.10.0 安装指南](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/jax/install.html?fam=all&os=linux&jax-ver=0.10.0&i=docker&w=compute)；推荐镜像为 `rocm/jax:rocm7.14-jax0.10.0-py3.12`。
+- RoboCasa365 的官方 Pi0.5 路线已用原生 JAX 验证：GPU backend、75k checkpoint、tokenizer、归一化统计、Gemma softmax 隔离路径和 OSMesa 视频输出均已通过；一个真实 seed 的诊断 rollout 为 `1/1`，不作为正式成绩。
+- 同一 `16 tasks x 50 episodes` 正式协议的 Pi0.5 结果为 `142/800 = 17.75%`，对应 JSON、每任务统计、视频和 SHA 已归档。
+- DexJoCo 必须单独看：当前旧主机环境是 ROCm 7.2.1/JAX 0.8.2，GPU 可见但 GEMM 报 `hipGetFuncBySymbol`。已新增官方容器 preflight，先验证 JAX 矩阵计算，再做固定任务/seed 对照；在此之前不把 JAX 转 PyTorch 的桥接结果写成 JAX 成绩。
+- 结论：JAX 0.10.0 可以作为新的直接迁移候选，但不能只改 Python 包版本；必须保持官方容器内 ROCm、JAX plugin、PJRT 和 Python 版本一致。
+
 ### DISCOVERSE
 
 - 上游：[DISCOVERSE](https://github.com/discoverse-dev/DISCOVERSE)。
