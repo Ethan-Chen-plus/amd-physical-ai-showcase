@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Datawhale-EAI 在 AMD Radeon 与 ROCm 上完成的具身智能训练、仿真迁移和闭环评估证据站。"
+    />
+    <meta name="theme-color" content="#111318" />
+    <title>Datawhale-EAI · AMD Physical AI Evidence Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <img src="assets/brand/aup-logo.svg" alt="AMD University Program" />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <strong>Datawhale-EAI</strong>
+          <small>Physical AI Evidence Lab</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <a href="#projects">项目</a>
+        <a href="#benchmark">基准</a>
+        <a href="#gallery">视频</a>
+        <a href="#reproduce">复现</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-button" href="https://github.com/datawhalechina/every-embodied" target="_blank" rel="noreferrer" aria-label="打开 GitHub" title="GitHub">
+          <i data-lucide="github"></i>
+        </a>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="切换明暗主题" title="切换明暗主题">
+          <i data-lucide="moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="intro-band page-shell" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <div class="eyebrow"><span class="live-dot"></span> AMD Radeon + ROCm · 实测证据更新至 2026-07-31</div>
+          <h1 id="page-title">从抓杯子到长时域<br />厨房操作</h1>
+          <p>
+            这里汇总我们在 AMD 设备上完成的 VLA 训练、仿真器迁移、官方协议评估与失败诊断。
+            每个正式数字都能回到结果 JSON、视频或权重 SHA；运行验证与正式成绩分开标注。
+          </p>
+          <div class="intro-actions">
+            <a class="command-button primary" href="#gallery"><i data-lucide="play"></i>查看实测视频</a>
+            <a class="command-button" href="#reproduce"><i data-lucide="book-open"></i>打开复现入口</a>
+          </div>
+        </div>
+        <div class="lead-media">
+          <video muted autoplay loop playsinline preload="metadata" poster="assets/posters/smolvla-cup-success.jpg">
+            <source src="assets/videos/smolvla-cup-success.mp4" type="video/mp4" />
+          </video>
+          <div class="lead-caption">
+            <span><strong>SmolVLA</strong> · strict physical success</span>
+            <span class="result-chip success">57 / 60</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-band" aria-label="关键实测结果">
+        <div class="page-shell metrics-grid">
+          <article class="metric">
+            <span class="metric-value">95.0%</span>
+            <span class="metric-label">SmolVLA 抓杯 strict gate</span>
+            <span class="metric-meta">57 / 60 · 2 colors</span>
+          </article>
+          <article class="metric">
+            <span class="metric-value">28.75%</span>
+            <span class="metric-label">RoboCasa365 GR00T</span>
+            <span class="metric-meta">230 / 800 · 16 tasks</span>
+          </article>
+          <article class="metric">
+            <span class="metric-value">17.75%</span>
+            <span class="metric-label">RoboCasa365 Pi0.5</span>
+            <span class="metric-meta">142 / 800 · matched protocol</span>
+          </article>
+          <article class="metric">
+            <span class="metric-value">31 / 31</span>
+            <span class="metric-label">DISCOVERSE 严格专家回放</span>
+            <span class="metric-meta">block_bridge_place</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="status-strip page-shell" aria-label="证据标记说明">
+        <div><span class="status-mark verified"></span><strong>正式结果</strong> 固定协议、完整分母、结果文件已校验</div>
+        <div><span class="status-mark diagnostic"></span><strong>诊断结果</strong> 真实闭环，但仅用于定位问题</div>
+        <div><span class="status-mark active"></span><strong>进行中</strong> 不提前声明成功率</div>
+      </section>
+
+      <section class="section page-shell" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-index">01 / PROJECTS</span>
+            <h2 id="projects-title">六条互相补强的实验线</h2>
+          </div>
+          <p>从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-card-head">
+              <span class="project-icon"><i data-lucide="cup-soda"></i></span>
+              <span class="result-chip success">正式结果</span>
+            </div>
+            <h3>Every Embodied · 抓杯子</h3>
+            <p>同一 MuJoCo 任务上对比 SmolVLA、Pi0 与 ACT，保留普通训练、保护训练、严格评估和失败视频。</p>
+            <dl class="project-facts">
+              <div><dt>SmolVLA</dt><dd>57 / 60</dd></div>
+              <div><dt>Pi0</dt><dd>12 / 14</dd></div>
+              <div><dt>ACT</dt><dd>7 / 30</dd></div>
+            </dl>
+            <div class="card-links">
+              <a href="https://github.com/datawhalechina/every-embodied/tree/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98" target="_blank" rel="noreferrer">Notebook <i data-lucide="external-link"></i></a>
+              <a href="https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp" target="_blank" rel="noreferrer">权重 <i data-lucide="external-link"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <span class="project-icon coral"><i data-lucide="chef-hat"></i></span>
+              <span class="result-chip success">正式结果</span>
+            </div>
+            <h3>RoboCasa365 · 16 任务</h3>
+            <p>AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。</p>
+            <dl class="project-facts">
+              <div><dt>GR00T 120k</dt><dd>230 / 800</dd></div>
+              <div><dt>Pi0.5 75k</dt><dd>142 / 800</dd></div>
+              <div><dt>视频</dt><dd>1,600</dd></div>
+            </dl>
+            <div class="card-links"><a href="#benchmark">展开 16 任务对比 <i data-lucide="arrow-down"></i></a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <span class="project-icon teal"><i data-lucide="blocks"></i></span>
+              <span class="result-chip success">迁移完成</span>
+            </div>
+            <h3>DISCOVERSE · 全链迁移</h3>
+            <p>覆盖运行、专家轨迹、训练、闭环评估和 MP4 输出；同时保留学习策略 0% 的真实负结果。</p>
+            <dl class="project-facts">
+              <div><dt>Runtime</dt><dd>18 / 18</dd></div>
+              <div><dt>AIRBOT</dt><dd>12 / 12</dd></div>
+              <div><dt>Expert data</dt><dd>500 eps</dd></div>
+            </dl>
+            <div class="card-links"><a href="https://github.com/discoverse-dev/DISCOVERSE" target="_blank" rel="noreferrer">上游项目 <i data-lucide="external-link"></i></a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <span class="project-icon amber"><i data-lucide="wand-sparkles"></i></span>
+              <span class="result-chip active">训练中</span>
+            </div>
+            <h3>RoboWits · 创意操作</h3>
+            <p>W7900 上按官方 16D ACT 配置训练 100k，checkpoint 每 5k 自动备份并同步 Hugging Face。</p>
+            <dl class="project-facts">
+              <div><dt>数据</dt><dd>1,207 eps</dd></div>
+              <div><dt>任务</dt><dd>24</dd></div>
+              <div><dt>状态</dt><dd>82k / 100k*</dd></div>
+            </dl>
+            <div class="card-links"><a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer">中间权重 <i data-lucide="external-link"></i></a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <span class="project-icon blue"><i data-lucide="flask-conical"></i></span>
+              <span class="result-chip diagnostic">权重就绪</span>
+            </div>
+            <h3>LIBERO · 标准基准</h3>
+            <p>SmolVLA 与 DiT4DiT 公开权重已完成校验，正式评估排在 RoboWits 协议完成之后。</p>
+            <dl class="project-facts">
+              <div><dt>SmolVLA</dt><dd>0.91 GB</dd></div>
+              <div><dt>DiT4DiT</dt><dd>21.28 GB</dd></div>
+              <div><dt>成绩</dt><dd>待评估</dd></div>
+            </dl>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <span class="project-icon graphite"><i data-lucide="cpu"></i></span>
+              <span class="result-chip diagnostic">设备证据</span>
+            </div>
+            <h3>AMD 双设备实验室</h3>
+            <p>本地 Ryzen AI MAX+ 395 负责稳定长评估，云端 Radeon Pro W7900 负责大显存训练与迁移验证。</p>
+            <dl class="project-facts">
+              <div><dt>AMD 395</dt><dd>RoboCasa</dd></div>
+              <div><dt>W7900</dt><dd>RoboWits</dd></div>
+              <div><dt>栈</dt><dd>PyTorch + JAX</dd></div>
+            </dl>
+          </article>
+        </div>
+        <p class="footnote">* RoboWits 为 2026-07-31 最近一次已核验训练进度；官方闭环评估完成前不展示成功率。</p>
+      </section>
+
+      <section class="section benchmark-band" id="benchmark" aria-labelledby="benchmark-title">
+        <div class="page-shell">
+          <div class="section-heading light">
+            <div>
+              <span class="section-index">02 / BENCHMARK</span>
+              <h2 id="benchmark-title">RoboCasa365 同协议逐任务对比</h2>
+            </div>
+            <div class="benchmark-summary" aria-label="模型总成功率">
+              <span><b class="dot gr00t"></b>GR00T 28.75%</span>
+              <span><b class="dot pi05"></b>Pi0.5 17.75%</span>
+            </div>
+          </div>
+          <div class="benchmark-grid">
+            <div class="model-score">
+              <span class="model-kicker">GR00T N1.5 · official 120k</span>
+              <strong>230 <small>/ 800</small></strong>
+              <div class="score-track"><span style="width: 28.75%"></span></div>
+            </div>
+            <div class="model-score pi05-score">
+              <span class="model-kicker">Pi0.5 · official 75k</span>
+              <strong>142 <small>/ 800</small></strong>
+              <div class="score-track"><span style="width: 17.75%"></span></div>
+            </div>
+          </div>
+          <div class="task-table-wrap">
+            <table class="task-table">
+              <thead>
+                <tr><th>任务</th><th>GR00T</th><th>Pi0.5</th><th>差值</th></tr>
+              </thead>
+              <tbody id="task-table-body">
+                <tr><td colspan="4" class="loading-row">正在读取已校验结果…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="evidence-row">
+            <span><i data-lucide="shield-check"></i> 同一 16 任务 × 50 episodes，视频开启</span>
+            <a href="data/robocasa-official-match.json" download>下载结果 JSON <i data-lucide="download"></i></a>
+            <code>SHA256 76f058…dac94</code>
+          </div>
+        </div>
+      </section>
+
+      <section class="section page-shell" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-index">03 / VIDEO EVIDENCE</span>
+            <h2 id="gallery-title">成功与失败都保留</h2>
+          </div>
+          <div class="segmented-control" role="group" aria-label="筛选视频">
+            <button type="button" class="active" data-filter="all">全部</button>
+            <button type="button" data-filter="success">成功</button>
+            <button type="button" data-filter="failure">失败</button>
+          </div>
+        </div>
+        <div class="media-grid" id="media-grid">
+          <article class="media-card" data-outcome="success">
+            <video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-success.jpg"><source src="assets/videos/smolvla-cup-success.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>Every Embodied · SmolVLA</span><h3>红杯严格成功</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="media-card" data-outcome="failure">
+            <video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-failure.jpg"><source src="assets/videos/smolvla-cup-failure.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>Every Embodied · SmolVLA</span><h3>典型 no-lift 失败</h3></div><span class="result-chip failure">failure</span></div>
+          </article>
+          <article class="media-card" data-outcome="success">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-success.jpg"><source src="assets/videos/robocasa-gr00t-success.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>RoboCasa365 · GR00T</span><h3>CloseFridge 成功</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="media-card" data-outcome="failure">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-failure.jpg"><source src="assets/videos/robocasa-gr00t-failure.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>RoboCasa365 · GR00T</span><h3>CloseFridge 失败</h3></div><span class="result-chip failure">failure</span></div>
+          </article>
+          <article class="media-card" data-outcome="success">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-pi05-success.jpg"><source src="assets/videos/robocasa-pi05-success.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>RoboCasa365 · Pi0.5</span><h3>DrawerToCounter 成功</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="media-card" data-outcome="failure">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-pi05-failure.jpg"><source src="assets/videos/robocasa-pi05-failure.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>RoboCasa365 · Pi0.5</span><h3>DrawerToCounter 失败</h3></div><span class="result-chip failure">failure</span></div>
+          </article>
+          <article class="media-card" data-outcome="success">
+            <video controls playsinline preload="metadata" poster="assets/posters/discoverse-block-bridge-success.jpg"><source src="assets/videos/discoverse-block-bridge-success.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>DISCOVERSE · Expert</span><h3>Block bridge 严格回放</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="media-card" data-outcome="failure">
+            <video controls playsinline preload="metadata" poster="assets/posters/discoverse-policy-diagnostic.jpg"><source src="assets/videos/discoverse-policy-diagnostic.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>DISCOVERSE · Pi0.5 diagnostic</span><h3>闭环策略失败样例</h3></div><span class="result-chip failure">failure</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section pipeline-band" aria-labelledby="pipeline-title">
+        <div class="page-shell">
+          <div class="section-heading compact">
+            <div><span class="section-index">04 / PIPELINE</span><h2 id="pipeline-title">同一条可审计闭环</h2></div>
+          </div>
+          <ol class="pipeline">
+            <li><span>01</span><i data-lucide="box"></i><strong>仿真环境</strong><small>MuJoCo · Genesis · DISCOVERSE</small></li>
+            <li><span>02</span><i data-lucide="database"></i><strong>专家与数据</strong><small>固定 seed · LeRobot · audit</small></li>
+            <li><span>03</span><i data-lucide="brain-circuit"></i><strong>AMD 训练</strong><small>ACT · SmolVLA · Pi0.5 · GR00T</small></li>
+            <li><span>04</span><i data-lucide="repeat-2"></i><strong>闭环评估</strong><small>完整分母 · 成功/失败视频</small></li>
+            <li><span>05</span><i data-lucide="file-check-2"></i><strong>证据归档</strong><small>JSON · SHA256 · checkpoint</small></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section page-shell" id="reproduce" aria-labelledby="reproduce-title">
+        <div class="section-heading">
+          <div><span class="section-index">05 / REPRODUCE</span><h2 id="reproduce-title">先看成功，再完整训练</h2></div>
+          <p>公开教程提供可直接运行的 Notebook、保护权重、配置、严格评估摘要和 SHA256。</p>
+        </div>
+        <div class="resource-list">
+          <a href="https://github.com/datawhalechina/every-embodied/tree/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/workflows" target="_blank" rel="noreferrer"><i data-lucide="notebook-tabs"></i><span><strong>6 个端到端 Notebook</strong><small>SmolVLA / Pi0 / ACT，各含普通与保护训练</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>SmolVLA 保护权重</strong><small>57/60 正式结果、配置、视频与 SHA</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="https://huggingface.co/Datawhale/every-embodied-pi0-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>Pi0 进阶权重</strong><small>12/14 strict，unseen 9/10</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="https://huggingface.co/Datawhale/every-embodied-act-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>ACT 诊断权重</strong><small>保留负结果，解释 loss 与物理成功的差异</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><i data-lucide="cloud-download"></i><span><strong>RoboWits 中间 checkpoint</strong><small>W7900 训练备份，不作为正式成绩</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="SHA256SUMS" target="_blank" rel="noreferrer"><i data-lucide="shield-check"></i><span><strong>公开媒体校验清单</strong><small>站内代表视频与结果 JSON 的 SHA256</small></span><i data-lucide="arrow-up-right"></i></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="page-shell footer-inner">
+        <div class="footer-brand">
+          <img src="assets/brand/aup-logo.svg" alt="AMD University Program" />
+          <p>Datawhale-EAI · AMD Physical AI Hackathon 2026</p>
+        </div>
+        <img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" />
+        <p class="footer-note">Measured on AMD Radeon hardware. Smoke tests are never reported as policy success.</p>
+      </div>
+    </footer>
+  </body>
+</html>
