@@ -432,7 +432,7 @@
           <div><span class="section-index">03 / DEXJOCO MULTI-TASK</span><h2 id="dexjoco-title">Pi0.5 成功案例清单</h2></div>
           <span class="result-chip diagnostic">10 / 11 找到成功 seed</span>
         </div>
-        <p class="section-lead">同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 <strong>5 / 11</strong>；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。网页已先归档结果清单和可用视频；其余成功视频待 AMD395 恢复 SSH 后同步。</p>
+        <p class="section-lead">同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 <strong>5 / 11</strong>；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。10 个成功任务各保留一条网页主视角视频，另保留一条 water_plant 单任务诊断视频。</p>
         <div class="benchmark-grid dexjoco-score-grid">
           <div class="model-score"><span class="model-kicker">Official protocol · seed 0</span><strong>5 <small>/ 11</small></strong><div class="score-track"><span style="width:45.45%"></span></div><p>正式多任务成绩，成功：click_mouse、fold_glasses、hammer_nail、pick_bucket、pinch_tongs。</p></div>
           <div class="model-score pi05-score"><span class="model-kicker">Recovery search · seeds 1–10</span><strong>10 <small>/ 11</small></strong><div class="score-track"><span style="width:90.91%"></span></div><p>展示可复现的首个成功 seed；bimanual_unlock_ipad 在 seed 0–10 均未找到成功。</p></div>
@@ -441,19 +441,32 @@
           <table class="task-table dexjoco-table">
             <thead><tr><th>Task</th><th>Official seed 0</th><th>Recovery seed</th><th>网页媒体</th></tr></thead>
             <tbody>
-              <tr><td class="task-name">bimanual_assembly</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">bimanual_hanoi</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 4</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">bimanual_microwave_cook</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 1</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">bimanual_photograph</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">bimanual_assembly</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
+              <tr><td class="task-name">bimanual_hanoi</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 4</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
+              <tr><td class="task-name">bimanual_microwave_cook</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 1</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
+              <tr><td class="task-name">bimanual_photograph</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
               <tr><td class="task-name">bimanual_unlock_ipad</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip failure">seed 1–10: 0</span></td><td><span class="result-chip failure">无成功案例</span></td></tr>
-              <tr><td class="task-name">click_mouse</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">fold_glasses</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">hammer_nail</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">pick_bucket</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">pinch_tongs</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
-              <tr><td class="task-name">water_plant</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 2</span></td><td><a class="inline-link" href="#gallery">单任务诊断视频</a></td></tr>
+              <tr><td class="task-name">click_mouse</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
+              <tr><td class="task-name">fold_glasses</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
+              <tr><td class="task-name">hammer_nail</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
+              <tr><td class="task-name">pick_bucket</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
+              <tr><td class="task-name">pinch_tongs</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
+              <tr><td class="task-name">water_plant</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 2</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a> · <a class="inline-link" href="#gallery">诊断</a></td></tr>
             </tbody>
           </table>
+        </div>
+        <div class="dexjoco-video-heading" id="dexjoco-videos"><div><span class="section-index">SUCCESS VIDEO ARCHIVE</span><h3>10 个成功任务，各一条主视角录像</h3></div><span>官方 seed 0 + recovery 首成功 seed</span></div>
+        <div class="dexjoco-video-grid">
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/click-mouse.jpg"><source src="assets/videos/dexjoco/official/click-mouse.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>click_mouse</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/fold-glasses.jpg"><source src="assets/videos/dexjoco/official/fold-glasses.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>fold_glasses</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/hammer-nail.jpg"><source src="assets/videos/dexjoco/official/hammer-nail.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>hammer_nail</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/pick-bucket.jpg"><source src="assets/videos/dexjoco/official/pick-bucket.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>pick_bucket</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/pinch-tongs.jpg"><source src="assets/videos/dexjoco/official/pinch-tongs.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>pinch_tongs</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-assembly.mp4" type="video/mp4" /></video><div><span>recovery · seed 3</span><strong>bimanual_assembly</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-hanoi.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-hanoi.mp4" type="video/mp4" /></video><div><span>recovery · seed 4</span><strong>bimanual_hanoi</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-microwave-cook.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-microwave-cook.mp4" type="video/mp4" /></video><div><span>recovery · seed 1</span><strong>bimanual_microwave_cook</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-photograph.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-photograph.mp4" type="video/mp4" /></video><div><span>recovery · seed 3</span><strong>bimanual_photograph</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/water-plant-seed2.jpg"><source src="assets/videos/dexjoco/recovery/water-plant-seed2.mp4" type="video/mp4" /></video><div><span>recovery · seed 2</span><strong>water_plant</strong></div></article>
         </div>
         <div class="evidence-row">
           <span><i data-lucide="shield-check"></i> 结果与口径已脱敏归档</span>
