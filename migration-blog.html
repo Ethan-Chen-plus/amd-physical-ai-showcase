@@ -63,6 +63,14 @@
             <h3>3.1 迁移中最棘手的 IK 问题</h3><p><code>block_bridge_place</code> 的官方 79 阶段专家路径曾暴露出 IK 不可达和碰倒支撑的组合问题。增加支撑质量、降低末层高度都没有得到稳定通过。正确处理不是把评估分母改掉，也不是把失败轨迹替换成一条“更容易”的轨迹，而是把问题单独标为专家路径/任务设计问题；另一条严格的专家 suffix 回放链路最终达到 31/31，并保留原始失败证据。</p>
             <h3>3.2 无窗口渲染不是“没有画面”</h3><p>服务器没有桌面时，窗口渲染不可用，但任务本身仍可运行。我们将 MuJoCo offscreen、OSMesa 或平台对应的 headless 后端作为正式输出，并把 RGB 帧编码为 MP4。渲染告警、画面分辨率和物理成功必须分别记录：有视频不代表成功，有 denoiser 告警也不必然代表物理失败。</p>
             <h3>3.3 高清多视角展示</h3><p>为了让学习者看到真实任务，而不是只看到一张低分辨率视窗，我们补做了四个 MMK2 官方任务的三机位原生视频：box pick、drawer open、cabinet door open、coffee cup to plate。每个任务均为严格 1/1 成功，原生视频为 1920×1080；网站只展示相对路径和 SHA 清单，展示视频不改变训练数据和正式分母。</p>
+            <h3>3.4 Gaussian Splatting 的正确安装边界</h3><p>DISCOVERSE 的基础 MuJoCo 环境和 3DGS/策略环境是两套隔离环境。基础环境没有 PyTorch 并不代表迁移失败；它用于轻量仿真和控制 smoke。3DGS 必须从 AMD ROCm-ML 环境启动，当前已验证 PyTorch <code>2.11.0+rocm7.13</code>、HIP <code>7.13</code>、Radeon 8060S 和 <code>gaussian_renderer</code>。如果直接在基础环境运行，程序会自动进入 CPU/兼容回退，这就是最初看到“Gaussian Splatting 没有启用”的原因。</p>
+            <div class="blog-code"><pre><code># Use the ROCm-ML runtime for 3DGS, not the lightweight MuJoCo runtime
+source local_tools/activate_amd_runtime.sh
+python -c "import torch, gaussian_renderer; print(torch.__version__, torch.version.hip, torch.cuda.is_available())"
+python local_tools/verify_gaussian_renderer.py \\
+  --robot rm2 --output results/gaussian/rm2.png \\
+  --width 640 --height 360</code></pre></div>
+            <p>验收时不只检查 import：RM2 和 SkyRover 的 3DGS renderer 已分别加载约 133 万和 102 万个高斯点，并输出非空的 640×360 PNG。PyPI 上默认的 CUDA 版 gsplat 不能自动等价于 AMD 版；gfx1151 的 ROCm 构建需要显式使用项目的本地适配版本。无桌面服务器还需要单独配置可用的 headless OpenGL/OSMesa 路径，不能为了“看起来能跑”全局强制不匹配的 EGL 配置。</p>
             <div class="blog-link-row"><a href="index.html#discoverse-hd-showcase">查看 DISCOVERSE 高清任务 →</a><a href="data/discoverse-hd-showcase.json">查看公开结果 JSON →</a></div>
           </section>
 
