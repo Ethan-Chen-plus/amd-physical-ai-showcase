@@ -34,6 +34,30 @@
       "preview": "assets/videos/discoverse-showcase/mmk2-drawer-open-3view.mp4",
       "poster": "assets/posters/discoverse-showcase/mmk2-drawer-open-3view.jpg",
       "preview_sha256": "db0b17cdb8cc2350972cb3c1c810f0b0e9d2fe0ca317c68aba0cbd6f29e353db"
+    },
+    {
+      "task": "mmk2_cabinet_door_open",
+      "label": "Cabinet door open",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": "1/1",
+      "fps": 25,
+      "native_camera_videos": 3,
+      "preview": "assets/videos/discoverse-showcase/cabinet-door-open-3view.mp4",
+      "poster": "assets/posters/discoverse-showcase/cabinet-door-open-3view.jpg",
+      "preview_sha256": "7d79dc6e29ff14a02cedf43342fd59fdb7f7f41311d98b1d3b6f656a9fa0c2af"
+    },
+    {
+      "task": "mmk2_coffeecup_plate",
+      "label": "Cup to plate",
+      "episodes": 1,
+      "successes": 1,
+      "success_rate": "1/1",
+      "fps": 25,
+      "native_camera_videos": 3,
+      "preview": "assets/videos/discoverse-showcase/coffeecup-plate-3view.mp4",
+      "poster": "assets/posters/discoverse-showcase/coffeecup-plate-3view.jpg",
+      "preview_sha256": "bbfa3293bde49e4e1cffa5c4fdd3b82c6443425593170129c042371a2557ac88"
     }
   ]
 }
