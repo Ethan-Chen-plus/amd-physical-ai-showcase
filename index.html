@@ -29,6 +29,7 @@
         <a href="#benchmark">基准</a>
         <a href="#long-showcase">长程展示</a>
         <a href="#discoverse-hd-showcase">DISCOVERSE 高清</a>
+        <a href="#discoverse-3dgs">3DGS</a>
         <a href="#dexjoco">DexJoCo</a>
         <a href="#gallery">视频</a>
         <a href="migrations.html">迁移细节</a>
@@ -156,7 +157,7 @@
               <div><dt>AIRBOT</dt><dd>12 / 12</dd></div>
               <div><dt>Expert data</dt><dd>500 eps</dd></div>
             </dl>
-            <div class="card-links"><a href="migrations.html#discoverse">迁移细节 <i data-lucide="arrow-up-right"></i></a><a href="https://github.com/discoverse-dev/DISCOVERSE" target="_blank" rel="noreferrer">上游项目 <i data-lucide="external-link"></i></a></div>
+            <div class="card-links"><a href="migrations.html#discoverse">迁移细节 <i data-lucide="arrow-up-right"></i></a><a href="#discoverse-3dgs">3DGS 证据 <i data-lucide="scan-line"></i></a><a href="https://github.com/discoverse-dev/DISCOVERSE" target="_blank" rel="noreferrer">上游项目 <i data-lucide="external-link"></i></a></div>
           </article>
 
           <article class="project-card">
@@ -330,6 +331,44 @@
           </article>
         </div>
         <p class="footnote">每个合成视频的三个画面来自同一回放时间轴；每个面板对应一条原生 1920×1080 相机录像。这组视频是展示证据，不改训练数据、策略评估或正式分母。</p>
+      </section>
+
+      <section class="section page-shell gs-showcase" id="discoverse-3dgs" aria-labelledby="discoverse-3dgs-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-index">02D / 3DGS RENDERER</span>
+            <h2 id="discoverse-3dgs-title">ROCm 上的 Gaussian Splatting 真实渲染</h2>
+          </div>
+          <p>这组证据展示的是 renderer 是否真正加载高斯点并产出画面；它与策略成功率分开统计，不把一张静态图包装成闭环成绩。</p>
+        </div>
+        <div class="gs-summary">
+          <div><strong>2</strong><span>ROCm renderer targets</span></div>
+          <div><strong>2.36M</strong><span>loaded Gaussian points</span></div>
+          <div><strong>640×360</strong><span>non-empty validation frames</span></div>
+          <a href="data/discoverse-3dgs-showcase.json" download>查看完整证据与 SHA <i data-lucide="download"></i></a>
+        </div>
+        <div class="gs-proof-grid">
+          <figure class="gs-proof-card">
+            <div class="gs-frame"><img src="assets/images/discoverse-3dgs/rm2-gaussian.png" alt="RM2 Gaussian Splatting renderer output" loading="lazy" /></div>
+            <figcaption><div><span>GSRendererMuJoCo · ROCm</span><strong>RM2 · 1,334,537 points</strong></div><code>640×360</code></figcaption>
+          </figure>
+          <figure class="gs-proof-card">
+            <div class="gs-frame"><img src="assets/images/discoverse-3dgs/skyrover-gaussian.png" alt="SkyRover Gaussian Splatting renderer output" loading="lazy" /></div>
+            <figcaption><div><span>GSRendererMuJoCo · ROCm</span><strong>SkyRover · 1,026,855 points</strong></div><code>640×360</code></figcaption>
+          </figure>
+        </div>
+        <div class="gs-video-heading"><div><span class="section-index">DYNAMIC EVIDENCE</span><h3>动态回放：Franka 与 UR5e</h3></div><span>20 fps · 4 s · 原始视频</span></div>
+        <div class="gs-video-grid">
+          <article class="gs-video-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/discoverse-3dgs/franka-video-frame.jpg"><source src="assets/videos/discoverse-3dgs/franka-rocm-3dgs.mp4" type="video/mp4" /></video>
+            <div><span>3DGS example · Franka</span><strong>ROCm renderer 动态回放</strong></div>
+          </article>
+          <article class="gs-video-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/discoverse-3dgs/ur5e-video-frame.jpg"><source src="assets/videos/discoverse-3dgs/ur5e-rocm-3dgs.mp4" type="video/mp4" /></video>
+            <div><span>3DGS example · UR5e</span><strong>ROCm renderer 动态回放</strong></div>
+          </article>
+        </div>
+        <p class="gs-note"><i data-lucide="info"></i> 2 个 renderer 验收目标、2 张非空验证帧和 2 段动态视频均来自本地 AMD 迁移证据；3DGS 验证回答“渲染链路是否成立”，DISCOVERSE 专家任务视频回答“任务是否完成”。</p>
       </section>
 
       <section class="section page-shell" id="gallery" aria-labelledby="gallery-title">
