@@ -28,6 +28,7 @@
         <a href="#projects">项目</a>
         <a href="#benchmark">基准</a>
         <a href="#long-showcase">长程展示</a>
+        <a href="#discoverse-hd-showcase">DISCOVERSE 高清</a>
         <a href="#gallery">视频</a>
         <a href="migrations.html">迁移细节</a>
         <a href="#reproduce">复现</a>
@@ -292,6 +293,33 @@
           </article>
         </div>
         <p class="footnote">视频为网页预览压缩版；原始四视角 1920×1080@20fps 文件和四个结果 JSON 保留在 AMD395 归档目录。PrepareCoffee 的官方 16×50 评估也是 0/50；本页不把额外展示结果写入正式成绩。</p>
+      </section>
+
+      <section class="section page-shell recovery-section" id="discoverse-hd-showcase" aria-labelledby="discoverse-hd-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-index">02C / DISCOVERSE SHOWCASE</span>
+            <h2 id="discoverse-hd-title">DISCOVERSE 高清三视角回放</h2>
+          </div>
+          <p>同一套 AMD 迁移后的官方 MMK2 专家状态机；每条展示包含 cam_0、cam_1、cam_2 三路原生 1920×1080 录像，网页视频为三视角合成画布。</p>
+        </div>
+        <div class="recovery-summary">
+          <div><strong>2</strong><span>官方示例任务</span></div>
+          <div><strong>6</strong><span>原生相机录像</span></div>
+          <div><strong>1920×1080</strong><span>原生每路 · 20/25 fps</span></div>
+          <a href="data/discoverse-hd-showcase.json" download>查看结果与 SHA <i data-lucide="download"></i></a>
+        </div>
+        <div class="recovery-grid">
+          <article class="recovery-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/discoverse-showcase/mmk2-box-pick-3view.jpg"><source src="assets/videos/discoverse-showcase/mmk2-box-pick-3view.mp4" type="video/mp4" /></video>
+            <div class="recovery-card-copy"><div><span>DISCOVERSE · MMK2 · 3-view · 1920×1080</span><h3>盒子抓取 · strict success</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="recovery-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/discoverse-showcase/mmk2-drawer-open-3view.jpg"><source src="assets/videos/discoverse-showcase/mmk2-drawer-open-3view.mp4" type="video/mp4" /></video>
+            <div class="recovery-card-copy"><div><span>DISCOVERSE · MMK2 · 3-view · 1920×1080</span><h3>抽屉打开 · strict success</h3></div><span class="result-chip success">success</span></div>
+          </article>
+        </div>
+        <p class="footnote">每个合成视频的三个画面来自同一回放时间轴；每个面板对应一条原生 1920×1080 相机录像。这组视频是展示证据，不改训练数据、策略评估或正式分母。</p>
       </section>
 
       <section class="section page-shell" id="gallery" aria-labelledby="gallery-title">

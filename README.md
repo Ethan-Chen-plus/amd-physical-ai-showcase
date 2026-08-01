@@ -21,6 +21,12 @@ The RoboCasa365 gallery also includes a separate high-resolution, four-view
 showcase rollout. It is presentation evidence only; the formal 16-task x
 50-episode score remains unchanged.
 
+The DISCOVERSE section includes two isolated official MMK2 example replays on
+AMD Radeon: box pick and drawer open. Each task has three native 1920x1080
+camera videos (`cam_0`, `cam_1`, `cam_2`), plus a web-friendly three-view
+composite and a SHA-256 result manifest. The composite is presentation-only;
+it does not alter training data or formal evaluation denominators.
+
 ## Local preview
 
 ```bash
