@@ -27,6 +27,7 @@
       <nav class="desktop-nav" aria-label="主导航">
         <a href="#projects">项目</a>
         <a href="#benchmark">基准</a>
+        <a href="#long-showcase">长程展示</a>
         <a href="#gallery">视频</a>
         <a href="migrations.html">迁移细节</a>
         <a href="#reproduce">复现</a>
@@ -44,7 +45,7 @@
     <main id="top">
       <section class="intro-band page-shell" aria-labelledby="page-title">
         <div class="intro-copy">
-          <div class="eyebrow"><span class="live-dot"></span> AMD Radeon + ROCm · 实测证据更新至 2026-07-31</div>
+          <div class="eyebrow"><span class="live-dot"></span> AMD Radeon + ROCm · 实测证据更新至 2026-08-01</div>
           <h1 id="page-title">从抓杯子到长时域<br />厨房操作</h1>
           <p>
             这里汇总我们在 AMD 设备上完成的 VLA 训练、仿真器迁移、官方协议评估与失败诊断。
@@ -256,6 +257,41 @@
             <code>SHA256 76f058…dac94</code>
           </div>
         </div>
+      </section>
+
+      <section class="section page-shell recovery-section" id="long-showcase" aria-labelledby="long-showcase-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-index">02B / LONG-HORIZON SHOWCASE</span>
+            <h2 id="long-showcase-title">GR00T 长程恢复展示</h2>
+          </div>
+          <p>AMD 395 上使用 GR00T N1.5 多任务权重，每个任务 10 回合、四视角录像；这是补充展示，不改正式 16 任务 × 50 episodes 的分母。</p>
+        </div>
+        <div class="recovery-summary">
+          <div><strong>5 / 40</strong><span>额外展示成功</span></div>
+          <div><strong>4</strong><span>任务 · 10 回合/任务</span></div>
+          <div><strong>4-view</strong><span>1920×1080 · 20 fps</span></div>
+          <a href="data/robocasa-recovery-showcase.json" download>查看结果与 SHA <i data-lucide="download"></i></a>
+        </div>
+        <div class="recovery-grid">
+          <article class="recovery-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/steam-failure.jpg"><source src="assets/videos/robocasa-recovery/steam-failure.mp4" type="video/mp4" /></video>
+            <div class="recovery-card-copy"><div><span>SteamInMicrowave · 10 episodes</span><h3>无成功 · 0 / 10</h3></div><span class="result-chip failure">failure-only</span></div>
+          </article>
+          <article class="recovery-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/restock-success.jpg"><source src="assets/videos/robocasa-recovery/restock-success.mp4" type="video/mp4" /></video>
+            <div class="recovery-card-copy"><div><span>RestockBowls · 10 episodes</span><h3>成功案例 · 2 / 10</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="recovery-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/pack-success.jpg"><source src="assets/videos/robocasa-recovery/pack-success.mp4" type="video/mp4" /></video>
+            <div class="recovery-card-copy"><div><span>PackIdenticalLunches · 10 episodes</span><h3>成功案例 · 3 / 10</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="recovery-card">
+            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/prepare-coffee-failure.jpg"><source src="assets/videos/robocasa-recovery/prepare-coffee-failure.mp4" type="video/mp4" /></video>
+            <div class="recovery-card-copy"><div><span>PrepareCoffee · 10 episodes</span><h3>无成功 · 0 / 10</h3></div><span class="result-chip failure">failure-only</span></div>
+          </article>
+        </div>
+        <p class="footnote">视频为网页预览压缩版；原始四视角 1920×1080@20fps 文件和四个结果 JSON 保留在 AMD395 归档目录。PrepareCoffee 的官方 16×50 评估也是 0/50；本页不把额外展示结果写入正式成绩。</p>
       </section>
 
       <section class="section page-shell" id="gallery" aria-labelledby="gallery-title">
