@@ -29,6 +29,7 @@
         <a href="#benchmark">基准</a>
         <a href="#long-showcase">长程展示</a>
         <a href="#discoverse-hd-showcase">DISCOVERSE 高清</a>
+        <a href="#dexjoco">DexJoCo</a>
         <a href="#gallery">视频</a>
         <a href="migrations.html">迁移细节</a>
         <a href="migration-blog.html">迁移博客</a>
@@ -170,7 +171,7 @@
               <div><dt>诊断任务</dt><dd>water_plant 4/4</dd></div>
               <div><dt>恢复搜索</dt><dd>10 / 11</dd></div>
             </dl>
-            <div class="card-links"><a href="migrations.html#next">迁移细节 <i data-lucide="arrow-up-right"></i></a><a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">官方权重 <i data-lucide="external-link"></i></a></div>
+            <div class="card-links"><a href="#dexjoco">成功案例 <i data-lucide="arrow-down"></i></a><a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">官方权重 <i data-lucide="external-link"></i></a></div>
           </article>
 
           <article class="project-card">
@@ -346,7 +347,7 @@
         <div class="media-grid" id="media-grid">
           <article class="media-card" data-outcome="success">
             <video controls playsinline preload="metadata" poster="assets/posters/dexjoco/water-plant-seed0-success.jpg"><source src="assets/videos/dexjoco/water-plant-seed0-success.mp4" type="video/mp4" /></video>
-            <div class="media-copy"><div><span>DexJoCo · Pi0.5 native JAX 0.10</span><h3>water_plant · seed 0 成功</h3></div><span class="result-chip success">success</span></div>
+            <div class="media-copy"><div><span>DexJoCo · Pi0.5 native JAX 0.10 · 单任务诊断</span><h3>water_plant · seed 0 成功</h3></div><span class="result-chip success">success</span></div>
           </article>
           <article class="media-card" data-outcome="success">
             <video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-success.jpg"><source src="assets/videos/smolvla-cup-success.mp4" type="video/mp4" /></video>
@@ -380,6 +381,41 @@
             <video controls playsinline preload="metadata" poster="assets/posters/discoverse-policy-diagnostic.jpg"><source src="assets/videos/discoverse-policy-diagnostic.mp4" type="video/mp4" /></video>
             <div class="media-copy"><div><span>DISCOVERSE · Pi0.5 diagnostic</span><h3>闭环策略失败样例</h3></div><span class="result-chip failure">failure</span></div>
           </article>
+        </div>
+      </section>
+
+      <section class="section page-shell" id="dexjoco" aria-labelledby="dexjoco-title">
+        <div class="section-heading">
+          <div><span class="section-index">03 / DEXJOCO MULTI-TASK</span><h2 id="dexjoco-title">Pi0.5 成功案例清单</h2></div>
+          <span class="result-chip diagnostic">10 / 11 找到成功 seed</span>
+        </div>
+        <p class="section-lead">同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 <strong>5 / 11</strong>；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。网页已先归档结果清单和可用视频；其余成功视频待 AMD395 恢复 SSH 后同步。</p>
+        <div class="benchmark-grid dexjoco-score-grid">
+          <div class="model-score"><span class="model-kicker">Official protocol · seed 0</span><strong>5 <small>/ 11</small></strong><div class="score-track"><span style="width:45.45%"></span></div><p>正式多任务成绩，成功：click_mouse、fold_glasses、hammer_nail、pick_bucket、pinch_tongs。</p></div>
+          <div class="model-score pi05-score"><span class="model-kicker">Recovery search · seeds 1–10</span><strong>10 <small>/ 11</small></strong><div class="score-track"><span style="width:90.91%"></span></div><p>展示可复现的首个成功 seed；bimanual_unlock_ipad 在 seed 0–10 均未找到成功。</p></div>
+        </div>
+        <div class="task-table-wrap">
+          <table class="task-table dexjoco-table">
+            <thead><tr><th>Task</th><th>Official seed 0</th><th>Recovery seed</th><th>网页媒体</th></tr></thead>
+            <tbody>
+              <tr><td class="task-name">bimanual_assembly</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">bimanual_hanoi</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 4</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">bimanual_microwave_cook</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 1</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">bimanual_photograph</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">bimanual_unlock_ipad</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip failure">seed 1–10: 0</span></td><td><span class="result-chip failure">无成功案例</span></td></tr>
+              <tr><td class="task-name">click_mouse</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">fold_glasses</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">hammer_nail</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">pick_bucket</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">pinch_tongs</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><span class="result-chip diagnostic">远端视频待同步</span></td></tr>
+              <tr><td class="task-name">water_plant</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 2</span></td><td><a class="inline-link" href="#gallery">单任务诊断视频</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="evidence-row">
+          <span><i data-lucide="shield-check"></i> 结果与口径已脱敏归档</span>
+          <a href="data/dexjoco-showcase.json" target="_blank" rel="noreferrer"><i data-lucide="file-json-2"></i> 查看公开结果 JSON</a>
+          <a href="migrations.html#next"><i data-lucide="book-open"></i> 查看迁移说明</a>
         </div>
       </section>
 

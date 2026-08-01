@@ -1,0 +1,32 @@
+{
+  "project": "DexJoCo Pi0.5",
+  "platform": "AMD Radeon 395 / ROCm JAX 0.10",
+  "checkpoint": "DexJoCo/DexJoCo-Pi05 pi05_dexjoco_multi_task",
+  "protocol": {
+    "official_config": "configs/multi_task",
+    "tasks": 11,
+    "episodes_per_task": 1,
+    "official_seed": 0,
+    "official_successes": 5,
+    "official_success_rate": "5/11",
+    "recovery_search": "For official seed-0 failures, test fixed seeds 1-10 and stop each task at its first success.",
+    "recovery_tasks_with_success": 10,
+    "recovery_success_rate": "10/11",
+    "formal_denominator_unchanged": true,
+    "summary_sha256": "e449b54e70eb1a3bbdc9434ea1bbe7108e7eebf6fa133c6da77c49bca999428e",
+    "checkpoint_manifest_sha256": "670400c9f467cecaf481dc14fc8de744d4a1935ddbed6dfde9fe39a3d13a2843"
+  },
+  "tasks": [
+    {"task": "bimanual_assembly", "official_seed_0": "0/1", "recovery_first_success_seed": 3, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "bimanual_hanoi", "official_seed_0": "0/1", "recovery_first_success_seed": 4, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "bimanual_microwave_cook", "official_seed_0": "0/1", "recovery_first_success_seed": 1, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "bimanual_photograph", "official_seed_0": "0/1", "recovery_first_success_seed": 3, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "bimanual_unlock_ipad", "official_seed_0": "0/1", "recovery_first_success_seed": null, "website_video": null, "website_video_status": "no_success_found_seeds_0_to_10"},
+    {"task": "click_mouse", "official_seed_0": "1/1", "recovery_first_success_seed": null, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "fold_glasses", "official_seed_0": "1/1", "recovery_first_success_seed": null, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "hammer_nail", "official_seed_0": "1/1", "recovery_first_success_seed": null, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "pick_bucket", "official_seed_0": "1/1", "recovery_first_success_seed": null, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "pinch_tongs", "official_seed_0": "1/1", "recovery_first_success_seed": null, "website_video": null, "website_video_status": "remote_sync_pending"},
+    {"task": "water_plant", "official_seed_0": "0/1", "recovery_first_success_seed": 2, "website_video": "assets/videos/dexjoco/water-plant-seed0-success.mp4", "website_video_status": "published_diagnostic_video"}
+  ]
+}

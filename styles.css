@@ -222,6 +222,12 @@ svg { width: 19px; height: 19px; stroke-width: 1.8; }
 .mini-track .gr00t-bar { background: #f04b5d; }
 .mini-track .pi05-bar { background: #36b8a7; }
 .rate-number { width: 58px; color: #e9ebee; font-variant-numeric: tabular-nums; text-align: right; }
+.dexjoco-score-grid { margin-top: 18px; }
+.dexjoco-score-grid .model-score p { margin: 16px 0 0; color: #aeb5bf; font-size: 12px; line-height: 1.6; }
+.dexjoco-table { min-width: 820px; }
+.dexjoco-table td:last-child { min-width: 160px; }
+.section-lead { max-width: 900px; margin: -4px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.inline-link { color: var(--red-dark); font-size: 12px; font-weight: 750; text-decoration: none; }
 .delta-positive { color: #79d6a5; }
 .delta-negative { color: #f29ba4; }
 .loading-row { color: #929aa5; text-align: center; }
