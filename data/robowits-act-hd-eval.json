@@ -1,0 +1,21 @@
+{
+  "project": "RoboWits ACT",
+  "platform": "AMD Radeon Pro W7900 / ROCm 7.2.1",
+  "checkpoint_steps": 100000,
+  "checkpoint_model_sha256": "ebdb99734db52cdefd76f7c0101ac668b9a70388d96e6a87f59b77498ec16c8f",
+  "protocol": {
+    "action_space": "16D JOINT_ABS / JOINT",
+    "episodes_per_task": 5,
+    "videos": true,
+    "tasks_with_complete_results": 4,
+    "total_successes": 2,
+    "total_episodes": 20,
+    "success_rate": "2/20"
+  },
+  "tasks": [
+    {"task": "06_dominos", "successes": 2, "episodes": 5, "success_rate": "2/5", "result_sha256": "8e2614ab8a519d70b8dc0243ff116c1a8158146cfc207c662dab2ca491dd8312", "success_video": "assets/videos/robowits-act/06-dominos-success.mp4", "success_video_sha256": "b07dff6cf8ea7e10d3734d17071363bf24288df6fcd5b8b9364bca47e60cace8"},
+    {"task": "14_stack_cubes", "successes": 0, "episodes": 5, "success_rate": "0/5", "result_sha256": "0ec976fbf28d4fa08358f66612fa2a1128330f897afdb4da0558f9efcaa9d18f", "success_video": null},
+    {"task": "19_stack_bowls", "successes": 0, "episodes": 5, "success_rate": "0/5", "result_sha256": "5e21da72b033fef5782431264138a0bba4f4bab381baf8f184d48d23bce4f0b3", "success_video": null},
+    {"task": "25_water_into_mug", "successes": 0, "episodes": 5, "success_rate": "0/5", "result_sha256": "c2f7bb200cc905464c2f3582f9e31f1dda79309e8146f2914e07d8ae64ee5f1d", "success_video": null}
+  ]
+}

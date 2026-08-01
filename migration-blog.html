@@ -96,7 +96,7 @@ python local_tools/verify_gaussian_renderer.py \\
           <section class="blog-section" id="policies">
             <span class="section-index">06 / POLICY STACK</span><h2>策略模型迁移：训练能跑、推理能跑、任务成功是三件事</h2>
             <p>在 Every Embodied 线，我们保留了保护权重、Notebook 原生训练和严格评估之间的绑定关系。结果如下：SmolVLA 57/60，Pi0 12/14，ACT 当前重建 7/30。ACT 的低分不是迁移失败的证明，而是一个有价值的负例：loss、视频运动和接近物体都不能替代 strict physical success。</p>
-            <p>在 RoboWits W7900 线上，官方 16-D ACT 100k checkpoint 的高清评估也必须看完整任务结果。当前公开可引用的任务结果是：06_dominos 2/5，14_stack_cubes 0/5，19_stack_bowls 0/5，25_water_into_mug 0/5。它说明训练和 checkpoint 运行链路已经成立，但模型在这些任务上还没有达到可提交的稳定成功率。</p>
+            <p>在 RoboWits W7900 线上，官方 16-D ACT 100k checkpoint 的高清评估已经完成。四个资产齐全任务共 20 回合：06_dominos 为 2/5，14_stack_cubes、19_stack_bowls、25_water_into_mug 均为 0/5，合计 2/20。最终模型 SHA256 为 <code>ebdb99734db52cdefd76f7c0101ac668b9a70388d96e6a87f59b77498ec16c8f</code>；这证明训练、checkpoint restore、ROCm 推理和视频闭环都已成立，但策略尚未达到稳定高成功率。</p>
             <div class="blog-callout"><strong>为什么不只报告最好的一条视频？</strong><p>最好视频适合演示，完整分母适合比较。我们会同时保留成功和失败案例，按 approach/contact/grasp/lift/transport/place/release 分析失败阶段；这样才能知道下一步是补数据、修 action bridge、改 chunk 执行，还是重新检查相机与归一化。</p></div>
           </section>
 

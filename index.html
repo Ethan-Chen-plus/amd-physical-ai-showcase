@@ -177,16 +177,16 @@
           <article class="project-card">
             <div class="project-card-head">
               <span class="project-icon amber"><i data-lucide="wand-sparkles"></i></span>
-              <span class="result-chip active">训练中</span>
+              <span class="result-chip diagnostic">正式评估</span>
             </div>
             <h3>RoboWits · 创意操作</h3>
-            <p>W7900 上按官方 16D ACT 配置训练 100k，checkpoint 每 5k 自动备份并同步 Hugging Face。</p>
+            <p>W7900 上按官方 16D ACT 配置完成 100k 训练和四任务闭环；保留真实低成功率、录像与 checkpoint SHA。</p>
             <dl class="project-facts">
-              <div><dt>数据</dt><dd>1,207 eps</dd></div>
-              <div><dt>任务</dt><dd>24</dd></div>
-              <div><dt>状态</dt><dd>82k / 100k*</dd></div>
+              <div><dt>checkpoint</dt><dd>100k</dd></div>
+              <div><dt>高清评估</dt><dd>2 / 20</dd></div>
+              <div><dt>成功任务</dt><dd>06 dominos</dd></div>
             </dl>
-            <div class="card-links"><a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer">中间权重 <i data-lucide="external-link"></i></a></div>
+            <div class="card-links"><a href="data/robowits-act-hd-eval.json">评估 JSON <i data-lucide="file-json-2"></i></a><a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer">权重备份 <i data-lucide="external-link"></i></a></div>
           </article>
 
           <article class="project-card">
@@ -217,7 +217,7 @@
             </dl>
           </article>
         </div>
-        <p class="footnote">* RoboWits 为 2026-07-31 最近一次已核验训练进度；官方闭环评估完成前不展示成功率。</p>
+        <p class="footnote">RoboWits 结果为 2026-08-01 W7900 官方 100k checkpoint 的四任务 × 5 回合闭环；06_dominos=2/5，其余 14、19、25 均为 0/5。</p>
       </section>
 
       <section class="section benchmark-band" id="benchmark" aria-labelledby="benchmark-title">
@@ -350,6 +350,10 @@
             <div class="media-copy"><div><span>DexJoCo · Pi0.5 native JAX 0.10 · 单任务诊断</span><h3>water_plant · seed 0 成功</h3></div><span class="result-chip success">success</span></div>
           </article>
           <article class="media-card" data-outcome="success">
+            <video controls playsinline preload="metadata" poster="assets/posters/robowits-act/06-dominos-success.jpg"><source src="assets/videos/robowits-act/06-dominos-success.mp4" type="video/mp4" /></video>
+            <div class="media-copy"><div><span>RoboWits · ACT 100k · W7900 · ego view</span><h3>06_dominos · episode 1 成功 · 848×480</h3></div><span class="result-chip success">success</span></div>
+          </article>
+          <article class="media-card" data-outcome="success">
             <video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-success.jpg"><source src="assets/videos/smolvla-cup-success.mp4" type="video/mp4" /></video>
             <div class="media-copy"><div><span>Every Embodied · SmolVLA</span><h3>红杯严格成功</h3></div><span class="result-chip success">success</span></div>
           </article>
@@ -444,7 +448,7 @@
           <a href="https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>SmolVLA 保护权重</strong><small>57/60 正式结果、配置、视频与 SHA</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/every-embodied-pi0-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>Pi0 进阶权重</strong><small>12/14 strict，unseen 9/10</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/every-embodied-act-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>ACT 诊断权重</strong><small>保留负结果，解释 loss 与物理成功的差异</small></span><i data-lucide="arrow-up-right"></i></a>
-          <a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><i data-lucide="cloud-download"></i><span><strong>RoboWits 中间 checkpoint</strong><small>W7900 训练备份，不作为正式成绩</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><i data-lucide="cloud-download"></i><span><strong>RoboWits checkpoint 备份</strong><small>W7900 100k 模型与中间权重</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="SHA256SUMS" target="_blank" rel="noreferrer"><i data-lucide="shield-check"></i><span><strong>公开媒体校验清单</strong><small>站内代表视频与结果 JSON 的 SHA256</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="migrations.html"><i data-lucide="route"></i><span><strong>AMD 迁移细节</strong><small>六级验收矩阵、难点、边界和 DexJoCo JAX 路线</small></span><i data-lucide="arrow-up-right"></i></a>
         </div>
