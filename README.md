@@ -14,8 +14,10 @@ and unpublished training code are not included.
 
 The migration evidence page is available at
 `migrations.html`; it records the six-layer acceptance gates, DISCOVERSE and
-RoboCasa365 evidence, policy boundaries, and the unresolved DexDojo/DexJoCo
-identity without exposing private machine paths.
+RoboCasa365 evidence, policy boundaries, and the current DexJoCo status without
+exposing private machine paths. The companion long-form Chinese engineering
+blog is `migration-blog.html`; it explains the failure modes, repair order,
+evaluation boundaries, and reproduction checklist in detail.
 
 The RoboCasa365 gallery also includes a separate high-resolution, four-view
 showcase rollout. It is presentation evidence only; the formal 16-task x

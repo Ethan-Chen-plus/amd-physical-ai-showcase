@@ -4,6 +4,10 @@
 可复现边界。它把“能导入”“能渲染”“能训练”“能闭环评估”分成不同门禁，
 避免把单个 smoke demo 当成整仓可用。
 
+配套长文：[AMD 具身智能迁移实战博客](migration-blog.html)。博客按
+DISCOVERSE、RoboCasa365、DexJoCo/JAX 和策略模型逐项解释问题、修复顺序与
+结果边界；本手册保留可执行的短版门禁。
+
 ## 统一验收门禁
 
 1. **环境**：ROCm、PyTorch/JAX、MuJoCo/Genesis/DISCOVERSE 依赖可导入。
@@ -75,10 +79,12 @@
 - 不上传 token、机器地址、个人路径、原始私有资产或未经授权的代理网格。
 - 每个 checkpoint、JSON 和视频都要有 SHA256；训练进度和失败原因写入工作区记忆。
 
-## 下一条迁移线：DexDojo / DexJoCo
+## DexJoCo / Pi0.5
 
-当前本地和 GitHub 精确搜索没有找到名为 `DexDojo` 的公开仓库；公开检索到的
-相近项目是 [DexJoCo](https://dexjoco.github.io/)，其代码入口为
-[brave-eai/dexjoco](https://github.com/brave-eai/dexjoco)。在用户确认名称或提供准确
-链接前，不把 DexJoCo 当成 DexDojo，也不宣称已经迁移。确认后按本页六级门禁建立
-独立组件、AMD 环境文件、smoke/训练/推理/视频测试和结果清单。
+公开检索到的项目是 [DexJoCo](https://dexjoco.github.io/)，代码入口为
+[brave-eai/dexjoco](https://github.com/brave-eai/dexjoco)，策略权重入口为
+[DexJoCo-Pi05](https://huggingface.co/DexJoCo/DexJoCo-Pi05)。AMD ROCm JAX
+0.10.0 环境已完成 GPU 预检和原生 Orbax restore；`water_plant` 诊断为
+`4/4`，官方固定 seed 的 11 任务评估为 `5/11`。这两个数字回答不同问题，不能
+互相替代；多任务恢复搜索中有 10/11 任务找到至少一个成功 seed，仍保留原始
+官方分母和失败任务。

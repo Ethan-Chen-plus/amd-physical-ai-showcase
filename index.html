@@ -31,6 +31,7 @@
         <a href="#discoverse-hd-showcase">DISCOVERSE 高清</a>
         <a href="#gallery">视频</a>
         <a href="migrations.html">迁移细节</a>
+        <a href="migration-blog.html">迁移博客</a>
         <a href="#reproduce">复现</a>
       </nav>
       <div class="header-actions">
@@ -160,14 +161,14 @@
           <article class="project-card">
             <div class="project-card-head">
               <span class="project-icon blue"><i data-lucide="hand"></i></span>
-              <span class="result-chip diagnostic">单任务预检</span>
+                <span class="result-chip diagnostic">多任务已评估</span>
             </div>
             <h3>DexJoCo · Pi0.5 原生 JAX</h3>
-            <p>在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成 water_plant 闭环和视频输出；多任务权重正在断点下载。</p>
+            <p>在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成单任务诊断和官方 multi-task 评估；保留固定 seed 与恢复搜索的不同口径。</p>
             <dl class="project-facts">
-              <div><dt>任务</dt><dd>water_plant</dd></div>
-              <div><dt>固定 seed</dt><dd>4 / 4</dd></div>
-              <div><dt>下一步</dt><dd>multi-task</dd></div>
+              <div><dt>官方任务</dt><dd>5 / 11</dd></div>
+              <div><dt>诊断任务</dt><dd>water_plant 4/4</dd></div>
+              <div><dt>恢复搜索</dt><dd>10 / 11</dd></div>
             </dl>
             <div class="card-links"><a href="migrations.html#next">迁移细节 <i data-lucide="arrow-up-right"></i></a><a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">官方权重 <i data-lucide="external-link"></i></a></div>
           </article>

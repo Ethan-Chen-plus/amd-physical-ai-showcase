@@ -23,6 +23,7 @@
         <a href="#discoverse">DISCOVERSE</a>
         <a href="#jax">ROCm JAX</a>
         <a href="#robocasa">RoboCasa365</a>
+        <a href="migration-blog.html">迁移博客</a>
         <a href="#next">下一条迁移</a>
       </nav>
       <div class="header-actions">
@@ -37,7 +38,7 @@
           <span class="section-index">AMD MIGRATION NOTEBOOK</span>
           <h1>把“能跑”拆成<br />可复现的证据链</h1>
           <p>这里记录我们把具身智能仓库迁到 AMD Radeon + ROCm 时，哪些层已经跑通、哪些结果是真正的模型结果，以及哪些仍然需要硬件或上游授权。</p>
-          <div class="migration-actions"><a class="command-button primary" href="index.html#projects"><i data-lucide="layout-grid"></i>回到项目总览</a><a class="command-button" href="AMD_MIGRATION_PLAYBOOK.md"><i data-lucide="file-text"></i>打开完整迁移手册</a></div>
+          <div class="migration-actions"><a class="command-button primary" href="index.html#projects"><i data-lucide="layout-grid"></i>回到项目总览</a><a class="command-button" href="AMD_MIGRATION_PLAYBOOK.md"><i data-lucide="file-text"></i>打开完整迁移手册</a><a class="command-button" href="migration-blog.html"><i data-lucide="book-open"></i>阅读详细迁移博客</a></div>
         </div>
         <aside class="migration-callout"><span class="status-mark verified"></span><strong>公开安全边界</strong><p>站点只展示证据摘要、公共上游链接和可分享的视频。AMD bridge、原始数据、凭据与机器细节留在私有仓库。</p></aside>
       </section>
@@ -77,8 +78,8 @@
       </section>
 
       <section class="migration-section page-shell" id="next">
-        <div class="section-heading"><div><span class="section-index">05 / POLICY ADAPTER</span><h2>DexJoCo：从单任务原生 JAX 到多任务策略</h2></div><span class="result-chip active">进行中</span></div>
-        <div class="next-project"><div><h3>AMD ROCm 上的 Pi0.5 原生 JAX 路线已通过单任务闭环</h3><p>上游代码为 <a href="https://github.com/brave-eai/dexjoco" target="_blank" rel="noreferrer">brave-eai/dexjoco</a>，官方权重为 <a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">DexJoCo/DexJoCo-Pi05</a>。我们使用 AMD 官方 ROCm JAX 0.10 环境直接恢复 Orbax 参数，没有把 JAX 转成 PyTorch。</p><p>当前已完成 <code>water_plant</code>、<code>rand_obj</code>、4 个固定 seed、4/4 成功和 MP4 输出；下一步仅下载官方 <code>pi05_dexjoco_multi_task</code>，再按任务抽样评估，不同时下载两套 11 任务单模型。</p></div><i data-lucide="circle-check"></i></div>
+        <div class="section-heading"><div><span class="section-index">05 / POLICY ADAPTER</span><h2>DexJoCo：从单任务原生 JAX 到多任务策略</h2></div><span class="result-chip success">多任务已评估</span></div>
+        <div class="next-project"><div><h3>AMD ROCm 上的 Pi0.5 原生 JAX 路线已完成固定协议评估</h3><p>上游代码为 <a href="https://github.com/brave-eai/dexjoco" target="_blank" rel="noreferrer">brave-eai/dexjoco</a>，官方权重为 <a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">DexJoCo/DexJoCo-Pi05</a>。我们使用 AMD 官方 ROCm JAX 0.10 环境直接恢复 Orbax 参数，没有把 JAX 转成 PyTorch。</p><p>单任务 <code>water_plant</code> 诊断为 4/4；官方 multi-task 配置固定 seed 0 为 <code>5/11</code>。恢复搜索中 10/11 个任务找到至少一个成功 seed，仍有 1 个任务没有成功 seed；这些结果回答不同问题，不能混成一个成功率。</p></div><i data-lucide="circle-check"></i></div>
       </section>
     </main>
 
