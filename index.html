@@ -48,10 +48,10 @@
     <main id="top">
       <section class="intro-band page-shell" aria-labelledby="page-title">
         <div class="intro-copy">
-          <div class="eyebrow"><span class="live-dot"></span><span data-zh="AMD Radeon + ROCm · 实测证据更新至 2026-08-02" data-en="AMD Radeon + ROCm · Evidence updated 2026-08-02">AMD Radeon + ROCm · 实测证据更新至 2026-08-02</span></div>
+          <div class="eyebrow"><span class="live-dot"></span><span data-zh="AMD Radeon + ROCm · 实测证据更新至 2026-08-03" data-en="AMD Radeon + ROCm · Evidence updated 2026-08-03">AMD Radeon + ROCm · 实测证据更新至 2026-08-03</span></div>
           <h1 id="page-title" data-zh="从家庭仿真到移动操作" data-en="From household simulation to mobile manipulation">从家庭仿真到移动操作</h1>
-          <p data-zh="我们把 RoboCasa 的家庭操作基准作为新的比赛主线，再把移动底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环。当前正式结果与尚在建设的移动扩展严格分开。" data-en="RoboCasa household manipulation is becoming our competition flagship. We are extending it with a mobile base, arm control, failure recovery, and auditable AMD performance evidence. Validated results stay separate from the mobile extension under construction.">
-            我们把 RoboCasa 的家庭操作基准作为新的比赛主线，再把移动底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环。当前正式结果与尚在建设的移动扩展严格分开。
+            <p data-zh="RoboCasa365 本身就是移动操作基准。我们以官方 PandaOmron 任务为主线，把底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环；SmolVLA 已完成同一 checkpoint 的 3×50 正式移动评估，0/150 的负结果与环境门禁严格分开。" data-en="RoboCasa365 is itself a mobile-manipulation benchmark. Our flagship uses official PandaOmron tasks to connect base control, arm control, recovery, and auditable AMD performance evidence; SmolVLA completed a fixed 3×50 mobile evaluation from one checkpoint, with the 0/150 negative result kept separate from the runtime gate.">
+            RoboCasa365 本身就是移动操作基准。我们以官方 PandaOmron 任务为主线，把底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环；SmolVLA 已完成同一 checkpoint 的 3×50 正式移动评估，0/150 的负结果与环境门禁严格分开。
           </p>
           <div class="intro-actions">
             <a class="command-button primary" href="#gallery"><i data-lucide="play"></i><span data-zh="查看成功视频" data-en="Watch success videos">查看成功视频</span></a>
@@ -105,7 +105,7 @@
         <div class="page-shell">
           <div class="section-heading">
             <div><span class="section-index">00 / FLAGSHIP</span><h2 id="flagship-title" data-zh="主线：RoboCasa 移动操作" data-en="Flagship: RoboCasa mobile manipulation">主线：RoboCasa 移动操作</h2></div>
-            <p data-zh="先用官方家庭操作基准建立可复现结果，再扩展到底盘导航、机械臂、运输和失败恢复。移动扩展通过门禁后才发布正式分数。" data-en="We first freeze a reproducible household baseline, then extend it to base navigation, arm control, transport, and failure recovery. The mobile score is published only after the gates pass.">先用官方家庭操作基准建立可复现结果，再扩展到底盘导航、机械臂、运输和失败恢复。移动扩展通过门禁后才发布正式分数。</p>
+            <p data-zh="RoboCasa365 的官方移动任务就是主线：先冻结家庭基线，再用 PandaOmron 接入导航、接近、抓取、运输和失败恢复。AMD395 已通过 reset、动作、多视角渲染、数据审计和 5000 步 SmolVLA 训练；同一 checkpoint 的正式 3×50 闭环结果为 0/150，作为真实诊断证据公开。" data-en="RoboCasa365's official mobile tasks are the flagship: freeze the household baseline, then connect navigation, approach, grasp, transport, and recovery through PandaOmron. AMD395 passes reset, action, multi-view rendering, data audit, and 5000-step SmolVLA training; the fixed 3×50 closed-loop result from that checkpoint is 0/150 and is published as real diagnostic evidence.">RoboCasa365 的官方移动任务就是主线：先冻结家庭基线，再用 PandaOmron 接入导航、接近、抓取、运输和失败恢复。AMD395 已通过 reset、动作、多视角渲染、数据审计和 5000 步 SmolVLA 训练；同一 checkpoint 的正式 3×50 闭环结果为 0/150，作为真实诊断证据公开。</p>
           </div>
           <div class="flagship-layout">
             <article class="flagship-video-card">
@@ -116,9 +116,9 @@
               <span class="section-index">ROBOCASA EXTENSION</span>
               <h3 data-zh="三个任务族，一个恢复条件" data-en="Three task families, one recovery gate">三个任务族，一个恢复条件</h3>
               <ol class="flagship-list">
-                <li><strong>FetchAndPlace</strong><span data-zh="导航、接近、抓取、放置" data-en="navigate, approach, grasp, place">导航、接近、抓取、放置</span></li>
-                <li><strong>OpenRetrievePlace</strong><span data-zh="打开柜门，取物，跨区搬运" data-en="open, retrieve, transport across stations">打开柜门，取物，跨区搬运</span></li>
-                <li><strong>MultiStationTransport</strong><span data-zh="工作台之间的长时序运输" data-en="long-horizon transport between stations">工作台之间的长时序运输</span></li>
+                <li><strong>NavigateKitchen</strong><span data-zh="底盘导航与长时序到达" data-en="base navigation and long-horizon arrival">底盘导航与长时序到达</span></li>
+                <li><strong>PickPlaceCounterToCabinet</strong><span data-zh="接近、抓取、跨区运输、放入柜子" data-en="approach, grasp, transport, place into cabinet">接近、抓取、跨区运输、放入柜子</span></li>
+                <li><strong>PickPlaceDrawerToCounter</strong><span data-zh="抽屉取物并移动到台面" data-en="retrieve from drawer and move to counter">抽屉取物并移动到台面</span></li>
                 <li><strong>Recovery gate</strong><span data-zh="失败后重新定位、重规划或重试" data-en="re-localize, re-plan, or retry after failure">失败后重新定位、重规划或重试</span></li>
               </ol>
               <a class="command-button" href="mobile-mainline.html"><span data-zh="查看动作接口与评估门禁" data-en="Open action contract and gates">查看动作接口与评估门禁</span><i data-lucide="arrow-up-right"></i></a>
@@ -144,14 +144,14 @@
           <article class="project-card featured">
             <div class="project-card-head">
               <span class="project-icon coral"><i data-lucide="route"></i></span>
-              <span class="result-chip active" data-zh="主线建设中" data-en="flagship in progress">主线建设中</span>
+              <span class="result-chip diagnostic" data-zh="正式移动评估" data-en="formal mobile evaluation">正式移动评估</span>
             </div>
             <h3 data-zh="RoboCasa · 移动操作主线" data-en="RoboCasa · mobile manipulation">RoboCasa · 移动操作主线</h3>
-            <p data-zh="以官方厨房资产为基准，统一导航、接近、抓取、跨站运输、放置和失败恢复；当前先锁定家庭操作基线。" data-en="Using official kitchen assets, we unify navigation, approach, grasp, cross-station transport, placement, and recovery; the household baseline is frozen first.">以官方厨房资产为基准，统一导航、接近、抓取、跨站运输、放置和失败恢复；当前先锁定家庭操作基线。</p>
+            <p data-zh="RoboCasa365 本身就是移动操作基准。官方 PandaOmron 环境已在 AMD395 上通过 reset、12 维动作契约、三相机渲染和数据审计；SmolVLA 以 state16/action12 训练 5000 步，并用同一 checkpoint 完成三个任务各 50 回合的正式评估。真实结果为 0/150，失败视频和评估摘要已公开。" data-en="RoboCasa365 is itself a mobile-manipulation benchmark. The official PandaOmron runtime passes reset, the 12-D action contract, three-camera rendering, and data audit on AMD395; SmolVLA trained for 5000 steps with state16/action12 and completed 50 formal episodes on each of three tasks from the same checkpoint. The real result is 0/150, with failure videos and the evaluation summary published.">RoboCasa365 本身就是移动操作基准。官方 PandaOmron 环境已在 AMD395 上通过 reset、12 维动作契约、三相机渲染和数据审计；SmolVLA 以 state16/action12 训练 5000 步，并用同一 checkpoint 完成三个任务各 50 回合的正式评估。真实结果为 0/150，失败视频和评估摘要已公开。</p>
             <dl class="project-facts">
-              <div><dt>tasks</dt><dd>3 × 50</dd></div>
-              <div><dt>action</dt><dd>base + arm</dd></div>
-              <div><dt>gate</dt><dd>recovery</dd></div>
+              <div><dt>data</dt><dd>1503 eps</dd></div>
+              <div><dt>action</dt><dd>state16 / act12</dd></div>
+              <div><dt>eval</dt><dd>0 / 150</dd></div>
             </dl>
             <div class="card-links">
               <a href="mobile-mainline.html"><span data-zh="主线设计" data-en="Track design">主线设计</span> <i data-lucide="external-link"></i></a>

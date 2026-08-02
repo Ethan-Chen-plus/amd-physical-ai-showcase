@@ -25,10 +25,14 @@ The RoboCasa365 gallery also includes a separate high-resolution, four-view
 showcase rollout. It is presentation evidence only; the formal 16-task x
 50-episode score remains unchanged.
 
-`mobile-mainline.html` documents the proposed RoboCasa extension: three task
-families, a unified base-plus-arm action contract, recovery gates, and the
-three release checks for data, policy, and publication. It is a design and
-reproduction boundary, not an unearned mobile-policy score.
+`mobile-mainline.html` documents the RoboCasa365 mobile track: official mobile
+task families, the verified PandaOmron 12-D action contract, recovery gates,
+and the three release checks for data, policy, and publication. The AMD395
+SmolVLA run is frozen at 5,000 steps and evaluated from the same
+state16/action12 checkpoint on 3 tasks x 50 episodes: the real result is
+`0 / 150`. The public page keeps this negative policy result separate from the
+environment gate and links the checkpoint manifest, evaluation summary, and
+representative videos.
 
 The public success reel is reproducible with the local FFmpeg helpers:
 

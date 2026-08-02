@@ -1,0 +1,215 @@
+{
+  "schema_version": "robocasa-mobile-gate-v1",
+  "status": "environment_gate_not_policy_eval",
+  "policy_type": "scripted_interface_gate",
+  "learned_policy_success_rate": null,
+  "env_name": "PickPlaceCounterToMicrowave",
+  "robot": "PandaOmron",
+  "base": "OmronMobileBase",
+  "episodes": 1,
+  "steps_per_episode": 40,
+  "seed_start": 0,
+  "camera_names": [
+    "robot0_agentview_left",
+    "robot0_agentview_right",
+    "robot0_eye_in_hand"
+  ],
+  "camera_width": 640,
+  "camera_height": 360,
+  "fps": 20,
+  "dataset_base_path": "RoboCasa v1.0 dataset root (path redacted)",
+  "robocasa_commit": "b4684e6ee37d377cc392e98302a6b916d588b415",
+  "robosuite_commit": "5ce6643f3092639d08f7b0f90ed1c6a84f50552c",
+  "action_contract": {
+    "action_dim": 12,
+    "action_spec_low": [
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0
+    ],
+    "action_spec_high": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "controller": "HYBRID_MOBILE_BASE",
+    "parts": [
+      "right: 0:6",
+      "right_gripper: 6:7",
+      "base: 7:10",
+      "torso: 10:11"
+    ],
+    "part_dimensions": [
+      "right: 6 dim",
+      "right_gripper: 1 dim",
+      "base: 3 dim",
+      "torso: 1 dim"
+    ],
+    "base_mode_index": 11,
+    "control_frequency_hz": 20,
+    "control_timestep_s": 0.05,
+    "action_order_note": "right OSC pose, right gripper, base joint velocity, torso, base mode"
+  },
+  "episodes_evidence": [
+    {
+      "episode_index": 0,
+      "seed": 0,
+      "video": "episode_000.mp4",
+      "action_file": "episode_000_actions.npy",
+      "steps_recorded": 40,
+      "stage_metrics": {
+        "environment_reset": true,
+        "action_contract": true,
+        "finite_actions": true,
+        "multi_view_render": true,
+        "navigation": null,
+        "approach": null,
+        "contact": null,
+        "grasp": null,
+        "lift": null,
+        "transport": null,
+        "place": null,
+        "release": null,
+        "recovery": null,
+        "final_success": null
+      },
+      "success": null,
+      "result_type": "environment_gate",
+      "initial_observation_shapes": {
+        "robot0_joint_pos": [
+          7
+        ],
+        "robot0_joint_pos_cos": [
+          7
+        ],
+        "robot0_joint_pos_sin": [
+          7
+        ],
+        "robot0_joint_vel": [
+          7
+        ],
+        "robot0_joint_acc": [
+          7
+        ],
+        "robot0_eef_pos": [
+          3
+        ],
+        "robot0_eef_quat": [
+          4
+        ],
+        "robot0_eef_quat_site": [
+          4
+        ],
+        "robot0_gripper_qpos": [
+          2
+        ],
+        "robot0_gripper_qvel": [
+          2
+        ],
+        "robot0_base_pos": [
+          3
+        ],
+        "robot0_base_quat": [
+          4
+        ],
+        "robot0_base_to_eef_pos": [
+          3
+        ],
+        "robot0_base_to_eef_quat": [
+          4
+        ],
+        "robot0_base_to_eef_quat_site": [
+          4
+        ],
+        "robot0_agentview_left_image": [
+          360,
+          640,
+          3
+        ],
+        "robot0_agentview_right_image": [
+          360,
+          640,
+          3
+        ],
+        "robot0_eye_in_hand_image": [
+          360,
+          640,
+          3
+        ],
+        "obj_pos": [
+          3
+        ],
+        "obj_quat": [
+          4
+        ],
+        "obj_to_robot0_eef_pos": [
+          3
+        ],
+        "obj_to_robot0_eef_quat": [
+          4
+        ],
+        "obj_container_pos": [
+          3
+        ],
+        "obj_container_quat": [
+          4
+        ],
+        "obj_container_to_robot0_eef_pos": [
+          3
+        ],
+        "obj_container_to_robot0_eef_quat": [
+          4
+        ],
+        "container_pos": [
+          3
+        ],
+        "container_quat": [
+          4
+        ],
+        "container_to_robot0_eef_pos": [
+          3
+        ],
+        "container_to_robot0_eef_quat": [
+          4
+        ],
+        "distr_counter_pos": [
+          3
+        ],
+        "distr_counter_quat": [
+          4
+        ],
+        "distr_counter_to_robot0_eef_pos": [
+          3
+        ],
+        "distr_counter_to_robot0_eef_quat": [
+          4
+        ],
+        "robot0_proprio-state": [
+          68
+        ],
+        "object-state": [
+          56
+        ]
+      }
+    }
+  ],
+  "completed": true
+}
