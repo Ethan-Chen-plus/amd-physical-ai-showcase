@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:45,000
+RoboCasa365 · GR00T household manipulation success
+RoboCasa365 · GR00T 家庭操作成功案例
+
+2
+00:00:45,000 --> 00:01:25,633
+DexJoCo · Pi0.5 dexterous-hand recovery success
+DexJoCo · Pi0.5 灵巧手恢复成功案例
+
+3
+00:01:25,633 --> 00:01:40,313
+DISCOVERSE · AMD ROCm three-view replay
+DISCOVERSE · AMD ROCm 高清三视角回放
+
+4
+00:01:40,313 --> 00:01:44,313
+Gaussian Splatting renderer evidence on ROCm
+ROCm 上的 Gaussian Splatting 渲染证据

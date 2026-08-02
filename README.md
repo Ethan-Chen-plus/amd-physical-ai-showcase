@@ -2,6 +2,8 @@
 
 Public evidence website for the Datawhale-EAI AMD Physical AI project.
 
+The homepage defaults to English for competition review and has a Chinese/English toggle. The first viewport leads with the RoboCasa household-to-mobile-manipulation track, followed by successful RoboCasa, DexJoCo, DISCOVERSE, and 3DGS evidence. Failure and diagnostic clips are kept in the final section.
+
 The site intentionally contains only public-safe assets:
 
 - SHA-verified aggregate results;
@@ -22,6 +24,24 @@ evaluation boundaries, and reproduction checklist in detail.
 The RoboCasa365 gallery also includes a separate high-resolution, four-view
 showcase rollout. It is presentation evidence only; the formal 16-task x
 50-episode score remains unchanged.
+
+`mobile-mainline.html` documents the proposed RoboCasa extension: three task
+families, a unified base-plus-arm action contract, recovery gates, and the
+three release checks for data, policy, and publication. It is a design and
+reproduction boundary, not an unearned mobile-policy score.
+
+The public success reel is reproducible with the local FFmpeg helpers:
+
+```bash
+scripts/build_flagship_reel.sh assets/videos/flagship-reel.mp4
+scripts/burn_bilingual_subtitles.sh \
+  assets/videos/flagship-reel.mp4 \
+  assets/videos/flagship-reel.zh-en.srt \
+  assets/videos/flagship-reel-bilingual.mp4
+```
+
+The source clips, bilingual subtitle file, generated MP4s, and `SHA256SUMS`
+are kept together so the presentation layer remains traceable.
 
 The DISCOVERSE section includes four isolated official MMK2 example replays on
 AMD Radeon: box pick, drawer open, cabinet door open, and cup to plate. Each task has three native 1920x1080

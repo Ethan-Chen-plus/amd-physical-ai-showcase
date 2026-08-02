@@ -1,20 +1,43 @@
 const themeToggle = document.querySelector("#theme-toggle");
+const langToggle = document.querySelector("#lang-toggle");
+const langLabel = document.querySelector("#lang-label");
 const storedTheme = localStorage.getItem("evidence-theme");
+const storedLanguage = localStorage.getItem("evidence-language") || "en";
 const preferredDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   const icon = themeToggle?.querySelector("i");
   if (icon) icon.setAttribute("data-lucide", theme === "dark" ? "sun" : "moon");
-  if (window.lucide) window.lucide.createIcons();
+  window.lucide?.createIcons();
+}
+
+function applyLanguage(language) {
+  const lang = language === "zh" ? "zh" : "en";
+  document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+  document.documentElement.dataset.language = lang;
+  document.querySelectorAll("[data-zh][data-en]").forEach((element) => {
+    element.textContent = element.dataset[lang];
+  });
+  document.querySelectorAll("[data-zh-title][data-en-title]").forEach((element) => {
+    element.title = element.dataset[lang === "en" ? "enTitle" : "zhTitle"];
+  });
+  if (langLabel) langLabel.textContent = lang === "en" ? "中" : "EN";
+  localStorage.setItem("evidence-language", lang);
+  window.lucide?.createIcons();
 }
 
 applyTheme(storedTheme || (preferredDark ? "dark" : "light"));
+applyLanguage(storedLanguage);
 
 themeToggle?.addEventListener("click", () => {
   const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   localStorage.setItem("evidence-theme", next);
   applyTheme(next);
+});
+
+langToggle?.addEventListener("click", () => {
+  applyLanguage(document.documentElement.dataset.language === "en" ? "zh" : "en");
 });
 
 document.querySelectorAll("[data-filter]").forEach((button) => {
@@ -61,7 +84,8 @@ async function renderRoboCasaTable() {
         </tr>`;
     }).join("");
   } catch (error) {
-    body.innerHTML = `<tr><td colspan="4" class="loading-row">结果 JSON 读取失败：${error.message}</td></tr>`;
+    const message = document.documentElement.dataset.language === "en" ? "Result JSON could not be loaded" : "结果 JSON 读取失败";
+    body.innerHTML = `<tr><td colspan="4" class="loading-row">${message}: ${error.message}</td></tr>`;
   }
 }
 

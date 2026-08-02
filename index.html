@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en" data-language="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,21 +25,20 @@
         </span>
       </a>
       <nav class="desktop-nav" aria-label="主导航">
-        <a href="#projects">项目</a>
-        <a href="#benchmark">基准</a>
-        <a href="#long-showcase">长程展示</a>
-        <a href="#discoverse-hd-showcase">DISCOVERSE 高清</a>
-        <a href="#discoverse-3dgs">3DGS</a>
+        <a href="#flagship" data-zh="主线" data-en="Flagship">主线</a>
+        <a href="#benchmark" data-zh="基准" data-en="Benchmark">基准</a>
+        <a href="#long-showcase" data-zh="长程展示" data-en="Long horizon">长程展示</a>
         <a href="#dexjoco">DexJoCo</a>
-        <a href="#gallery">视频</a>
-        <a href="migrations.html">迁移细节</a>
-        <a href="migration-blog.html">迁移博客</a>
-        <a href="#reproduce">复现</a>
+        <a href="migrations.html" data-zh="迁移细节" data-en="Migration">迁移细节</a>
+        <a href="#reproduce" data-zh="复现" data-en="Reproduce">复现</a>
       </nav>
       <div class="header-actions">
         <a class="icon-button" href="https://github.com/Ethan-Chen-plus/amd-physical-ai-showcase" target="_blank" rel="noreferrer" aria-label="打开展示站源码" title="展示站源码">
           <i data-lucide="github"></i>
         </a>
+        <button class="icon-button language-button" id="lang-toggle" type="button" aria-label="切换中英文" title="切换中英文">
+          <i data-lucide="languages"></i><span id="lang-label">中</span>
+        </button>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="切换明暗主题" title="切换明暗主题">
           <i data-lucide="moon"></i>
         </button>
@@ -49,24 +48,24 @@
     <main id="top">
       <section class="intro-band page-shell" aria-labelledby="page-title">
         <div class="intro-copy">
-          <div class="eyebrow"><span class="live-dot"></span> AMD Radeon + ROCm · 实测证据更新至 2026-08-01</div>
-          <h1 id="page-title">从抓杯子到长时域<br />厨房操作</h1>
-          <p>
-            这里汇总我们在 AMD 设备上完成的 VLA 训练、仿真器迁移、官方协议评估与失败诊断。
-            每个正式数字都能回到结果 JSON、视频或权重 SHA；运行验证与正式成绩分开标注。
+          <div class="eyebrow"><span class="live-dot"></span><span data-zh="AMD Radeon + ROCm · 实测证据更新至 2026-08-02" data-en="AMD Radeon + ROCm · Evidence updated 2026-08-02">AMD Radeon + ROCm · 实测证据更新至 2026-08-02</span></div>
+          <h1 id="page-title" data-zh="从家庭仿真到移动操作" data-en="From household simulation to mobile manipulation">从家庭仿真到移动操作</h1>
+          <p data-zh="我们把 RoboCasa 的家庭操作基准作为新的比赛主线，再把移动底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环。当前正式结果与尚在建设的移动扩展严格分开。" data-en="RoboCasa household manipulation is becoming our competition flagship. We are extending it with a mobile base, arm control, failure recovery, and auditable AMD performance evidence. Validated results stay separate from the mobile extension under construction.">
+            我们把 RoboCasa 的家庭操作基准作为新的比赛主线，再把移动底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环。当前正式结果与尚在建设的移动扩展严格分开。
           </p>
           <div class="intro-actions">
-            <a class="command-button primary" href="#gallery"><i data-lucide="play"></i>查看实测视频</a>
-            <a class="command-button" href="#reproduce"><i data-lucide="book-open"></i>打开复现入口</a>
+            <a class="command-button primary" href="#gallery"><i data-lucide="play"></i><span data-zh="查看成功视频" data-en="Watch success videos">查看成功视频</span></a>
+            <a class="command-button" href="mobile-mainline.html"><i data-lucide="route"></i><span data-zh="查看移动主线" data-en="Open mobile track">查看移动主线</span></a>
           </div>
         </div>
         <div class="lead-media">
-          <video muted autoplay loop playsinline preload="metadata" poster="assets/posters/smolvla-cup-success.jpg">
-            <source src="assets/videos/smolvla-cup-success.mp4" type="video/mp4" />
+          <video muted autoplay loop playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-success.jpg">
+            <source src="assets/videos/flagship-reel-bilingual.mp4" type="video/mp4" />
+            <source src="assets/videos/robocasa-gr00t-showcase-success.mp4" type="video/mp4" />
           </video>
           <div class="lead-caption">
-            <span><strong>SmolVLA</strong> · strict physical success</span>
-            <span class="result-chip success">57 / 60</span>
+            <span><strong>RoboCasa365</strong> · <span data-zh="家庭操作主线" data-en="household manipulation">家庭操作主线</span></span>
+            <span class="result-chip success" data-zh="正式证据" data-en="verified evidence">正式证据</span>
           </div>
         </div>
       </section>
@@ -74,24 +73,24 @@
       <section class="metric-band" aria-label="关键实测结果">
         <div class="page-shell metrics-grid">
           <article class="metric">
-            <span class="metric-value">95.0%</span>
-            <span class="metric-label">SmolVLA 抓杯 strict gate</span>
-            <span class="metric-meta">57 / 60 · 2 colors</span>
+            <span class="metric-value">230 / 800</span>
+            <span class="metric-label" data-zh="RoboCasa365 · GR00T" data-en="RoboCasa365 · GR00T">RoboCasa365 · GR00T</span>
+            <span class="metric-meta" data-zh="16 tasks · official match" data-en="16 tasks · official match">16 tasks · official match</span>
           </article>
           <article class="metric">
-            <span class="metric-value">28.75%</span>
-            <span class="metric-label">RoboCasa365 GR00T</span>
-            <span class="metric-meta">230 / 800 · 16 tasks</span>
+            <span class="metric-value">142 / 800</span>
+            <span class="metric-label" data-zh="RoboCasa365 · Pi0.5" data-en="RoboCasa365 · Pi0.5">RoboCasa365 · Pi0.5</span>
+            <span class="metric-meta" data-zh="16 tasks · official match" data-en="16 tasks · official match">16 tasks · official match</span>
           </article>
           <article class="metric">
-            <span class="metric-value">17.75%</span>
-            <span class="metric-label">RoboCasa365 Pi0.5</span>
-            <span class="metric-meta">142 / 800 · matched protocol</span>
+            <span class="metric-value">10 / 11</span>
+            <span class="metric-label" data-zh="DexJoCo · 恢复搜索" data-en="DexJoCo · recovery search">DexJoCo · 恢复搜索</span>
+            <span class="metric-meta" data-zh="每个失败任务的首个成功 seed" data-en="first success seed per failed task">每个失败任务的首个成功 seed</span>
           </article>
           <article class="metric">
-            <span class="metric-value">31 / 31</span>
-            <span class="metric-label">DISCOVERSE 严格专家回放</span>
-            <span class="metric-meta">block_bridge_place</span>
+            <span class="metric-value">57 / 60</span>
+            <span class="metric-label" data-zh="SmolVLA · 教学基线" data-en="SmolVLA · teaching baseline">SmolVLA · 教学基线</span>
+            <span class="metric-meta" data-zh="保留为基线，不占据首页主叙事" data-en="kept as a baseline, not the hero">保留为基线，不占据首页主叙事</span>
           </article>
         </div>
       </section>
@@ -102,41 +101,71 @@
         <div><span class="status-mark active"></span><strong>进行中</strong> 不提前声明成功率</div>
       </section>
 
+      <section class="section flagship-section" id="flagship" aria-labelledby="flagship-title">
+        <div class="page-shell">
+          <div class="section-heading">
+            <div><span class="section-index">00 / FLAGSHIP</span><h2 id="flagship-title" data-zh="主线：RoboCasa 移动操作" data-en="Flagship: RoboCasa mobile manipulation">主线：RoboCasa 移动操作</h2></div>
+            <p data-zh="先用官方家庭操作基准建立可复现结果，再扩展到底盘导航、机械臂、运输和失败恢复。移动扩展通过门禁后才发布正式分数。" data-en="We first freeze a reproducible household baseline, then extend it to base navigation, arm control, transport, and failure recovery. The mobile score is published only after the gates pass.">先用官方家庭操作基准建立可复现结果，再扩展到底盘导航、机械臂、运输和失败恢复。移动扩展通过门禁后才发布正式分数。</p>
+          </div>
+          <div class="flagship-layout">
+            <article class="flagship-video-card">
+              <video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-success.jpg"><source src="assets/videos/flagship-reel-bilingual.mp4" type="video/mp4" /><source src="assets/videos/robocasa-gr00t-showcase-success.mp4" type="video/mp4" /></video>
+              <div class="flagship-video-copy"><span class="section-index">PRIMARY SHOWCASE · BILINGUAL SUBTITLES</span><h3 data-zh="RoboCasa、DexJoCo 与 AMD 迁移证据" data-en="RoboCasa, DexJoCo, and AMD migration evidence">RoboCasa、DexJoCo 与 AMD 迁移证据</h3><p data-zh="成功案例先行，失败诊断后置；视频原片、双语字幕和 SHA 均保留。" data-en="Success cases lead the story; failure diagnosis stays at the end. Original clips, bilingual subtitles, and SHA records are retained.">成功案例先行，失败诊断后置；视频原片、双语字幕和 SHA 均保留。</p></div>
+            </article>
+            <aside class="flagship-callout">
+              <span class="section-index">ROBOCASA EXTENSION</span>
+              <h3 data-zh="三个任务族，一个恢复条件" data-en="Three task families, one recovery gate">三个任务族，一个恢复条件</h3>
+              <ol class="flagship-list">
+                <li><strong>FetchAndPlace</strong><span data-zh="导航、接近、抓取、放置" data-en="navigate, approach, grasp, place">导航、接近、抓取、放置</span></li>
+                <li><strong>OpenRetrievePlace</strong><span data-zh="打开柜门，取物，跨区搬运" data-en="open, retrieve, transport across stations">打开柜门，取物，跨区搬运</span></li>
+                <li><strong>MultiStationTransport</strong><span data-zh="工作台之间的长时序运输" data-en="long-horizon transport between stations">工作台之间的长时序运输</span></li>
+                <li><strong>Recovery gate</strong><span data-zh="失败后重新定位、重规划或重试" data-en="re-localize, re-plan, or retry after failure">失败后重新定位、重规划或重试</span></li>
+              </ol>
+              <a class="command-button" href="mobile-mainline.html"><span data-zh="查看动作接口与评估门禁" data-en="Open action contract and gates">查看动作接口与评估门禁</span><i data-lucide="arrow-up-right"></i></a>
+            </aside>
+          </div>
+          <div class="showcase-strip">
+            <article><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-assembly.mp4" type="video/mp4" /></video><div><span>DexJoCo · Pi0.5 · JAX 0.10</span><strong data-zh="灵巧手成功案例" data-en="DexJoCo dexterous-hand success">灵巧手成功案例</strong></div></article>
+            <article><video controls playsinline preload="metadata" poster="assets/posters/discoverse-showcase/cabinet-door-open-3view.jpg"><source src="assets/videos/discoverse-showcase/cabinet-door-open-3view.mp4" type="video/mp4" /></video><div><span>DISCOVERSE · AMD · 3-view</span><strong data-zh="高清柜门操作回放" data-en="HD cabinet-door replay">高清柜门操作回放</strong></div></article>
+          </div>
+        </div>
+      </section>
+
       <section class="section page-shell" id="projects" aria-labelledby="projects-title">
         <div class="section-heading">
           <div>
             <span class="section-index">01 / PROJECTS</span>
-            <h2 id="projects-title">七条互相补强的实验线</h2>
+            <h2 id="projects-title" data-zh="七条互相补强的实验线" data-en="Seven complementary evidence tracks">七条互相补强的实验线</h2>
           </div>
-          <p>从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。</p>
+          <p data-zh="从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。" data-en="From a teaching baseline to multi-simulator, benchmark, creative-operation, and hardware evidence.">从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。</p>
         </div>
 
         <div class="project-grid">
           <article class="project-card featured">
             <div class="project-card-head">
-              <span class="project-icon"><i data-lucide="cup-soda"></i></span>
-              <span class="result-chip success">正式结果</span>
+              <span class="project-icon coral"><i data-lucide="route"></i></span>
+              <span class="result-chip active" data-zh="主线建设中" data-en="flagship in progress">主线建设中</span>
             </div>
-            <h3>Every Embodied · 抓杯子</h3>
-            <p>同一 MuJoCo 任务上对比 SmolVLA、Pi0 与 ACT，保留普通训练、保护训练、严格评估和失败视频。</p>
+            <h3 data-zh="RoboCasa · 移动操作主线" data-en="RoboCasa · mobile manipulation">RoboCasa · 移动操作主线</h3>
+            <p data-zh="以官方厨房资产为基准，统一导航、接近、抓取、跨站运输、放置和失败恢复；当前先锁定家庭操作基线。" data-en="Using official kitchen assets, we unify navigation, approach, grasp, cross-station transport, placement, and recovery; the household baseline is frozen first.">以官方厨房资产为基准，统一导航、接近、抓取、跨站运输、放置和失败恢复；当前先锁定家庭操作基线。</p>
             <dl class="project-facts">
-              <div><dt>SmolVLA</dt><dd>57 / 60</dd></div>
-              <div><dt>Pi0</dt><dd>12 / 14</dd></div>
-              <div><dt>ACT</dt><dd>7 / 30</dd></div>
+              <div><dt>tasks</dt><dd>3 × 50</dd></div>
+              <div><dt>action</dt><dd>base + arm</dd></div>
+              <div><dt>gate</dt><dd>recovery</dd></div>
             </dl>
             <div class="card-links">
-              <a href="https://github.com/datawhalechina/every-embodied/tree/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98" target="_blank" rel="noreferrer">Notebook <i data-lucide="external-link"></i></a>
-              <a href="https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp" target="_blank" rel="noreferrer">权重 <i data-lucide="external-link"></i></a>
+              <a href="mobile-mainline.html"><span data-zh="主线设计" data-en="Track design">主线设计</span> <i data-lucide="external-link"></i></a>
+              <a href="#benchmark"><span data-zh="家庭基线" data-en="Household baseline">家庭基线</span> <i data-lucide="arrow-down"></i></a>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-card-head">
               <span class="project-icon coral"><i data-lucide="chef-hat"></i></span>
-              <span class="result-chip success">正式结果</span>
+              <span class="result-chip success" data-zh="正式结果" data-en="verified result">正式结果</span>
             </div>
-            <h3>RoboCasa365 · 16 任务</h3>
-            <p>AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。</p>
+            <h3 data-zh="RoboCasa365 · 16 任务" data-en="RoboCasa365 · 16 tasks">RoboCasa365 · 16 任务</h3>
+            <p data-zh="AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。" data-en="The AMD 395 runs the same 16 tasks, 50 episodes per task, and video-enabled protocol for Pi0.5 and GR00T.">AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。</p>
             <dl class="project-facts">
               <div><dt>GR00T 120k</dt><dd>230 / 800</dd></div>
               <div><dt>Pi0.5 75k</dt><dd>142 / 800</dd></div>
@@ -148,10 +177,10 @@
           <article class="project-card">
             <div class="project-card-head">
               <span class="project-icon teal"><i data-lucide="blocks"></i></span>
-              <span class="result-chip success">迁移完成</span>
+              <span class="result-chip success" data-zh="迁移完成" data-en="migration complete">迁移完成</span>
             </div>
-            <h3>DISCOVERSE · 全链迁移</h3>
-            <p>覆盖运行、专家轨迹、训练、闭环评估和 MP4 输出；同时保留学习策略 0% 的真实负结果。</p>
+            <h3 data-zh="DISCOVERSE · 全链迁移" data-en="DISCOVERSE · full-stack migration">DISCOVERSE · 全链迁移</h3>
+            <p data-zh="覆盖运行、专家轨迹、训练、闭环评估和 MP4 输出；同时保留学习策略 0% 的真实负结果。" data-en="Runtime, expert trajectories, training, closed-loop evaluation, and MP4 output are covered; the 0% learned-policy negative result remains visible.">覆盖运行、专家轨迹、训练、闭环评估和 MP4 输出；同时保留学习策略 0% 的真实负结果。</p>
             <dl class="project-facts">
               <div><dt>Runtime</dt><dd>18 / 18</dd></div>
               <div><dt>AIRBOT</dt><dd>12 / 12</dd></div>
@@ -163,10 +192,10 @@
           <article class="project-card">
             <div class="project-card-head">
               <span class="project-icon blue"><i data-lucide="hand"></i></span>
-                <span class="result-chip diagnostic">多任务已评估</span>
+                <span class="result-chip diagnostic" data-zh="多任务已评估" data-en="multi-task evaluated">多任务已评估</span>
             </div>
-            <h3>DexJoCo · Pi0.5 原生 JAX</h3>
-            <p>在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成单任务诊断和官方 multi-task 评估；保留固定 seed 与恢复搜索的不同口径。</p>
+            <h3 data-zh="DexJoCo · Pi0.5 原生 JAX" data-en="DexJoCo · Pi0.5 native JAX">DexJoCo · Pi0.5 原生 JAX</h3>
+            <p data-zh="在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成单任务诊断和官方 multi-task 评估；保留固定 seed 与恢复搜索的不同口径。" data-en="Official Orbax weights run natively with JAX 0.10 on AMD ROCm; single-task diagnosis and the official multi-task protocol stay separately reported.">在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成单任务诊断和官方 multi-task 评估；保留固定 seed 与恢复搜索的不同口径。</p>
             <dl class="project-facts">
               <div><dt>官方任务</dt><dd>5 / 11</dd></div>
               <div><dt>诊断任务</dt><dd>water_plant 4/4</dd></div>
@@ -226,7 +255,7 @@
           <div class="section-heading light">
             <div>
               <span class="section-index">02 / BENCHMARK</span>
-              <h2 id="benchmark-title">RoboCasa365 同协议逐任务对比</h2>
+              <h2 id="benchmark-title" data-zh="RoboCasa365 同协议逐任务对比" data-en="RoboCasa365 matched task benchmark">RoboCasa365 同协议逐任务对比</h2>
             </div>
             <div class="benchmark-summary" aria-label="模型总成功率">
               <span><b class="dot gr00t"></b>GR00T 28.75%</span>
@@ -248,7 +277,7 @@
           <div class="task-table-wrap">
             <table class="task-table">
               <thead>
-                <tr><th>任务</th><th>GR00T</th><th>Pi0.5</th><th>差值</th></tr>
+                <tr><th data-zh="任务" data-en="Task">任务</th><th>GR00T</th><th>Pi0.5</th><th data-zh="差值" data-en="Delta">差值</th></tr>
               </thead>
               <tbody id="task-table-body">
                 <tr><td colspan="4" class="loading-row">正在读取已校验结果…</td></tr>
@@ -256,8 +285,8 @@
             </table>
           </div>
           <div class="evidence-row">
-            <span><i data-lucide="shield-check"></i> 同一 16 任务 × 50 episodes，视频开启</span>
-            <a href="data/robocasa-official-match.json" download>下载结果 JSON <i data-lucide="download"></i></a>
+            <span><i data-lucide="shield-check"></i><span data-zh="同一 16 任务 × 50 episodes，视频开启" data-en="same 16 tasks × 50 episodes, video enabled">同一 16 任务 × 50 episodes，视频开启</span></span>
+            <a href="data/robocasa-official-match.json" download><span data-zh="下载结果 JSON" data-en="Download result JSON">下载结果 JSON</span> <i data-lucide="download"></i></a>
             <code>SHA256 76f058…dac94</code>
           </div>
         </div>
@@ -267,15 +296,15 @@
         <div class="section-heading">
           <div>
             <span class="section-index">02B / LONG-HORIZON SHOWCASE</span>
-            <h2 id="long-showcase-title">GR00T 长程恢复展示</h2>
+            <h2 id="long-showcase-title" data-zh="GR00T 长程恢复展示" data-en="GR00T long-horizon recovery showcase">GR00T 长程恢复展示</h2>
           </div>
-          <p>AMD 395 上使用 GR00T N1.5 多任务权重，每个任务 10 回合、四视角录像；这是补充展示，不改正式 16 任务 × 50 episodes 的分母。</p>
+          <p data-zh="AMD 395 上使用 GR00T N1.5 多任务权重，每个任务 10 回合、四视角录像；这是补充展示，不改正式 16 任务 × 50 episodes 的分母。" data-en="GR00T N1.5 multi-task weights run on the AMD 395 with 10 episodes per task and four-view videos; this showcase does not change the official 16-task denominator.">AMD 395 上使用 GR00T N1.5 多任务权重，每个任务 10 回合、四视角录像；这是补充展示，不改正式 16 任务 × 50 episodes 的分母。</p>
         </div>
         <div class="recovery-summary">
-          <div><strong>5 / 40</strong><span>额外展示成功</span></div>
-          <div><strong>4</strong><span>任务 · 10 回合/任务</span></div>
-          <div><strong>4-view</strong><span>1920×1080 · 20 fps</span></div>
-          <a href="data/robocasa-recovery-showcase.json" download>查看结果与 SHA <i data-lucide="download"></i></a>
+          <div><strong>5 / 40</strong><span data-zh="额外展示成功" data-en="showcase successes">额外展示成功</span></div>
+          <div><strong>4</strong><span data-zh="任务 · 10 回合/任务" data-en="tasks · 10 episodes/task">任务 · 10 回合/任务</span></div>
+          <div><strong>4-view</strong><span data-zh="1920×1080 · 20 fps" data-en="1920×1080 · 20 fps">1920×1080 · 20 fps</span></div>
+          <a href="data/robocasa-recovery-showcase.json" download><span data-zh="查看结果与 SHA" data-en="View results and SHA">查看结果与 SHA</span> <i data-lucide="download"></i></a>
         </div>
         <div class="recovery-grid">
           <article class="recovery-card">
@@ -302,9 +331,9 @@
         <div class="section-heading">
           <div>
             <span class="section-index">02C / DISCOVERSE SHOWCASE</span>
-            <h2 id="discoverse-hd-title">DISCOVERSE 高清三视角回放</h2>
+            <h2 id="discoverse-hd-title" data-zh="DISCOVERSE 高清三视角回放" data-en="DISCOVERSE HD three-view replay">DISCOVERSE 高清三视角回放</h2>
           </div>
-          <p>同一套 AMD 迁移后的官方 MMK2 专家状态机；每条展示包含 cam_0、cam_1、cam_2 三路原生 1920×1080 录像，网页视频为三视角合成画布。</p>
+          <p data-zh="同一套 AMD 迁移后的官方 MMK2 专家状态机；每条展示包含 cam_0、cam_1、cam_2 三路原生 1920×1080 录像，网页视频为三视角合成画布。" data-en="The same AMD-migrated MMK2 expert state machine; each showcase includes native 1920×1080 cam_0, cam_1, and cam_2 recordings composed into one three-view canvas.">同一套 AMD 迁移后的官方 MMK2 专家状态机；每条展示包含 cam_0、cam_1、cam_2 三路原生 1920×1080 录像，网页视频为三视角合成画布。</p>
         </div>
         <div class="recovery-summary">
           <div><strong>4</strong><span>官方示例任务</span></div>
@@ -337,9 +366,9 @@
         <div class="section-heading">
           <div>
             <span class="section-index">02D / 3DGS RENDERER</span>
-            <h2 id="discoverse-3dgs-title">ROCm 上的 Gaussian Splatting 真实渲染</h2>
+            <h2 id="discoverse-3dgs-title" data-zh="ROCm 上的 Gaussian Splatting 真实渲染" data-en="Real Gaussian Splatting rendering on ROCm">ROCm 上的 Gaussian Splatting 真实渲染</h2>
           </div>
-          <p>这组证据展示的是 renderer 是否真正加载高斯点并产出画面；它与策略成功率分开统计，不把一张静态图包装成闭环成绩。</p>
+          <p data-zh="这组证据展示的是 renderer 是否真正加载高斯点并产出画面；它与策略成功率分开统计，不把一张静态图包装成闭环成绩。" data-en="These artifacts verify that the renderer loads Gaussian points and produces non-empty frames; they are separate from policy success and never presented as a closed-loop score.">这组证据展示的是 renderer 是否真正加载高斯点并产出画面；它与策略成功率分开统计，不把一张静态图包装成闭环成绩。</p>
         </div>
         <div class="gs-summary">
           <div><strong>2</strong><span>ROCm renderer targets</span></div>
@@ -357,7 +386,7 @@
             <figcaption><div><span>GSRendererMuJoCo · ROCm</span><strong>SkyRover · 1,026,855 points</strong></div><code>640×360</code></figcaption>
           </figure>
         </div>
-        <div class="gs-video-heading"><div><span class="section-index">DYNAMIC EVIDENCE</span><h3>动态回放：Franka 与 UR5e</h3></div><span>20 fps · 4 s · 原始视频</span></div>
+        <div class="gs-video-heading"><div><span class="section-index">DYNAMIC EVIDENCE</span><h3 data-zh="动态回放：Franka 与 UR5e" data-en="Dynamic replay: Franka and UR5e">动态回放：Franka 与 UR5e</h3></div><span>20 fps · 4 s · 原始视频</span></div>
         <div class="gs-video-grid">
           <article class="gs-video-card">
             <video controls playsinline preload="metadata" poster="assets/posters/discoverse-3dgs/franka-video-frame.jpg"><source src="assets/videos/discoverse-3dgs/franka-rocm-3dgs.mp4" type="video/mp4" /></video>
@@ -374,13 +403,13 @@
       <section class="section page-shell" id="gallery" aria-labelledby="gallery-title">
         <div class="section-heading">
           <div>
-            <span class="section-index">03 / VIDEO EVIDENCE</span>
-            <h2 id="gallery-title">成功与失败都保留</h2>
+            <span class="section-index">03 / SUCCESS EVIDENCE</span>
+            <h2 id="gallery-title" data-zh="先看成功案例" data-en="Success cases first">先看成功案例</h2>
           </div>
           <div class="segmented-control" role="group" aria-label="筛选视频">
-            <button type="button" class="active" data-filter="all">全部</button>
-            <button type="button" data-filter="success">成功</button>
-            <button type="button" data-filter="failure">失败</button>
+            <button type="button" class="active" data-filter="all" data-zh="全部" data-en="All">全部</button>
+            <button type="button" data-filter="success" data-zh="成功" data-en="Success">成功</button>
+            <button type="button" data-filter="failure" data-zh="失败" data-en="Failure">失败</button>
           </div>
         </div>
         <div class="media-grid" id="media-grid">
@@ -396,43 +425,27 @@
             <video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-success.jpg"><source src="assets/videos/smolvla-cup-success.mp4" type="video/mp4" /></video>
             <div class="media-copy"><div><span>Every Embodied · SmolVLA</span><h3>红杯严格成功</h3></div><span class="result-chip success">success</span></div>
           </article>
-          <article class="media-card" data-outcome="failure">
-            <video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-failure.jpg"><source src="assets/videos/smolvla-cup-failure.mp4" type="video/mp4" /></video>
-            <div class="media-copy"><div><span>Every Embodied · SmolVLA</span><h3>典型 no-lift 失败</h3></div><span class="result-chip failure">failure</span></div>
-          </article>
           <article class="media-card" data-outcome="success">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-success.jpg"><source src="assets/videos/robocasa-gr00t-showcase-success.mp4" type="video/mp4" /></video>
             <div class="media-copy"><div><span>RoboCasa365 · GR00T · 4-view showcase</span><h3>CloseFridge 成功 · 1920×1080</h3></div><span class="result-chip success">success</span></div>
-          </article>
-          <article class="media-card" data-outcome="failure">
-            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-failure.jpg"><source src="assets/videos/robocasa-gr00t-showcase-failure.mp4" type="video/mp4" /></video>
-            <div class="media-copy"><div><span>RoboCasa365 · GR00T · 4-view showcase</span><h3>CloseFridge 失败 · 1920×1080</h3></div><span class="result-chip failure">failure</span></div>
           </article>
           <article class="media-card" data-outcome="success">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-pi05-success.jpg"><source src="assets/videos/robocasa-pi05-success.mp4" type="video/mp4" /></video>
             <div class="media-copy"><div><span>RoboCasa365 · Pi0.5</span><h3>DrawerToCounter 成功</h3></div><span class="result-chip success">success</span></div>
           </article>
-          <article class="media-card" data-outcome="failure">
-            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-pi05-failure.jpg"><source src="assets/videos/robocasa-pi05-failure.mp4" type="video/mp4" /></video>
-            <div class="media-copy"><div><span>RoboCasa365 · Pi0.5</span><h3>DrawerToCounter 失败</h3></div><span class="result-chip failure">failure</span></div>
-          </article>
           <article class="media-card" data-outcome="success">
             <video controls playsinline preload="metadata" poster="assets/posters/discoverse-block-bridge-success.jpg"><source src="assets/videos/discoverse-block-bridge-success.mp4" type="video/mp4" /></video>
             <div class="media-copy"><div><span>DISCOVERSE · Expert</span><h3>Block bridge 严格回放</h3></div><span class="result-chip success">success</span></div>
-          </article>
-          <article class="media-card" data-outcome="failure">
-            <video controls playsinline preload="metadata" poster="assets/posters/discoverse-policy-diagnostic.jpg"><source src="assets/videos/discoverse-policy-diagnostic.mp4" type="video/mp4" /></video>
-            <div class="media-copy"><div><span>DISCOVERSE · Pi0.5 diagnostic</span><h3>闭环策略失败样例</h3></div><span class="result-chip failure">failure</span></div>
           </article>
         </div>
       </section>
 
       <section class="section page-shell" id="dexjoco" aria-labelledby="dexjoco-title">
         <div class="section-heading">
-          <div><span class="section-index">03 / DEXJOCO MULTI-TASK</span><h2 id="dexjoco-title">Pi0.5 成功案例清单</h2></div>
-          <span class="result-chip diagnostic">10 / 11 找到成功 seed</span>
+          <div><span class="section-index">03 / DEXJOCO MULTI-TASK</span><h2 id="dexjoco-title" data-zh="Pi0.5 成功案例清单" data-en="Pi0.5 success case archive">Pi0.5 成功案例清单</h2></div>
+          <span class="result-chip diagnostic" data-zh="10 / 11 找到成功 seed" data-en="10 / 11 found a success seed">10 / 11 找到成功 seed</span>
         </div>
-        <p class="section-lead">同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 <strong>5 / 11</strong>；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。10 个成功任务各保留一条网页主视角视频，另保留一条 water_plant 单任务诊断视频。</p>
+        <p class="section-lead" data-zh="同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 5 / 11；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。10 个成功任务各保留一条网页主视角视频，另保留一条 water_plant 单任务诊断视频。" data-en="The official multi-task weights run on AMD ROCm JAX 0.10. The fixed seed-0 score is 5 / 11; recovery search uses seeds 1–10 only for original failures and stops at the first success. The denominator is unchanged. Ten tasks keep one primary-view success video, plus a water_plant diagnostic video.">同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 5 / 11；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。10 个成功任务各保留一条网页主视角视频，另保留一条 water_plant 单任务诊断视频。</p>
         <div class="benchmark-grid dexjoco-score-grid">
           <div class="model-score"><span class="model-kicker">Official protocol · seed 0</span><strong>5 <small>/ 11</small></strong><div class="score-track"><span style="width:45.45%"></span></div><p>正式多任务成绩，成功：click_mouse、fold_glasses、hammer_nail、pick_bucket、pinch_tongs。</p></div>
           <div class="model-score pi05-score"><span class="model-kicker">Recovery search · seeds 1–10</span><strong>10 <small>/ 11</small></strong><div class="score-track"><span style="width:90.91%"></span></div><p>展示可复现的首个成功 seed；bimanual_unlock_ipad 在 seed 0–10 均未找到成功。</p></div>
@@ -478,31 +491,47 @@
       <section class="section pipeline-band" aria-labelledby="pipeline-title">
         <div class="page-shell">
           <div class="section-heading compact">
-            <div><span class="section-index">04 / PIPELINE</span><h2 id="pipeline-title">同一条可审计闭环</h2></div>
+            <div><span class="section-index">04 / PIPELINE</span><h2 id="pipeline-title" data-zh="同一条可审计闭环" data-en="One auditable loop">同一条可审计闭环</h2></div>
           </div>
           <ol class="pipeline">
-            <li><span>01</span><i data-lucide="box"></i><strong>仿真环境</strong><small>MuJoCo · Genesis · DISCOVERSE</small></li>
-            <li><span>02</span><i data-lucide="database"></i><strong>专家与数据</strong><small>固定 seed · LeRobot · audit</small></li>
-            <li><span>03</span><i data-lucide="brain-circuit"></i><strong>AMD 训练</strong><small>ACT · SmolVLA · Pi0.5 · GR00T</small></li>
-            <li><span>04</span><i data-lucide="repeat-2"></i><strong>闭环评估</strong><small>完整分母 · 成功/失败视频</small></li>
-            <li><span>05</span><i data-lucide="file-check-2"></i><strong>证据归档</strong><small>JSON · SHA256 · checkpoint</small></li>
+            <li><span>01</span><i data-lucide="box"></i><strong data-zh="仿真环境" data-en="Simulation">仿真环境</strong><small>RoboCasa · MuJoCo · DISCOVERSE</small></li>
+            <li><span>02</span><i data-lucide="database"></i><strong data-zh="专家与数据" data-en="Data">专家与数据</strong><small>fixed seed · LeRobot · audit</small></li>
+            <li><span>03</span><i data-lucide="brain-circuit"></i><strong data-zh="AMD 训练" data-en="AMD training">AMD 训练</strong><small>SmolVLA · Pi0.5 · GR00T · ACT</small></li>
+            <li><span>04</span><i data-lucide="repeat-2"></i><strong data-zh="闭环评估" data-en="Closed-loop eval">闭环评估</strong><small>denominator · success/failure videos</small></li>
+            <li><span>05</span><i data-lucide="file-check-2"></i><strong data-zh="证据归档" data-en="Evidence">证据归档</strong><small>JSON · SHA256 · checkpoint</small></li>
           </ol>
         </div>
       </section>
 
       <section class="section page-shell" id="reproduce" aria-labelledby="reproduce-title">
         <div class="section-heading">
-          <div><span class="section-index">05 / REPRODUCE</span><h2 id="reproduce-title">先看成功，再完整训练</h2></div>
-          <p>公开教程提供可直接运行的 Notebook、保护权重、配置、严格评估摘要和 SHA256。</p>
+          <div><span class="section-index">05 / REPRODUCE</span><h2 id="reproduce-title" data-zh="先看成功，再完整训练" data-en="See success, then reproduce">先看成功，再完整训练</h2></div>
+          <p data-zh="公开教程提供可直接运行的 Notebook、保护权重、配置、严格评估摘要和 SHA256。" data-en="The public tutorial provides runnable notebooks, protected weights, configs, strict evaluation summaries, and SHA256 records.">公开教程提供可直接运行的 Notebook、保护权重、配置、严格评估摘要和 SHA256。</p>
         </div>
         <div class="resource-list">
-          <a href="https://github.com/datawhalechina/every-embodied/tree/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/workflows" target="_blank" rel="noreferrer"><i data-lucide="notebook-tabs"></i><span><strong>6 个端到端 Notebook</strong><small>SmolVLA / Pi0 / ACT，各含普通与保护训练</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="https://github.com/datawhalechina/every-embodied/tree/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/workflows" target="_blank" rel="noreferrer"><i data-lucide="notebook-tabs"></i><span><strong data-zh="6 个端到端 Notebook" data-en="Six end-to-end notebooks">6 个端到端 Notebook</strong><small data-zh="SmolVLA / Pi0 / ACT，各含普通与保护训练" data-en="SmolVLA / Pi0 / ACT, ordinary and protected training">SmolVLA / Pi0 / ACT，各含普通与保护训练</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>SmolVLA 保护权重</strong><small>57/60 正式结果、配置、视频与 SHA</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/every-embodied-pi0-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>Pi0 进阶权重</strong><small>12/14 strict，unseen 9/10</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/every-embodied-act-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>ACT 诊断权重</strong><small>保留负结果，解释 loss 与物理成功的差异</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><i data-lucide="cloud-download"></i><span><strong>RoboWits checkpoint 备份</strong><small>W7900 100k 模型与中间权重</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="SHA256SUMS" target="_blank" rel="noreferrer"><i data-lucide="shield-check"></i><span><strong>公开媒体校验清单</strong><small>站内代表视频与结果 JSON 的 SHA256</small></span><i data-lucide="arrow-up-right"></i></a>
-          <a href="migrations.html"><i data-lucide="route"></i><span><strong>AMD 迁移细节</strong><small>六级验收矩阵、难点、边界和 DexJoCo JAX 路线</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="migrations.html"><i data-lucide="route"></i><span><strong data-zh="AMD 迁移细节" data-en="AMD migration details">AMD 迁移细节</strong><small data-zh="六级验收矩阵、难点、边界和 DexJoCo JAX 路线" data-en="gates, hard cases, boundaries, and the DexJoCo JAX route">六级验收矩阵、难点、边界和 DexJoCo JAX 路线</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="ROBOCASA_MOBILE_MANIPULATION_MAINLINE.md"><i data-lucide="file-text"></i><span><strong data-zh="英文主线说明" data-en="English flagship specification">英文主线说明</strong><small data-zh="RoboCasa 移动操作任务、动作接口和发布边界" data-en="RoboCasa mobile tasks, action contract, and release boundary">RoboCasa 移动操作任务、动作接口和发布边界</small></span><i data-lucide="arrow-up-right"></i></a>
+        </div>
+      </section>
+
+      <section class="section failure-section" id="failure-lab" aria-labelledby="failure-title">
+        <div class="page-shell">
+          <div class="section-heading">
+            <div><span class="section-index">99 / FAILURE LAB</span><h2 id="failure-title" data-zh="最后再看失败与诊断" data-en="Failure cases and diagnosis">最后再看失败与诊断</h2></div>
+            <p data-zh="失败视频不参与首页主叙事，但会和结果 JSON、阶段统计和复现说明一起保留。" data-en="Failure clips stay out of the hero story, but remain paired with result JSON, stage statistics, and reproduction notes.">失败视频不参与首页主叙事，但会和结果 JSON、阶段统计和复现说明一起保留。</p>
+          </div>
+          <div class="media-grid">
+            <article class="media-card" data-outcome="failure"><video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-failure.jpg"><source src="assets/videos/robocasa-gr00t-showcase-failure.mp4" type="video/mp4" /></video><div class="media-copy"><div><span>RoboCasa365 · GR00T · 4-view showcase</span><h3 data-zh="CloseFridge 失败" data-en="CloseFridge failure">CloseFridge 失败</h3></div><span class="result-chip failure">failure</span></div></article>
+            <article class="media-card" data-outcome="failure"><video controls playsinline preload="metadata" poster="assets/posters/robocasa-pi05-failure.jpg"><source src="assets/videos/robocasa-pi05-failure.mp4" type="video/mp4" /></video><div class="media-copy"><div><span>RoboCasa365 · Pi0.5</span><h3 data-zh="DrawerToCounter 失败" data-en="DrawerToCounter failure">DrawerToCounter 失败</h3></div><span class="result-chip failure">failure</span></div></article>
+            <article class="media-card" data-outcome="failure"><video controls playsinline preload="metadata" poster="assets/posters/discoverse-policy-diagnostic.jpg"><source src="assets/videos/discoverse-policy-diagnostic.mp4" type="video/mp4" /></video><div class="media-copy"><div><span>DISCOVERSE · Pi0.5 diagnostic</span><h3 data-zh="闭环策略失败样例" data-en="Closed-loop policy failure">闭环策略失败样例</h3></div><span class="result-chip failure">failure</span></div></article>
+            <article class="media-card" data-outcome="failure"><video controls playsinline preload="metadata" poster="assets/posters/smolvla-cup-failure.jpg"><source src="assets/videos/smolvla-cup-failure.mp4" type="video/mp4" /></video><div class="media-copy"><div><span>Every Embodied · SmolVLA</span><h3 data-zh="no-lift 失败诊断" data-en="no-lift failure diagnosis">no-lift 失败诊断</h3></div><span class="result-chip failure">failure</span></div></article>
+          </div>
         </div>
       </section>
     </main>
@@ -514,7 +543,7 @@
           <p>Datawhale-EAI · AMD Physical AI Hackathon 2026</p>
         </div>
         <img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" />
-        <p class="footer-note">Measured on AMD Radeon hardware. Smoke tests are never reported as policy success.</p>
+        <p class="footer-note" data-zh="所有结果均在 AMD Radeon 硬件上测量；smoke 测试不会被写成策略成功。" data-en="All results are measured on AMD Radeon hardware; smoke tests are never reported as policy success.">所有结果均在 AMD Radeon 硬件上测量；smoke 测试不会被写成策略成功。</p>
       </div>
     </footer>
   </body>
