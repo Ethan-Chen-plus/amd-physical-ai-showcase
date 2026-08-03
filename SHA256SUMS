@@ -84,3 +84,7 @@ ae9eabe2e74ee170b7ee98efc2fc42445da427277fcac6c636507dc6f5ea37e6  assets/videos/
 63c0688512d3da4ebbcf6e6f946e5fbc6a6e0c0b6d21f4308a54ab151a05ec6d  assets/videos/amd-physical-ai-demo.zh.srt
 f32bf7fd95b9031a2c34aa4a6e5c10db88d167981e05dcf4a1fd19b4a1670686  assets/videos/amd-physical-ai-demo.zh-en.srt
 e5f24b781e33db6f10ca3c4c8560cdb095a073be087044e1bd7cc0a46b639361  assets/generated/amd-evidence-blueprint.png
+8dda54bae9c7c794a3d5e4f25bc90e26133b7b5a1c2bf6165ac22d8995674c66  assets/videos/perceptive-cbf-rl/pacman-cbf-amd-proxy.mp4
+7ffadd6a78c4da85fdc7e3e131b3a273b6c0269fdf78340ccd1859d4fd0c061d  assets/posters/perceptive-cbf-rl/pacman-cbf-amd-proxy.jpg
+5876c72357f8de306f30b6af2b59b094577ee7ccb49665fd9f221edd6f381e32  data/perceptive-cbf-rl-amd-eval.json
+346fda25450f2ef333b536f90fd50679820a3a838f1fbe62be1b9a019e60a04e  data/perceptive-cbf-rl-amd-run-manifest.json

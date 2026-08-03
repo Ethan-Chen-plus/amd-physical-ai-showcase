@@ -29,6 +29,7 @@
         <a href="#benchmark" data-zh="基准" data-en="Benchmark">基准</a>
         <a href="#long-showcase" data-zh="长程展示" data-en="Long horizon">长程展示</a>
         <a href="#dexjoco">DexJoCo</a>
+        <a href="perceptive-cbf-rl.html" data-zh="安全控制" data-en="Safety control">安全控制</a>
         <a href="migrations.html" data-zh="迁移细节" data-en="Migration">迁移细节</a>
         <a href="#reproduce" data-zh="复现" data-en="Reproduce">复现</a>
       </nav>
@@ -134,7 +135,7 @@
         <div class="section-heading">
           <div>
             <span class="section-index">01 / PROJECTS</span>
-            <h2 id="projects-title" data-zh="七条互相补强的实验线" data-en="Seven complementary evidence tracks">七条互相补强的实验线</h2>
+            <h2 id="projects-title" data-zh="八条互相补强的实验线" data-en="Eight complementary evidence tracks">八条互相补强的实验线</h2>
           </div>
           <p data-zh="从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。" data-en="From a teaching baseline to multi-simulator, benchmark, creative-operation, and hardware evidence.">从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。</p>
         </div>
@@ -186,6 +187,17 @@
               <div><dt>Expert data</dt><dd>500 eps</dd></div>
             </dl>
             <div class="card-links"><a href="migrations.html#discoverse">迁移细节 <i data-lucide="arrow-up-right"></i></a><a href="#discoverse-3dgs">3DGS 证据 <i data-lucide="scan-line"></i></a><a href="https://github.com/discoverse-dev/DISCOVERSE" target="_blank" rel="noreferrer">上游项目 <i data-lucide="external-link"></i></a></div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-head">
+              <span class="project-icon teal"><i data-lucide="shield-check"></i></span>
+              <span class="result-chip diagnostic" data-zh="控制路径验证" data-en="control-path validation">控制路径验证</span>
+            </div>
+            <h3 data-zh="PAC-MAN · 感知 CBF-RL" data-en="PAC-MAN · perceptive CBF-RL">PAC-MAN · 感知 CBF-RL</h3>
+            <p data-zh="将上游预测性 CBF 安全逻辑拆出，在 AMD ROCm Torch + MuJoCo 上复现控制路径；明确区分代理场景安全回合与上游 G1 AMP 成绩。" data-en="The upstream predictive CBF safety logic is isolated and replayed with AMD ROCm Torch + MuJoCo, keeping proxy-safe episodes separate from the upstream G1 AMP score.">将上游预测性 CBF 安全逻辑拆出，在 AMD ROCm Torch + MuJoCo 上复现控制路径；明确区分代理场景安全回合与上游 G1 AMP 成绩。</p>
+            <dl class="project-facts"><div><dt>proxy</dt><dd>12 / 12</dd></div><div><dt>views</dt><dd>2</dd></div><div><dt>backend</dt><dd>ROCm + MuJoCo</dd></div></dl>
+            <div class="card-links"><a href="perceptive-cbf-rl.html"><span data-zh="查看 AMD 专题" data-en="Open AMD case study">查看 AMD 专题</span> <i data-lucide="arrow-up-right"></i></a><a href="data/perceptive-cbf-rl-amd-eval.json">证据 JSON <i data-lucide="file-json-2"></i></a></div>
           </article>
 
           <article class="project-card">

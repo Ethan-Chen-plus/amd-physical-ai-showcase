@@ -23,6 +23,7 @@
         <a href="#discoverse">DISCOVERSE</a>
         <a href="#jax">ROCm JAX</a>
         <a href="#robocasa">RoboCasa365</a>
+        <a href="perceptive-cbf-rl.html">PAC-MAN CBF</a>
         <a href="migration-blog.html">迁移博客</a>
         <a href="#next">下一条迁移</a>
       </nav>
@@ -75,6 +76,10 @@
 
       <section class="migration-section migration-soft" id="robowits">
         <div class="page-shell"><div class="section-heading"><div><span class="section-index">04 / POLICY STACK</span><h2>策略仓库迁移：结果与边界一起展示</h2></div><p>同一个 AMD 项目里，训练成功、推理可运行、闭环成功是三个不同问题。</p></div><div class="policy-grid"><article><h3>Every Embodied</h3><p>SmolVLA 57/60，Pi0 12/14，ACT 7/30；Notebook、保护训练和严格评估分开。</p><span class="result-chip success">已归档</span></article><article><h3>RoboWits</h3><p>W7900 官方 16-D ACT 100k 已完成；06_dominos=2/5，其余资产齐全任务 0/5，最终 checkpoint SHA 已归档。</p><span class="result-chip diagnostic">评估完成</span></article><article><h3>公开材料</h3><p>成果站、结果 JSON、代表视频、Hugging Face 权重与 SHA 只展示可公开内容。</p><span class="result-chip diagnostic">可复现摘要</span></article></div></div>
+      </section>
+
+      <section class="migration-section migration-dark" id="pacman">
+        <div class="page-shell"><div class="section-heading light"><div><span class="section-index">04B / SAFETY CONTROL</span><h2>PAC-MAN：感知 CBF-RL 控制路径</h2></div><span class="result-chip success">12 / 12 proxy-safe</span></div><div class="detail-layout"><div class="detail-copy"><p>把上游预测性 CBF 从 CUDA-only 的 mjlab/MuJoCo-Warp 组合中拆出，在 AMD ROCm Torch + CPU MuJoCo 上运行固定 seed 代理场景，并保存双视角 MP4、逐回合 JSON 和运行清单。</p><ul class="evidence-list"><li><strong>保留</strong><span>来球水平轨迹、垂直逃逸轴、时间到碰撞和最小范数安全投影</span></li><li><strong>运行</strong><span>ROCm Torch 2.9.1 + HIP 7.2，MuJoCo 3.11.0，12/12 代理回合安全</span></li><li><strong>边界</strong><span>这不是上游 G1 AMP 策略、mjlab Warp 训练或 19/20 真机成绩；完整 G1 迁移仍是下一阶段</span></li></ul><a class="command-button" href="perceptive-cbf-rl.html">打开 PAC-MAN AMD 专题 <i data-lucide="arrow-up-right"></i></a></div><div class="detail-stat"><strong>12 / 12</strong><span>proxy-safe episodes</span><strong>2</strong><span>camera views</span><strong>1</strong><span>ROCm control path</span></div></div></div>
       </section>
 
       <section class="migration-section page-shell" id="next">

@@ -34,6 +34,14 @@ state16/action12 checkpoint on 3 tasks x 50 episodes: the real result is
 environment gate and links the checkpoint manifest, evaluation summary, and
 representative videos.
 
+`perceptive-cbf-rl.html` documents the PAC-MAN AMD port. The upstream
+predictive perpendicular CBF is validated with ROCm Torch and a portable CPU
+MuJoCo proxy scene, producing a two-view MP4 and per-episode `eval_info.json`.
+The page explicitly keeps the `12 / 12` proxy-safe result separate from the
+upstream G1 AMP policy, MuJoCo-Warp training, and hardware benchmark. The
+reproduction code and migration boundary are under
+`code/perceptive_cbf_rl_amd/`.
+
 The primary competition demo film is a 4:20, 1920x1080, 30fps HyperFrames
 composition. It leads with DexJoCo and verified success footage, then moves
 through RoboCasa365, DISCOVERSE, 3DGS, AMD execution evidence, and a failure
