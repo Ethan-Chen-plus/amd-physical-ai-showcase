@@ -1,0 +1,59 @@
+{
+  "title": "AMD Physical AI Demo Film",
+  "duration_seconds": 260,
+  "duration_label": "4:20",
+  "resolution": "1920x1080",
+  "fps": 30,
+  "primary_web_asset": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
+  "deliverables": [
+    {
+      "path": "assets/videos/amd-physical-ai-demo-en.mp4",
+      "language": "English",
+      "sha256": "6e94e500ef360d7c245d028551f4d546016bd24b20057c670277a3033b711755"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
+      "language": "Chinese",
+      "sha256": "de4ab0cd23442b2ea7218bdcb94c4ef992fa347cb21d3b9b6b5a47f336b47a62"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
+      "language": "Bilingual",
+      "sha256": "ba1751b7d1b64d22220007713f5ed2a6b49ecb012146a1493edc1236a6dd069d"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo.en.srt",
+      "language": "English subtitles",
+      "sha256": "58ca5e0122d636d3c10fc2f87aa1c8882620e0ac5019d4b874e0ce792f8c8a30"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo.zh.srt",
+      "language": "Chinese subtitles",
+      "sha256": "63c0688512d3da4ebbcf6e6f946e5fbc6a6e0c0b6d21f4308a54ab151a05ec6d"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo.zh-en.srt",
+      "language": "Bilingual subtitles",
+      "sha256": "f32bf7fd95b9031a2c34aa4a6e5c10db88d167981e05dcf4a1fd19b4a1670686"
+    }
+  ],
+  "sequence": [
+    "DexJoCo success hook",
+    "AMD ROCm and JAX stack",
+    "RoboCasa365 success cases",
+    "DexJoCo multi-task evidence",
+    "official metrics and evidence contract",
+    "DISCOVERSE multi-view replay",
+    "3DGS ROCm rendering",
+    "AMD execution and reproducibility",
+    "success trace and release checklist",
+    "failure appendix"
+  ],
+  "source": {
+    "composition": "video/hyperframes/index.html",
+    "storyboard": "video/hyperframes/STORYBOARD.md",
+    "script": "video/hyperframes/SCRIPT.md",
+    "shot_manifest": "video/hyperframes/data/shot-manifest.json",
+    "render_command": "HYPERFRAMES_BROWSER_PATH=/snap/bin/chromium ./video/hyperframes/render_delivery.sh"
+  }
+}

@@ -34,7 +34,25 @@ state16/action12 checkpoint on 3 tasks x 50 episodes: the real result is
 environment gate and links the checkpoint manifest, evaluation summary, and
 representative videos.
 
-The public success reel is reproducible with the local FFmpeg helpers:
+The primary competition demo film is a 4:20, 1920x1080, 30fps HyperFrames
+composition. It leads with DexJoCo and verified success footage, then moves
+through RoboCasa365, DISCOVERSE, 3DGS, AMD execution evidence, and a failure
+appendix. The homepage uses the bilingual MP4 as its primary player; English,
+Chinese, bilingual, and standalone SRT deliverables are linked below the
+flagship player. Release metadata and SHA-256 values are in
+`data/amd-physical-ai-demo-release.json`.
+
+The film is reproducible from the local HyperFrames source and FFmpeg helper:
+
+```bash
+HYPERFRAMES_BROWSER_PATH=/snap/bin/chromium \
+  ./video/hyperframes/render_delivery.sh
+```
+
+The source storyboard, narration copy, shot manifest, and subtitles are kept
+in `video/hyperframes/`.
+
+The earlier public success reel remains reproducible with the local FFmpeg helpers:
 
 ```bash
 scripts/build_flagship_reel.sh assets/videos/flagship-reel.mp4

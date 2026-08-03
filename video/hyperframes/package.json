@@ -1,0 +1,15 @@
+{
+  "name": "amd-physical-ai-demo-film",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "hyperframes lint",
+    "validate": "hyperframes validate",
+    "inspect": "hyperframes inspect --samples 18",
+    "render": "hyperframes render --output dist/amd-physical-ai-demo-en.mp4 --fps 30 --quality standard",
+    "preview": "hyperframes preview --port 4380"
+  },
+  "dependencies": {
+    "hyperframes": "0.7.90"
+  }
+}

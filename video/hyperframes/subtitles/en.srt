@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:12,000
+Datawhale-EAI builds a reproducible AMD Physical AI stack across dexterous hands, household manipulation, simulation, and rendering.
+
+2
+00:00:12,000 --> 00:00:28,000
+One AMD stack. Many physical worlds. The same evidence contract follows data, policy, physics, and proof.
+
+3
+00:00:28,000 --> 00:00:48,000
+RoboCasa365 gives the project a household manipulation benchmark with fixed tasks, seeds, videos, and a mobile observation contract.
+
+4
+00:00:48,000 --> 00:01:08,000
+Long-horizon success traces make the action sequence inspectable, not just the final frame.
+
+5
+00:01:08,000 --> 00:01:32,000
+DexJoCo brings contact-rich dexterous tasks into the same protocol with native JAX on AMD ROCm.
+
+6
+00:01:32,000 --> 00:01:50,000
+Official seed results, recovery searches, and diagnostic runs remain separate numbers with separate denominators.
+
+7
+00:01:50,000 --> 00:02:14,000
+The evidence contract is simple: data to policy, policy to physics, physics to proof.
+
+8
+00:02:14,000 --> 00:02:38,000
+DISCOVERSE preserves expert paths, policy experiments, multi-view rendering, and MP4 output after migration.
+
+9
+00:02:38,000 --> 00:02:54,000
+3D Gaussian Splatting and dynamic replay turn the renderer itself into visible migration evidence.
+
+10
+00:02:54,000 --> 00:03:14,000
+ROCm versions, GPU identity, memory, throughput, training time, JSON, MP4, and SHA travel with every result.
+
+11
+00:03:14,000 --> 00:03:38,000
+Success leads the story, but the source evidence stays attached behind it.
+
+12
+00:03:38,000 --> 00:04:06,000
+Failures are part of the benchmark: action alignment, navigation, contact, and recovery are diagnosed instead of hidden.
+
+13
+00:04:06,000 --> 00:04:20,000
+Build it, run it, and show the proof through code, notebooks, weights, reports, videos, and reproducible commands.
