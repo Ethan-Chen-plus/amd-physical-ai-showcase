@@ -5,6 +5,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SITE="$(cd "$ROOT/../.." && pwd)"
 DIST="$ROOT/dist"
 MASTER="$DIST/amd-physical-ai-demo-en.mp4"
+AUDIO="$ROOT/audio/generated/amd-physical-ai-demo-audio.wav"
 
 mkdir -p "$DIST"
 cd "$ROOT"
@@ -13,10 +14,21 @@ export HYPERFRAMES_RUN_ID="${HYPERFRAMES_RUN_ID:-amd-demo-film-20260803}"
 export TMPDIR="${HF_TMPDIR:-/tmp/hyperframes-amd-demo-20260803}"
 mkdir -p "$TMPDIR"
 
+if [[ "${SKIP_AUDIO_RENDER:-0}" != "1" ]]; then
+  HYPERFRAMES_PYTHON="${HYPERFRAMES_PYTHON:-/data/Data14TB/envs/hyperframes-audio/bin/python}" \
+    "$ROOT/audio/render_audio.sh"
+else
+  test -s "$AUDIO"
+fi
+
 npx hyperframes lint
 npx hyperframes check --samples 13 --at-transitions --no-browser-gpu --timeout 15000
 if [[ "${SKIP_MASTER_RENDER:-0}" != "1" ]]; then
-  npx hyperframes render --output "$MASTER" --fps 30 --quality standard
+  npx hyperframes render --output "$MASTER" --fps 30 --quality standard \
+    --workers "${HYPERFRAMES_WORKERS:-2}" --no-browser-gpu \
+    --protocol-timeout "${HYPERFRAMES_PROTOCOL_TIMEOUT:-600000}" \
+    --browser-timeout "${HYPERFRAMES_BROWSER_TIMEOUT:-300}" \
+    --player-ready-timeout "${HYPERFRAMES_PLAYER_READY_TIMEOUT:-120000}"
 else
   test -s "$MASTER"
 fi
@@ -25,7 +37,8 @@ burn() {
   local input="$1"; local subs="$2"; local output="$3"
   ffmpeg -hide_banner -loglevel error -y -i "$input" \
     -vf "subtitles=$(printf '%s' "$subs" | sed "s/'/'\\\\''/g"):force_style='FontName=Noto Sans CJK SC,FontSize=16,Outline=1,Shadow=0,MarginV=24,Alignment=2,BorderStyle=1,WrapStyle=2'" \
-    -an -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p -movflags +faststart "$output"
+    -map 0:v:0 -map 0:a:0 -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p \
+    -c:a aac -b:a 192k -t 260 -movflags +faststart "$output"
 }
 
 burn "$MASTER" "$ROOT/subtitles/en.srt" "$DIST/amd-physical-ai-demo-en-subtitled.mp4"

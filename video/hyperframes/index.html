@@ -223,11 +223,13 @@
       .paper .bottom-line .dot { background: #087f74; }
       .paper h2 { color: #111318; }
       .paper .chip { border-color: rgba(17,19,24,.2); color: #111318; background: rgba(255,255,255,.78); }
+      .blueprint-image { opacity: 0; mix-blend-mode: multiply; filter: saturate(.72) contrast(1.06); }
     </style>
   </head>
   <body>
     <div id="main" data-composition-id="main" data-start="0" data-duration="260" data-width="1920" data-height="1080">
       <div id="scene-bg" class="scene-bg clip" data-start="0" data-duration="260" data-track-index="0"></div>
+      <audio id="film-audio" src="audio/generated/amd-physical-ai-demo-audio.wav" data-start="0" data-duration="260" data-track-index="80" data-volume="1"></audio>
 
       <video id="hook-video" class="full dim clip" src="media/dexjoco/recovery/bimanual-assembly.mp4" muted playsinline preload="auto" data-start="0" data-duration="12" data-track-index="1" data-media-start="0"></video>
       <div id="hook-surface" class="surface clip" data-start="0" data-duration="12" data-track-index="10">
@@ -236,13 +238,14 @@
       </div>
 
       <div id="thesis-surface" class="surface center paper clip" data-start="12" data-duration="16" data-track-index="10">
+        <img id="thesis-visual" class="full contained blueprint-image clip" src="generated/amd-evidence-blueprint.png" alt="" data-start="12" data-duration="16" data-track-index="1" data-layout-ignore />
         <div class="safe"><div class="eyebrow">01 · THE CLAIM</div><h2>One AMD stack. Many physical worlds.</h2><p class="lede">We treat migration as an engineering result: the same evidence contract follows the model from data to closed-loop video.</p></div>
         <div class="chip-row"><span class="chip">ROCm</span><span class="chip">LeRobot</span><span class="chip">MuJoCo</span><span class="chip">JAX 0.10</span><span class="chip">PyTorch</span><span class="chip">MP4 + JSON + SHA</span></div>
       </div>
 
       <video id="robo-video" class="full soft clip" src="media/robocasa-gr00t-showcase-success.mp4" muted playsinline preload="auto" data-start="28" data-duration="20" data-track-index="1" data-media-start="0"></video>
       <div id="robo-surface" class="surface clip" data-start="28" data-duration="20" data-track-index="10">
-        <div class="safe"><div class="eyebrow">02 · HOUSEHOLD MANIPULATION</div><h2>RoboCasa365<br />with a real success trace.</h2><p class="lede">The kitchen benchmark becomes a shared protocol: task, seed, model, video, and result stay tied together.</p></div>
+        <div class="safe"><div class="eyebrow">02 · HOUSEHOLD MANIPULATION</div><h2>RoboCasa365 with a real success trace.</h2><p class="lede">The kitchen benchmark becomes a shared protocol: task, seed, model, video, and result stay tied together.</p></div>
         <div class="score-rail"><div class="score success"><strong>16 tasks</strong><span>RoboCasa365 official set</span></div><div class="score success"><strong>50 eps</strong><span>per task · video enabled</span></div><div class="score"><strong>3 views</strong><span>mobile observation contract</span></div></div>
       </div>
 
@@ -338,6 +341,7 @@
         const items = document.querySelector(selector).querySelectorAll(".eyebrow, h1, h2, h3, .lede, .score, .chip, .split, .metric-card, .node-row, .command-window, .bottom-line");
         tl.from(items, { opacity: 0, y: 26, duration: 0.55, stagger: 0.08, ease: "power3.out" }, start + 0.08);
       });
+      tl.fromTo("#thesis-visual", { opacity: 0, scale: 1.04 }, { opacity: 0.14, scale: 1, duration: 0.9, ease: "power2.out" }, 12.05);
       ["#hook-video", "#robo-video", "#gs-background", "#evidence-video"].forEach((selector) => {
         const element = document.querySelector(selector);
         const start = Number(element.dataset.start);

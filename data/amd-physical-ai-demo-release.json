@@ -4,22 +4,35 @@
   "duration_label": "4:20",
   "resolution": "1920x1080",
   "fps": 30,
+  "audio": {
+    "voice": "Kokoro-82M af_heart English voice",
+    "voice_speed": 0.96,
+    "score": "Deterministic original FFmpeg low-frequency pad with fade-in and fade-out",
+    "embedded_in_deliverables": true
+  },
+  "visual_assets": [
+    {
+      "path": "assets/generated/amd-evidence-blueprint.png",
+      "role": "Generated editorial blueprint visual for the thesis card",
+      "sha256": "e5f24b781e33db6f10ca3c4c8560cdb095a073be087044e1bd7cc0a46b639361"
+    }
+  ],
   "primary_web_asset": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
   "deliverables": [
     {
       "path": "assets/videos/amd-physical-ai-demo-en.mp4",
       "language": "English",
-      "sha256": "6e94e500ef360d7c245d028551f4d546016bd24b20057c670277a3033b711755"
+      "sha256": "e6848674155c3af91d431044e25b1359fbb6246c7c6accc693d0b6dffccfd2fb"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
       "language": "Chinese",
-      "sha256": "de4ab0cd23442b2ea7218bdcb94c4ef992fa347cb21d3b9b6b5a47f336b47a62"
+      "sha256": "ae9eabe2e74ee170b7ee98efc2fc42445da427277fcac6c636507dc6f5ea37e6"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
       "language": "Bilingual",
-      "sha256": "ba1751b7d1b64d22220007713f5ed2a6b49ecb012146a1493edc1236a6dd069d"
+      "sha256": "47dca8a449deb1bd7d8c2b7f798f2a04c086afed20f6b9ba739da47f5734dc7e"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.en.srt",
@@ -54,6 +67,6 @@
     "storyboard": "video/hyperframes/STORYBOARD.md",
     "script": "video/hyperframes/SCRIPT.md",
     "shot_manifest": "video/hyperframes/data/shot-manifest.json",
-    "render_command": "HYPERFRAMES_BROWSER_PATH=/snap/bin/chromium ./video/hyperframes/render_delivery.sh"
+    "render_command": "HYPERFRAMES_BROWSER_PATH=/snap/chromium/current/usr/lib/chromium-browser/chrome HYPERFRAMES_WORKERS=2 ./video/hyperframes/render_delivery.sh"
   }
 }

@@ -1,0 +1,1 @@
+Failures are part of the benchmark. Action alignment, navigation, contact, and recovery are diagnosed instead of hidden.

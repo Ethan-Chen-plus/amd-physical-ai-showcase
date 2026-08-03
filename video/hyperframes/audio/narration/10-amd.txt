@@ -1,0 +1,1 @@
+ROCm versions, GPU identity, memory, throughput, training time, JSON, MP4, and SHA travel with every result.

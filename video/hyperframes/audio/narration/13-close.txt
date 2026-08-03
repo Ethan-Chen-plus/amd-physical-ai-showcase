@@ -1,0 +1,1 @@
+Build it, run it, and show the proof through code, notebooks, weights, reports, videos, and reproducible commands.

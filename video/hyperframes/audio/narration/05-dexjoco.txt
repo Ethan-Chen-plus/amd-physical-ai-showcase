@@ -1,0 +1,1 @@
+DexJoCo brings contact-rich dexterous tasks into the same protocol, with native JAX running on AMD ROCm.

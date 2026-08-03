@@ -42,10 +42,14 @@ Chinese, bilingual, and standalone SRT deliverables are linked below the
 flagship player. Release metadata and SHA-256 values are in
 `data/amd-physical-ai-demo-release.json`.
 
-The film is reproducible from the local HyperFrames source and FFmpeg helper:
+The film is reproducible from the local HyperFrames source and FFmpeg helper. It
+uses a Kokoro `af_heart` English voice, a deterministic original score, and a
+generated editorial blueprint visual; no generated robot footage replaces the
+real experiment clips:
 
 ```bash
-HYPERFRAMES_BROWSER_PATH=/snap/bin/chromium \
+HYPERFRAMES_BROWSER_PATH=/snap/chromium/current/usr/lib/chromium-browser/chrome \
+HYPERFRAMES_WORKERS=2 \
   ./video/hyperframes/render_delivery.sh
 ```
 
