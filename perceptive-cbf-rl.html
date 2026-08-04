@@ -54,21 +54,21 @@
       <section class="pacman-band" id="evidence">
         <div class="page-shell">
           <div class="section-heading light">
-            <div><span class="section-index">01 / AMD EVIDENCE</span><h2 data-zh="ROCm CBF 控制回放" data-en="ROCm CBF control replay">ROCm CBF 控制回放</h2></div>
-            <p data-zh="MuJoCo 负责物理与无窗口渲染，ROCm Torch 负责安全张量计算；overview 与 top view 同步呈现机器人、来球和避障轨迹。" data-en="MuJoCo handles physics and headless rendering while ROCm Torch computes the safety tensors; overview and top view show the robot, incoming ball, and escape trajectory together.">MuJoCo 负责物理与无窗口渲染，ROCm Torch 负责安全张量计算；overview 与 top view 同步呈现机器人、来球和避障轨迹。</p>
+            <div><span class="section-index">01 / AMD EVIDENCE</span><h2 data-zh="AMD 可移植 CBF 控制回放" data-en="AMD-portable CBF control replay">AMD 可移植 CBF 控制回放</h2></div>
+            <p data-zh="15 秒长版以三分之四视角、来球侧视和低机位正视连续呈现 G1 左右侧移；同步俯视小窗标出来球预测轨迹、安全区域与实时 clearance。" data-en="A 15-second replay follows left and right G1 sidesteps through three-quarter, projectile-profile, and low-front shots, while a synchronized top-view inset shows the predicted path, safety zone, and live clearance.">15 秒长版以三分之四视角、来球侧视和低机位正视连续呈现 G1 左右侧移；同步俯视小窗标出来球预测轨迹、安全区域与实时 clearance。</p>
           </div>
           <div class="pacman-evidence-layout">
             <article class="pacman-video-card">
               <video controls playsinline preload="metadata" poster="assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg">
                 <source src="assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4" type="video/mp4" />
               </video>
-              <div class="pacman-video-copy"><span>Unitree G1 · MuJoCo · 2-view replay</span><strong data-zh="G1 资产与预测性侧移" data-en="G1 asset and predictive sidestep">G1 资产与预测性侧移</strong></div>
+              <div class="pacman-video-copy"><span>Unitree G1 · MuJoCo/NumPy · 15 s · 3 shots + top-view inset</span><strong data-zh="来球预测、侧移姿态与安全区域" data-en="Ball prediction, sidestep pose, and safety envelope">来球预测、侧移姿态与安全区域</strong></div>
             </article>
             <div class="pacman-stat-grid">
               <div><strong>8 / 8</strong><span data-zh="G1 固定 seed 回放" data-en="fixed-seed G1 replays">G1 固定 seed 回放</span></div>
-              <div><strong>0.19 m</strong><span data-zh="最小安全间距" data-en="minimum clearance">最小安全间距</span></div>
+              <div><strong>0.42 m</strong><span data-zh="最小安全间距" data-en="minimum clearance">最小安全间距</span></div>
               <div><strong>3.11</strong><span>MuJoCo runtime</span></div>
-              <div><strong>2</strong><span data-zh="视频视角" data-en="camera views">视频视角</span></div>
+              <div><strong>3 + top</strong><span data-zh="展示镜头" data-en="showcase views">展示镜头</span></div>
             </div>
           </div>
           <div class="pacman-evidence-links">
@@ -87,7 +87,7 @@
           <article><b>01</b><i data-lucide="scan-eye"></i><h3 data-zh="感知威胁" data-en="Sense threat">感知威胁</h3><p data-zh="从球的位置、速度和高度判断它是否仍在飞行、接近且位于感知半径内。" data-en="Use ball position, velocity, and height to gate airborne, approaching threats within the sensing radius.">从球的位置、速度和高度判断它是否仍在飞行、接近且位于感知半径内。</p></article>
           <article><b>02</b><i data-lucide="compass"></i><h3 data-zh="预测轨迹" data-en="Predict path">预测轨迹</h3><p data-zh="沿球的水平速度求来球方向，取其垂直方向作为侧移轴，保持机器人与来球轨迹的安全间距。" data-en="Estimate the horizontal heading and use its perpendicular as a sidestep axis that preserves clearance from the incoming path.">沿球的水平速度求来球方向，取其垂直方向作为侧移轴，保持机器人与来球轨迹的安全间距。</p></article>
           <article><b>03</b><i data-lucide="shield-check"></i><h3 data-zh="安全投影" data-en="Safety projection">安全投影</h3><p data-zh="把 nominal velocity 投影到 CBF 半空间，并用剩余可用时间逐步提高侧移速度。" data-en="Project the nominal velocity onto the CBF half-space and increase sidestep speed as usable time shrinks.">把 nominal velocity 投影到 CBF 半空间，并用剩余可用时间逐步提高侧移速度。</p></article>
-          <article><b>04</b><i data-lucide="video"></i><h3 data-zh="回放档案" data-en="Replay archive">回放档案</h3><p data-zh="每个 seed 同步保存碰撞状态、最小间距、最大过滤速度和双视角视频，让控制动作能够逐回合复查。" data-en="Each seed stores collision state, minimum clearance, maximum filtered speed, and two-view video for episode-by-episode review.">每个 seed 同步保存碰撞状态、最小间距、最大过滤速度和双视角视频，让控制动作能够逐回合复查。</p></article>
+          <article><b>04</b><i data-lucide="video"></i><h3 data-zh="回放档案" data-en="Replay archive">回放档案</h3><p data-zh="每个 seed 同步保存碰撞状态、最小间距和最大过滤速度；长版视频组合三个主镜头与同步俯视轨迹。" data-en="Each seed stores collision state, minimum clearance, and maximum filtered speed; the long-form replay combines three primary shots with a synchronized top-view trajectory.">每个 seed 同步保存碰撞状态、最小间距和最大过滤速度；长版视频组合三个主镜头与同步俯视轨迹。</p></article>
         </div>
         <div class="pacman-equation" aria-label="CBF projection equation"><code>u_safe = u_nom + max(0, rhs - u_nom · e) · e</code><span>rhs = max(alpha · clearance, clearance / usable_time)</span></div>
       </section>
@@ -101,7 +101,7 @@
               <tbody>
                 <tr><td><strong>Predictive CBF</strong></td><td data-zh="来球预测与安全速度约束" data-en="Ball prediction and safe-velocity constraints">来球预测与安全速度约束</td><td><span class="status-pill done" data-zh="ROCm Torch" data-en="ROCm Torch">ROCm Torch</span></td><td data-zh="12 个固定种子回放" data-en="12 fixed-seed replays">12 个固定种子回放</td></tr>
                 <tr><td><strong>Unitree G1</strong></td><td data-zh="机器人本体、关节和场景资产" data-en="Robot body, joints, and scene assets">机器人本体、关节和场景资产</td><td><span class="status-pill done" data-zh="MuJoCo 资产路径" data-en="MuJoCo asset path">MuJoCo 资产路径</span></td><td data-zh="G1 视觉与动作回放" data-en="G1 visual and motion replay">G1 视觉与动作回放</td></tr>
-                <tr><td><strong>MuJoCo replay</strong></td><td data-zh="物理、相机与无窗口渲染" data-en="Physics, cameras, and headless rendering">物理、相机与无窗口渲染</td><td><span class="status-pill done" data-zh="CPU 可移植运行" data-en="portable CPU runtime">CPU 可移植运行</span></td><td data-zh="overview + top view MP4" data-en="overview + top view MP4">overview + top view MP4</td></tr>
+                <tr><td><strong>MuJoCo replay</strong></td><td data-zh="物理、相机与无窗口渲染" data-en="Physics, cameras, and headless rendering">物理、相机与无窗口渲染</td><td><span class="status-pill done" data-zh="CPU 可移植运行" data-en="portable CPU runtime">CPU 可移植运行</span></td><td data-zh="三镜头 + 俯视小窗 MP4" data-en="three shots + top-view inset MP4">三镜头 + 俯视小窗 MP4</td></tr>
                 <tr><td><strong>AMP locomotion</strong></td><td data-zh="上游 G1 行走先验与策略接口" data-en="Upstream G1 locomotion prior and policy interface">上游 G1 行走先验与策略接口</td><td><span class="status-pill open" data-zh="集成路径" data-en="integration path">集成路径</span> mjlab / rsl_rl</td><td data-zh="控制器接入点与原始仓库" data-en="controller hook and upstream source">控制器接入点与原始仓库</td></tr>
                 <tr><td><strong>Depth perception</strong></td><td data-zh="球体深度观测与 ZED 接口" data-en="Ball-depth observation and ZED interface">球体深度观测与 ZED 接口</td><td><span class="status-pill open" data-zh="传感器接口" data-en="sensor interface">传感器接口</span> depth stream</td><td data-zh="感知输入契约" data-en="perception input contract">感知输入契约</td></tr>
                 <tr><td><strong>G1 deployment</strong></td><td data-zh="Unitree DDS 与 ONNX 控制链路" data-en="Unitree DDS and ONNX control path">Unitree DDS 与 ONNX 控制链路</td><td><span class="status-pill open" data-zh="部署接口" data-en="deployment interface">部署接口</span> hardware path</td><td data-zh="上游部署文档与接口" data-en="upstream deployment docs and interface">上游部署文档与接口</td></tr>
@@ -117,9 +117,9 @@
           <div class="blog-code"><pre><code>MUJOCO_GL=egl \
   python code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py \
   --upstream-xml .vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml \
-  --output-dir results/pacman_g1_amd_replay \
-  --episodes 8</code></pre></div>
-            <div class="pacman-reproduce-note"><strong data-zh="运行时记录" data-en="Runtime recorded">运行时记录</strong><ul><li><code>MuJoCo = 3.11.0</code></li><li><code>NumPy CBF replay</code></li><li><code>seed = 0..7</code></li><li><code>overview + top</code> video</li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span data-zh="查看复现代码" data-en="Open reproduction code">查看复现代码</span><i data-lucide="arrow-up-right"></i></a></div>
+  --output-dir results/pacman_g1_amd_cinematic \
+  --episodes 8 --duration 5 --fps 30</code></pre></div>
+            <div class="pacman-reproduce-note"><strong data-zh="运行时记录" data-en="Runtime recorded">运行时记录</strong><ul><li><code>MuJoCo = 3.11.0</code></li><li><code>NumPy CBF replay</code></li><li><code>seed = 0..7</code></li><li><code>3 shots + top inset</code> video</li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span data-zh="查看复现代码" data-en="Open reproduction code">查看复现代码</span><i data-lucide="arrow-up-right"></i></a></div>
         </div>
       </section>
 

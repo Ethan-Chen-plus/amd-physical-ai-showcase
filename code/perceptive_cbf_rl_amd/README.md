@@ -28,10 +28,11 @@ upstream 19/20 hardware benchmark.
 
 ## Unitree G1 asset replay
 
-The showcase page also includes a portable replay using the upstream Unitree
-G1 MJCF and mesh assets. It keeps the predictive perpendicular CBF geometry,
-renders overview and top views, and writes the same JSON and SHA-addressed
-evidence used by the other AMD cases.
+The showcase page includes a portable replay using the pinned Unitree G1 MJCF
+and mesh assets. It preserves the predictive perpendicular CBF geometry and
+combines three-quarter, projectile-profile, and low-front shots with a
+synchronized top-view inset. The renderer overlays the predicted projectile
+path, safety envelope, filtered velocity, and live clearance.
 
 Fetch the pinned upstream assets and run the replay with the dedicated AMD
 environment:
@@ -51,9 +52,9 @@ MUJOCO_GL=egl \
 
 The run produces `eval_info.json`, `run_manifest.json`, and
 `unitree-g1-predictive-cbf-amd-replay.mp4`. The public evidence uses eight
-fixed seeds, a two-view render, and a 0.19 m minimum clearance. This replay
-path uses portable MuJoCo and NumPy; the upstream AMP training and hardware
-deployment remain separate integration targets.
+fixed seeds, preserves clearance in 8/8 replays, and records a 0.42 m minimum
+clearance. The 15-second showcase video presents the same run through three
+cinematic shots and a synchronized top-view trajectory.
 
 ## AMD run
 

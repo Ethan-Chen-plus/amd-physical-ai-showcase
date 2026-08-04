@@ -43,9 +43,13 @@ ROCm versions, GPU metrics, videos, JSON, and SHA travel with every result.
 Selected successes lead the story, with every result linked to its source artifact.
 
 12
-00:04:13,370 --> 00:04:38,630
-Boundary cases guide the next run.
+00:04:13,370 --> 00:04:27,870
+PAC-MAN predicts the ball; G1 sidesteps safely.
 
 13
+00:04:28,370 --> 00:04:38,630
+Stage traces guide navigation, contact, and recovery.
+
+14
 00:04:39,130 --> 00:04:58,630
 Code, notebooks, weights, reports, videos, and commands make the work reusable.

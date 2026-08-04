@@ -13,7 +13,8 @@
 | 03:02.28–03:23.69 | 3DGS | ROCm renderer and dynamic replay | Rendering migration is concrete and inspectable. |
 | 03:23.69–03:49.68 | AMD execution | ROCm/JAX/GPU command evidence | AMD use is measurable and reproducible. |
 | 03:49.68–04:13.37 | Result | Successful RoboCasa trace plus artifact rail | Video, JSON, and SHA are one result package. |
-| 04:13.37–04:39.13 | Boundary cases | RoboCasa and SmolVLA diagnosis | Boundary cases remain narrated, brief, and useful. |
+| 04:13.37–04:28.37 | Predictive safety | PAC-MAN Unitree G1 cinematic replay | Projectile tracking, future-path prediction, CBF redirect, and live clearance become a visible AMD safety-control result. |
+| 04:28.37–04:39.13 | Boundary cases | RoboCasa and SmolVLA stage traces | A compact diagnostic chapter maps navigation, contact, release, and recovery into the next run. |
 | 04:39.13–04:59.00 | Close | Submission checklist | The evaluator knows where to reproduce the work. |
 
 ## Motion language

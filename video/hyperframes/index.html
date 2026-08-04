@@ -216,6 +216,34 @@
       .metric-card strong { display: block; font-size: 39px; line-height: 1; color: var(--teal); }
       .metric-card.warn strong { color: var(--amber); }
       .metric-card small { display: block; margin-top: 12px; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 16px; }
+      .pacman-surface {
+        padding: 38px 0 0;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      #pacman-video { opacity: 0; }
+      .pacman-card {
+        width: 470px;
+        padding: 14px 20px 13px;
+        border: 1px solid rgba(54, 184, 167, 0.42);
+        border-radius: 8px;
+        background: rgba(11, 13, 16, 0.84);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+        text-align: center;
+      }
+      .pacman-card h3 { max-width: none; margin-top: 5px; font-size: 31px; }
+      .pacman-meta {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 16px;
+      }
+      .boundary-surface { padding: 72px 100px 76px; gap: 24px; }
+      .boundary-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; }
+      .boundary-head .safe { max-width: 760px; }
+      .boundary-head .lede { max-width: 650px; font-size: 24px; text-align: right; }
+      .boundary-surface .split { height: 760px; }
       .transition { position: absolute; left: 0; right: 0; bottom: 0; height: 12px; background: linear-gradient(90deg, rgba(220,39,56,.9) 0%, rgba(54,184,167,.72) 54%, transparent 100%); opacity: 0; mix-blend-mode: screen; pointer-events: none; z-index: 100; }
       .paper .eyebrow { color: #087e73; }
       .paper .node-row { margin-top: 30px; }
@@ -302,16 +330,28 @@
         <div class="score-rail"><div class="score success"><strong>MP4</strong><span>success + failure examples</span></div><div class="score success"><strong>JSON</strong><span>fixed denominator and stage stats</span></div><div class="score success"><strong>SHA</strong><span>weight and artifact provenance</span></div></div>
       </div>
 
-      <div id="failure-surface" class="surface clip" data-start="253.37" data-duration="25.76" data-track-index="10">
-        <div class="safe"><div class="eyebrow red">11 · BOUNDARY CASES</div><h2>Every benchmark reveals its next step.</h2><p class="lede">The closing cases trace action alignment, navigation, contact, and recovery, giving the next engineering iteration a clear target.</p></div>
+      <video id="pacman-video" class="full contained clip" src="media/perceptive-cbf-rl/pacman-g1-amd-replay.mp4" muted playsinline preload="auto" data-start="253.37" data-duration="15" data-track-index="1" data-media-start="0"></video>
+      <div id="pacman-surface" class="surface pacman-surface clip" data-start="253.37" data-duration="15" data-track-index="10">
+        <div class="pacman-card">
+          <div class="eyebrow">11 · PREDICTIVE SAFETY CONTROL</div>
+          <h3>PAC-MAN × Unitree G1</h3>
+          <span class="pacman-meta">trajectory prediction · CBF redirect · live clearance</span>
+        </div>
+      </div>
+
+      <div id="boundary-surface" class="surface boundary-surface clip" data-start="268.37" data-duration="10.76" data-track-index="10">
+        <div class="boundary-head">
+          <div class="safe"><div class="eyebrow amber">12 · BOUNDARY CASES</div><h3>Every trace sharpens the next run.</h3></div>
+          <p class="lede">Stage-level evidence guides navigation, contact, release, and recovery.</p>
+        </div>
         <div class="split">
-          <div class="view"><video id="failure-robo-video" class="clip" src="media/robocasa-gr00t-showcase-failure.mp4" muted playsinline preload="auto" data-start="253.37" data-duration="25.76" data-track-index="2"></video><div class="view-label"><b class="red">ROBOCASA365</b> · long-horizon failure</div></div>
-          <div class="view"><video id="failure-smolvla-video" class="contained clip" src="media/smolvla-cup-failure.mp4" muted playsinline preload="auto" data-start="253.37" data-duration="8" data-track-index="3"></video><div class="view-label"><b class="red">SMOLVLA</b> · strict physical-success failure</div></div>
+          <div class="view"><video id="boundary-robo-video" class="clip" src="media/robocasa-gr00t-showcase-failure.mp4" muted playsinline preload="auto" data-start="268.37" data-duration="10.76" data-track-index="2"></video><div class="view-label"><b>ROBOCASA365</b> · long-horizon stage trace</div></div>
+          <div class="view"><video id="boundary-smolvla-video" class="contained clip" src="media/smolvla-cup-failure.mp4" muted playsinline preload="auto" data-start="268.37" data-duration="8" data-track-index="3"></video><div class="view-label"><b>SMOLVLA</b> · contact and release trace</div></div>
         </div>
       </div>
 
       <div id="close-surface" class="surface center paper clip" data-start="279.13" data-duration="19.87" data-track-index="10">
-        <div class="safe"><div class="eyebrow">12 · DATAWHALE-EAI × AMD ROCm</div><h2>Build it. Run it. Show the proof.</h2><p class="lede">Source code, bilingual notebooks, open weights, videos, evaluation JSON, and the submission report form one reproducible project.</p></div>
+        <div class="safe"><div class="eyebrow">13 · DATAWHALE-EAI × AMD ROCm</div><h2>Build it. Run it. Show the proof.</h2><p class="lede">Source code, bilingual notebooks, open weights, videos, evaluation JSON, and the submission report form one reproducible project.</p></div>
         <div class="bottom-line"><span class="dot"></span><span>GITHUB · HUGGING FACE · TECHNICAL REPORT · DEMO VIDEO · REPRODUCE</span></div>
       </div>
 
@@ -326,17 +366,19 @@
       <div class="transition clip" id="tr-9" data-start="203.39" data-duration="0.6" data-track-index="90" data-layout-ignore></div>
       <div class="transition clip" id="tr-10" data-start="229.38" data-duration="0.6" data-track-index="90" data-layout-ignore></div>
       <div class="transition clip" id="tr-11" data-start="253.07" data-duration="0.6" data-track-index="90" data-layout-ignore></div>
-      <div class="transition clip" id="tr-12" data-start="278.83" data-duration="0.6" data-track-index="90" data-layout-ignore></div>
+      <div class="transition clip" id="tr-12" data-start="268.07" data-duration="0.6" data-track-index="90" data-layout-ignore></div>
+      <div class="transition clip" id="tr-13" data-start="278.83" data-duration="0.6" data-track-index="90" data-layout-ignore></div>
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
 
+      gsap.set("#pacman-video", { opacity: 0, scale: 1.025 });
       const tl = gsap.timeline({ paused: true });
       const scenes = [
         ["#hook-surface", 0], ["#thesis-surface", 17.99], ["#robo-surface", 36.96], ["#robo-pair-surface", 59.09],
         ["#dex-pair-surface", 81.73], ["#dex-stat-surface", 107.15], ["#arch-surface", 131.74], ["#disc-surface", 157.29],
-        ["#gs-surface", 182.28], ["#amd-surface", 203.69], ["#evidence-surface", 229.68], ["#failure-surface", 253.37], ["#close-surface", 279.13]
+        ["#gs-surface", 182.28], ["#amd-surface", 203.69], ["#evidence-surface", 229.68], ["#boundary-surface", 268.37], ["#close-surface", 279.13]
       ];
       scenes.forEach(([selector, start]) => {
         const items = document.querySelector(selector).querySelectorAll(".eyebrow, h1, h2, h3, .lede, .score, .chip, .split, .metric-card, .node-row, .command-window, .bottom-line");
@@ -348,6 +390,10 @@
         const start = Number(element.dataset.start);
         tl.from(element, { opacity: 0, duration: 0.7, ease: "power2.out" }, start);
       });
+      tl.to("#pacman-video", { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 253.37);
+      tl.from("#pacman-surface .eyebrow", { opacity: 0, x: -30, duration: 0.42, ease: "expo.out" }, 253.55);
+      tl.from("#pacman-surface h3", { opacity: 0, scale: 0.96, duration: 0.58, ease: "power3.out" }, 253.68);
+      tl.from("#pacman-surface .pacman-meta", { opacity: 0, x: 24, duration: 0.48, ease: "sine.out" }, 253.82);
       document.querySelectorAll(".surface video").forEach((element) => {
         tl.from(element, { opacity: 0, duration: 0.7, ease: "power2.out" }, Number(element.dataset.start));
       });

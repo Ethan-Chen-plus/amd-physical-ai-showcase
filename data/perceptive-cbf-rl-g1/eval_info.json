@@ -22,88 +22,116 @@
       6,
       7
     ],
-    "duration_s": 2.2,
+    "showcase_seeds": [
+      0,
+      1,
+      2
+    ],
+    "segment_duration_s": 5.0,
+    "video_duration_s": 15.0,
+    "video_resolution": [
+      1280,
+      720
+    ],
     "views": [
-      "replay_overview",
-      "replay_top"
+      "THREE-QUARTER",
+      "PROJECTILE PROFILE",
+      "LOW FRONT",
+      "top-view inset"
     ]
   },
   "summary": {
     "clearance_preserved": 8,
     "episodes": 8,
-    "min_clearance_m": 0.19426
+    "min_clearance_m": 0.42238
   },
   "episodes": [
     {
       "seed": 0,
       "clearance_preserved": true,
-      "min_clearance_m": 0.19446,
-      "max_filtered_speed_mps": 1.15649,
-      "threat_steps": 73,
+      "min_clearance_m": 0.42322,
+      "max_filtered_speed_mps": 1.05,
+      "max_lateral_displacement_m": 0.56653,
+      "threat_steps": 100,
       "escape_side": 1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     },
     {
       "seed": 1,
       "clearance_preserved": true,
-      "min_clearance_m": 0.19461,
-      "max_filtered_speed_mps": 1.0484,
-      "threat_steps": 73,
+      "min_clearance_m": 0.43059,
+      "max_filtered_speed_mps": 1.00279,
+      "max_lateral_displacement_m": 0.50139,
+      "threat_steps": 100,
       "escape_side": -1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     },
     {
       "seed": 2,
       "clearance_preserved": true,
-      "min_clearance_m": 0.19453,
-      "max_filtered_speed_mps": 1.08518,
-      "threat_steps": 73,
+      "min_clearance_m": 0.43614,
+      "max_filtered_speed_mps": 1.05,
+      "max_lateral_displacement_m": 0.53289,
+      "threat_steps": 100,
       "escape_side": 1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     },
     {
       "seed": 3,
       "clearance_preserved": true,
-      "min_clearance_m": 0.19517,
-      "max_filtered_speed_mps": 0.90642,
-      "threat_steps": 73,
+      "min_clearance_m": 0.42238,
+      "max_filtered_speed_mps": 1.05,
+      "max_lateral_displacement_m": 0.6034,
+      "threat_steps": 100,
       "escape_side": -1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     },
     {
       "seed": 4,
       "clearance_preserved": true,
-      "min_clearance_m": 0.1946,
-      "max_filtered_speed_mps": 1.16847,
-      "threat_steps": 73,
+      "min_clearance_m": 0.4291,
+      "max_filtered_speed_mps": 1.05,
+      "max_lateral_displacement_m": 0.55895,
+      "threat_steps": 100,
       "escape_side": 1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     },
     {
       "seed": 5,
       "clearance_preserved": true,
-      "min_clearance_m": 0.19426,
-      "max_filtered_speed_mps": 1.18216,
-      "threat_steps": 73,
+      "min_clearance_m": 0.43675,
+      "max_filtered_speed_mps": 1.02674,
+      "max_lateral_displacement_m": 0.51337,
+      "threat_steps": 100,
       "escape_side": -1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     },
     {
       "seed": 6,
       "clearance_preserved": true,
-      "min_clearance_m": 0.19474,
-      "max_filtered_speed_mps": 0.99916,
-      "threat_steps": 73,
+      "min_clearance_m": 0.42386,
+      "max_filtered_speed_mps": 1.05,
+      "max_lateral_displacement_m": 0.53788,
+      "threat_steps": 100,
       "escape_side": 1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     },
     {
       "seed": 7,
       "clearance_preserved": true,
-      "min_clearance_m": 0.19445,
-      "max_filtered_speed_mps": 1.11978,
-      "threat_steps": 73,
+      "min_clearance_m": 0.42897,
+      "max_filtered_speed_mps": 1.05,
+      "max_lateral_displacement_m": 0.56225,
+      "threat_steps": 100,
       "escape_side": -1,
+      "duration_s": 5.0,
       "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
     }
   ],

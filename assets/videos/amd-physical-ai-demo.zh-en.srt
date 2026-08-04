@@ -54,11 +54,16 @@ Selected successes lead the story, with every result linked to its source artifa
 精选成功案例先行，每项结果都链接到原始产物。
 
 12
-00:04:13,370 --> 00:04:38,630
-Recovery traces show how alignment, navigation, contact, and release shape performance.
-恢复轨迹展示动作对齐、导航、接触与释放如何影响表现。
+00:04:13,370 --> 00:04:27,870
+PAC-MAN predicts the ball; G1 sidesteps safely.
+PAC-MAN 预测来球，G1 安全侧移。
 
 13
+00:04:28,370 --> 00:04:38,630
+Stage traces guide navigation, contact, and recovery.
+阶段轨迹持续优化导航、接触与恢复。
+
+14
 00:04:39,130 --> 00:04:58,630
 Code, notebooks, weights, reports, videos, and commands make the work reusable.
 代码、Notebook、权重、报告、视频与命令，让成果可以复用。

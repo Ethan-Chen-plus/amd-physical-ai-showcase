@@ -22,52 +22,52 @@
     {
       "path": "assets/videos/amd-physical-ai-demo-en.mp4",
       "language": "English",
-      "sha256": "54a327a0d8d0a9998f3f2a68a78bcec277ba099e3db76248918bdf65786fe2cf"
+      "sha256": "88fb704410c34c5f9aaa477190d19fa7f0e56c404018209caaa67fdf2fbe26d3"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
       "language": "Chinese",
-      "sha256": "88b9d3919e879c045592c079961964e511f31c7a4252a84eb0f99640fdb4b1da"
+      "sha256": "c0e58e08770242bc9c520514ab82d68409afe0ef0bceb2967acc0c4446f143e9"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
       "language": "Bilingual",
-      "sha256": "bbbadb9b54903b87c48858a3c9b965ec29fb25a347b08db052b63fc5a094b999"
+      "sha256": "633bbdccf1fe9d1a35d550e4b89edc8e43cca031d2a1d39bf499aebbbda8a06d"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.en.srt",
       "language": "English subtitles",
-      "sha256": "5402fa736c2f934642594c52b9602fafc4f5718bf9a4630c73b7153dd671493a"
+      "sha256": "d88c5a2589b53733a1dfeaa28330d8cb6f84095960d99ead26bd46d22432cfd5"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh.srt",
       "language": "Chinese subtitles",
-      "sha256": "27a186e16ae7a3383082eceb1b18c9a9f9ef7dc56ab5736ba1ace11b7b9d41e6"
+      "sha256": "f1655714e04b75deecdb783b4233391455765d396fc355e43fe57c31f85a0fcb"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh-en.srt",
       "language": "Bilingual subtitles",
-      "sha256": "f882ded082286e97f9abd35dd0df4c5547c2ec5f8b20397407f0061403ff3bf6"
+      "sha256": "f7d5ac0c04c974ff4a0ffa716901450f40b4c948aa76d685d2109f36677365da"
     },
     {
       "path": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",
       "language": "Unitree G1 AMD replay",
-      "sha256": "ec424e8b5a9995d39c4d2689cf87c71ad032f073b2ede3357217c3fb85e60cd8"
+      "sha256": "3e0c5c95538616271d3eb9c7ed4ef8ac50c741594684d4245c23b87008d430c7"
     },
     {
       "path": "assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg",
       "language": "Unitree G1 poster",
-      "sha256": "fc95b825206b3512259886b74644d3d1f9bbf5293b0afde0c063a4a6326b68a1"
+      "sha256": "f1b75932d8de74e8581db247cf5a18cb0aff93fc406c07e1db71212dc58501c8"
     },
     {
       "path": "data/perceptive-cbf-rl-g1/eval_info.json",
       "language": "Unitree G1 evaluation JSON",
-      "sha256": "817ee758f6c23de5d919e5b5c04d00b86c85413edc255180e897c2fa9df65171"
+      "sha256": "55989052745b4434899da486c35e4017e5227a7975d77f590fbf11cb0364355c"
     },
     {
       "path": "data/perceptive-cbf-rl-g1/run_manifest.json",
       "language": "Unitree G1 run manifest",
-      "sha256": "cef8a4d0e262d2d44f073c66bcecc69e5827786fb141b536b82d4b0283d1fdef"
+      "sha256": "32f5f6863b30a53ff471363bf7a925157708d1ecf201c5c7e42977b24fe121cb"
     }
   ],
   "sequence": [
@@ -80,7 +80,9 @@
     "3DGS ROCm rendering",
     "AMD execution and reproducibility",
     "success trace and release checklist",
-    "failure appendix"
+    "PAC-MAN predictive safety control with Unitree G1",
+    "stage diagnostics",
+    "release close"
   ],
   "source": {
     "composition": "video/hyperframes/index.html",

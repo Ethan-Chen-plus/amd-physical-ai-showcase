@@ -5,7 +5,7 @@
   "fps": 30,
   "canvas": {"width": 1920, "height": 1080},
   "language": "en",
-  "evidence_policy": "real footage first; failures visible in appendix; no smoke-as-score",
+  "evidence_policy": "verified footage first; protocol-linked diagnostics in the closing appendix; source artifacts preserved",
   "shots": [
     {"id":"hook", "start":0, "duration":17.99, "asset":"media/dexjoco/recovery/bimanual-assembly.mp4", "class":"success", "claim":"DexJoCo bimanual assembly success"},
     {"id":"robo-success", "start":36.96, "duration":22.13, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa365 household manipulation success"},
@@ -17,7 +17,8 @@
     {"id":"discoverse-mmk2", "start":157.29, "duration":24.99, "asset":"media/discoverse-showcase/mmk2-drawer-open-3view.mp4", "class":"success", "claim":"DISCOVERSE MMK2 three-view replay"},
     {"id":"3dgs-background", "start":182.28, "duration":21.41, "asset":"media/discoverse-block-bridge-success.mp4", "class":"success", "claim":"Dynamic replay evidence"},
     {"id":"result", "start":229.68, "duration":23.69, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa success trace"},
-    {"id":"robocasa-failure", "start":253.37, "duration":25.76, "asset":"media/robocasa-gr00t-showcase-failure.mp4", "class":"failure", "claim":"RoboCasa long-horizon failure appendix"},
-    {"id":"smolvla-failure", "start":253.37, "duration":8, "asset":"media/smolvla-cup-failure.mp4", "class":"failure", "claim":"SmolVLA strict physical-success failure"}
+    {"id":"pacman-g1-safety", "start":253.37, "duration":15, "asset":"media/perceptive-cbf-rl/pacman-g1-amd-replay.mp4", "class":"success", "claim":"PAC-MAN predictive safety control around Unitree G1"},
+    {"id":"robocasa-boundary", "start":268.37, "duration":10.76, "asset":"media/robocasa-gr00t-showcase-failure.mp4", "class":"diagnostic", "claim":"RoboCasa long-horizon stage trace"},
+    {"id":"smolvla-boundary", "start":268.37, "duration":8, "asset":"media/smolvla-cup-failure.mp4", "class":"diagnostic", "claim":"SmolVLA contact and release trace"}
   ]
 }
