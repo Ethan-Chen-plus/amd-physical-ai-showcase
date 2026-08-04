@@ -10,7 +10,7 @@ npm install --ignore-scripts --no-fund --no-audit
 bash render_delivery.sh
 ```
 
-The render gate runs `lint`, `validate`, and `inspect` before producing a 1920x1080, 30 fps, 260 second master. Delivery outputs are copied to `assets/videos/`:
+The render gate runs `lint`, `validate`, and `inspect` before producing a 1920x1080, 30 fps, 299 second master. The audio step also fails if any narration gap exceeds 3 seconds. GSAP is pinned locally in `package.json`, and the delivery script prefers an installed Chromium binary so the render does not depend on a CDN or a browser download. Delivery outputs are copied to `assets/videos/`:
 
 - `amd-physical-ai-demo-en.mp4`
 - `amd-physical-ai-demo-zh.mp4`

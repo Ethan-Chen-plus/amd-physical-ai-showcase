@@ -1,1 +1,1 @@
-Long-horizon success traces make the action sequence inspectable, not just the final frame.
+Long-horizon success traces make the action sequence inspectable, not just the final frame. Packing and restocking show why the full trajectory matters: the robot must keep contact, preserve the object, complete several sub-actions, and finish in the correct state. When a run is incomplete, we cut forward rather than pad the story with empty time.

@@ -1,64 +1,64 @@
 1
-00:00:00,000 --> 00:00:12,000
+00:00:00,000 --> 00:00:17,490
 Datawhale-EAI builds a reproducible AMD Physical AI stack across dexterous hands, household manipulation, simulation, and rendering.
 Datawhale-EAI 构建一套可复现的 AMD Physical AI 系统，覆盖灵巧手、家庭操作、仿真与渲染。
 
 2
-00:00:12,000 --> 00:00:28,000
+00:00:17,990 --> 00:00:36,460
 One AMD stack. Many physical worlds. The same evidence contract follows data, policy, physics, and proof.
 一套 AMD 栈，连接多个物理世界。数据、策略、物理与证据遵循同一套契约。
 
 3
-00:00:28,000 --> 00:00:48,000
+00:00:36,960 --> 00:00:58,590
 RoboCasa365 gives the project a household manipulation benchmark with fixed tasks, seeds, videos, and a mobile observation contract.
 RoboCasa365 提供家庭操作基准，任务、种子、视频和移动观测接口都固定记录。
 
 4
-00:00:48,000 --> 00:01:08,000
+00:00:59,090 --> 00:01:21,230
 Long-horizon success traces make the action sequence inspectable, not just the final frame.
 长时序成功轨迹让每个动作步骤都可检查，而不只是展示最后一帧。
 
 5
-00:01:08,000 --> 00:01:32,000
+00:01:21,730 --> 00:01:46,650
 DexJoCo brings contact-rich dexterous tasks into the same protocol with native JAX on AMD ROCm.
 DexJoCo 将接触丰富的灵巧操作纳入同一协议，并在 AMD ROCm 上使用原生 JAX。
 
 6
-00:01:32,000 --> 00:01:50,000
+00:01:47,150 --> 00:02:11,240
 Official seed results, recovery searches, and diagnostic runs remain separate numbers with separate denominators.
 官方种子、恢复搜索和单任务诊断分别统计，各自保留清晰分母。
 
 7
-00:01:50,000 --> 00:02:14,000
+00:02:11,740 --> 00:02:36,790
 The evidence contract is simple: data to policy, policy to physics, physics to proof.
 证据契约很简单：数据进入策略，策略作用于物理，物理执行产生证明。
 
 8
-00:02:14,000 --> 00:02:38,000
+00:02:37,290 --> 00:03:01,780
 DISCOVERSE preserves expert paths, policy experiments, multi-view rendering, and MP4 output after migration.
 DISCOVERSE 迁移后保留专家轨迹、策略实验、多视角渲染和 MP4 输出。
 
 9
-00:02:38,000 --> 00:02:54,000
+00:03:02,280 --> 00:03:23,190
 3D Gaussian Splatting and dynamic replay turn the renderer itself into visible migration evidence.
 3D Gaussian Splatting 与动态回放让渲染迁移本身变成可见证据。
 
 10
-00:02:54,000 --> 00:03:14,000
+00:03:23,690 --> 00:03:49,180
 ROCm versions, GPU identity, memory, throughput, training time, JSON, MP4, and SHA travel with every result.
 ROCm 版本、GPU 身份、显存、吞吐、训练时间、JSON、MP4 与 SHA 随结果一起保存。
 
 11
-00:03:14,000 --> 00:03:38,000
+00:03:49,680 --> 00:04:12,870
 Success leads the story, but the source evidence stays attached behind it.
 成功案例先讲，但源视频和原始证据始终随结果保留。
 
 12
-00:03:38,000 --> 00:04:06,000
+00:04:13,370 --> 00:04:38,630
 Failures are part of the benchmark: action alignment, navigation, contact, and recovery are diagnosed instead of hidden.
 失败也是基准的一部分：动作对齐、导航、接触和恢复问题被诊断，而不是隐藏。
 
 13
-00:04:06,000 --> 00:04:20,000
+00:04:39,130 --> 00:04:58,630
 Build it, run it, and show the proof through code, notebooks, weights, reports, videos, and reproducible commands.
 用代码、Notebook、权重、报告、视频和可复现命令，把它跑起来并展示证据。

@@ -1,1 +1,1 @@
-Success leads the story, but the source evidence stays attached behind it: code, videos, metrics, and checksums.
+Success leads the story, but the source evidence stays attached behind it: code, videos, metrics, and checksums. The strongest clips earn a complete moment on screen. Shorter clips answer one question and move on. The website then opens the deeper layer: notebooks, weights, raw evaluation records, environment notes, and the commands used to reproduce each result.

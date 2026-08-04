@@ -1,1 +1,1 @@
-DexJoCo brings contact-rich dexterous tasks into the same protocol, with native JAX running on AMD ROCm.
+DexJoCo brings contact-rich dexterous tasks into the same protocol, with native JAX running on AMD ROCm. Bimanual assembly, Hanoi, and microwave manipulation put the hand in the difficult part of the problem: precise contact, coordinated fingers, and long action sequences. These are the success traces worth giving time to, because the outcome is easy to inspect.

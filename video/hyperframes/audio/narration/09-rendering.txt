@@ -1,1 +1,1 @@
-Three-D Gaussian Splatting and dynamic replay turn the renderer itself into visible migration evidence.
+Three-D Gaussian Splatting and dynamic replay turn the renderer itself into visible migration evidence. The renderer is not decoration around the benchmark. It is another AMD path to verify: point assets, camera motion, lighting, and replay output all need to survive the same reproducibility checks as the policy.

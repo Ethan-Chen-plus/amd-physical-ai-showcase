@@ -7,11 +7,13 @@ VOICE="${HYPERFRAMES_TTS_VOICE:-af_heart}"
 SPEED="${HYPERFRAMES_TTS_SPEED:-0.96}"
 PYTHON="${HYPERFRAMES_PYTHON:-/data/Data14TB/envs/hyperframes-audio/bin/python}"
 SAMPLE_RATE=48000
-DURATION=260
+DURATION=299
 
 mkdir -p "$OUT"
 
-starts=(0 12 28 48 68 92 110 134 158 174 194 218 246)
+# Starts are derived from the rendered chapter durations with a 0.5s breathing
+# gap. Keep this schedule synchronized with the HTML composition and subtitles.
+starts_ms=(0 17990 36960 59090 81730 107150 131740 157290 182280 203690 229680 253370 279130)
 texts=("$ROOT"/narration/*.txt)
 voice_inputs=()
 voice_filters=()
@@ -21,15 +23,56 @@ for i in "${!texts[@]}"; do
   text_file="${texts[$i]}"
   stem="$(basename "$text_file" .txt)"
   wav="$OUT/$stem.wav"
-  if [[ ! -s "$wav" ]]; then
+  if [[ ! -s "$wav" || "$text_file" -nt "$wav" || "${FORCE_TTS_RENDER:-0}" == "1" ]]; then
     HYPERFRAMES_PYTHON="$PYTHON" npx hyperframes tts "$text_file" \
       --voice "$VOICE" --speed "$SPEED" --lang en-us --output "$wav"
   fi
-  delay_ms=$(( starts[$i] * 1000 ))
+  delay_ms="${starts_ms[$i]}"
   voice_inputs+=( -i "$wav" )
   voice_filters+=( "[$i:a]adelay=${delay_ms}|${delay_ms},volume=1.0[v$i]" )
   voice_labels+=( "[v$i]" )
 done
+
+python3 - "$ROOT" <<'PY'
+import subprocess
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1])
+starts = [value / 1000 for value in [0, 17990, 36960, 59090, 81730, 107150, 131740, 157290, 182280, 203690, 229680, 253370, 279130]]
+names = [
+    "01-hook", "02-claim", "03-robocasa", "04-long-horizon", "05-dexjoco",
+    "06-protocol", "07-architecture", "08-discoverse", "09-rendering",
+    "10-amd", "11-result", "12-failure", "13-close",
+]
+durations = []
+for name in names:
+    path = root / "generated" / f"{name}.wav"
+    value = subprocess.check_output(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
+        text=True,
+    ).strip()
+    durations.append(float(value))
+
+errors = []
+for index, (start, duration) in enumerate(zip(starts, durations)):
+    end = start + duration
+    if index + 1 < len(starts):
+        gap = starts[index + 1] - end
+        if gap < -0.25:
+            errors.append(f"{names[index]} overlaps next chapter by {-gap:.2f}s")
+        elif gap > 3.0:
+            errors.append(f"{names[index]} voice gap is {gap:.2f}s")
+    else:
+        gap = 299.0 - end
+        if gap > 3.0:
+            errors.append(f"{names[index]} voice gap before film end is {gap:.2f}s")
+    print(f"{names[index]:18s} start={start:6.2f}s duration={duration:6.2f}s end={end:6.2f}s")
+
+if errors:
+    raise SystemExit("Narration timing gate failed:\n- " + "\n- ".join(errors))
+print("Narration timing gate passed: every voice gap is <= 3 seconds.")
+PY
 
 voiceover="$OUT/narration-${VOICE}.wav"
 filter="$(IFS=';'; echo "${voice_filters[*]}");$(IFS=''; echo "${voice_labels[*]}")amix=inputs=${#texts[@]}:duration=longest:dropout_transition=0:normalize=0,alimiter=limit=0.92[out]"

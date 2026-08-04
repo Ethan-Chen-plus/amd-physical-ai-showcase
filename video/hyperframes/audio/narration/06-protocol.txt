@@ -1,1 +1,1 @@
-Official seed results, recovery searches, and diagnostic runs remain separate numbers with separate denominators.
+Official seed results, recovery searches, and diagnostic runs remain separate numbers with separate denominators. A fixed seed is the formal benchmark. A recovery search is a separate engineering question. A single-task diagnostic can explain a failure, but it cannot silently replace the official evaluation. The film keeps those claims apart while moving at a steady pace.

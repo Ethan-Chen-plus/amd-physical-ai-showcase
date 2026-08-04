@@ -1,1 +1,1 @@
-Datawhale EAI builds a reproducible AMD Physical AI stack across dexterous hands, household manipulation, simulation, and rendering.
+Datawhale EAI builds a reproducible AMD Physical AI stack across dexterous hands, household manipulation, simulation, and rendering. The film begins with a real task outcome, then follows the evidence back to the code and the machine that produced it.

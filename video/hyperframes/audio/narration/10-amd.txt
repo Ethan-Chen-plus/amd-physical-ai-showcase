@@ -1,1 +1,1 @@
-ROCm versions, GPU identity, memory, throughput, training time, JSON, MP4, and SHA travel with every result.
+ROCm versions, GPU identity, memory, throughput, training time, JSON, MP4, and SHA travel with every result. We record the execution path explicitly: PyTorch or JAX, the HIP runtime, the selected GPU, the memory footprint, the training command, the evaluation command, and the exact artifact hash. That is how an AMD port becomes evidence rather than a claim.

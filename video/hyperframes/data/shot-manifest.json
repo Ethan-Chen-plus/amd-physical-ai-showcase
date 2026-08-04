@@ -1,23 +1,23 @@
 {
   "title": "AMD Physical AI Demo Film",
-  "version": "2026-08-03",
-  "duration_seconds": 260,
+  "version": "2026-08-04",
+  "duration_seconds": 299,
   "fps": 30,
   "canvas": {"width": 1920, "height": 1080},
   "language": "en",
   "evidence_policy": "real footage first; failures visible in appendix; no smoke-as-score",
   "shots": [
-    {"id":"hook", "start":0, "duration":12, "asset":"media/dexjoco/recovery/bimanual-assembly.mp4", "class":"success", "claim":"DexJoCo bimanual assembly success"},
-    {"id":"robo-success", "start":28, "duration":20, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa365 household manipulation success"},
-    {"id":"robo-pack", "start":48, "duration":20, "asset":"media/robocasa-recovery/pack-success.mp4", "class":"success", "claim":"Pack long-horizon showcase"},
-    {"id":"robo-restock", "start":48, "duration":20, "asset":"media/robocasa-recovery/restock-success.mp4", "class":"success", "claim":"Restock long-horizon showcase"},
-    {"id":"dex-hanoi", "start":68, "duration":24, "asset":"media/dexjoco/recovery/bimanual-hanoi.mp4", "class":"success", "claim":"DexJoCo bimanual Hanoi recovery archive"},
-    {"id":"dex-microwave", "start":68, "duration":24, "asset":"media/dexjoco/recovery/bimanual-microwave-cook.mp4", "class":"success", "claim":"DexJoCo bimanual microwave archive"},
-    {"id":"discoverse-franka", "start":134, "duration":24, "asset":"media/discoverse-showcase/cabinet-door-open-3view.mp4", "class":"success", "claim":"DISCOVERSE Franka three-view replay"},
-    {"id":"discoverse-mmk2", "start":134, "duration":24, "asset":"media/discoverse-showcase/mmk2-drawer-open-3view.mp4", "class":"success", "claim":"DISCOVERSE MMK2 three-view replay"},
-    {"id":"3dgs-background", "start":158, "duration":16, "asset":"media/discoverse-block-bridge-success.mp4", "class":"success", "claim":"Dynamic replay evidence"},
-    {"id":"result", "start":194, "duration":24, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa success trace"},
-    {"id":"robocasa-failure", "start":218, "duration":28, "asset":"media/robocasa-gr00t-showcase-failure.mp4", "class":"failure", "claim":"RoboCasa long-horizon failure appendix"},
-    {"id":"smolvla-failure", "start":218, "duration":8, "asset":"media/smolvla-cup-failure.mp4", "class":"failure", "claim":"SmolVLA strict physical-success failure"}
+    {"id":"hook", "start":0, "duration":17.99, "asset":"media/dexjoco/recovery/bimanual-assembly.mp4", "class":"success", "claim":"DexJoCo bimanual assembly success"},
+    {"id":"robo-success", "start":36.96, "duration":22.13, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa365 household manipulation success"},
+    {"id":"robo-pack", "start":59.09, "duration":22.64, "asset":"media/robocasa-recovery/pack-success.mp4", "class":"success", "claim":"Pack long-horizon showcase"},
+    {"id":"robo-restock", "start":59.09, "duration":22.64, "asset":"media/robocasa-recovery/restock-success.mp4", "class":"success", "claim":"Restock long-horizon showcase"},
+    {"id":"dex-hanoi", "start":81.73, "duration":25.42, "asset":"media/dexjoco/recovery/bimanual-hanoi.mp4", "class":"success", "claim":"DexJoCo bimanual Hanoi recovery archive"},
+    {"id":"dex-microwave", "start":81.73, "duration":25.42, "asset":"media/dexjoco/recovery/bimanual-microwave-cook.mp4", "class":"success", "claim":"DexJoCo bimanual microwave archive"},
+    {"id":"discoverse-franka", "start":157.29, "duration":24.99, "asset":"media/discoverse-showcase/cabinet-door-open-3view.mp4", "class":"success", "claim":"DISCOVERSE Franka three-view replay"},
+    {"id":"discoverse-mmk2", "start":157.29, "duration":24.99, "asset":"media/discoverse-showcase/mmk2-drawer-open-3view.mp4", "class":"success", "claim":"DISCOVERSE MMK2 three-view replay"},
+    {"id":"3dgs-background", "start":182.28, "duration":21.41, "asset":"media/discoverse-block-bridge-success.mp4", "class":"success", "claim":"Dynamic replay evidence"},
+    {"id":"result", "start":229.68, "duration":23.69, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa success trace"},
+    {"id":"robocasa-failure", "start":253.37, "duration":25.76, "asset":"media/robocasa-gr00t-showcase-failure.mp4", "class":"failure", "claim":"RoboCasa long-horizon failure appendix"},
+    {"id":"smolvla-failure", "start":253.37, "duration":8, "asset":"media/smolvla-cup-failure.mp4", "class":"failure", "claim":"SmolVLA strict physical-success failure"}
   ]
 }

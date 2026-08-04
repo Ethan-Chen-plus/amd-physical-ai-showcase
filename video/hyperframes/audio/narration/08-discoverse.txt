@@ -1,1 +1,1 @@
-DISCOVERSE preserves expert paths, policy experiments, multi-view rendering, and MP4 output after migration.
+DISCOVERSE preserves expert paths, policy experiments, multi-view rendering, and MP4 output after migration. The same scene can be inspected from the task camera, an external view, and a diagnostic angle. That makes migration visible: the environment still resets, the expert path still runs, the policy loop still produces evidence, and the video remains useful to a learner.

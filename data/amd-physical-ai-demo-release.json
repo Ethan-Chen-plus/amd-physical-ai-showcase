@@ -1,7 +1,7 @@
 {
   "title": "AMD Physical AI Demo Film",
-  "duration_seconds": 260,
-  "duration_label": "4:20",
+  "duration_seconds": 299,
+  "duration_label": "4:59",
   "resolution": "1920x1080",
   "fps": 30,
   "audio": {
@@ -22,32 +22,32 @@
     {
       "path": "assets/videos/amd-physical-ai-demo-en.mp4",
       "language": "English",
-      "sha256": "e6848674155c3af91d431044e25b1359fbb6246c7c6accc693d0b6dffccfd2fb"
+      "sha256": "421b01e909251985b5c3e880e8a13c32c0241f6d44c87bcc24d62eafa91ac4ce"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
       "language": "Chinese",
-      "sha256": "ae9eabe2e74ee170b7ee98efc2fc42445da427277fcac6c636507dc6f5ea37e6"
+      "sha256": "a1ae4a68b6debbf66f4e7b12cd62edc31d8daa7c1707eb06392e1ff585679802"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
       "language": "Bilingual",
-      "sha256": "47dca8a449deb1bd7d8c2b7f798f2a04c086afed20f6b9ba739da47f5734dc7e"
+      "sha256": "650c77c7d88fa463bb558975810d82750476e3699f0d3e028703a7f4aaf818e4"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.en.srt",
       "language": "English subtitles",
-      "sha256": "58ca5e0122d636d3c10fc2f87aa1c8882620e0ac5019d4b874e0ce792f8c8a30"
+      "sha256": "c2a7bf7afa8a152da7c3160bb9be9d23e0406c403bac08dfb66533c05de0ffd0"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh.srt",
       "language": "Chinese subtitles",
-      "sha256": "63c0688512d3da4ebbcf6e6f946e5fbc6a6e0c0b6d21f4308a54ab151a05ec6d"
+      "sha256": "c291d48b4d345867181e2bc37b7dfb2999e3677830a3b2d8efaa4c5a5e3adb80"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh-en.srt",
       "language": "Bilingual subtitles",
-      "sha256": "f32bf7fd95b9031a2c34aa4a6e5c10db88d167981e05dcf4a1fd19b4a1670686"
+      "sha256": "9be8ea0523083c601d669471908e5e16239ac4348d309c41d8cb985f419b134b"
     }
   ],
   "sequence": [

@@ -14,6 +14,19 @@ export HYPERFRAMES_RUN_ID="${HYPERFRAMES_RUN_ID:-amd-demo-film-20260803}"
 export TMPDIR="${HF_TMPDIR:-/tmp/hyperframes-amd-demo-20260803}"
 mkdir -p "$TMPDIR"
 
+# Prefer an installed Chromium binary so rendering does not trigger a browser download.
+if [[ -z "${HYPERFRAMES_BROWSER_PATH:-}" ]]; then
+  for candidate in \
+    /snap/chromium/current/usr/lib/chromium-browser/chrome \
+    /usr/bin/google-chrome \
+    /usr/bin/chromium; do
+    if [[ -x "$candidate" ]]; then
+      export HYPERFRAMES_BROWSER_PATH="$candidate"
+      break
+    fi
+  done
+fi
+
 if [[ "${SKIP_AUDIO_RENDER:-0}" != "1" ]]; then
   HYPERFRAMES_PYTHON="${HYPERFRAMES_PYTHON:-/data/Data14TB/envs/hyperframes-audio/bin/python}" \
     "$ROOT/audio/render_audio.sh"
@@ -38,7 +51,7 @@ burn() {
   ffmpeg -hide_banner -loglevel error -y -i "$input" \
     -vf "subtitles=$(printf '%s' "$subs" | sed "s/'/'\\\\''/g"):force_style='FontName=Noto Sans CJK SC,FontSize=16,Outline=1,Shadow=0,MarginV=24,Alignment=2,BorderStyle=1,WrapStyle=2'" \
     -map 0:v:0 -map 0:a:0 -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p \
-    -c:a aac -b:a 192k -t 260 -movflags +faststart "$output"
+    -c:a aac -b:a 192k -t 299 -movflags +faststart "$output"
 }
 
 burn "$MASTER" "$ROOT/subtitles/en.srt" "$DIST/amd-physical-ai-demo-en-subtitled.mp4"

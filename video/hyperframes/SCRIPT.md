@@ -1,8 +1,15 @@
 # AMD Physical AI Demo Film
 
-Delivery target: 4 minutes 20 seconds, 1920x1080, 30 fps.
+Delivery target: 4 minutes 59 seconds, 1920x1080, 30 fps.
 
 The deterministic master uses real experiment footage, on-screen English editorial copy, and a generated editorial blueprint visual for the opening thesis card. The Chinese and bilingual deliveries are created from the same master with UTF-8 SRT tracks. No generated robot footage is used.
+
+## Pacing contract
+
+- Narration drives the edit. Each chapter is scheduled from its rendered voice duration.
+- The breathing gap after a sentence is 0.5 seconds in the master and never exceeds 3 seconds by the timing gate.
+- A successful or especially informative task may keep its full trajectory. An incomplete or low-value attempt is summarized in voice and cut to the next evidence clip.
+- The final failure appendix remains narrated; it is never left as unspoken filler.
 
 ## Audio Delivery
 

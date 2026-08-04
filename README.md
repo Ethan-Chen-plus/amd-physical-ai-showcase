@@ -42,7 +42,7 @@ upstream G1 AMP policy, MuJoCo-Warp training, and hardware benchmark. The
 reproduction code and migration boundary are under
 `code/perceptive_cbf_rl_amd/`.
 
-The primary competition demo film is a 4:20, 1920x1080, 30fps HyperFrames
+The primary competition demo film is a 4:59, 1920x1080, 30fps HyperFrames
 composition. It leads with DexJoCo and verified success footage, then moves
 through RoboCasa365, DISCOVERSE, 3DGS, AMD execution evidence, and a failure
 appendix. The homepage uses the bilingual MP4 as its primary player; English,
