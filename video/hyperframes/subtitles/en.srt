@@ -1,51 +1,51 @@
 1
 00:00:00,000 --> 00:00:17,490
-Datawhale-EAI builds a reproducible AMD Physical AI stack across dexterous hands, household manipulation, simulation, and rendering.
+Datawhale-EAI builds AMD Physical AI across dexterous hands, homes, simulation, and rendering.
 
 2
 00:00:17,990 --> 00:00:36,460
-One AMD stack. Many physical worlds. The same evidence contract follows data, policy, physics, and proof.
+One AMD stack connects data, policy, physics, and proof across physical worlds.
 
 3
 00:00:36,960 --> 00:00:58,590
-RoboCasa365 gives the project a household manipulation benchmark with fixed tasks, seeds, videos, and a mobile observation contract.
+RoboCasa365 brings household manipulation to a shared mobile benchmark.
 
 4
 00:00:59,090 --> 00:01:21,230
-Long-horizon success traces make the action sequence inspectable, not just the final frame.
+Long-horizon traces reveal every step from approach to placement.
 
 5
 00:01:21,730 --> 00:01:46,650
-DexJoCo brings contact-rich dexterous tasks into the same protocol with native JAX on AMD ROCm.
+DexJoCo brings contact-rich dexterous control to native JAX on AMD ROCm.
 
 6
 00:01:47,150 --> 00:02:11,240
-Official seed results, recovery searches, and diagnostic runs remain separate numbers with separate denominators.
+Official tasks and recovery demonstrations turn contact-rich skills into reusable evidence.
 
 7
 00:02:11,740 --> 00:02:36,790
-The evidence contract is simple: data to policy, policy to physics, physics to proof.
+Data becomes policy, policy becomes physics, and physics becomes a result.
 
 8
 00:02:37,290 --> 00:03:01,780
-DISCOVERSE preserves expert paths, policy experiments, multi-view rendering, and MP4 output after migration.
+DISCOVERSE carries expert paths, policy experiments, and multi-view replay onto AMD.
 
 9
 00:03:02,280 --> 00:03:23,190
-3D Gaussian Splatting and dynamic replay turn the renderer itself into visible migration evidence.
+3D Gaussian Splatting adds high-fidelity rendering and dynamic replay.
 
 10
 00:03:23,690 --> 00:03:49,180
-ROCm versions, GPU identity, memory, throughput, training time, JSON, MP4, and SHA travel with every result.
+ROCm versions, GPU metrics, videos, JSON, and SHA travel with every result.
 
 11
 00:03:49,680 --> 00:04:12,870
-Success leads the story, but the source evidence stays attached behind it.
+Selected successes lead the story, with every result linked to its source artifact.
 
 12
 00:04:13,370 --> 00:04:38,630
-Failures are part of the benchmark: action alignment, navigation, contact, and recovery are diagnosed instead of hidden.
+Boundary cases guide the next run.
 
 13
 00:04:39,130 --> 00:04:58,630
-Build it, run it, and show the proof through code, notebooks, weights, reports, videos, and reproducible commands.
+Code, notebooks, weights, reports, videos, and commands make the work reusable.

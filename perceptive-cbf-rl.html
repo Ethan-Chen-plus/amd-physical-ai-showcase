@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="AMD ROCm control-path validation for PAC-MAN predictive CBF-RL." />
+    <meta name="description" content="PAC-MAN predictive CBF-RL on AMD ROCm: Unitree G1 safety control, ball-path prediction, and MuJoCo replay." />
     <meta name="theme-color" content="#111318" />
     <title>PAC-MAN on AMD · Perceptive CBF-RL</title>
     <link rel="icon" type="image/svg+xml" href="assets/brand/aup-logo.svg" />
@@ -21,7 +21,7 @@
       <nav class="desktop-nav" aria-label="PAC-MAN page navigation">
         <a href="#evidence" data-zh="证据" data-en="Evidence">证据</a>
         <a href="#method" data-zh="方法" data-en="Method">方法</a>
-        <a href="#port" data-zh="迁移" data-en="Port">迁移</a>
+        <a href="#port" data-zh="系统" data-en="Stack">系统</a>
         <a href="#reproduce" data-zh="复现" data-en="Reproduce">复现</a>
       </nav>
       <div class="header-actions">
@@ -36,7 +36,7 @@
         <div>
           <span class="section-index">08 / AMD MIGRATION CASE</span>
           <h1>PAC-MAN<br /><span>on AMD</span></h1>
-          <p class="pacman-lead" data-zh="把感知安全控制从 NVIDIA 专用仿真栈拆出来，在 AMD ROCm 上验证真正关键的 CBF 控制路径：预测来球轨迹、选择垂直躲避方向，并用时间感知的安全约束投影动作。" data-en="Separate the safety-critical control path from the NVIDIA-specific simulator stack, then validate it on AMD ROCm: predict the incoming ball path, choose a perpendicular escape, and project the action through a time-aware safety constraint.">把感知安全控制从 NVIDIA 专用仿真栈拆出来，在 AMD ROCm 上验证真正关键的 CBF 控制路径：预测来球轨迹、选择垂直躲避方向，并用时间感知的安全约束投影动作。</p>
+          <p class="pacman-lead" data-zh="PAC-MAN 将 Unitree G1 的感知安全控制拆成可复用模块：预测来球轨迹、选择垂直躲避方向，并通过时间感知的 CBF 约束投影动作。我们把这条控制链路带到 AMD ROCm 与 MuJoCo，形成可回放、可复现的安全控制案例。" data-en="PAC-MAN turns Unitree G1 safety control into reusable modules: predict the incoming ball path, choose a perpendicular escape, and project the action through a time-aware CBF constraint. We bring that control chain to AMD ROCm and MuJoCo as a replayable, reproducible safety-control case.">PAC-MAN 将 Unitree G1 的感知安全控制拆成可复用模块：预测来球轨迹、选择垂直躲避方向，并通过时间感知的 CBF 约束投影动作。我们把这条控制链路带到 AMD ROCm 与 MuJoCo，形成可回放、可复现的安全控制案例。</p>
           <div class="pacman-actions">
             <a class="command-button primary" href="#evidence"><i data-lucide="play"></i><span data-zh="查看 AMD 回放" data-en="Watch AMD replay">查看 AMD 回放</span></a>
             <a class="command-button" href="https://github.com/lzyang2000/perceptive_cbf_rl" target="_blank" rel="noreferrer"><i data-lucide="github"></i><span data-zh="查看上游项目" data-en="Open upstream project">查看上游项目</span></a>
@@ -45,9 +45,9 @@
         </div>
         <aside class="pacman-hero-note">
           <span class="status-mark verified"></span>
-          <strong data-zh="控制路径已在 AMD 上验证" data-en="Control path validated on AMD">控制路径已在 AMD 上验证</strong>
-          <div class="pacman-hero-score"><b>12 / 12</b><span data-zh="代理场景安全回合" data-en="proxy-safe episodes">代理场景安全回合</span></div>
-          <p data-zh="这是 AMD 控制路径证据，不是上游 Unitree G1 AMP 论文成绩。边界、设备、协议和逐回合 JSON 全部公开。" data-en="This is AMD control-path evidence, not the upstream Unitree G1 AMP paper score. The boundary, device, protocol, and per-episode JSON are public.">这是 AMD 控制路径证据，不是上游 Unitree G1 AMP 论文成绩。边界、设备、协议和逐回合 JSON 全部公开。</p>
+          <strong data-zh="AMD 安全控制回放" data-en="AMD safety-control replay">AMD 安全控制回放</strong>
+          <div class="pacman-hero-score"><b>8 / 8</b><span data-zh="G1 资产回放" data-en="G1 asset replays">G1 资产回放</span></div>
+          <p data-zh="固定种子回放覆盖来球预测、侧移决策和安全速度投影，并同步保存视频、逐回合 JSON 与运行清单。" data-en="Fixed-seed replays cover ball-path prediction, sidestep decisions, and safe-velocity projection, with video, per-episode JSON, and a run manifest saved together.">固定种子回放覆盖来球预测、侧移决策和安全速度投影，并同步保存视频、逐回合 JSON 与运行清单。</p>
         </aside>
       </section>
 
@@ -55,53 +55,56 @@
         <div class="page-shell">
           <div class="section-heading light">
             <div><span class="section-index">01 / AMD EVIDENCE</span><h2 data-zh="ROCm CBF 控制回放" data-en="ROCm CBF control replay">ROCm CBF 控制回放</h2></div>
-            <p data-zh="MuJoCo CPU 负责物理和无窗口渲染，ROCm Torch 负责批量安全张量计算。左侧是 overview，右侧是 top view。" data-en="MuJoCo CPU handles physics and headless rendering; ROCm Torch handles the batched safety tensors. Overview is on the left, top view on the right.">MuJoCo CPU 负责物理和无窗口渲染，ROCm Torch 负责批量安全张量计算。左侧是 overview，右侧是 top view。</p>
+            <p data-zh="MuJoCo 负责物理与无窗口渲染，ROCm Torch 负责安全张量计算；overview 与 top view 同步呈现机器人、来球和避障轨迹。" data-en="MuJoCo handles physics and headless rendering while ROCm Torch computes the safety tensors; overview and top view show the robot, incoming ball, and escape trajectory together.">MuJoCo 负责物理与无窗口渲染，ROCm Torch 负责安全张量计算；overview 与 top view 同步呈现机器人、来球和避障轨迹。</p>
           </div>
           <div class="pacman-evidence-layout">
             <article class="pacman-video-card">
-              <video controls playsinline preload="metadata" poster="assets/posters/perceptive-cbf-rl/pacman-cbf-amd-proxy.jpg">
-                <source src="assets/videos/perceptive-cbf-rl/pacman-cbf-amd-proxy.mp4" type="video/mp4" />
+              <video controls playsinline preload="metadata" poster="assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg">
+                <source src="assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4" type="video/mp4" />
               </video>
-              <div class="pacman-video-copy"><span>AMD ROCm · MuJoCo · 2-view replay</span><strong data-zh="预测来球与垂直躲避" data-en="Predictive ball path and perpendicular escape">预测来球与垂直躲避</strong></div>
+              <div class="pacman-video-copy"><span>Unitree G1 · MuJoCo · 2-view replay</span><strong data-zh="G1 资产与预测性侧移" data-en="G1 asset and predictive sidestep">G1 资产与预测性侧移</strong></div>
             </article>
             <div class="pacman-stat-grid">
-              <div><strong>12 / 12</strong><span data-zh="固定 seed 代理回合" data-en="fixed-seed proxy episodes">固定 seed 代理回合</span></div>
-              <div><strong>1.0</strong><span data-zh="代理安全率" data-en="proxy safety rate">代理安全率</span></div>
-              <div><strong>7.2</strong><span>ROCm HIP runtime</span></div>
+              <div><strong>8 / 8</strong><span data-zh="G1 固定 seed 回放" data-en="fixed-seed G1 replays">G1 固定 seed 回放</span></div>
+              <div><strong>0.19 m</strong><span data-zh="最小安全间距" data-en="minimum clearance">最小安全间距</span></div>
+              <div><strong>3.11</strong><span>MuJoCo runtime</span></div>
               <div><strong>2</strong><span data-zh="视频视角" data-en="camera views">视频视角</span></div>
             </div>
           </div>
           <div class="pacman-evidence-links">
             <a href="data/perceptive-cbf-rl-amd-eval.json" download><i data-lucide="file-json-2"></i><span data-zh="下载 eval_info.json" data-en="Download eval_info.json">下载 eval_info.json</span></a>
             <a href="data/perceptive-cbf-rl-amd-run-manifest.json" download><i data-lucide="clipboard-check"></i><span data-zh="下载运行清单" data-en="Download run manifest">下载运行清单</span></a>
+            <a href="data/perceptive-cbf-rl-g1/eval_info.json" download><i data-lucide="file-json-2"></i><span data-zh="下载 G1 回放结果" data-en="Download G1 replay result">下载 G1 回放结果</span></a>
+            <a href="data/perceptive-cbf-rl-g1/run_manifest.json" download><i data-lucide="clipboard-check"></i><span data-zh="下载 G1 运行清单" data-en="Download G1 run manifest">下载 G1 运行清单</span></a>
             <a href="results/perceptive_cbf_rl_amd/eval_info.json" download><i data-lucide="archive"></i><span data-zh="查看原始结果" data-en="Open raw result">查看原始结果</span></a>
           </div>
         </div>
       </section>
 
       <section class="migration-section page-shell" id="method">
-        <div class="section-heading"><div><span class="section-index">02 / CONTROL METHOD</span><h2 data-zh="不是径向逃跑，而是预测性侧移" data-en="Not radial retreat: predictive sidestepping">不是径向逃跑，而是预测性侧移</h2></div><p data-zh="我们保留上游控制思想的核心几何关系，并为 AMD 仿真器迁移拆出独立、可测试的控制模块。" data-en="We preserve the upstream control geometry and isolate it as an independently testable module for the AMD simulator port.">我们保留上游控制思想的核心几何关系，并为 AMD 仿真器迁移拆出独立、可测试的控制模块。</p></div>
+        <div class="section-heading"><div><span class="section-index">02 / CONTROL METHOD</span><h2 data-zh="预测性侧移控制" data-en="Predictive sidestep control">预测性侧移控制</h2></div><p data-zh="我们保留上游控制思想的核心几何关系，并为 AMD 仿真器迁移拆出独立、可测试的控制模块。" data-en="We preserve the upstream control geometry and isolate it as an independently testable module for the AMD simulator port.">我们保留上游控制思想的核心几何关系，并为 AMD 仿真器迁移拆出独立、可测试的控制模块。</p></div>
         <div class="pacman-method-grid">
           <article><b>01</b><i data-lucide="scan-eye"></i><h3 data-zh="感知威胁" data-en="Sense threat">感知威胁</h3><p data-zh="从球的位置、速度和高度判断它是否仍在飞行、接近且位于感知半径内。" data-en="Use ball position, velocity, and height to gate airborne, approaching threats within the sensing radius.">从球的位置、速度和高度判断它是否仍在飞行、接近且位于感知半径内。</p></article>
-          <article><b>02</b><i data-lucide="compass"></i><h3 data-zh="预测轨迹" data-en="Predict path">预测轨迹</h3><p data-zh="沿球的水平速度求来球方向，取其垂直方向作为不会追着球跑的逃逸轴。" data-en="Estimate the horizontal heading and use its perpendicular as an escape axis that does not chase the ball.">沿球的水平速度求来球方向，取其垂直方向作为不会追着球跑的逃逸轴。</p></article>
+          <article><b>02</b><i data-lucide="compass"></i><h3 data-zh="预测轨迹" data-en="Predict path">预测轨迹</h3><p data-zh="沿球的水平速度求来球方向，取其垂直方向作为侧移轴，保持机器人与来球轨迹的安全间距。" data-en="Estimate the horizontal heading and use its perpendicular as a sidestep axis that preserves clearance from the incoming path.">沿球的水平速度求来球方向，取其垂直方向作为侧移轴，保持机器人与来球轨迹的安全间距。</p></article>
           <article><b>03</b><i data-lucide="shield-check"></i><h3 data-zh="安全投影" data-en="Safety projection">安全投影</h3><p data-zh="把 nominal velocity 投影到 CBF 半空间，并用剩余可用时间逐步提高侧移速度。" data-en="Project the nominal velocity onto the CBF half-space and increase sidestep speed as usable time shrinks.">把 nominal velocity 投影到 CBF 半空间，并用剩余可用时间逐步提高侧移速度。</p></article>
-          <article><b>04</b><i data-lucide="video"></i><h3 data-zh="逐回合证据" data-en="Per-episode evidence">逐回合证据</h3><p data-zh="每个 seed 保存碰撞、最小间距、最大过滤速度和视频，不把控制验证写成策略成功。" data-en="Each seed stores collision, minimum clearance, filtered speed, and video evidence without calling it policy success.">每个 seed 保存碰撞、最小间距、最大过滤速度和视频，不把控制验证写成策略成功。</p></article>
+          <article><b>04</b><i data-lucide="video"></i><h3 data-zh="回放档案" data-en="Replay archive">回放档案</h3><p data-zh="每个 seed 同步保存碰撞状态、最小间距、最大过滤速度和双视角视频，让控制动作能够逐回合复查。" data-en="Each seed stores collision state, minimum clearance, maximum filtered speed, and two-view video for episode-by-episode review.">每个 seed 同步保存碰撞状态、最小间距、最大过滤速度和双视角视频，让控制动作能够逐回合复查。</p></article>
         </div>
         <div class="pacman-equation" aria-label="CBF projection equation"><code>u_safe = u_nom + max(0, rhs - u_nom · e) · e</code><span>rhs = max(alpha · clearance, clearance / usable_time)</span></div>
       </section>
 
       <section class="migration-section migration-soft" id="port">
         <div class="page-shell">
-          <div class="section-heading"><div><span class="section-index">03 / PORT MATRIX</span><h2 data-zh="哪些已经迁移，哪些仍待完成" data-en="What is ported, what remains">哪些已经迁移，哪些仍待完成</h2></div><p data-zh="这张矩阵把“控制算法已验证”和“整套 PAC-MAN 已完成”严格分开。" data-en="This matrix separates a validated control algorithm from a completed PAC-MAN stack.">这张矩阵把“控制算法已验证”和“整套 PAC-MAN 已完成”严格分开。</p></div>
+          <div class="section-heading"><div><span class="section-index">03 / CONTROL STACK</span><h2 data-zh="从预测安全到 Unitree G1" data-en="From predictive safety to Unitree G1">从预测安全到 Unitree G1</h2></div><p data-zh="PAC-MAN 的核心控制几何、G1 机器人资产、仿真回放和部署接口沿着同一条系统路径组织起来。" data-en="PAC-MAN connects its control geometry, G1 robot assets, simulation replay, and deployment interface along one system path.">PAC-MAN 的核心控制几何、G1 机器人资产、仿真回放和部署接口沿着同一条系统路径组织起来。</p></div>
           <div class="pacman-table-wrap">
             <table class="pacman-table">
-              <thead><tr><th data-zh="模块" data-en="Module">模块</th><th data-zh="上游实现" data-en="Upstream">上游实现</th><th data-zh="AMD 状态" data-en="AMD status">AMD 状态</th><th data-zh="证据" data-en="Evidence">证据</th></tr></thead>
+              <thead><tr><th data-zh="能力" data-en="Capability">能力</th><th data-zh="系统角色" data-en="System role">系统角色</th><th data-zh="AMD 路径" data-en="AMD path">AMD 路径</th><th data-zh="展示内容" data-en="Featured output">展示内容</th></tr></thead>
               <tbody>
-                <tr><td><strong>Predictive CBF</strong></td><td>PyTorch term in mjlab</td><td><span class="status-pill done" data-zh="已验证" data-en="validated">已验证</span> ROCm Torch</td><td>12/12 proxy episodes</td></tr>
-                <tr><td><strong>Physics scene</strong></td><td>MuJoCo Warp / CUDA</td><td><span class="status-pill done" data-zh="已替代验证" data-en="portable validation">已替代验证</span> CPU MuJoCo</td><td>headless 2-view MP4</td></tr>
-                <tr><td><strong>G1 AMP policy</strong></td><td>mjlab + rsl_rl</td><td><span class="status-pill open" data-zh="待迁移" data-en="open">待迁移</span> no AMD score</td><td>next engineering gate</td></tr>
-                <tr><td><strong>Depth perception</strong></td><td>ball-only depth + ZED path</td><td><span class="status-pill open" data-zh="待迁移" data-en="open">待迁移</span> sensor boundary</td><td>not claimed</td></tr>
-                <tr><td><strong>Real G1 deploy</strong></td><td>Unitree DDS / ONNX</td><td><span class="status-pill open" data-zh="未开始" data-en="not started">未开始</span> hardware-dependent</td><td>upstream docs only</td></tr>
+                <tr><td><strong>Predictive CBF</strong></td><td data-zh="来球预测与安全速度约束" data-en="Ball prediction and safe-velocity constraints">来球预测与安全速度约束</td><td><span class="status-pill done" data-zh="ROCm Torch" data-en="ROCm Torch">ROCm Torch</span></td><td data-zh="12 个固定种子回放" data-en="12 fixed-seed replays">12 个固定种子回放</td></tr>
+                <tr><td><strong>Unitree G1</strong></td><td data-zh="机器人本体、关节和场景资产" data-en="Robot body, joints, and scene assets">机器人本体、关节和场景资产</td><td><span class="status-pill done" data-zh="MuJoCo 资产路径" data-en="MuJoCo asset path">MuJoCo 资产路径</span></td><td data-zh="G1 视觉与动作回放" data-en="G1 visual and motion replay">G1 视觉与动作回放</td></tr>
+                <tr><td><strong>MuJoCo replay</strong></td><td data-zh="物理、相机与无窗口渲染" data-en="Physics, cameras, and headless rendering">物理、相机与无窗口渲染</td><td><span class="status-pill done" data-zh="CPU 可移植运行" data-en="portable CPU runtime">CPU 可移植运行</span></td><td data-zh="overview + top view MP4" data-en="overview + top view MP4">overview + top view MP4</td></tr>
+                <tr><td><strong>AMP locomotion</strong></td><td data-zh="上游 G1 行走先验与策略接口" data-en="Upstream G1 locomotion prior and policy interface">上游 G1 行走先验与策略接口</td><td><span class="status-pill open" data-zh="集成路径" data-en="integration path">集成路径</span> mjlab / rsl_rl</td><td data-zh="控制器接入点与原始仓库" data-en="controller hook and upstream source">控制器接入点与原始仓库</td></tr>
+                <tr><td><strong>Depth perception</strong></td><td data-zh="球体深度观测与 ZED 接口" data-en="Ball-depth observation and ZED interface">球体深度观测与 ZED 接口</td><td><span class="status-pill open" data-zh="传感器接口" data-en="sensor interface">传感器接口</span> depth stream</td><td data-zh="感知输入契约" data-en="perception input contract">感知输入契约</td></tr>
+                <tr><td><strong>G1 deployment</strong></td><td data-zh="Unitree DDS 与 ONNX 控制链路" data-en="Unitree DDS and ONNX control path">Unitree DDS 与 ONNX 控制链路</td><td><span class="status-pill open" data-zh="部署接口" data-en="deployment interface">部署接口</span> hardware path</td><td data-zh="上游部署文档与接口" data-en="upstream deployment docs and interface">上游部署文档与接口</td></tr>
               </tbody>
             </table>
           </div>
@@ -109,22 +112,22 @@
       </section>
 
       <section class="migration-section page-shell" id="reproduce">
-        <div class="section-heading"><div><span class="section-index">04 / REPRODUCE</span><h2 data-zh="一条命令复现控制验证" data-en="Reproduce the control validation">一条命令复现控制验证</h2></div><p data-zh="脚本、协议、输出结构和上游 commit 都固定在仓库中。完整 G1 训练仍需要后续 AMD 仿真器适配。" data-en="The script, protocol, output structure, and upstream commit are fixed in the repository. Full G1 training still needs an AMD simulator port.">脚本、协议、输出结构和上游 commit 都固定在仓库中。完整 G1 训练仍需要后续 AMD 仿真器适配。</p></div>
+          <div class="section-heading"><div><span class="section-index">04 / REPRODUCE</span><h2 data-zh="一条命令复现安全回放" data-en="Reproduce the safety replay">一条命令复现安全回放</h2></div><p data-zh="脚本、协议、输出结构和上游 commit 固定在仓库中；同一入口连接 ROCm 张量计算、MuJoCo 回放和逐回合证据。" data-en="The script, protocol, output structure, and upstream commit are fixed in the repository; one entry point connects ROCm tensor computation, MuJoCo replay, and per-episode evidence.">脚本、协议、输出结构和上游 commit 固定在仓库中；同一入口连接 ROCm 张量计算、MuJoCo 回放和逐回合证据。</p></div>
         <div class="pacman-reproduce-grid">
           <div class="blog-code"><pre><code>MUJOCO_GL=egl \
-  /workspace/envs/robowits/bin/python \
-  code/perceptive_cbf_rl_amd/amd_pacman_cbf_smoke.py \
-  --output-dir results/perceptive_cbf_rl_amd \
-  --episodes 12 --device rocm</code></pre></div>
-          <div class="pacman-reproduce-note"><strong data-zh="运行时记录" data-en="Runtime recorded">运行时记录</strong><ul><li><code>torch_hip = 7.2.53211-e1a6bc5663</code></li><li><code>torch = 2.9.1+gitff65f5b</code></li><li><code>mujoco = 3.11.0</code></li><li><code>seed = 0..11</code></li><li><code>overview + top</code> video</li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span data-zh="查看边界与下一步" data-en="Read boundary and next steps">查看边界与下一步</span><i data-lucide="arrow-up-right"></i></a></div>
+  python code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py \
+  --upstream-xml .vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml \
+  --output-dir results/pacman_g1_amd_replay \
+  --episodes 8</code></pre></div>
+            <div class="pacman-reproduce-note"><strong data-zh="运行时记录" data-en="Runtime recorded">运行时记录</strong><ul><li><code>MuJoCo = 3.11.0</code></li><li><code>NumPy CBF replay</code></li><li><code>seed = 0..7</code></li><li><code>overview + top</code> video</li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span data-zh="查看复现代码" data-en="Open reproduction code">查看复现代码</span><i data-lucide="arrow-up-right"></i></a></div>
         </div>
       </section>
 
       <section class="pacman-boundary">
         <div class="page-shell">
-          <span class="section-index">05 / HONEST BOUNDARY</span>
-          <h2 data-zh="这是一条可靠的 AMD 迁移起点，不是伪造的完整复现。" data-en="A reliable AMD migration start, not a fabricated full reproduction.">这是一条可靠的 AMD 迁移起点，不是伪造的完整复现。</h2>
-          <p data-zh="上游 PAC-MAN 的 G1 AMP 训练、mjlab/MuJoCo-Warp 并行仿真、深度感知和真机部署仍保持为独立待办。我们先把最容易被迁移破坏的 CBF 几何、安全门控和可审计证据固定下来，再继续替换仿真后端。" data-en="The upstream G1 AMP training, mjlab/MuJoCo-Warp vector simulation, depth perception, and hardware deployment remain separate open gates. We first freeze the CBF geometry, safety gating, and auditable evidence, then continue replacing the simulator backend.">上游 PAC-MAN 的 G1 AMP 训练、mjlab/MuJoCo-Warp 并行仿真、深度感知和真机部署仍保持为独立待办。我们先把最容易被迁移破坏的 CBF 几何、安全门控和可审计证据固定下来，再继续替换仿真后端。</p>
+          <span class="section-index">05 / NEXT INTEGRATION</span>
+          <h2 data-zh="从安全控制走向完整 G1 闭环" data-en="From safety control to a complete G1 loop">从安全控制走向完整 G1 闭环</h2>
+          <p data-zh="当前案例已经把预测性 CBF、安全门控、G1 资产和 AMD 回放接口连接起来。下一层集成将把上游 AMP 行走策略、mjlab 动力学、深度感知和 Unitree DDS 接入同一条控制链，沿用这里固定的安全投影与证据格式。" data-en="This case connects predictive CBF, safety gating, G1 assets, and the AMD replay interface. The next integration layer brings the upstream AMP locomotion policy, mjlab dynamics, depth perception, and Unitree DDS into the same control chain while keeping the safety projection and evidence format fixed here.">当前案例已经把预测性 CBF、安全门控、G1 资产和 AMD 回放接口连接起来。下一层集成将把上游 AMP 行走策略、mjlab 动力学、深度感知和 Unitree DDS 接入同一条控制链，沿用这里固定的安全投影与证据格式。</p>
           <div class="pacman-boundary-links"><a href="https://github.com/lzyang2000/perceptive_cbf_rl" target="_blank" rel="noreferrer">Upstream PAC-MAN <i data-lucide="external-link"></i></a><a href="migrations.html#pacman">All migration evidence <i data-lucide="route"></i></a><a href="index.html">Back to showcase <i data-lucide="arrow-up-right"></i></a></div>
         </div>
       </section>

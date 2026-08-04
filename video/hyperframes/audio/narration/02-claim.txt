@@ -1,1 +1,1 @@
-The point is not a single demo. It is one evidence contract that follows data, policy, physics, and proof. Every result keeps its task definition, model, seed, environment, video, metrics, and checksum together, so the viewer can move from a beautiful frame to a reproducible run.
+One evidence contract follows data, policy, physics, and proof across the complete project. Every result keeps its task definition, model, seed, environment, video, metrics, and checksum together, so the viewer can move from a beautiful frame to a reproducible run.

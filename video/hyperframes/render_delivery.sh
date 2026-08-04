@@ -49,7 +49,7 @@ fi
 burn() {
   local input="$1"; local subs="$2"; local output="$3"
   ffmpeg -hide_banner -loglevel error -y -i "$input" \
-    -vf "subtitles=$(printf '%s' "$subs" | sed "s/'/'\\\\''/g"):force_style='FontName=Noto Sans CJK SC,FontSize=16,Outline=1,Shadow=0,MarginV=24,Alignment=2,BorderStyle=1,WrapStyle=2'" \
+    -vf "subtitles=$(printf '%s' "$subs" | sed "s/'/'\\\\''/g"):force_style='FontName=DejaVu Sans,FontSize=14,Outline=1,Shadow=0,MarginV=16,Alignment=2,BorderStyle=1,WrapStyle=2'" \
     -map 0:v:0 -map 0:a:0 -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p \
     -c:a aac -b:a 192k -t 299 -movflags +faststart "$output"
 }

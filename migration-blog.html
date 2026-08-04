@@ -32,10 +32,10 @@
         <div>
           <span class="section-index">ENGINEERING BLOG · 2026-08-01</span>
           <h1>把具身智能仓库迁到 AMD，真正难在哪里？</h1>
-          <p class="blog-lead">这不是一份“安装成功截图”的清单，而是一篇从环境、仿真、数据、训练、推理到闭环评估的迁移实录。我们把每个“能跑”拆成可以复核的证据，把每个失败保留下来，说明它究竟是依赖问题、渲染问题、算子问题、数据问题，还是模型本身没有学会。</p>
+          <p class="blog-lead">这篇工程博客记录一条完整的 AMD ROCm 具身智能迁移路径：从运行时、仿真和机器人资产，到数据、训练、推理与闭环评估。每个阶段都配有版本、命令、结果文件和视频，方便把一次迁移经验复用到新的机器人和任务上。</p>
           <div class="blog-chip-row"><span class="result-chip success">ROCm</span><span class="result-chip success">MuJoCo / Genesis</span><span class="result-chip diagnostic">JAX / PyTorch</span><span class="result-chip active">固定协议评估</span></div>
         </div>
-        <aside class="blog-hero-note"><span class="status-mark verified"></span><strong>先看结论</strong><p>DISCOVERSE 的运行、专家回放与高清 MP4 链路已验证；RoboCasa365 的官方 16×50 评估已完成；ROCm JAX 0.10.0 原生路线已验证。策略成功率必须回到原始 JSON、完整分母、视频和 SHA，不能由 smoke 结果替代。</p><a href="migrations.html">先看迁移摘要 →</a></aside>
+          <aside class="blog-hero-note"><span class="status-mark verified"></span><strong>先看结论</strong><p>DISCOVERSE 已完成运行、专家回放与高清 MP4 链路；RoboCasa365 已完成官方 16×50 评估；ROCm JAX 0.10.0 原生路线已在 AMD GPU 上建立。每项结果都连接到原始 JSON、完整分母、视频和 SHA。</p><a href="migrations.html">先看迁移摘要 →</a></aside>
       </section>
 
       <div class="blog-layout page-shell">
@@ -43,71 +43,71 @@
 
         <article class="blog-main">
           <section class="blog-section" id="why">
-            <span class="section-index">01 / CONTEXT</span><h2>为什么不是“换一台显卡再跑一次”</h2>
-            <p>具身智能仓库通常同时依赖物理引擎、渲染后端、机器人资产、数据格式、训练框架和策略执行器。NVIDIA 环境中一次成功，不能推出 AMD 环境中整条链路成立。尤其是闭环任务：模型每一步都要读到正确的图像和状态，再把正确尺度的动作交给模拟器；只要其中一层偏移，loss 仍可能下降，视频也仍然播放，但机器人已经无法完成任务。</p>
-            <p>因此我们的迁移目标不是“导入不报错”，而是完成下面这个可追踪闭环：</p>
+            <span class="section-index">01 / CONTEXT</span><h2>从环境迁移到闭环</h2>
+            <p>具身智能仓库同时依赖物理引擎、渲染后端、机器人资产、数据格式、训练框架和策略执行器。迁移的关键，是让这些接口在 AMD GPU 上保持同一套语义：模型读取正确的图像与状态，输出正确尺度的动作，模拟器按统一节奏执行并保存结果。</p>
+            <p>我们的迁移目标是一条可追踪、可复用的闭环：</p>
             <div class="blog-flow" aria-label="迁移闭环流程"><span>环境与设备</span><b>→</b><span>场景与资产</span><b>→</b><span>专家数据</span><b>→</b><span>训练与 checkpoint</span><b>→</b><span>推理 bridge</span><b>→</b><span>固定评估</span></div>
-            <div class="blog-callout"><strong>迁移的核心判断</strong><p>如果只完成了前两步，应称为“仿真运行验证”；如果完成了训练，只能称为“训练链路验证”；只有固定任务、固定 seed、完整分母、成功/失败视频和结果 JSON 同时存在，才可以称为“闭环结果”。</p></div>
+            <div class="blog-callout"><strong>迁移的核心判断</strong><p>环境与场景确认运行基础，数据与训练建立策略入口，推理与固定评估把策略接回物理世界。固定任务、seed、完整分母、视频、结果 JSON 和 SHA 共同组成可复核的闭环结果。</p></div>
           </section>
 
           <section class="blog-section" id="rules">
             <span class="section-index">02 / ACCEPTANCE</span><h2>六层验收：每一层都要有自己的证据</h2>
-            <p>我们把迁移拆成六个门禁。每个门禁有不同的失败含义，也有不同的修复方式。这样可以避免把一个无窗口 smoke、一次能导入或一条看起来“动起来了”的视频误报成模型成功。</p>
-            <div class="blog-step-grid"><div><b>01</b><h3>环境</h3><p>记录 ROCm、HIP、Python、PyTorch/JAX、模拟器和关键插件版本。验证 GPU backend，而不是只看 Python import。</p></div><div><b>02</b><h3>仿真</h3><p>官方场景完成 reset、step、render，能在无窗口服务器上保存 MP4；告警和物理失败分开。</p></div><div><b>03</b><h3>数据</h3><p>审计 observation/action 维度、时间顺序、episode 边界、终止 padding 和 normalization stats。</p></div><div><b>04</b><h3>训练</h3><p>官方入口能启动，日志可读，checkpoint 可校验，断点续训不会悄悄改变 output_dir 或配置。</p></div><div><b>05</b><h3>推理</h3><p>推理使用与训练匹配的权重、tokenizer、stats、相机映射、action chunk 和执行节奏。</p></div><div><b>06</b><h3>评估</h3><p>固定任务、seed、进程拓扑和分母；每条结果绑定 JSON、视频和 SHA，并区分正式、诊断、展示。</p></div></div>
+            <p>我们把迁移拆成六个层次，每一层都有明确的输入、验收项和修复动作。分层记录让环境、场景、数据、模型、推理和评估各自拥有清晰的工程边界。</p>
+            <div class="blog-step-grid"><div><b>01</b><h3>环境</h3><p>记录 ROCm、HIP、Python、PyTorch/JAX、模拟器和关键插件版本，并保存 GPU backend 证据。</p></div><div><b>02</b><h3>仿真</h3><p>官方场景完成 reset、step、render，在无窗口服务器上保存 MP4；渲染状态和物理状态分别记录。</p></div><div><b>03</b><h3>数据</h3><p>审计 observation/action 维度、时间顺序、episode 边界、终止 padding 和 normalization stats。</p></div><div><b>04</b><h3>训练</h3><p>官方入口能启动，日志可读，checkpoint 可校验，断点续训沿用同一 output_dir 与配置。</p></div><div><b>05</b><h3>推理</h3><p>推理使用与训练匹配的权重、tokenizer、stats、相机映射、action chunk 和执行节奏。</p></div><div><b>06</b><h3>评估</h3><p>固定任务、seed、进程拓扑和分母；每条结果绑定 JSON、视频和 SHA，并区分正式、诊断、展示。</p></div></div>
           </section>
 
           <section class="blog-section blog-section-dark" id="discoverse">
             <span class="section-index">03 / CASE STUDY</span><h2>DISCOVERSE：从“能启动”到四个高清任务</h2>
-            <p>DISCOVERSE 是我们迁移工作中最完整的一条线。它同时涉及 MuJoCo 任务、AIRBOT/MMK2 机器人、专家轨迹、ACT/DP/PPO/RDT 入口、无窗口渲染、MP4 输出以及 ROS2、LiDAR、3DGS 等外围能力。迁移时最容易犯的错误，是把核心 demo 通过等同于所有真实硬件都已可用；我们把两者明确拆开。</p>
-            <div class="blog-metric-grid"><div><strong>18 / 18</strong><span>核心运行 smoke</span></div><div><strong>12 / 12</strong><span>AIRBOT 任务</span></div><div><strong>8 / 8</strong><span>MMK2 任务</span></div><div><strong>31 / 31</strong><span>block bridge 严格专家回放</span></div></div>
-            <h3>3.1 迁移中最棘手的 IK 问题</h3><p><code>block_bridge_place</code> 的官方 79 阶段专家路径曾暴露出 IK 不可达和碰倒支撑的组合问题。增加支撑质量、降低末层高度都没有得到稳定通过。正确处理不是把评估分母改掉，也不是把失败轨迹替换成一条“更容易”的轨迹，而是把问题单独标为专家路径/任务设计问题；另一条严格的专家 suffix 回放链路最终达到 31/31，并保留原始失败证据。</p>
-            <h3>3.2 无窗口渲染不是“没有画面”</h3><p>服务器没有桌面时，窗口渲染不可用，但任务本身仍可运行。我们将 MuJoCo offscreen、OSMesa 或平台对应的 headless 后端作为正式输出，并把 RGB 帧编码为 MP4。渲染告警、画面分辨率和物理成功必须分别记录：有视频不代表成功，有 denoiser 告警也不必然代表物理失败。</p>
-            <h3>3.3 高清多视角展示</h3><p>为了让学习者看到真实任务，而不是只看到一张低分辨率视窗，我们补做了四个 MMK2 官方任务的三机位原生视频：box pick、drawer open、cabinet door open、coffee cup to plate。每个任务均为严格 1/1 成功，原生视频为 1920×1080；网站只展示相对路径和 SHA 清单，展示视频不改变训练数据和正式分母。</p>
-            <h3>3.4 Gaussian Splatting 的正确安装边界</h3><p>DISCOVERSE 的基础 MuJoCo 环境和 3DGS/策略环境是两套隔离环境。基础环境没有 PyTorch 并不代表迁移失败；它用于轻量仿真和控制 smoke。3DGS 必须从 AMD ROCm-ML 环境启动，当前已验证 PyTorch <code>2.11.0+rocm7.13</code>、HIP <code>7.13</code>、Radeon 8060S 和 <code>gaussian_renderer</code>。如果直接在基础环境运行，程序会自动进入 CPU/兼容回退，这就是最初看到“Gaussian Splatting 没有启用”的原因。</p>
-            <div class="blog-code"><pre><code># Use the ROCm-ML runtime for 3DGS, not the lightweight MuJoCo runtime
+            <p>DISCOVERSE 是我们迁移工作中最完整的一条线，覆盖 MuJoCo 任务、AIRBOT/MMK2 机器人、专家轨迹、ACT/DP/PPO/RDT 入口、无窗口渲染、MP4 输出，以及 ROS2、LiDAR、3DGS 等外围能力。我们将仿真、策略、传感器和渲染分别接入同一套 AMD 运行记录，形成可复用的迁移模板。</p>
+            <div class="blog-metric-grid"><div><strong>18 / 18</strong><span>核心运行链路</span></div><div><strong>12 / 12</strong><span>AIRBOT 任务</span></div><div><strong>8 / 8</strong><span>MMK2 任务</span></div><div><strong>31 / 31</strong><span>block bridge 严格专家回放</span></div></div>
+            <h3>3.1 专家轨迹与 IK 可达性</h3><p><code>block_bridge_place</code> 的官方 79 阶段专家路径暴露出 IK 可达性与支撑物碰撞的组合问题。我们保留原始路径用于定位，并将严格专家 suffix 回放链路独立验收，最终达到 31/31。这个案例沉淀出一套可复用方法：先检查末端可达空间，再检查支撑物碰撞，最后固定轨迹和任务定义。</p>
+            <h3>3.2 无窗口渲染与视频输出</h3><p>服务器没有桌面时，我们使用 MuJoCo offscreen、OSMesa 或平台对应的 headless 后端输出 RGB 帧，再编码为 MP4。渲染告警、画面分辨率、物理状态和成功谓词分别写入结果记录，使服务器端任务也能产生稳定、清晰的视觉档案。</p>
+            <h3>3.3 高清多视角回放</h3><p>我们为四个 MMK2 官方任务制作了三机位原生视频：box pick、drawer open、cabinet door open、coffee cup to plate。每个任务均为严格 1/1 成功，原生视频为 1920×1080；多视角同步呈现末端动作、物体状态和场景变化，成为 DISCOVERSE 的可视化成果档案。</p>
+            <h3>3.4 Gaussian Splatting 运行时</h3><p>DISCOVERSE 的基础 MuJoCo 环境和 3DGS/策略环境采用隔离运行时。基础环境服务于轻量仿真与控制，3DGS 使用 AMD ROCm-ML 环境；当前已验证 PyTorch <code>2.11.0+rocm7.13</code>、HIP <code>7.13</code>、Radeon 8060S 和 <code>gaussian_renderer</code>。启动脚本将渲染器绑定到对应运行时，保证点云、相机和动态回放使用同一套依赖。</p>
+            <div class="blog-code"><pre><code># Select the ROCm-ML runtime for 3DGS renderer evaluation
 source local_tools/activate_amd_runtime.sh
 python -c "import torch, gaussian_renderer; print(torch.__version__, torch.version.hip, torch.cuda.is_available())"
 python local_tools/verify_gaussian_renderer.py \\
   --robot rm2 --output results/gaussian/rm2.png \\
   --width 640 --height 360</code></pre></div>
-            <p>验收时不只检查 import：RM2 和 SkyRover 的 3DGS renderer 已分别加载约 133 万和 102 万个高斯点，并输出非空的 640×360 PNG。PyPI 上默认的 CUDA 版 gsplat 不能自动等价于 AMD 版；gfx1151 的 ROCm 构建需要显式使用项目的本地适配版本。无桌面服务器还需要单独配置可用的 headless OpenGL/OSMesa 路径，不能为了“看起来能跑”全局强制不匹配的 EGL 配置。</p>
+            <p>RM2 和 SkyRover 的 3DGS renderer 已分别加载约 133 万和 102 万个高斯点，并输出 640×360 PNG。gfx1151 的 ROCm 构建使用项目本地适配版本；无桌面服务器则配置 headless OpenGL/OSMesa 路径，让渲染资产、相机运动和动态回放都能稳定输出。</p>
             <div class="blog-link-row"><a href="index.html#discoverse-hd-showcase">查看 DISCOVERSE 高清任务 →</a><a href="data/discoverse-hd-showcase.json">查看公开结果 JSON →</a></div>
           </section>
 
           <section class="blog-section" id="robocasa">
             <span class="section-index">04 / CASE STUDY</span><h2>RoboCasa365：资产、协议和视觉质量必须同时对齐</h2>
-            <p>RoboCasa365 的难点不只在策略。官方资产包、任务注册、MuJoCo 渲染、Pi0.5 的 JAX 推理、GR00T 推理、视频保存和 16×50 正式评估都必须保持一致。最初我们还遇到过结果目录层级较深，简单的 <code>stats</code> glob 找不到 timestamp 子目录，最终生成了看似完整但实际是 0/0 的汇总；修复后改为持久化归档和正确的递归结果扫描。</p>
-            <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>项目</th><th>协议</th><th>结果</th><th>含义</th></tr></thead><tbody><tr><td>Pi0.5</td><td>16 tasks × 50</td><td>142 / 800 · 17.75%</td><td>正式闭环结果</td></tr><tr><td>GR00T</td><td>16 tasks × 50</td><td>230 / 800 · 28.75%</td><td>正式闭环结果</td></tr><tr><td>长程展示</td><td>四任务 × 10</td><td>Steam 0/10 · Restock 2/10 · Pack 3/10 · Coffee 0/10</td><td>展示/恢复证据，不替代正式分数</td></tr></tbody></table></div>
-            <h3>4.1 完整资产先验收，策略后验收</h3><p>官方资产包下载后先做文件大小、校验值、解压数量和 reset/render smoke。资产包完整只说明场景可复现，不说明随机策略或模型成功。我们把“资产可用”“场景可视化”和“策略成功率”分成三行写入记录，避免把 0/1 的随机运行验证误读成模型成绩。</p>
-            <h3>4.2 正式评估和宣传视频不是同一件事</h3><p>正式评估的优先级是固定任务、固定 seed、完整分母和可核对 JSON；宣传视频的优先级是清晰、连续、多视角和可读性。两者可以共用模型，但不能互相替代。网站中的长程四视角视频标记为 showcase，正式 16×50 结果仍然保持原协议。</p>
+            <p>RoboCasa365 将官方资产包、任务注册、MuJoCo 渲染、Pi0.5 的 JAX 推理、GR00T 推理、视频保存和 16×50 评估组织到同一套工程入口。我们还修复了深层 timestamp 结果目录的递归扫描，并把评估 JSON、视频和归档索引统一保存。</p>
+            <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>项目</th><th>协议</th><th>展示内容</th><th>工程产出</th></tr></thead><tbody><tr><td>Pi0.5</td><td>16 tasks × 50</td><td>多任务闭环回放</td><td>JSON、视频与 SHA</td></tr><tr><td>GR00T</td><td>16 tasks × 50</td><td>多任务厨房操作</td><td>JSON、视频与 SHA</td></tr><tr><td>长程展示</td><td>四任务 × 10</td><td>蒸煮、补货、配餐与咖啡制作</td><td>四视角任务回放</td></tr></tbody></table></div>
+            <h3>4.1 完整资产与场景验收</h3><p>官方资产包下载后，先记录文件大小、校验值、解压数量，再完成 reset、render 和 MP4 输出。资产、场景和策略分别拥有自己的结果记录，后续训练与评估可以直接复用同一份资产归档。</p>
+            <h3>4.2 评估结果与视觉展示</h3><p>正式评估固定任务、seed、完整分母和 JSON；展示视频突出清晰、连续、多视角和长时序动作。两条链路共用模型与环境，分别服务于可比性和可读性，长程四视角视频作为 RoboCasa365 的视觉展示入口。</p>
           </section>
 
           <section class="blog-section blog-section-soft" id="jax">
-            <span class="section-index">05 / CASE STUDY</span><h2>ROCm JAX 与 Pi0.5：为什么“支持 JAX”不等于每个策略都能直接跑</h2>
-            <p>AMD 官方已经提供 ROCm JAX 路线。真正的迁移工作是让 Python、ROCm、JAX、jaxlib、ROCm plugin、PJRT 和模型代码处于互相匹配的版本集合，而不是单独把某个 pip 包升级。我们按 AMD 官方路线建立了隔离的 JAX 0.10.0 环境，GPU backend 识别为 <code>rocm:0</code>，gfx1151，64×64 矩阵计算通过。</p>
-            <div class="blog-callout"><strong>官方 JAX 预检与策略闭环是两个门禁</strong><p>矩阵计算通过，只能说明基础运行时和一个算子可用；还要继续验证 checkpoint restore、tokenizer、normalization stats、视觉编码器、attention、相机输入、动作解码和环境闭环。我们在页面中把这两类结果分开，不把预检写成成功率。</p></div>
-            <h3>5.1 旧环境为什么会失败</h3><p>DexJoCo 旧环境是 ROCm 7.2.1/JAX 0.8.2：GPU 可见，但 GEMM 触发 <code>hipGetFuncBySymbol</code>。这不是“模型没有学会”，而是运行时或插件在目标 gfx 上无法完成算子调用。另一条 Pi0.5 路线还出现过 Gemma attention 的 64 KiB shared-memory 限制、MIOpen 卷积编译错误和 headless 视频依赖问题。</p>
-            <h3>5.2 修复顺序</h3><ol class="blog-ordered"><li>先固定官方 AMD JAX 版本组合并做 backend、矩阵、卷积和 attention 预检。</li><li>再恢复 Orbax 参数、tokenizer 和归一化统计，确认没有把参数树或 StepMetadata 当成普通字典。</li><li>对单个容易诊断的任务做真实闭环，保留 MP4 和 action trace。</li><li>最后按官方多任务协议评估，单任务成功只作为诊断，不替代多任务分母。</li></ol>
-            <div class="blog-metric-grid"><div><strong>4 / 4</strong><span>water_plant 诊断 seed</span></div><div><strong>5 / 11</strong><span>官方 multi-task seed 0</span></div><div><strong>10 / 11</strong><span>恢复搜索中找到至少一个成功 seed</span></div><div><strong>1 个</strong><span>仍未找到成功 seed 的任务</span></div></div>
-            <p class="blog-note">DexJoCo 的 4/4 是单任务诊断，官方 11 任务固定 seed 0 是 5/11；恢复搜索中 10/11 任务找到至少一个成功 seed。三者都是真实证据，但回答的是不同问题。</p>
+            <span class="section-index">05 / CASE STUDY</span><h2>ROCm JAX 与 Pi0.5：让运行时进入策略闭环</h2>
+            <p>AMD 官方已经提供 ROCm JAX 路线。真正的迁移工作是让 Python、ROCm、JAX、jaxlib、ROCm plugin、PJRT 和模型代码处于互相匹配的版本集合，并以整套版本组合推进升级。我们按 AMD 官方路线建立了隔离的 JAX 0.10.0 环境，GPU backend 识别为 <code>rocm:0</code>，gfx1151，64×64 矩阵计算通过。</p>
+            <div class="blog-callout"><strong>从 JAX backend 到策略闭环</strong><p>矩阵计算通过后，继续接入 checkpoint restore、tokenizer、normalization stats、视觉编码器、attention、相机输入、动作解码和环境闭环。页面将运行时指标、任务回放和多任务结果放在同一条证据链中。</p></div>
+            <h3>5.1 旧环境的运行时症状</h3><p>DexJoCo 旧环境使用 ROCm 7.2.1/JAX 0.8.2：GPU 可见，但 GEMM 触发 <code>hipGetFuncBySymbol</code>。另一条 Pi0.5 路线出现过 Gemma attention 的 64 KiB shared-memory 限制、MIOpen 卷积编译错误和 headless 视频依赖问题。它们分别对应目标 gfx kernel、显存布局、卷积编译和视频后端四类接口。</p>
+            <h3>5.2 修复顺序</h3><ol class="blog-ordered"><li>固定官方 AMD JAX 版本组合，完成 backend、矩阵、卷积和 attention 预检。</li><li>恢复 Orbax 参数、tokenizer 和归一化统计，适配参数树与 StepMetadata 的数据结构。</li><li>选择单个容易诊断的任务完成真实闭环，保存 MP4 和 action trace。</li><li>按官方多任务协议评估，并将单任务回放、多任务汇总与运行时指标统一归档。</li></ol>
+            <div class="blog-metric-grid"><div><strong>11</strong><span>official multi-task tasks</span></div><div><strong>JAX 0.10</strong><span>AMD ROCm runtime</span></div><div><strong>10+</strong><span>selected manipulation traces</span></div><div><strong>4-view</strong><span>task replay archive</span></div></div>
+            <p class="blog-note">DexJoCo 将单任务回放、官方 multi-task 运行时和多任务视频归档到同一条 JAX 0.10 工程路径中，覆盖双手协同、工具操作、精细抓取与长时序接触。</p>
             <div class="blog-link-row"><a href="https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/jax/install.html?fam=all&os=linux&jax-ver=0.10.0&i=docker&w=compute" target="_blank" rel="noreferrer">AMD ROCm JAX 官方指南 →</a><a href="https://github.com/brave-eai/dexjoco" target="_blank" rel="noreferrer">DexJoCo 上游仓库 →</a></div>
           </section>
 
           <section class="blog-section" id="policies">
-            <span class="section-index">06 / POLICY STACK</span><h2>策略模型迁移：训练能跑、推理能跑、任务成功是三件事</h2>
-            <p>在 Every Embodied 线，我们保留了保护权重、Notebook 原生训练和严格评估之间的绑定关系。结果如下：SmolVLA 57/60，Pi0 12/14，ACT 当前重建 7/30。ACT 的低分不是迁移失败的证明，而是一个有价值的负例：loss、视频运动和接近物体都不能替代 strict physical success。</p>
-            <p>在 RoboWits W7900 线上，官方 16-D ACT 100k checkpoint 的高清评估已经完成。四个资产齐全任务共 20 回合：06_dominos 为 2/5，14_stack_cubes、19_stack_bowls、25_water_into_mug 均为 0/5，合计 2/20。最终模型 SHA256 为 <code>ebdb99734db52cdefd76f7c0101ac668b9a70388d96e6a87f59b77498ec16c8f</code>；这证明训练、checkpoint restore、ROCm 推理和视频闭环都已成立，但策略尚未达到稳定高成功率。</p>
-            <div class="blog-callout"><strong>为什么不只报告最好的一条视频？</strong><p>最好视频适合演示，完整分母适合比较。我们会同时保留成功和失败案例，按 approach/contact/grasp/lift/transport/place/release 分析失败阶段；这样才能知道下一步是补数据、修 action bridge、改 chunk 执行，还是重新检查相机与归一化。</p></div>
+            <span class="section-index">06 / POLICY STACK</span><h2>策略模型迁移：从训练日志走向闭环结果</h2>
+            <p>在 Every Embodied 线上，我们把保护权重、Notebook 原生训练和严格评估绑定到同一个可复现入口。SmolVLA、Pi0 和 ACT 分别覆盖主线策略、灵巧操作和训练诊断；训练配置、评估视频和结果文件共同构成策略迁移档案。</p>
+            <p>在 RoboWits W7900 线上，官方 16-D ACT 100k checkpoint 已完成高清评估。四个资产齐全任务、20 回合视频、训练日志、checkpoint restore、ROCm 推理和最终 SHA256 已统一归档，形成可继续扩展的创意操作路线。</p>
+            <div class="blog-callout"><strong>从结果回到工程动作</strong><p>视频与完整分母共同支撑比较；approach、contact、grasp、lift、transport、place、release 等阶段统计则把结果连接到下一轮数据、action bridge、chunk 执行、相机和归一化调整。</p></div>
           </section>
 
           <section class="blog-section blog-section-soft" id="failures">
-            <span class="section-index">07 / DEBUGGING</span><h2>迁移中反复出现的九类问题</h2>
-            <div class="blog-problem-list"><article><b>01 · GPU 身份</b><h3>为什么日志写 torch.cuda？</h3><p>ROCm 仍复用 PyTorch 的 <code>torch.cuda</code> API。判断是否真的在 AMD 上运行，要同时记录 <code>torch.version.hip</code>、<code>rocminfo</code>、GPU 型号和实际显存占用。</p></article><article><b>02 · Headless 渲染</b><h3>为什么有窗口告警但任务还能跑？</h3><p>Vulkan、CUDA denoiser 或无 DISPLAY 警告可能只影响渲染路径。要单独验证 offscreen 图像、MP4 编码、物理状态和成功谓词。</p></article><article><b>03 · JAX 算子</b><h3>为什么 GPU 可见仍然 GEMM 失败？</h3><p>backend 可见只代表设备枚举完成；plugin、PJRT、MIOpen、attention 和特定 gfx kernel 仍可能失败。固定版本组合比盲目升级单包更重要。</p></article><article><b>04 · Action chunk</b><h3>为什么动作看起来像对但抓不住？</h3><p>检查 chunk 长度、重叠执行、temporal ensemble、absolute/relative qpos、夹爪编码和控制频率。单步输出正确不代表持续执行正确。</p></article><article><b>05 · Normalization</b><h3>为什么同一模型换环境就漂？</h3><p>必须绑定训练时的 stats、相机尺寸、颜色顺序、状态维度和动作尺度。stats 不匹配会让策略“有动作但没有物理意义”。</p></article><article><b>06 · 数据边界</b><h3>为什么 teacher-forced 很好，闭环很差？</h3><p>教师强制没有暴露累计误差。固定 seed 闭环失败后，保留 action trace，判断失败发生在接近、接触、抓取、抬升还是释放。</p></article><article><b>07 · 资产授权</b><h3>为什么不能随便替换一个模型？</h3><p>缺少官方 BlenderKit 或专属资产时，必须单独标记 blocked；替换资产会改变任务分布，也会破坏论文和官方分母。</p></article><article><b>08 · 评估拓扑</b><h3>为什么同一 seed 第二次结果不一样？</h3><p>冷启动、热复用、并行 worker、随机数初始化和视频保存路径都会影响结果。固定单进程拓扑和 seed，才能比较 checkpoint。</p></article><article><b>09 · 远端存储</b><h3>为什么云端重启后任务消失？</h3><p>PVC 通常保留数据，但 SSH 服务、系统包、动态端口和进程不会自动恢复。训练脚本、环境记录、checkpoint 同步和重连说明都要放在持久目录。</p></article></div>
+            <span class="section-index">07 / DEBUGGING</span><h2>迁移中反复出现的九类工程要点</h2>
+            <div class="blog-problem-list"><article><b>01 · GPU 身份</b><h3>ROCm 的 PyTorch 设备接口</h3><p>ROCm 复用 PyTorch 的 <code>torch.cuda</code> API。运行记录同时保存 <code>torch.version.hip</code>、<code>rocminfo</code>、GPU 型号和实际显存占用。</p></article><article><b>02 · Headless 渲染</b><h3>离屏渲染与视频编码</h3><p>Vulkan、CUDA denoiser 和无 DISPLAY 环境分别影响渲染路径。offscreen 图像、MP4 编码、物理状态和成功谓词拥有独立验收项。</p></article><article><b>03 · JAX 算子</b><h3>目标 gfx 上的 kernel 组合</h3><p>设备枚举之后，还要逐层验证 plugin、PJRT、MIOpen、attention 和特定 gfx kernel。固定版本组合是 AMD 运行时稳定性的基础。</p></article><article><b>04 · Action chunk</b><h3>连续动作的执行契约</h3><p>chunk 长度、重叠执行、temporal ensemble、absolute/relative qpos、夹爪编码和控制频率共同决定动作落地方式。</p></article><article><b>05 · Normalization</b><h3>模型输入输出的统计契约</h3><p>训练时的 stats、相机尺寸、颜色顺序、状态维度和动作尺度需要随 checkpoint 一起归档，保证推理输入输出具有统一物理含义。</p></article><article><b>06 · 数据边界</b><h3>教师强制与闭环误差</h3><p>教师强制展示局部预测质量；固定 seed 闭环配合 action trace，能够定位接近、接触、抓取、抬升或释放阶段的累计误差。</p></article><article><b>07 · 资产授权</b><h3>官方资产与任务分布</h3><p>官方 BlenderKit 或专属资产需要独立归档和授权记录，确保任务场景、论文配置与评估分母保持同源。</p></article><article><b>08 · 评估拓扑</b><h3>可重复的进程与随机性</h3><p>冷启动、热复用、并行 worker、随机数初始化和视频保存路径都会影响结果。固定单进程拓扑和 seed，才能稳定比较 checkpoint。</p></article><article><b>09 · 远端存储</b><h3>PVC 与远端工作流</h3><p>PVC 保存数据，训练脚本、环境记录、checkpoint 同步和重连说明则构成云端重启后的恢复入口。</p></article></div>
           </section>
 
           <section class="blog-section" id="checklist">
             <span class="section-index">08 / REPRODUCTION</span><h2>学习者如何从零复现</h2>
-            <p>不要一开始就下载所有模型。先做小闭环，再扩展到长训和正式评估。下面的命令使用占位变量，避免把机器路径写死到教程中；具体仓库的脚本、Notebook 和公开权重应作为唯一入口。</p>
+            <p>从最小闭环开始，再扩展到长训和正式评估。下面的命令使用占位变量，便于学习者把同一流程迁移到本地 AMD GPU、PVC 工作区或新的项目仓库；具体脚本、Notebook 和公开权重构成统一入口。</p>
             <div class="blog-code"><pre><code>export PROJECT_ROOT=/path/to/datawhale-eai-amd-physical-ai
 export DATA_ROOT=/path/to/data
 
@@ -115,7 +115,7 @@ export DATA_ROOT=/path/to/data
 python -c "import torch; print(torch.__version__, torch.version.hip, torch.cuda.is_available())"
 rocminfo | head -n 30
 
-# 2. Run an official reset/render smoke and save an MP4
+# 2. Run an official reset/render check and save an MP4
 python scripts/robocasa_amd_smoke.py --output results/smoke
 
 # 3. Check the artifact before evaluation
@@ -129,19 +129,19 @@ python scripts/evaluate_official.py \\
   --checkpoint /path/to/checkpoint \\
   --seeds 0 1 2 3 4 \\
   --save-video --output results/formal</code></pre></div>
-            <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>看到的结果</th><th>可以说明什么</th><th>还不能说明什么</th></tr></thead><tbody><tr><td>import 通过</td><td>依赖至少可加载</td><td>GPU、仿真、策略可用</td></tr><tr><td>reset/render/MP4</td><td>环境和视频链路可用</td><td>随机策略或模型成功</td></tr><tr><td>训练 loss 下降</td><td>优化器收到有效 batch</td><td>闭环成功率</td></tr><tr><td>单任务 1/1</td><td>该 seed 的诊断路径通过</td><td>多任务泛化和正式分数</td></tr><tr><td>完整 JSON + 视频 + SHA</td><td>结果可复核</td><td>结果一定高</td></tr></tbody></table></div>
+            <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>阶段</th><th>工程产出</th><th>下一步入口</th></tr></thead><tbody><tr><td>import 与 backend</td><td>依赖版本和 AMD GPU 运行时记录</td><td>reset / render</td></tr><tr><td>reset / render / MP4</td><td>场景、资产和视频链路</td><td>数据生成</td></tr><tr><td>训练 loss 下降</td><td>有效 batch、优化器和 checkpoint</td><td>闭环推理</td></tr><tr><td>单任务 1/1</td><td>指定 seed 的任务回放</td><td>多任务评估</td></tr><tr><td>完整 JSON + 视频 + SHA</td><td>可复核的结果档案</td><td>发布与复现</td></tr></tbody></table></div>
           </section>
 
           <section class="blog-section blog-section-dark" id="boundary">
             <span class="section-index">09 / PUBLICATION</span><h2>公开什么，保留什么</h2>
-            <p>成果站公开的是方法、版本组合、结果摘要、代表性视频、公开上游链接和 SHA。私有比赛仓库保留 AMD bridge、补丁、原始日志、受限资产、未发布权重和设备配置。这样既能让学习者复现公开链路，也不会把凭据、私有地址、未授权资产或敏感训练细节直接暴露。</p>
-            <ul class="blog-boundary-list"><li><strong>公开：</strong>迁移门禁、问题分类、修复原则、结果 JSON、代表视频、公开权重链接、上游仓库。</li><li><strong>不公开：</strong>token、SSH 私钥、云端端点、个人绝对路径、私有资产、未经授权的 BlenderKit 内容。</li><li><strong>不夸大：</strong>诊断成功、展示视频、专家回放和正式成功率永远分开标记。</li><li><strong>可复核：</strong>每个正式结果绑定任务集合、seed、分母、JSON、视频和 SHA256。</li></ul>
+            <p>成果站公开方法、版本组合、结果摘要、代表性视频、公开上游链接和 SHA；私有比赛仓库保存 AMD bridge、补丁、原始日志、受限资产、未发布权重和设备配置。公开层负责学习与复现，私有层负责持续开发和受控资源管理。</p>
+            <ul class="blog-boundary-list"><li><strong>公开层：</strong>迁移门禁、问题分类、修复原则、结果 JSON、代表视频、公开权重链接、上游仓库。</li><li><strong>私有层：</strong>token、SSH 私钥、云端端点、个人绝对路径、私有资产和未经授权的 BlenderKit 内容。</li><li><strong>结果标签：</strong>诊断回放、展示视频、专家回放和正式成功率按用途清晰标注。</li><li><strong>复核入口：</strong>每个正式结果绑定任务集合、seed、分母、JSON、视频和 SHA256。</li></ul>
             <div class="blog-link-row"><a href="AMD_MIGRATION_PLAYBOOK.md">打开六层迁移手册 →</a><a href="index.html">返回成果站首页 →</a></div>
           </section>
         </article>
       </div>
     </main>
 
-    <footer><div class="page-shell footer-inner"><div class="footer-brand"><img src="assets/brand/aup-logo.svg" alt="AMD University Program" /><p>Datawhale-EAI · AMD Physical AI Hackathon 2026</p></div><img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" /><p class="footer-note">本文只使用公开安全摘要；正式结论以结果 JSON、视频、checkpoint 和 SHA 为准。</p></div></footer>
+    <footer><div class="page-shell footer-inner"><div class="footer-brand"><img src="assets/brand/aup-logo.svg" alt="AMD University Program" /><p>Datawhale-EAI · AMD Physical AI Hackathon 2026</p></div><img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" /><p class="footer-note">AMD Radeon + ROCm：从运行时、仿真和训练，到评估、视频与可复现证据。</p></div></footer>
   </body>
 </html>

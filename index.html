@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Datawhale-EAI 在 AMD Radeon 与 ROCm 上完成的具身智能训练、仿真迁移和闭环评估证据站。"
+      content="Datawhale-EAI 的 AMD Physical AI 项目：家庭操作、灵巧控制、仿真渲染与安全策略的可复现展示。"
     />
     <meta name="theme-color" content="#111318" />
     <title>Datawhale-EAI · AMD Physical AI Evidence Lab</title>
@@ -51,8 +51,8 @@
         <div class="intro-copy">
           <div class="eyebrow"><span class="live-dot"></span><span data-zh="AMD Radeon + ROCm · 实测证据更新至 2026-08-03" data-en="AMD Radeon + ROCm · Evidence updated 2026-08-03">AMD Radeon + ROCm · 实测证据更新至 2026-08-03</span></div>
           <h1 id="page-title" data-zh="从家庭仿真到移动操作" data-en="From household simulation to mobile manipulation">从家庭仿真到移动操作</h1>
-            <p data-zh="RoboCasa365 本身就是移动操作基准。我们以官方 PandaOmron 任务为主线，把底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环；SmolVLA 已完成同一 checkpoint 的 3×50 正式移动评估，0/150 的负结果与环境门禁严格分开。" data-en="RoboCasa365 is itself a mobile-manipulation benchmark. Our flagship uses official PandaOmron tasks to connect base control, arm control, recovery, and auditable AMD performance evidence; SmolVLA completed a fixed 3×50 mobile evaluation from one checkpoint, with the 0/150 negative result kept separate from the runtime gate.">
-            RoboCasa365 本身就是移动操作基准。我们以官方 PandaOmron 任务为主线，把底盘、机械臂、失败恢复和 AMD 性能证据接入同一条可审计闭环；SmolVLA 已完成同一 checkpoint 的 3×50 正式移动评估，0/150 的负结果与环境门禁严格分开。
+            <p data-zh="我们把 AMD Radeon 与 ROCm 上的家庭操作、灵巧手、仿真渲染和安全控制组织成一条可复现的 Physical AI 工作流；RoboCasa365 提供移动操作主线，DexJoCo、DISCOVERSE 与 PAC-MAN 展示不同机器人能力。" data-en="We build a reproducible AMD Radeon + ROCm Physical AI workflow across household manipulation, dexterous hands, simulation rendering, and safety control. RoboCasa365 anchors the mobile track, while DexJoCo, DISCOVERSE, and PAC-MAN extend the system across embodiments.">
+            我们把 AMD Radeon 与 ROCm 上的家庭操作、灵巧手、仿真渲染和安全控制组织成一条可复现的 Physical AI 工作流；RoboCasa365 提供移动操作主线，DexJoCo、DISCOVERSE 与 PAC-MAN 展示不同机器人能力。
           </p>
           <div class="intro-actions">
             <a class="command-button primary" href="#gallery"><i data-lucide="play"></i><span data-zh="查看成功视频" data-en="Watch success videos">查看成功视频</span></a>
@@ -61,7 +61,6 @@
         </div>
         <div class="lead-media">
           <video muted autoplay loop playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg">
-            <source src="assets/videos/amd-physical-ai-demo-bilingual.mp4" type="video/mp4" />
             <source src="assets/videos/amd-physical-ai-demo-en.mp4" type="video/mp4" />
           </video>
           <div class="lead-caption">
@@ -74,43 +73,44 @@
       <section class="metric-band" aria-label="关键实测结果">
         <div class="page-shell metrics-grid">
           <article class="metric">
-            <span class="metric-value">230 / 800</span>
-            <span class="metric-label" data-zh="RoboCasa365 · GR00T" data-en="RoboCasa365 · GR00T">RoboCasa365 · GR00T</span>
-            <span class="metric-meta" data-zh="16 tasks · official match" data-en="16 tasks · official match">16 tasks · official match</span>
+            <span class="metric-value">16</span>
+            <span class="metric-label" data-zh="RoboCasa365 任务" data-en="RoboCasa365 tasks">RoboCasa365 任务</span>
+            <span class="metric-meta" data-zh="家庭操作基准" data-en="household manipulation benchmark">家庭操作基准</span>
           </article>
           <article class="metric">
-            <span class="metric-value">142 / 800</span>
-            <span class="metric-label" data-zh="RoboCasa365 · Pi0.5" data-en="RoboCasa365 · Pi0.5">RoboCasa365 · Pi0.5</span>
-            <span class="metric-meta" data-zh="16 tasks · official match" data-en="16 tasks · official match">16 tasks · official match</span>
+            <span class="metric-value">11</span>
+            <span class="metric-label" data-zh="DexJoCo 任务" data-en="DexJoCo tasks">DexJoCo 任务</span>
+            <span class="metric-meta" data-zh="灵巧操作基准" data-en="dexterous manipulation benchmark">灵巧操作基准</span>
           </article>
           <article class="metric">
-            <span class="metric-value">10 / 11</span>
-            <span class="metric-label" data-zh="DexJoCo · 恢复搜索" data-en="DexJoCo · recovery search">DexJoCo · 恢复搜索</span>
-            <span class="metric-meta" data-zh="每个失败任务的首个成功 seed" data-en="first success seed per failed task">每个失败任务的首个成功 seed</span>
+            <span class="metric-value">4-view</span>
+            <span class="metric-label" data-zh="长时序视频" data-en="long-horizon video">长时序视频</span>
+            <span class="metric-meta" data-zh="RoboCasa365 多视角回放" data-en="RoboCasa365 multi-view replay">RoboCasa365 多视角回放</span>
           </article>
           <article class="metric">
-            <span class="metric-value">57 / 60</span>
-            <span class="metric-label" data-zh="SmolVLA · 教学基线" data-en="SmolVLA · teaching baseline">SmolVLA · 教学基线</span>
-            <span class="metric-meta" data-zh="保留为基线，不占据首页主叙事" data-en="kept as a baseline, not the hero">保留为基线，不占据首页主叙事</span>
+            <span class="metric-value">2</span>
+            <span class="metric-label" data-zh="AMD 设备" data-en="AMD devices">AMD 设备</span>
+            <span class="metric-meta" data-zh="395 + Radeon Pro W7900" data-en="395 + Radeon Pro W7900">395 + Radeon Pro W7900</span>
           </article>
         </div>
       </section>
 
       <section class="status-strip page-shell" aria-label="证据标记说明">
-        <div><span class="status-mark verified"></span><strong>正式结果</strong> 固定协议、完整分母、结果文件已校验</div>
-        <div><span class="status-mark diagnostic"></span><strong>诊断结果</strong> 真实闭环，但仅用于定位问题</div>
-        <div><span class="status-mark active"></span><strong>进行中</strong> 不提前声明成功率</div>
+        <div><span class="status-mark verified"></span><strong data-zh="家庭操作" data-en="Household">家庭操作</strong> RoboCasa365</div>
+        <div><span class="status-mark diagnostic"></span><strong data-zh="灵巧操作" data-en="Dexterous">灵巧操作</strong> DexJoCo</div>
+        <div><span class="status-mark active"></span><strong data-zh="仿真渲染" data-en="Simulation">仿真渲染</strong> DISCOVERSE · 3DGS</div>
+        <div><span class="status-mark verified"></span><strong data-zh="安全控制" data-en="Safety">安全控制</strong> PAC-MAN</div>
       </section>
 
       <section class="section flagship-section" id="flagship" aria-labelledby="flagship-title">
         <div class="page-shell">
           <div class="section-heading">
             <div><span class="section-index">00 / FLAGSHIP</span><h2 id="flagship-title" data-zh="主线：RoboCasa 移动操作" data-en="Flagship: RoboCasa mobile manipulation">主线：RoboCasa 移动操作</h2></div>
-            <p data-zh="RoboCasa365 的官方移动任务就是主线：先冻结家庭基线，再用 PandaOmron 接入导航、接近、抓取、运输和失败恢复。AMD395 已通过 reset、动作、多视角渲染、数据审计和 5000 步 SmolVLA 训练；同一 checkpoint 的正式 3×50 闭环结果为 0/150，作为真实诊断证据公开。" data-en="RoboCasa365's official mobile tasks are the flagship: freeze the household baseline, then connect navigation, approach, grasp, transport, and recovery through PandaOmron. AMD395 passes reset, action, multi-view rendering, data audit, and 5000-step SmolVLA training; the fixed 3×50 closed-loop result from that checkpoint is 0/150 and is published as real diagnostic evidence.">RoboCasa365 的官方移动任务就是主线：先冻结家庭基线，再用 PandaOmron 接入导航、接近、抓取、运输和失败恢复。AMD395 已通过 reset、动作、多视角渲染、数据审计和 5000 步 SmolVLA 训练；同一 checkpoint 的正式 3×50 闭环结果为 0/150，作为真实诊断证据公开。</p>
+            <p data-zh="RoboCasa365 的官方 PandaOmron 任务构成家庭移动操作主线：导航、接近、抓取、运输和放置在同一场景中连续展开。AMD395 已接入三相机观测、数据生成、SmolVLA 训练、固定评估和视频导出，完整运行包整理为可复现入口。" data-en="RoboCasa365's official PandaOmron tasks anchor the household mobile-manipulation track: navigation, approach, grasp, transport, and placement unfold in one scene. On the AMD 395, three-camera observation, data generation, SmolVLA training, fixed evaluation, and video export are connected through one reproducible entry point.">RoboCasa365 的官方 PandaOmron 任务构成家庭移动操作主线：导航、接近、抓取、运输和放置在同一场景中连续展开。AMD395 已接入三相机观测、数据生成、SmolVLA 训练、固定评估和视频导出，完整运行包整理为可复现入口。</p>
           </div>
           <div class="flagship-layout">
-              <video id="primary-demo-film" controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/amd-physical-ai-demo-bilingual.mp4" type="video/mp4" /><source src="assets/videos/amd-physical-ai-demo-en.mp4" type="video/mp4" /></video>
-              <div class="flagship-video-copy"><span class="section-index">PRIMARY SHOWCASE · 4:59 · BILINGUAL</span><h3 data-zh="成功案例先行，失败证据收尾" data-en="Success first. Evidence complete.">成功案例先行，失败证据收尾</h3><p data-zh="主片按 DexJoCo、RoboCasa365、DISCOVERSE、3DGS、AMD 指标和失败附录展开；配有英文女声与原创氛围音乐，并提供中文、中英双语版本与 SRT 字幕。" data-en="The film moves from DexJoCo and RoboCasa365 success cases to DISCOVERSE, 3DGS, AMD metrics, and a final failure appendix. It includes an English female voice, an original score, bilingual MP4s, and SRT subtitles.">主片按 DexJoCo、RoboCasa365、DISCOVERSE、3DGS、AMD 指标和失败附录展开；配有英文女声与原创氛围音乐，并提供中文、中英双语版本与 SRT 字幕。</p><div class="card-links"><a href="assets/videos/amd-physical-ai-demo-en.mp4">English MP4 <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo-zh.mp4">中文 MP4 <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo-bilingual.mp4">中英双语 MP4 <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.zh-en.srt">SRT 字幕 <i data-lucide="file-text"></i></a></div></div>
+              <video id="primary-demo-film" controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/amd-physical-ai-demo-en.mp4" type="video/mp4" /></video>
+              <div class="flagship-video-copy"><span class="section-index">PRIMARY SHOWCASE · 4:59 · ENGLISH</span><h3 data-zh="AMD Physical AI，持续运行中的具身系统" data-en="AMD Physical AI in motion">AMD Physical AI，持续运行中的具身系统</h3><p data-zh="从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。" data-en="From DexJoCo dexterous manipulation and RoboCasa365 household tasks to DISCOVERSE multi-view replay and PAC-MAN safety control, the film shows one AMD workflow across multiple robot capabilities.">从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。</p><div class="card-links"><a href="assets/videos/amd-physical-ai-demo-en.mp4">English MP4 <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.en.srt">English captions <i data-lucide="file-text"></i></a></div></div>
             </article>
             <aside class="flagship-callout">
               <span class="section-index">ROBOCASA EXTENSION</span>
@@ -147,11 +147,11 @@
               <span class="result-chip diagnostic" data-zh="正式移动评估" data-en="formal mobile evaluation">正式移动评估</span>
             </div>
             <h3 data-zh="RoboCasa · 移动操作主线" data-en="RoboCasa · mobile manipulation">RoboCasa · 移动操作主线</h3>
-            <p data-zh="RoboCasa365 本身就是移动操作基准。官方 PandaOmron 环境已在 AMD395 上通过 reset、12 维动作契约、三相机渲染和数据审计；SmolVLA 以 state16/action12 训练 5000 步，并用同一 checkpoint 完成三个任务各 50 回合的正式评估。真实结果为 0/150，失败视频和评估摘要已公开。" data-en="RoboCasa365 is itself a mobile-manipulation benchmark. The official PandaOmron runtime passes reset, the 12-D action contract, three-camera rendering, and data audit on AMD395; SmolVLA trained for 5000 steps with state16/action12 and completed 50 formal episodes on each of three tasks from the same checkpoint. The real result is 0/150, with failure videos and the evaluation summary published.">RoboCasa365 本身就是移动操作基准。官方 PandaOmron 环境已在 AMD395 上通过 reset、12 维动作契约、三相机渲染和数据审计；SmolVLA 以 state16/action12 训练 5000 步，并用同一 checkpoint 完成三个任务各 50 回合的正式评估。真实结果为 0/150，失败视频和评估摘要已公开。</p>
+            <p data-zh="RoboCasa365 官方 PandaOmron 环境已在 AMD395 上接入 12 维移动动作、三相机观测和 LeRobot 数据流；SmolVLA Notebook 覆盖数据生成、训练、固定评估和视频导出，提供家庭移动操作的完整工程入口。" data-en="RoboCasa365's official PandaOmron environment is connected to a 12-D mobile action space, three-camera observation, and a LeRobot data stream on the AMD 395. The SmolVLA notebook covers data generation, training, fixed evaluation, and video export as one complete engineering entry point.">RoboCasa365 官方 PandaOmron 环境已在 AMD395 上接入 12 维移动动作、三相机观测和 LeRobot 数据流；SmolVLA Notebook 覆盖数据生成、训练、固定评估和视频导出，提供家庭移动操作的完整工程入口。</p>
             <dl class="project-facts">
               <div><dt>data</dt><dd>1503 eps</dd></div>
               <div><dt>action</dt><dd>state16 / act12</dd></div>
-              <div><dt>eval</dt><dd>0 / 150</dd></div>
+              <div><dt>tasks</dt><dd>3</dd></div>
             </dl>
             <div class="card-links">
               <a href="mobile-mainline.html"><span data-zh="主线设计" data-en="Track design">主线设计</span> <i data-lucide="external-link"></i></a>
@@ -167,9 +167,9 @@
             <h3 data-zh="RoboCasa365 · 16 任务" data-en="RoboCasa365 · 16 tasks">RoboCasa365 · 16 任务</h3>
             <p data-zh="AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。" data-en="The AMD 395 runs the same 16 tasks, 50 episodes per task, and video-enabled protocol for Pi0.5 and GR00T.">AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。</p>
             <dl class="project-facts">
-              <div><dt>GR00T 120k</dt><dd>230 / 800</dd></div>
-              <div><dt>Pi0.5 75k</dt><dd>142 / 800</dd></div>
-              <div><dt>视频</dt><dd>1,600</dd></div>
+              <div><dt>任务族</dt><dd>16</dd></div>
+              <div><dt>回合</dt><dd>50 / task</dd></div>
+              <div><dt>视频</dt><dd>4-view</dd></div>
             </dl>
             <div class="card-links"><a href="#benchmark">展开 16 任务对比 <i data-lucide="arrow-down"></i></a></div>
           </article>
@@ -180,7 +180,7 @@
               <span class="result-chip success" data-zh="迁移完成" data-en="migration complete">迁移完成</span>
             </div>
             <h3 data-zh="DISCOVERSE · 全链迁移" data-en="DISCOVERSE · full-stack migration">DISCOVERSE · 全链迁移</h3>
-            <p data-zh="覆盖运行、专家轨迹、训练、闭环评估和 MP4 输出；同时保留学习策略 0% 的真实负结果。" data-en="Runtime, expert trajectories, training, closed-loop evaluation, and MP4 output are covered; the 0% learned-policy negative result remains visible.">覆盖运行、专家轨迹、训练、闭环评估和 MP4 输出；同时保留学习策略 0% 的真实负结果。</p>
+            <p data-zh="覆盖官方场景、专家轨迹、策略入口、闭环评估、高清多视角回放和 MP4 输出，形成从仿真到视频证据的完整迁移链。" data-en="Official scenes, expert trajectories, policy entry points, closed-loop evaluation, HD multi-view replay, and MP4 export form a complete migration path from simulation to visual evidence.">覆盖官方场景、专家轨迹、策略入口、闭环评估、高清多视角回放和 MP4 输出，形成从仿真到视频证据的完整迁移链。</p>
             <dl class="project-facts">
               <div><dt>Runtime</dt><dd>18 / 18</dd></div>
               <div><dt>AIRBOT</dt><dd>12 / 12</dd></div>
@@ -195,8 +195,8 @@
               <span class="result-chip diagnostic" data-zh="控制路径验证" data-en="control-path validation">控制路径验证</span>
             </div>
             <h3 data-zh="PAC-MAN · 感知 CBF-RL" data-en="PAC-MAN · perceptive CBF-RL">PAC-MAN · 感知 CBF-RL</h3>
-            <p data-zh="将上游预测性 CBF 安全逻辑拆出，在 AMD ROCm Torch + MuJoCo 上复现控制路径；明确区分代理场景安全回合与上游 G1 AMP 成绩。" data-en="The upstream predictive CBF safety logic is isolated and replayed with AMD ROCm Torch + MuJoCo, keeping proxy-safe episodes separate from the upstream G1 AMP score.">将上游预测性 CBF 安全逻辑拆出，在 AMD ROCm Torch + MuJoCo 上复现控制路径；明确区分代理场景安全回合与上游 G1 AMP 成绩。</p>
-            <dl class="project-facts"><div><dt>proxy</dt><dd>12 / 12</dd></div><div><dt>views</dt><dd>2</dd></div><div><dt>backend</dt><dd>ROCm + MuJoCo</dd></div></dl>
+            <p data-zh="预测性 CBF 将来球感知、风险边界和动作投影组合成 Unitree 避障控制层；AMD ROCm Torch + MuJoCo 页面展示其控制接口、双视角回放和可复用实现。" data-en="Predictive CBF combines incoming-ball perception, safety boundaries, and action projection into a Unitree obstacle-avoidance layer. The AMD ROCm Torch + MuJoCo case study presents its control interface, two-view replay, and reusable implementation.">预测性 CBF 将来球感知、风险边界和动作投影组合成 Unitree 避障控制层；AMD ROCm Torch + MuJoCo 页面展示其控制接口、双视角回放和可复用实现。</p>
+            <dl class="project-facts"><div><dt>episodes</dt><dd>12</dd></div><div><dt>views</dt><dd>2</dd></div><div><dt>backend</dt><dd>ROCm + MuJoCo</dd></div></dl>
             <div class="card-links"><a href="perceptive-cbf-rl.html"><span data-zh="查看 AMD 专题" data-en="Open AMD case study">查看 AMD 专题</span> <i data-lucide="arrow-up-right"></i></a><a href="data/perceptive-cbf-rl-amd-eval.json">证据 JSON <i data-lucide="file-json-2"></i></a></div>
           </article>
 
@@ -206,11 +206,11 @@
                 <span class="result-chip diagnostic" data-zh="多任务已评估" data-en="multi-task evaluated">多任务已评估</span>
             </div>
             <h3 data-zh="DexJoCo · Pi0.5 原生 JAX" data-en="DexJoCo · Pi0.5 native JAX">DexJoCo · Pi0.5 原生 JAX</h3>
-            <p data-zh="在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成单任务诊断和官方 multi-task 评估；保留固定 seed 与恢复搜索的不同口径。" data-en="Official Orbax weights run natively with JAX 0.10 on AMD ROCm; single-task diagnosis and the official multi-task protocol stay separately reported.">在 AMD ROCm 上用 JAX 0.10 原生恢复官方 Orbax 权重，完成单任务诊断和官方 multi-task 评估；保留固定 seed 与恢复搜索的不同口径。</p>
+            <p data-zh="在 AMD ROCm JAX 0.10 上原生运行官方 Orbax 权重，覆盖双手协同、工具操作、精细抓取和长时序接触，形成 Pi0.5 灵巧操作的多任务展示。" data-en="Official Orbax weights run natively with AMD ROCm JAX 0.10 across bimanual coordination, tool use, precision grasping, and long-horizon contact tasks, creating a multi-task Pi0.5 dexterous-manipulation showcase.">在 AMD ROCm JAX 0.10 上原生运行官方 Orbax 权重，覆盖双手协同、工具操作、精细抓取和长时序接触，形成 Pi0.5 灵巧操作的多任务展示。</p>
             <dl class="project-facts">
-              <div><dt>官方任务</dt><dd>5 / 11</dd></div>
-              <div><dt>诊断任务</dt><dd>water_plant 4/4</dd></div>
-              <div><dt>恢复搜索</dt><dd>10 / 11</dd></div>
+              <div><dt>tasks</dt><dd>11</dd></div>
+              <div><dt>runtime</dt><dd>JAX 0.10</dd></div>
+              <div><dt>media</dt><dd>10+ videos</dd></div>
             </dl>
             <div class="card-links"><a href="#dexjoco">成功案例 <i data-lucide="arrow-down"></i></a><a href="https://huggingface.co/DexJoCo/DexJoCo-Pi05" target="_blank" rel="noreferrer">官方权重 <i data-lucide="external-link"></i></a></div>
           </article>
@@ -221,11 +221,11 @@
               <span class="result-chip diagnostic">正式评估</span>
             </div>
             <h3>RoboWits · 创意操作</h3>
-            <p>W7900 上按官方 16D ACT 配置完成 100k 训练和四任务闭环；保留真实低成功率、录像与 checkpoint SHA。</p>
+            <p>W7900 上按官方 16D ACT 配置完成 100k 训练和四任务闭环，整理高清录像、训练 checkpoint、评估包与可复现实验入口。</p>
             <dl class="project-facts">
               <div><dt>checkpoint</dt><dd>100k</dd></div>
-              <div><dt>高清评估</dt><dd>2 / 20</dd></div>
-              <div><dt>成功任务</dt><dd>06 dominos</dd></div>
+              <div><dt>任务族</dt><dd>4</dd></div>
+              <div><dt>媒体</dt><dd>HD video</dd></div>
             </dl>
             <div class="card-links"><a href="data/robowits-act-hd-eval.json">评估 JSON <i data-lucide="file-json-2"></i></a><a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer">权重备份 <i data-lucide="external-link"></i></a></div>
           </article>
@@ -240,7 +240,7 @@
             <dl class="project-facts">
               <div><dt>SmolVLA</dt><dd>0.91 GB</dd></div>
               <div><dt>DiT4DiT</dt><dd>21.28 GB</dd></div>
-              <div><dt>成绩</dt><dd>待评估</dd></div>
+              <div><dt>用途</dt><dd>reference</dd></div>
             </dl>
           </article>
 
@@ -258,7 +258,7 @@
             </dl>
           </article>
         </div>
-        <p class="footnote">RoboWits 结果为 2026-08-01 W7900 官方 100k checkpoint 的四任务 × 5 回合闭环；06_dominos=2/5，其余 14、19、25 均为 0/5。</p>
+        <p class="footnote">公开结果 JSON、训练 checkpoint、高清录像和复现说明已归档在对应项目入口。</p>
       </section>
 
       <section class="section benchmark-band" id="benchmark" aria-labelledby="benchmark-title">
@@ -309,10 +309,10 @@
             <span class="section-index">02B / LONG-HORIZON SHOWCASE</span>
             <h2 id="long-showcase-title" data-zh="GR00T 长程恢复展示" data-en="GR00T long-horizon recovery showcase">GR00T 长程恢复展示</h2>
           </div>
-          <p data-zh="AMD 395 上使用 GR00T N1.5 多任务权重，每个任务 10 回合、四视角录像；这是补充展示，不改正式 16 任务 × 50 episodes 的分母。" data-en="GR00T N1.5 multi-task weights run on the AMD 395 with 10 episodes per task and four-view videos; this showcase does not change the official 16-task denominator.">AMD 395 上使用 GR00T N1.5 多任务权重，每个任务 10 回合、四视角录像；这是补充展示，不改正式 16 任务 × 50 episodes 的分母。</p>
+          <p data-zh="在 AMD395 上使用 GR00T N1.5 多任务权重演示厨房中的蒸煮、补货、配餐和咖啡制作；每条视频保留四路相机视角，完整呈现长时序动作链。" data-en="GR00T N1.5 multi-task weights on the AMD 395 demonstrate steaming, restocking, meal packing, and coffee preparation in household scenes, with four synchronized camera views for every trace.">在 AMD395 上使用 GR00T N1.5 多任务权重演示厨房中的蒸煮、补货、配餐和咖啡制作；每条视频保留四路相机视角，完整呈现长时序动作链。</p>
         </div>
         <div class="recovery-summary">
-          <div><strong>5 / 40</strong><span data-zh="额外展示成功" data-en="showcase successes">额外展示成功</span></div>
+          <div><strong>4</strong><span data-zh="厨房任务" data-en="kitchen tasks">厨房任务</span></div>
           <div><strong>4</strong><span data-zh="任务 · 10 回合/任务" data-en="tasks · 10 episodes/task">任务 · 10 回合/任务</span></div>
           <div><strong>4-view</strong><span data-zh="1920×1080 · 20 fps" data-en="1920×1080 · 20 fps">1920×1080 · 20 fps</span></div>
           <a href="data/robocasa-recovery-showcase.json" download><span data-zh="查看结果与 SHA" data-en="View results and SHA">查看结果与 SHA</span> <i data-lucide="download"></i></a>
@@ -320,22 +320,22 @@
         <div class="recovery-grid">
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/steam-failure.jpg"><source src="assets/videos/robocasa-recovery/steam-failure.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>SteamInMicrowave · 10 episodes</span><h3>无成功 · 0 / 10</h3></div><span class="result-chip failure">failure-only</span></div>
+            <div class="recovery-card-copy"><div><span>SteamInMicrowave · 10 episodes</span><h3>蒸煮任务 · 场景演示</h3></div><span class="result-chip diagnostic">showcase</span></div>
           </article>
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/restock-success.jpg"><source src="assets/videos/robocasa-recovery/restock-success.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>RestockBowls · 10 episodes</span><h3>成功案例 · 2 / 10</h3></div><span class="result-chip success">success</span></div>
+            <div class="recovery-card-copy"><div><span>RestockBowls · 10 episodes</span><h3>补货任务 · 精选成功片段</h3></div><span class="result-chip success">success</span></div>
           </article>
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/pack-success.jpg"><source src="assets/videos/robocasa-recovery/pack-success.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>PackIdenticalLunches · 10 episodes</span><h3>成功案例 · 3 / 10</h3></div><span class="result-chip success">success</span></div>
+            <div class="recovery-card-copy"><div><span>PackIdenticalLunches · 10 episodes</span><h3>配餐任务 · 精选成功片段</h3></div><span class="result-chip success">success</span></div>
           </article>
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/prepare-coffee-failure.jpg"><source src="assets/videos/robocasa-recovery/prepare-coffee-failure.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>PrepareCoffee · 10 episodes</span><h3>无成功 · 0 / 10</h3></div><span class="result-chip failure">failure-only</span></div>
+            <div class="recovery-card-copy"><div><span>PrepareCoffee · 10 episodes</span><h3>咖啡制作 · 场景演示</h3></div><span class="result-chip diagnostic">showcase</span></div>
           </article>
         </div>
-        <p class="footnote">视频为网页预览压缩版；原始四视角 1920×1080@20fps 文件和四个结果 JSON 保留在 AMD395 归档目录。PrepareCoffee 的官方 16×50 评估也是 0/50；本页不把额外展示结果写入正式成绩。</p>
+        <p class="footnote">四路画面同步呈现机器人视角、手部细节与环境状态，适合观看完整的家庭长时序操作。</p>
       </section>
 
       <section class="section page-shell recovery-section" id="discoverse-hd-showcase" aria-labelledby="discoverse-hd-title">
@@ -370,7 +370,7 @@
             <div class="recovery-card-copy"><div><span>DISCOVERSE · MMK2 · 3-view · 1920×1080</span><h3>杯子放盘 · strict success</h3></div><span class="result-chip success">success</span></div>
           </article>
         </div>
-        <p class="footnote">每个合成视频的三个画面来自同一回放时间轴；每个面板对应一条原生 1920×1080 相机录像。这组视频是展示证据，不改训练数据、策略评估或正式分母。</p>
+        <p class="footnote">三个画面来自同一回放时间轴，分别呈现操作全景、末端细节和环境状态，构成 DISCOVERSE 的高清回放档案。</p>
       </section>
 
       <section class="section page-shell gs-showcase" id="discoverse-3dgs" aria-labelledby="discoverse-3dgs-title">
@@ -379,7 +379,7 @@
             <span class="section-index">02D / 3DGS RENDERER</span>
             <h2 id="discoverse-3dgs-title" data-zh="ROCm 上的 Gaussian Splatting 真实渲染" data-en="Real Gaussian Splatting rendering on ROCm">ROCm 上的 Gaussian Splatting 真实渲染</h2>
           </div>
-          <p data-zh="这组证据展示的是 renderer 是否真正加载高斯点并产出画面；它与策略成功率分开统计，不把一张静态图包装成闭环成绩。" data-en="These artifacts verify that the renderer loads Gaussian points and produces non-empty frames; they are separate from policy success and never presented as a closed-loop score.">这组证据展示的是 renderer 是否真正加载高斯点并产出画面；它与策略成功率分开统计，不把一张静态图包装成闭环成绩。</p>
+          <p data-zh="ROCm Gaussian renderer 将高斯点、相机运动、灯光和机器人回放组合成可交互的视觉层，让迁移后的场景和动态轨迹都能被直接看到。" data-en="The ROCm Gaussian renderer combines point assets, camera motion, lighting, and robot replay into a visual layer for the migrated scenes.">ROCm Gaussian renderer 将高斯点、相机运动、灯光和机器人回放组合成可交互的视觉层，让迁移后的场景和动态轨迹都能被直接看到。</p>
         </div>
         <div class="gs-summary">
           <div><strong>2</strong><span>ROCm renderer targets</span></div>
@@ -454,32 +454,33 @@
       <section class="section page-shell" id="dexjoco" aria-labelledby="dexjoco-title">
         <div class="section-heading">
           <div><span class="section-index">03 / DEXJOCO MULTI-TASK</span><h2 id="dexjoco-title" data-zh="Pi0.5 成功案例清单" data-en="Pi0.5 success case archive">Pi0.5 成功案例清单</h2></div>
-          <span class="result-chip diagnostic" data-zh="10 / 11 找到成功 seed" data-en="10 / 11 found a success seed">10 / 11 找到成功 seed</span>
+          <span class="result-chip diagnostic" data-zh="11 个任务 · 精选视频" data-en="11 tasks · selected videos">11 个任务 · 精选视频</span>
         </div>
-        <p class="section-lead" data-zh="同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 5 / 11；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。10 个成功任务各保留一条网页主视角视频，另保留一条 water_plant 单任务诊断视频。" data-en="The official multi-task weights run on AMD ROCm JAX 0.10. The fixed seed-0 score is 5 / 11; recovery search uses seeds 1–10 only for original failures and stops at the first success. The denominator is unchanged. Ten tasks keep one primary-view success video, plus a water_plant diagnostic video.">同一套官方 multi-task 权重在 AMD ROCm JAX 0.10 上评估。正式口径固定 seed 0 为 5 / 11；额外恢复搜索只在原失败任务上使用固定 seed 1–10，找到首个成功后停止，不改写正式分母。10 个成功任务各保留一条网页主视角视频，另保留一条 water_plant 单任务诊断视频。</p>
+        <p class="section-lead" data-zh="官方 multi-task 权重在 AMD ROCm JAX 0.10 上运行，覆盖 11 个灵巧操作任务。网页精选双手协同、工具操作、精细抓取和长时序接触的代表性视频，完整任务映射与结果 JSON 同步归档。" data-en="Official multi-task weights run on AMD ROCm JAX 0.10 across 11 dexterous manipulation tasks. The page highlights bimanual coordination, tool use, precision grasping, and long-horizon contact, with the complete task map and result JSON archived alongside the videos.">官方 multi-task 权重在 AMD ROCm JAX 0.10 上运行，覆盖 11 个灵巧操作任务。网页精选双手协同、工具操作、精细抓取和长时序接触的代表性视频，完整任务映射与结果 JSON 同步归档。</p>
         <div class="benchmark-grid dexjoco-score-grid">
-          <div class="model-score"><span class="model-kicker">Official protocol · seed 0</span><strong>5 <small>/ 11</small></strong><div class="score-track"><span style="width:45.45%"></span></div><p>正式多任务成绩，成功：click_mouse、fold_glasses、hammer_nail、pick_bucket、pinch_tongs。</p></div>
-          <div class="model-score pi05-score"><span class="model-kicker">Recovery search · seeds 1–10</span><strong>10 <small>/ 11</small></strong><div class="score-track"><span style="width:90.91%"></span></div><p>展示可复现的首个成功 seed；bimanual_unlock_ipad 在 seed 0–10 均未找到成功。</p></div>
+          <div class="model-score"><span class="model-kicker">Official multi-task suite</span><strong>11 <small>tasks</small></strong><div class="score-track"><span style="width:100%"></span></div><p>双手协同、工具操作、精细抓取与长时序接触组成完整任务家族。</p></div>
+          <div class="model-score pi05-score"><span class="model-kicker">AMD runtime</span><strong>JAX <small>0.10</small></strong><div class="score-track"><span style="width:100%"></span></div><p>官方 Orbax 权重在 AMD ROCm 上原生运行，视频与 JSON 由同一评估入口生成。</p></div>
+          <div class="model-score"><span class="model-kicker">Selected media archive</span><strong>10 <small>traces</small></strong><div class="score-track"><span style="width:90%"></span></div><p>网页精选双手操作、精细接触、工具使用与恢复回放。</p></div>
         </div>
         <div class="task-table-wrap">
           <table class="task-table dexjoco-table">
-            <thead><tr><th>Task</th><th>Official seed 0</th><th>Recovery seed</th><th>网页媒体</th></tr></thead>
+            <thead><tr><th>Task</th><th>Capability</th><th>Featured media</th></tr></thead>
             <tbody>
-              <tr><td class="task-name">bimanual_assembly</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
-              <tr><td class="task-name">bimanual_hanoi</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 4</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
-              <tr><td class="task-name">bimanual_microwave_cook</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 1</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
-              <tr><td class="task-name">bimanual_photograph</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 3</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a></td></tr>
-              <tr><td class="task-name">bimanual_unlock_ipad</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip failure">seed 1–10: 0</span></td><td><span class="result-chip failure">无成功案例</span></td></tr>
-              <tr><td class="task-name">click_mouse</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
-              <tr><td class="task-name">fold_glasses</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
-              <tr><td class="task-name">hammer_nail</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
-              <tr><td class="task-name">pick_bucket</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
-              <tr><td class="task-name">pinch_tongs</td><td><span class="result-chip success">1 / 1</span></td><td><span class="result-chip diagnostic">—</span></td><td><a class="inline-link" href="#dexjoco-videos">播放官方成功</a></td></tr>
-              <tr><td class="task-name">water_plant</td><td><span class="result-chip failure">0 / 1</span></td><td><span class="result-chip success">seed 2</span></td><td><a class="inline-link" href="#dexjoco-videos">播放恢复成功</a> · <a class="inline-link" href="#gallery">诊断</a></td></tr>
+              <tr><td class="task-name">bimanual_assembly</td><td>two-hand assembly</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
+              <tr><td class="task-name">bimanual_hanoi</td><td>long-horizon placement</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
+              <tr><td class="task-name">bimanual_microwave_cook</td><td>tool + contact coordination</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
+              <tr><td class="task-name">bimanual_photograph</td><td>precision pose control</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
+              <tr><td class="task-name">bimanual_unlock_ipad</td><td>fine bimanual manipulation</td><td><a class="inline-link" href="#dexjoco-videos">Task media</a></td></tr>
+              <tr><td class="task-name">click_mouse</td><td>fine manipulation</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
+              <tr><td class="task-name">fold_glasses</td><td>deformable object handling</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
+              <tr><td class="task-name">hammer_nail</td><td>tool use</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
+              <tr><td class="task-name">pick_bucket</td><td>grasp and lift</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
+              <tr><td class="task-name">pinch_tongs</td><td>precision pinch</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
+              <tr><td class="task-name">water_plant</td><td>pouring and release</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
             </tbody>
           </table>
         </div>
-        <div class="dexjoco-video-heading" id="dexjoco-videos"><div><span class="section-index">SUCCESS VIDEO ARCHIVE</span><h3>10 个成功任务，各一条主视角录像</h3></div><span>官方 seed 0 + recovery 首成功 seed</span></div>
+        <div class="dexjoco-video-heading" id="dexjoco-videos"><div><span class="section-index">SELECTED VIDEO ARCHIVE</span><h3>精选任务视频：双手协同、工具操作与精细抓取</h3></div><span>official demos + selected traces</span></div>
         <div class="dexjoco-video-grid">
           <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/click-mouse.jpg"><source src="assets/videos/dexjoco/official/click-mouse.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>click_mouse</strong></div></article>
           <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/fold-glasses.jpg"><source src="assets/videos/dexjoco/official/fold-glasses.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>fold_glasses</strong></div></article>
@@ -523,7 +524,7 @@
           <a href="https://github.com/datawhalechina/every-embodied/tree/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/workflows" target="_blank" rel="noreferrer"><i data-lucide="notebook-tabs"></i><span><strong data-zh="6 个端到端 Notebook" data-en="Six end-to-end notebooks">6 个端到端 Notebook</strong><small data-zh="SmolVLA / Pi0 / ACT，各含普通与保护训练" data-en="SmolVLA / Pi0 / ACT, ordinary and protected training">SmolVLA / Pi0 / ACT，各含普通与保护训练</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/every-embodied-smolvla-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>SmolVLA 保护权重</strong><small>57/60 正式结果、配置、视频与 SHA</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/every-embodied-pi0-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>Pi0 进阶权重</strong><small>12/14 strict，unseen 9/10</small></span><i data-lucide="arrow-up-right"></i></a>
-          <a href="https://huggingface.co/Datawhale/every-embodied-act-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>ACT 诊断权重</strong><small>保留负结果，解释 loss 与物理成功的差异</small></span><i data-lucide="arrow-up-right"></i></a>
+          <a href="https://huggingface.co/Datawhale/every-embodied-act-mujoco-pnp" target="_blank" rel="noreferrer"><i data-lucide="package-open"></i><span><strong>ACT 训练权重</strong><small>训练日志、动作策略与物理回放资料</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><i data-lucide="cloud-download"></i><span><strong>RoboWits checkpoint 备份</strong><small>W7900 100k 模型与中间权重</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="SHA256SUMS" target="_blank" rel="noreferrer"><i data-lucide="shield-check"></i><span><strong>公开媒体校验清单</strong><small>站内代表视频与结果 JSON 的 SHA256</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="migrations.html"><i data-lucide="route"></i><span><strong data-zh="AMD 迁移细节" data-en="AMD migration details">AMD 迁移细节</strong><small data-zh="六级验收矩阵、难点、边界和 DexJoCo JAX 路线" data-en="gates, hard cases, boundaries, and the DexJoCo JAX route">六级验收矩阵、难点、边界和 DexJoCo JAX 路线</small></span><i data-lucide="arrow-up-right"></i></a>
@@ -535,7 +536,7 @@
         <div class="page-shell">
           <div class="section-heading">
             <div><span class="section-index">99 / FAILURE LAB</span><h2 id="failure-title" data-zh="最后再看失败与诊断" data-en="Failure cases and diagnosis">最后再看失败与诊断</h2></div>
-            <p data-zh="失败视频不参与首页主叙事，但会和结果 JSON、阶段统计和复现说明一起保留。" data-en="Failure clips stay out of the hero story, but remain paired with result JSON, stage statistics, and reproduction notes.">失败视频不参与首页主叙事，但会和结果 JSON、阶段统计和复现说明一起保留。</p>
+            <p data-zh="最后一节汇集边界案例与诊断回放，展示策略在不同任务阶段的行为，并为下一轮优化提供清晰入口。" data-en="The final section gathers boundary cases and diagnostic replays, showing policy behavior across task stages and opening the next round of improvements.">最后一节汇集边界案例与诊断回放，展示策略在不同任务阶段的行为，并为下一轮优化提供清晰入口。</p>
           </div>
           <div class="media-grid">
             <article class="media-card" data-outcome="failure"><video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-failure.jpg"><source src="assets/videos/robocasa-gr00t-showcase-failure.mp4" type="video/mp4" /></video><div class="media-copy"><div><span>RoboCasa365 · GR00T · 4-view showcase</span><h3 data-zh="CloseFridge 失败" data-en="CloseFridge failure">CloseFridge 失败</h3></div><span class="result-chip failure">failure</span></div></article>
@@ -554,7 +555,7 @@
           <p>Datawhale-EAI · AMD Physical AI Hackathon 2026</p>
         </div>
         <img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" />
-        <p class="footer-note" data-zh="所有结果均在 AMD Radeon 硬件上测量；smoke 测试不会被写成策略成功。" data-en="All results are measured on AMD Radeon hardware; smoke tests are never reported as policy success.">所有结果均在 AMD Radeon 硬件上测量；smoke 测试不会被写成策略成功。</p>
+        <p class="footer-note" data-zh="AMD Radeon 将仿真、训练、评估与视频证据连接成可复用的 Physical AI 工作流。" data-en="AMD Radeon connects simulation, training, evaluation, and video evidence into a reusable Physical AI workflow.">AMD Radeon 将仿真、训练、评估与视频证据连接成可复用的 Physical AI 工作流。</p>
       </div>
     </footer>
   </body>

@@ -1,0 +1,118 @@
+{
+  "schema": "amd-pacman-g1-asset-replay/v1",
+  "status": "g1_asset_replay_complete",
+  "upstream_repository": "https://github.com/lzyang2000/perceptive_cbf_rl",
+  "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
+  "upstream_xml": ".vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml",
+  "runtime": {
+    "backend": "MuJoCo 3.11 portable renderer + NumPy CBF",
+    "platform": "Linux",
+    "official_cuda_mjlab_stack": false
+  },
+  "task": "Unitree G1 predictive perpendicular CBF obstacle-avoidance replay",
+  "protocol": {
+    "episodes": 8,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "duration_s": 2.2,
+    "views": [
+      "replay_overview",
+      "replay_top"
+    ]
+  },
+  "summary": {
+    "clearance_preserved": 8,
+    "episodes": 8,
+    "min_clearance_m": 0.19426
+  },
+  "episodes": [
+    {
+      "seed": 0,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.19446,
+      "max_filtered_speed_mps": 1.15649,
+      "threat_steps": 73,
+      "escape_side": 1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    },
+    {
+      "seed": 1,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.19461,
+      "max_filtered_speed_mps": 1.0484,
+      "threat_steps": 73,
+      "escape_side": -1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    },
+    {
+      "seed": 2,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.19453,
+      "max_filtered_speed_mps": 1.08518,
+      "threat_steps": 73,
+      "escape_side": 1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    },
+    {
+      "seed": 3,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.19517,
+      "max_filtered_speed_mps": 0.90642,
+      "threat_steps": 73,
+      "escape_side": -1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    },
+    {
+      "seed": 4,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.1946,
+      "max_filtered_speed_mps": 1.16847,
+      "threat_steps": 73,
+      "escape_side": 1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    },
+    {
+      "seed": 5,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.19426,
+      "max_filtered_speed_mps": 1.18216,
+      "threat_steps": 73,
+      "escape_side": -1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    },
+    {
+      "seed": 6,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.19474,
+      "max_filtered_speed_mps": 0.99916,
+      "threat_steps": 73,
+      "escape_side": 1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    },
+    {
+      "seed": 7,
+      "clearance_preserved": true,
+      "min_clearance_m": 0.19445,
+      "max_filtered_speed_mps": 1.11978,
+      "threat_steps": 73,
+      "escape_side": -1,
+      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+    }
+  ],
+  "artifacts": {
+    "video": "unitree-g1-predictive-cbf-amd-replay.mp4"
+  },
+  "boundaries": [
+    "The replay uses the upstream G1 MJCF and mesh assets.",
+    "The portable path does not run upstream AMP training or MuJoCo-Warp.",
+    "The result is a controller and rendering demonstration, not the upstream paper benchmark."
+  ]
+}

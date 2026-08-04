@@ -1,0 +1,7 @@
+{
+  "created_at": "2026-08-04T09:54:00.417119+00:00",
+  "command": "code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py --upstream-xml .vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml --output-dir results/pacman_g1_amd_replay_v2 --episodes 8",
+  "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
+  "upstream_xml_sha256": "f96a137240a2ed248e115fb6e5253959a54cc23216188ac538456d2ac179b6fd",
+  "video_sha256": "ec424e8b5a9995d39c4d2689cf87c71ad032f073b2ede3357217c3fb85e60cd8"
+}

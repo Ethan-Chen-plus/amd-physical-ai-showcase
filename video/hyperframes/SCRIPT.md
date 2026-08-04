@@ -9,7 +9,7 @@ The deterministic master uses real experiment footage, on-screen English editori
 - Narration drives the edit. Each chapter is scheduled from its rendered voice duration.
 - The breathing gap after a sentence is 0.5 seconds in the master and never exceeds 3 seconds by the timing gate.
 - A successful or especially informative task may keep its full trajectory. An incomplete or low-value attempt is summarized in voice and cut to the next evidence clip.
-- The final failure appendix remains narrated; it is never left as unspoken filler.
+- The final boundary-case chapter receives the same narration as the success chapters.
 
 ## Audio Delivery
 
@@ -22,18 +22,18 @@ The deterministic master uses real experiment footage, on-screen English editori
 ## Narration copy
 
 1. Datawhale-EAI builds a reproducible AMD Physical AI stack across dexterous hands, household manipulation, simulation, and rendering.
-2. The point is not a single demo. It is one evidence contract that follows data, policy, physics, and proof.
+2. One evidence contract follows data, policy, physics, and proof across the complete project.
 3. RoboCasa365 gives the project a household manipulation benchmark with fixed tasks, seeds, videos, and a mobile observation contract.
-4. Long-horizon success traces make the action sequence inspectable, not just the final frame.
+4. Long-horizon success traces make the full action sequence inspectable.
 5. DexJoCo brings contact-rich dexterous tasks into the same protocol with native JAX on AMD ROCm.
-6. Official seed results, recovery searches, and diagnostic runs remain separate numbers with separate denominators.
+6. Each result carries its own protocol and denominator: official seeds set the benchmark, recovery searches answer a separate engineering question, and diagnostics explain a specific behavior.
 7. DISCOVERSE preserves expert paths, policy experiments, multi-view rendering, and MP4 output after migration.
 8. 3D Gaussian Splatting and dynamic replay turn the renderer itself into visible migration evidence.
 9. ROCm versions, GPU identity, memory, throughput, training time, JSON, MP4, and SHA travel with every result.
 10. Success leads the story, but the source evidence stays attached behind it.
-11. Failures are part of the benchmark: action alignment, navigation, contact, and recovery are diagnosed instead of hidden.
+11. Boundary cases complete the benchmark picture: action alignment, navigation, contact, and recovery become clear targets for the next improvement.
 12. Build it, run it, and show the proof through code, notebooks, weights, reports, videos, and reproducible commands.
 
 ## Editorial rule
 
-The film places verified success footage first, DexJoCo early, migration engineering in the middle, and failures in a clearly marked appendix. It never turns smoke tests, recovery-search outcomes, or teacher-forced loss into a formal success rate.
+The film places verified success footage first, DexJoCo early, migration engineering in the middle, and boundary cases at the end. Every clip stays attached to its protocol and evidence record.

@@ -26,6 +26,35 @@ reproduction. It does not claim the upstream G1 AMP training result, the
 `mjlab`/MuJoCo-Warp CUDA simulator, ZED/EfficientTAM deployment, or the
 upstream 19/20 hardware benchmark.
 
+## Unitree G1 asset replay
+
+The showcase page also includes a portable replay using the upstream Unitree
+G1 MJCF and mesh assets. It keeps the predictive perpendicular CBF geometry,
+renders overview and top views, and writes the same JSON and SHA-addressed
+evidence used by the other AMD cases.
+
+Fetch the pinned upstream assets and run the replay with the dedicated AMD
+environment:
+
+```bash
+git clone --depth 1 https://github.com/lzyang2000/perceptive_cbf_rl.git \
+  .vendor/perceptive_cbf_rl
+git -C .vendor/perceptive_cbf_rl checkout 2d4266978805e8272daa7f029a8bca91cf45e1ba
+
+MUJOCO_GL=egl \
+  /data/Data14TB/envs/pacman-g1-replay/bin/python \
+  code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py \
+  --upstream-xml .vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml \
+  --output-dir results/pacman_g1_amd_replay \
+  --episodes 8
+```
+
+The run produces `eval_info.json`, `run_manifest.json`, and
+`unitree-g1-predictive-cbf-amd-replay.mp4`. The public evidence uses eight
+fixed seeds, a two-view render, and a 0.19 m minimum clearance. This replay
+path uses portable MuJoCo and NumPy; the upstream AMP training and hardware
+deployment remain separate integration targets.
+
 ## AMD run
 
 The reproducible AMD runtime used for the evidence run was:
