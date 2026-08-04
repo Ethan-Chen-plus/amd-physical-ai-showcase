@@ -22,32 +22,32 @@
     {
       "path": "assets/videos/amd-physical-ai-demo-en.mp4",
       "language": "English",
-      "sha256": "f24af83e1a7e4d8f76c2d29f3d9fda7fe1e7d9794d721a9cef659a13ae405876"
+      "sha256": "54a327a0d8d0a9998f3f2a68a78bcec277ba099e3db76248918bdf65786fe2cf"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
       "language": "Chinese",
-      "sha256": "bc4919170f70fef79184e15a8966dea3a44174a3fd0b9ccfd677d6745d8e63c3"
+      "sha256": "88b9d3919e879c045592c079961964e511f31c7a4252a84eb0f99640fdb4b1da"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
       "language": "Bilingual",
-      "sha256": "8078459d436e453d13f741040f9ba5972880feeabc7aaa98ff5abe8339f134ff"
+      "sha256": "bbbadb9b54903b87c48858a3c9b965ec29fb25a347b08db052b63fc5a094b999"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.en.srt",
       "language": "English subtitles",
-      "sha256": "fa59adc146cdc2c6d25c6b6d2c4204f7ccf9928173e94a984e8a1ff6691a6cff"
+      "sha256": "5402fa736c2f934642594c52b9602fafc4f5718bf9a4630c73b7153dd671493a"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh.srt",
       "language": "Chinese subtitles",
-      "sha256": "7a1bc4d2e14aaba91c86e4aec68f67571c068a7021d29e662bfeb645b039482a"
+      "sha256": "27a186e16ae7a3383082eceb1b18c9a9f9ef7dc56ab5736ba1ace11b7b9d41e6"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh-en.srt",
       "language": "Bilingual subtitles",
-      "sha256": "91fe1978b1eddf0170a14cf507a930541f9c1968d2411735c584078d59ff1307"
+      "sha256": "f882ded082286e97f9abd35dd0df4c5547c2ec5f8b20397407f0061403ff3bf6"
     },
     {
       "path": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",

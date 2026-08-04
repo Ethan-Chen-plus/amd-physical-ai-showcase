@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="lead-media">
-          <video muted autoplay loop playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg">
+          <video id="lead-demo-film" muted autoplay loop playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg">
             <source src="assets/videos/amd-physical-ai-demo-en.mp4" type="video/mp4" />
           </video>
           <div class="lead-caption">
@@ -561,8 +561,9 @@
     </footer>
     <script>
       (() => {
-        const player = document.querySelector("#primary-demo-film");
-        const source = player?.querySelector("source");
+        const players = ["#lead-demo-film", "#primary-demo-film"]
+          .map((selector) => document.querySelector(selector))
+          .filter(Boolean);
         const download = document.querySelector("#primary-demo-download");
         const languageToggle = document.querySelector("#lang-toggle");
         const videoByLanguage = {
@@ -572,32 +573,34 @@
         let sourceChange = 0;
 
         function syncPrimaryVideo() {
-          if (!player || !source) return;
           const language = document.documentElement.dataset.language === "zh" ? "zh" : "en";
           const nextSource = videoByLanguage[language];
           if (download) download.href = nextSource;
-          if (source.getAttribute("src") === nextSource) return;
-
           const changeId = ++sourceChange;
-          const playbackState = {
-            currentTime: player.currentTime,
-            paused: player.paused,
-            muted: player.muted,
-            volume: player.volume,
-            playbackRate: player.playbackRate,
-          };
 
-          source.setAttribute("src", nextSource);
-          player.load();
-          player.addEventListener("loadedmetadata", () => {
-            if (changeId !== sourceChange) return;
-            const duration = Number.isFinite(player.duration) ? player.duration : playbackState.currentTime;
-            player.currentTime = Math.min(playbackState.currentTime, Math.max(0, duration - 0.1));
-            player.muted = playbackState.muted;
-            player.volume = playbackState.volume;
-            player.playbackRate = playbackState.playbackRate;
-            if (!playbackState.paused) player.play().catch(() => {});
-          }, { once: true });
+          players.forEach((player) => {
+            const source = player.querySelector("source");
+            if (!source || source.getAttribute("src") === nextSource) return;
+            const playbackState = {
+              currentTime: player.currentTime,
+              paused: player.paused,
+              muted: player.muted,
+              volume: player.volume,
+              playbackRate: player.playbackRate,
+            };
+
+            source.setAttribute("src", nextSource);
+            player.load();
+            player.addEventListener("loadedmetadata", () => {
+              if (changeId !== sourceChange) return;
+              const duration = Number.isFinite(player.duration) ? player.duration : playbackState.currentTime;
+              player.currentTime = Math.min(playbackState.currentTime, Math.max(0, duration - 0.1));
+              player.muted = playbackState.muted;
+              player.volume = playbackState.volume;
+              player.playbackRate = playbackState.playbackRate;
+              if (!playbackState.paused) player.play().catch(() => {});
+            }, { once: true });
+          });
         }
 
         window.addEventListener("DOMContentLoaded", syncPrimaryVideo);

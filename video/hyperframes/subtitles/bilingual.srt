@@ -1,7 +1,7 @@
 1
 00:00:00,000 --> 00:00:17,490
-Datawhale-EAI builds AMD Physical AI across dexterous hands, homes, simulation, and rendering.
-Datawhale-EAI 用 AMD 构建 Physical AI，覆盖灵巧手、家庭操作、仿真与渲染。
+Datawhale-EAI builds Physical AI on AMD ROCm.
+Datawhale-EAI 在 AMD ROCm 上构建 Physical AI。
 
 2
 00:00:17,990 --> 00:00:36,460
