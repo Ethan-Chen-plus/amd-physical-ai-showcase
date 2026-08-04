@@ -109,8 +109,9 @@
             <p data-zh="RoboCasa365 的官方 PandaOmron 任务构成家庭移动操作主线：导航、接近、抓取、运输和放置在同一场景中连续展开。AMD395 已接入三相机观测、数据生成、SmolVLA 训练、固定评估和视频导出，完整运行包整理为可复现入口。" data-en="RoboCasa365's official PandaOmron tasks anchor the household mobile-manipulation track: navigation, approach, grasp, transport, and placement unfold in one scene. On the AMD 395, three-camera observation, data generation, SmolVLA training, fixed evaluation, and video export are connected through one reproducible entry point.">RoboCasa365 的官方 PandaOmron 任务构成家庭移动操作主线：导航、接近、抓取、运输和放置在同一场景中连续展开。AMD395 已接入三相机观测、数据生成、SmolVLA 训练、固定评估和视频导出，完整运行包整理为可复现入口。</p>
           </div>
           <div class="flagship-layout">
+            <article class="flagship-video-card">
               <video id="primary-demo-film" controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/amd-physical-ai-demo-en.mp4" type="video/mp4" /></video>
-              <div class="flagship-video-copy"><span class="section-index">PRIMARY SHOWCASE · 4:59 · ENGLISH</span><h3 data-zh="AMD Physical AI，持续运行中的具身系统" data-en="AMD Physical AI in motion">AMD Physical AI，持续运行中的具身系统</h3><p data-zh="从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。" data-en="From DexJoCo dexterous manipulation and RoboCasa365 household tasks to DISCOVERSE multi-view replay and PAC-MAN safety control, the film shows one AMD workflow across multiple robot capabilities.">从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。</p><div class="card-links"><a href="assets/videos/amd-physical-ai-demo-en.mp4">English MP4 <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.en.srt">English captions <i data-lucide="file-text"></i></a></div></div>
+              <div class="flagship-video-copy"><span class="section-index" data-zh="主展示 · 4:59 · 中英双语字幕" data-en="PRIMARY SHOWCASE · 4:59 · ENGLISH">PRIMARY SHOWCASE · 4:59 · ENGLISH</span><h3 data-zh="AMD Physical AI，持续运行中的具身系统" data-en="AMD Physical AI in motion">AMD Physical AI，持续运行中的具身系统</h3><p data-zh="从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。" data-en="From DexJoCo dexterous manipulation and RoboCasa365 household tasks to DISCOVERSE multi-view replay and PAC-MAN safety control, the film shows one AMD workflow across multiple robot capabilities.">从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。</p><div class="card-links"><a id="primary-demo-download" href="assets/videos/amd-physical-ai-demo-en.mp4"><span data-zh="下载双语字幕版" data-en="Download English MP4">Download English MP4</span> <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.en.srt"><span data-zh="英文字幕文件" data-en="English captions">English captions</span> <i data-lucide="file-text"></i></a></div></div>
             </article>
             <aside class="flagship-callout">
               <span class="section-index">ROBOCASA EXTENSION</span>
@@ -558,5 +559,50 @@
         <p class="footer-note" data-zh="AMD Radeon 将仿真、训练、评估与视频证据连接成可复用的 Physical AI 工作流。" data-en="AMD Radeon connects simulation, training, evaluation, and video evidence into a reusable Physical AI workflow.">AMD Radeon 将仿真、训练、评估与视频证据连接成可复用的 Physical AI 工作流。</p>
       </div>
     </footer>
+    <script>
+      (() => {
+        const player = document.querySelector("#primary-demo-film");
+        const source = player?.querySelector("source");
+        const download = document.querySelector("#primary-demo-download");
+        const languageToggle = document.querySelector("#lang-toggle");
+        const videoByLanguage = {
+          en: "assets/videos/amd-physical-ai-demo-en.mp4",
+          zh: "assets/videos/amd-physical-ai-demo-bilingual.mp4",
+        };
+        let sourceChange = 0;
+
+        function syncPrimaryVideo() {
+          if (!player || !source) return;
+          const language = document.documentElement.dataset.language === "zh" ? "zh" : "en";
+          const nextSource = videoByLanguage[language];
+          if (download) download.href = nextSource;
+          if (source.getAttribute("src") === nextSource) return;
+
+          const changeId = ++sourceChange;
+          const playbackState = {
+            currentTime: player.currentTime,
+            paused: player.paused,
+            muted: player.muted,
+            volume: player.volume,
+            playbackRate: player.playbackRate,
+          };
+
+          source.setAttribute("src", nextSource);
+          player.load();
+          player.addEventListener("loadedmetadata", () => {
+            if (changeId !== sourceChange) return;
+            const duration = Number.isFinite(player.duration) ? player.duration : playbackState.currentTime;
+            player.currentTime = Math.min(playbackState.currentTime, Math.max(0, duration - 0.1));
+            player.muted = playbackState.muted;
+            player.volume = playbackState.volume;
+            player.playbackRate = playbackState.playbackRate;
+            if (!playbackState.paused) player.play().catch(() => {});
+          }, { once: true });
+        }
+
+        window.addEventListener("DOMContentLoaded", syncPrimaryVideo);
+        languageToggle?.addEventListener("click", () => requestAnimationFrame(syncPrimaryVideo));
+      })();
+    </script>
   </body>
 </html>
