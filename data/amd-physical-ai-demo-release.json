@@ -22,52 +22,52 @@
     {
       "path": "assets/videos/amd-physical-ai-demo-en.mp4",
       "language": "English",
-      "sha256": "88fb704410c34c5f9aaa477190d19fa7f0e56c404018209caaa67fdf2fbe26d3"
+      "sha256": "aadbd3f3b3ee74cf644aac5730336dce4db795feec929456dfb3464bb9faae98"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
-      "language": "Chinese",
-      "sha256": "c0e58e08770242bc9c520514ab82d68409afe0ef0bceb2967acc0c4446f143e9"
+      "language": "English narration with bilingual subtitles for the Chinese page",
+      "sha256": "85a89a80d6b890a61c20330ca9202b1d8dbe7f1c378be0f2ab2fad9749111ad3"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
-      "language": "Bilingual",
-      "sha256": "633bbdccf1fe9d1a35d550e4b89edc8e43cca031d2a1d39bf499aebbbda8a06d"
+      "language": "English narration with English and Chinese subtitles",
+      "sha256": "85a89a80d6b890a61c20330ca9202b1d8dbe7f1c378be0f2ab2fad9749111ad3"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.en.srt",
       "language": "English subtitles",
-      "sha256": "d88c5a2589b53733a1dfeaa28330d8cb6f84095960d99ead26bd46d22432cfd5"
+      "sha256": "fdc85fb6907319c407e0cc0ea6a412c2dc8117f5aac820eaef77b06b032a3b27"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh.srt",
       "language": "Chinese subtitles",
-      "sha256": "f1655714e04b75deecdb783b4233391455765d396fc355e43fe57c31f85a0fcb"
+      "sha256": "78a00892d36d75434e1dca2bb5d7737bc41586aba622db0457173fd635111b6f"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.zh-en.srt",
       "language": "Bilingual subtitles",
-      "sha256": "f7d5ac0c04c974ff4a0ffa716901450f40b4c948aa76d685d2109f36677365da"
+      "sha256": "a08df59258430fd27371ebcd5e07e4bed72cdf230633146d3acaf578605d0f3c"
     },
     {
       "path": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",
       "language": "Unitree G1 AMD replay",
-      "sha256": "3e0c5c95538616271d3eb9c7ed4ef8ac50c741594684d4245c23b87008d430c7"
+      "sha256": "bea7b2760a71d84688c06f646c2e4ed075274031ff5fe5950432aa4f66e5871a"
     },
     {
       "path": "assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg",
       "language": "Unitree G1 poster",
-      "sha256": "f1b75932d8de74e8581db247cf5a18cb0aff93fc406c07e1db71212dc58501c8"
+      "sha256": "edba78f7835c07565e89fe193e946e17192029e0d052daa7c099665689b1677d"
     },
     {
       "path": "data/perceptive-cbf-rl-g1/eval_info.json",
       "language": "Unitree G1 evaluation JSON",
-      "sha256": "55989052745b4434899da486c35e4017e5227a7975d77f590fbf11cb0364355c"
+      "sha256": "38faf8cd03ffea5eae3f4b964e45b62833b4a5fbfa31a29a1a117ae87d858ae8"
     },
     {
       "path": "data/perceptive-cbf-rl-g1/run_manifest.json",
       "language": "Unitree G1 run manifest",
-      "sha256": "32f5f6863b30a53ff471363bf7a925157708d1ecf201c5c7e42977b24fe121cb"
+      "sha256": "b77bfe4e63031462e875bb7e53650efe0d97aaddb071f202552032092e12324f"
     }
   ],
   "sequence": [

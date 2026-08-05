@@ -1,0 +1,21 @@
+{
+  "film_duration_seconds": 299.0,
+  "cue_count": 80,
+  "languages": [
+    "English",
+    "Chinese",
+    "English + Chinese"
+  ],
+  "timings_identical": true,
+  "overlaps": 0,
+  "maximum_cue_duration_seconds": 6.407,
+  "maximum_english_characters": 90,
+  "maximum_chinese_characters": 42,
+  "caption_safe_margins_pixels": {
+    "left": 220,
+    "right": 220,
+    "bottom": 52
+  },
+  "narration_language": "English",
+  "chinese_delivery_caption_mode": "English + Chinese"
+}

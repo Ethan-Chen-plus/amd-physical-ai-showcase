@@ -29,9 +29,9 @@
         <a href="#benchmark" data-zh="基准" data-en="Benchmark">基准</a>
         <a href="#long-showcase" data-zh="长程展示" data-en="Long horizon">长程展示</a>
         <a href="#dexjoco">DexJoCo</a>
-        <a href="perceptive-cbf-rl.html" data-zh="安全控制" data-en="Safety control">安全控制</a>
-        <a href="migrations.html" data-zh="迁移细节" data-en="Migration">迁移细节</a>
         <a href="#reproduce" data-zh="训练" data-en="Training">训练</a>
+        <a class="case-study-link" href="perceptive-cbf-rl.html"><span class="case-study-tag" data-zh="案例" data-en="Case">案例</span><span data-zh="安全控制" data-en="Safety control">安全控制</span></a>
+        <a class="case-study-link" href="migrations.html"><span class="case-study-tag" data-zh="案例" data-en="Case">案例</span><span data-zh="迁移细节" data-en="Migration">迁移细节</span></a>
       </nav>
       <div class="header-actions">
         <a class="icon-button" href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite" target="_blank" rel="noreferrer" aria-label="打开项目源码" title="项目源码">
@@ -54,16 +54,16 @@
         <div class="intro-band page-shell">
           <div class="intro-copy">
             <div class="eyebrow"><span class="live-dot"></span><span data-zh="Datawhale-EAI · AMD Radeon + ROCm" data-en="Datawhale-EAI · AMD Radeon + ROCm">Datawhale-EAI · AMD Radeon + ROCm</span></div>
-            <h1 id="page-title" data-zh="面向移动操作的 AMD Physical AI" data-en="AMD Physical AI for mobile manipulation">面向移动操作的 AMD Physical AI</h1>
-            <p data-zh="以 RoboCasa365 家庭移动操作为主线，连接 DexJoCo 灵巧手、DISCOVERSE 仿真渲染与 PAC-MAN 安全控制，形成从数据、训练到闭环评估的完整工作流。" data-en="A complete workflow from data and training to closed-loop evaluation, anchored by RoboCasa365 household mobile manipulation and extended through DexJoCo dexterity, DISCOVERSE simulation, and PAC-MAN safety control.">
-              以 RoboCasa365 家庭移动操作为主线，连接 DexJoCo 灵巧手、DISCOVERSE 仿真渲染与 PAC-MAN 安全控制，形成从数据、训练到闭环评估的完整工作流。
+            <h1 id="page-title" data-zh="面向家庭具身操作的 AMD Physical AI" data-en="AMD Physical AI for embodied household manipulation">面向家庭具身操作的 AMD Physical AI</h1>
+            <p data-zh="以 RoboCasa365 家庭操作基准为主线，连接 DexJoCo 灵巧手、DISCOVERSE 仿真渲染与 PAC-MAN 全身安全控制，形成从数据、训练到闭环评估的完整工作流。" data-en="A complete workflow from data and training to closed-loop evaluation, anchored by the RoboCasa365 household benchmark and extended through DexJoCo dexterity, DISCOVERSE simulation, and PAC-MAN whole-body safety control.">
+              以 RoboCasa365 家庭操作基准为主线，连接 DexJoCo 灵巧手、DISCOVERSE 仿真渲染与 PAC-MAN 全身安全控制，形成从数据、训练到闭环评估的完整工作流。
             </p>
             <div class="intro-actions">
               <a class="command-button primary" href="#flagship"><i data-lucide="play"></i><span data-zh="观看主片" data-en="Watch demo">观看主片</span></a>
-              <a class="command-button hero-secondary" href="mobile-mainline.html"><i data-lucide="route"></i><span data-zh="移动操作基准" data-en="Mobile benchmark">移动操作基准</span></a>
+              <a class="command-button hero-secondary" href="#benchmark"><i data-lucide="chart-no-axes-column-increasing"></i><span data-zh="RoboCasa 基准" data-en="RoboCasa benchmark">RoboCasa 基准</span></a>
             </div>
             <div class="hero-capability-line" aria-label="项目能力范围">
-              <span>RoboCasa365 <b data-zh="移动操作" data-en="Mobile">移动操作</b></span>
+              <span>RoboCasa365 <b data-zh="家庭操作" data-en="Household">家庭操作</b></span>
               <span>DexJoCo <b data-zh="灵巧手" data-en="Dexterity">灵巧手</b></span>
               <span>DISCOVERSE <b data-zh="仿真" data-en="Simulation">仿真</b></span>
               <span>PAC-MAN <b data-zh="安全控制" data-en="Safety">安全控制</b></span>
@@ -107,24 +107,27 @@
       <section class="section flagship-section" id="flagship" aria-labelledby="flagship-title">
         <div class="page-shell">
           <div class="section-heading">
-            <div><span class="section-index">00 / FLAGSHIP</span><h2 id="flagship-title" data-zh="主线：RoboCasa 移动操作" data-en="Flagship: RoboCasa mobile manipulation">主线：RoboCasa 移动操作</h2></div>
-            <p data-zh="RoboCasa365 的官方 PandaOmron 任务构成家庭移动操作主线：导航、接近、抓取、运输和放置在同一场景中连续展开。AMD395 已接入三相机观测、数据生成、SmolVLA 训练、固定评估和视频导出，完整运行包整理为可复现入口。" data-en="RoboCasa365's official PandaOmron tasks anchor the household mobile-manipulation track: navigation, approach, grasp, transport, and placement unfold in one scene. On the AMD 395, three-camera observation, data generation, SmolVLA training, fixed evaluation, and video export are connected through one reproducible entry point.">RoboCasa365 的官方 PandaOmron 任务构成家庭移动操作主线：导航、接近、抓取、运输和放置在同一场景中连续展开。AMD395 已接入三相机观测、数据生成、SmolVLA 训练、固定评估和视频导出，完整运行包整理为可复现入口。</p>
+            <div><span class="section-index">00 / FLAGSHIP</span><h2 id="flagship-title" data-zh="RoboCasa365 官方策略 AMD 复刻" data-en="RoboCasa365 official policies on AMD">RoboCasa365 官方策略 AMD 复刻</h2></div>
+            <p data-zh="Pi0.5 与 GR00T 官方权重在 AMD Ryzen AI MAX+ 395 上完成同一套 16 任务闭环评估。每个模型运行 800 个正式回合，并保存逐任务结果与四视角视频。" data-en="Official Pi0.5 and GR00T checkpoints complete the same 16-task closed-loop evaluation on the AMD Ryzen AI MAX+ 395. Each model runs 800 formal episodes with per-task results and synchronized four-view video.">Pi0.5 与 GR00T 官方权重在 AMD Ryzen AI MAX+ 395 上完成同一套 16 任务闭环评估。每个模型运行 800 个正式回合，并保存逐任务结果与四视角视频。</p>
           </div>
           <div class="flagship-layout">
             <article class="flagship-video-card">
-              <video id="primary-demo-film" controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/amd-physical-ai-demo-en.mp4" type="video/mp4" /></video>
-              <div class="flagship-video-copy"><span class="section-index" data-zh="主展示 · 4:59 · 中英双语字幕" data-en="PRIMARY SHOWCASE · 4:59 · ENGLISH">PRIMARY SHOWCASE · 4:59 · ENGLISH</span><h3 data-zh="AMD Physical AI，持续运行中的具身系统" data-en="AMD Physical AI in motion">AMD Physical AI，持续运行中的具身系统</h3><p data-zh="从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。" data-en="From DexJoCo dexterous manipulation and RoboCasa365 household tasks to DISCOVERSE multi-view replay and PAC-MAN safety control, the film shows one AMD workflow across multiple robot capabilities.">从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。</p><div class="card-links"><a id="primary-demo-download" href="assets/videos/amd-physical-ai-demo-en.mp4"><span data-zh="下载双语字幕版" data-en="Download English MP4">Download English MP4</span> <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.en.srt"><span data-zh="英文字幕文件" data-en="English captions">English captions</span> <i data-lucide="file-text"></i></a></div></div>
+              <video id="primary-demo-film" controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/amd-physical-ai-demo-en.mp4?v=20260805-synced" type="video/mp4" /></video>
+              <div class="flagship-video-copy"><span class="section-index" data-zh="主展示 · 4:59 · 中英双语字幕" data-en="PRIMARY SHOWCASE · 4:59 · ENGLISH">PRIMARY SHOWCASE · 4:59 · ENGLISH</span><h3 data-zh="AMD Physical AI，持续运行中的具身系统" data-en="AMD Physical AI in motion">AMD Physical AI，持续运行中的具身系统</h3><p data-zh="从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。" data-en="From DexJoCo dexterous manipulation and RoboCasa365 household tasks to DISCOVERSE multi-view replay and PAC-MAN safety control, the film shows one AMD workflow across multiple robot capabilities.">从 DexJoCo 灵巧操作到 RoboCasa365 家庭任务，再到 DISCOVERSE 多视角回放与 PAC-MAN 安全控制，主片展示同一 AMD 工作流如何覆盖不同机器人能力。</p><div class="card-links"><a id="primary-demo-download" href="assets/videos/amd-physical-ai-demo-en.mp4?v=20260805-synced"><span data-zh="下载双语字幕版" data-en="Download English MP4">Download English MP4</span> <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.en.srt"><span data-zh="英文字幕文件" data-en="English captions">English captions</span> <i data-lucide="file-text"></i></a></div></div>
             </article>
             <aside class="flagship-callout">
-              <span class="section-index">ROBOCASA EXTENSION</span>
-              <h3 data-zh="三个任务族，一个恢复条件" data-en="Three task families, one recovery gate">三个任务族，一个恢复条件</h3>
+              <span class="section-index">ROBOCASA365 · MATCHED PROTOCOL</span>
+              <h3 data-zh="两套官方策略，同一评估协议" data-en="Two official policies, one protocol">两套官方策略，同一评估协议</h3>
               <ol class="flagship-list">
-                <li><strong>NavigateKitchen</strong><span data-zh="底盘导航与长时序到达" data-en="base navigation and long-horizon arrival">底盘导航与长时序到达</span></li>
-                <li><strong>PickPlaceCounterToCabinet</strong><span data-zh="接近、抓取、跨区运输、放入柜子" data-en="approach, grasp, transport, place into cabinet">接近、抓取、跨区运输、放入柜子</span></li>
-                <li><strong>PickPlaceDrawerToCounter</strong><span data-zh="抽屉取物并移动到台面" data-en="retrieve from drawer and move to counter">抽屉取物并移动到台面</span></li>
-                <li><strong>Recovery gate</strong><span data-zh="失败后重新定位、重规划或重试" data-en="re-localize, re-plan, or retry after failure">失败后重新定位、重规划或重试</span></li>
+                <li><strong>GR00T N1.5</strong><span data-zh="230 / 800 · 官方 120k 权重" data-en="230 / 800 · official 120k checkpoint">230 / 800 · 官方 120k 权重</span></li>
+                <li><strong>Pi0.5</strong><span data-zh="142 / 800 · 官方 75k 权重" data-en="142 / 800 · official 75k checkpoint">142 / 800 · 官方 75k 权重</span></li>
+                <li><strong>16 tasks × 50</strong><span data-zh="每个模型 800 个闭环回合" data-en="800 closed-loop episodes per model">每个模型 800 个闭环回合</span></li>
+                <li><strong>4-view</strong><span data-zh="同步场景、侧视、右视与手眼相机" data-en="synchronized center, left, right, and wrist views">同步场景、侧视、右视与手眼相机</span></li>
               </ol>
-              <a class="command-button" href="mobile-mainline.html"><span data-zh="查看动作接口与评估门禁" data-en="Open action contract and gates">查看动作接口与评估门禁</span><i data-lucide="arrow-up-right"></i></a>
+              <div class="flagship-callout-links">
+                <a class="command-button primary" href="#benchmark"><span data-zh="查看逐任务结果" data-en="View task results">查看逐任务结果</span><i data-lucide="arrow-down"></i></a>
+                <a class="command-button" href="#long-showcase"><span data-zh="观看长程视频" data-en="Watch long-horizon video">观看长程视频</span><i data-lucide="play"></i></a>
+              </div>
             </aside>
           </div>
           <div class="showcase-strip">
@@ -138,7 +141,7 @@
         <div class="section-heading">
           <div>
             <span class="section-index">01 / PROJECTS</span>
-            <h2 id="projects-title" data-zh="八条互相补强的实验线" data-en="Eight complementary evidence tracks">八条互相补强的实验线</h2>
+            <h2 id="projects-title" data-zh="七条互相补强的实验线" data-en="Seven complementary evidence tracks">七条互相补强的实验线</h2>
           </div>
           <p data-zh="从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。" data-en="From a teaching baseline to multi-simulator, benchmark, creative-operation, and hardware evidence.">从教学型单任务复现，扩展到多仿真器、标准基准、创意操作与设备性能证据。</p>
         </div>
@@ -146,35 +149,17 @@
         <div class="project-grid">
           <article class="project-card featured">
             <div class="project-card-head">
-              <span class="project-icon coral"><i data-lucide="route"></i></span>
-              <span class="result-chip diagnostic" data-zh="正式移动评估" data-en="formal mobile evaluation">正式移动评估</span>
-            </div>
-            <h3 data-zh="RoboCasa · 移动操作主线" data-en="RoboCasa · mobile manipulation">RoboCasa · 移动操作主线</h3>
-            <p data-zh="RoboCasa365 官方 PandaOmron 环境已在 AMD395 上接入 12 维移动动作、三相机观测和 LeRobot 数据流；SmolVLA Notebook 覆盖数据生成、训练、固定评估和视频导出，提供家庭移动操作的完整工程入口。" data-en="RoboCasa365's official PandaOmron environment is connected to a 12-D mobile action space, three-camera observation, and a LeRobot data stream on the AMD 395. The SmolVLA notebook covers data generation, training, fixed evaluation, and video export as one complete engineering entry point.">RoboCasa365 官方 PandaOmron 环境已在 AMD395 上接入 12 维移动动作、三相机观测和 LeRobot 数据流；SmolVLA Notebook 覆盖数据生成、训练、固定评估和视频导出，提供家庭移动操作的完整工程入口。</p>
-            <dl class="project-facts">
-              <div><dt>data</dt><dd>1503 eps</dd></div>
-              <div><dt>action</dt><dd>state16 / act12</dd></div>
-              <div><dt>tasks</dt><dd>3</dd></div>
-            </dl>
-            <div class="card-links">
-              <a href="mobile-mainline.html"><span data-zh="主线设计" data-en="Track design">主线设计</span> <i data-lucide="external-link"></i></a>
-              <a href="#benchmark"><span data-zh="家庭基线" data-en="Household baseline">家庭基线</span> <i data-lucide="arrow-down"></i></a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-head">
               <span class="project-icon coral"><i data-lucide="chef-hat"></i></span>
               <span class="result-chip success" data-zh="正式结果" data-en="verified result">正式结果</span>
             </div>
             <h3 data-zh="RoboCasa365 · 16 任务" data-en="RoboCasa365 · 16 tasks">RoboCasa365 · 16 任务</h3>
-            <p data-zh="AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。" data-en="The AMD 395 runs the same 16 tasks, 50 episodes per task, and video-enabled protocol for Pi0.5 and GR00T.">AMD 395 上使用同一任务集合、每任务 50 回合和视频开启协议，对齐 Pi0.5 与 GR00T。</p>
+            <p data-zh="Pi0.5 与 GR00T 官方权重在 AMD 395 上运行同一套 16 任务、每任务 50 回合的闭环协议，并输出逐任务统计与四视角视频。" data-en="Official Pi0.5 and GR00T checkpoints run the same 16-task, 50-episode closed-loop protocol on the AMD 395 with per-task statistics and four-view video.">Pi0.5 与 GR00T 官方权重在 AMD 395 上运行同一套 16 任务、每任务 50 回合的闭环协议，并输出逐任务统计与四视角视频。</p>
             <dl class="project-facts">
               <div><dt>任务族</dt><dd>16</dd></div>
               <div><dt>回合</dt><dd>50 / task</dd></div>
               <div><dt>视频</dt><dd>4-view</dd></div>
             </dl>
-            <div class="card-links"><a href="#benchmark">展开 16 任务对比 <i data-lucide="arrow-down"></i></a></div>
+            <div class="card-links"><a href="#benchmark"><span data-zh="展开 16 任务对比" data-en="Open 16-task comparison">展开 16 任务对比</span> <i data-lucide="arrow-down"></i></a><a href="#long-showcase"><span data-zh="长程视频" data-en="Long-horizon video">长程视频</span> <i data-lucide="play"></i></a></div>
           </article>
 
           <article class="project-card">
@@ -198,8 +183,8 @@
               <span class="result-chip diagnostic" data-zh="控制路径验证" data-en="control-path validation">控制路径验证</span>
             </div>
             <h3 data-zh="PAC-MAN · 感知 CBF-RL" data-en="PAC-MAN · perceptive CBF-RL">PAC-MAN · 感知 CBF-RL</h3>
-            <p data-zh="预测性 CBF 将来球感知、风险边界和动作投影组合成 Unitree 避障控制层；AMD ROCm Torch + MuJoCo 页面展示其控制接口、双视角回放和可复用实现。" data-en="Predictive CBF combines incoming-ball perception, safety boundaries, and action projection into a Unitree obstacle-avoidance layer. The AMD ROCm Torch + MuJoCo case study presents its control interface, two-view replay, and reusable implementation.">预测性 CBF 将来球感知、风险边界和动作投影组合成 Unitree 避障控制层；AMD ROCm Torch + MuJoCo 页面展示其控制接口、双视角回放和可复用实现。</p>
-            <dl class="project-facts"><div><dt>episodes</dt><dd>12</dd></div><div><dt>views</dt><dd>2</dd></div><div><dt>backend</dt><dd>ROCm + MuJoCo</dd></div></dl>
+            <p data-zh="上游 dodge_link_cbf ONNX 策略接收四帧深度与本体历史，在 AMD 主机上输出 Unitree G1 的 29 关节目标；专题页展示三种来球条件下的全身姿态闪避与策略 I/O。" data-en="The upstream dodge_link_cbf ONNX policy consumes four depth frames and proprioceptive history on the AMD host, then outputs 29 Unitree G1 joint targets. The case study shows whole-body dodges and policy I/O across three projectile conditions.">上游 dodge_link_cbf ONNX 策略接收四帧深度与本体历史，在 AMD 主机上输出 Unitree G1 的 29 关节目标；专题页展示三种来球条件下的全身姿态闪避与策略 I/O。</p>
+            <dl class="project-facts"><div><dt>observation</dt><dd>960-D</dd></div><div><dt>joints</dt><dd>29 / 29</dd></div><div><dt>video</dt><dd>1080p · 4-view</dd></div></dl>
             <div class="card-links"><a href="perceptive-cbf-rl.html"><span data-zh="查看 AMD 专题" data-en="Open AMD case study">查看 AMD 专题</span> <i data-lucide="arrow-up-right"></i></a><a href="data/perceptive-cbf-rl-amd-eval.json">证据 JSON <i data-lucide="file-json-2"></i></a></div>
           </article>
 
@@ -431,7 +416,7 @@
             <div class="media-copy"><div><span>RoboWits · ACT 100k · W7900 · ego view</span><h3>06_dominos · episode 1 成功 · 848×480</h3></div><span class="result-chip success">success</span></div>
           </article>
           <article class="media-card" data-outcome="success">
-            <video controls playsinline preload="metadata" poster="assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg"><source src="assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4" type="video/mp4" /></video>
+            <video controls playsinline preload="metadata" poster="assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg"><source src="assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4?v=20260805-whole-body" type="video/mp4" /></video>
             <div class="media-copy"><div><span>PAC-MAN · Unitree G1 · AMD portable · 3 shots + top view</span><h3 data-zh="预测性 CBF 避障回放" data-en="Predictive CBF obstacle-avoidance replay">预测性 CBF 避障回放</h3></div><span class="result-chip success" data-zh="8 / 8 保持间距" data-en="8 / 8 clear">8 / 8 保持间距</span></div>
           </article>
           <article class="media-card" data-outcome="success">
@@ -530,7 +515,6 @@
           <a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><i data-lucide="cloud-download"></i><span><strong>RoboWits checkpoint 备份</strong><small>W7900 100k 模型与中间权重</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="SHA256SUMS" target="_blank" rel="noreferrer"><i data-lucide="shield-check"></i><span><strong>公开媒体校验清单</strong><small>站内代表视频与结果 JSON 的 SHA256</small></span><i data-lucide="arrow-up-right"></i></a>
           <a href="migrations.html"><i data-lucide="route"></i><span><strong data-zh="AMD 迁移细节" data-en="AMD migration details">AMD 迁移细节</strong><small data-zh="六级验收矩阵、难点、边界和 DexJoCo JAX 路线" data-en="gates, hard cases, boundaries, and the DexJoCo JAX route">六级验收矩阵、难点、边界和 DexJoCo JAX 路线</small></span><i data-lucide="arrow-up-right"></i></a>
-          <a href="ROBOCASA_MOBILE_MANIPULATION_MAINLINE.md"><i data-lucide="file-text"></i><span><strong data-zh="英文主线说明" data-en="English flagship specification">英文主线说明</strong><small data-zh="RoboCasa 移动操作任务、动作接口和发布边界" data-en="RoboCasa mobile tasks, action contract, and release boundary">RoboCasa 移动操作任务、动作接口和发布边界</small></span><i data-lucide="arrow-up-right"></i></a>
         </div>
       </section>
 
@@ -568,8 +552,8 @@
         const download = document.querySelector("#primary-demo-download");
         const languageToggle = document.querySelector("#lang-toggle");
         const videoByLanguage = {
-          en: "assets/videos/amd-physical-ai-demo-en.mp4",
-          zh: "assets/videos/amd-physical-ai-demo-bilingual.mp4",
+          en: "assets/videos/amd-physical-ai-demo-en.mp4?v=20260805-synced",
+          zh: "assets/videos/amd-physical-ai-demo-bilingual.mp4?v=20260805-synced",
         };
         let sourceChange = 0;
 

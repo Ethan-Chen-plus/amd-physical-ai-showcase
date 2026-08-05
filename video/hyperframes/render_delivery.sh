@@ -2,9 +2,8 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SITE="$(cd "$ROOT/../.." && pwd)"
 DIST="$ROOT/dist"
-MASTER="$DIST/amd-physical-ai-demo-en.mp4"
+MASTER="$DIST/amd-physical-ai-demo-master.mp4"
 AUDIO="$ROOT/audio/generated/amd-physical-ai-demo-audio.wav"
 
 mkdir -p "$DIST"
@@ -34,6 +33,9 @@ else
   test -s "$AUDIO"
 fi
 
+python3 "$ROOT/scripts/generate_subtitles.py"
+python3 "$ROOT/scripts/validate_subtitles.py"
+
 npx hyperframes lint
 npx hyperframes check --samples 13 --at-transitions --no-browser-gpu --timeout 15000
 if [[ "${SKIP_MASTER_RENDER:-0}" != "1" ]]; then
@@ -47,27 +49,20 @@ else
 fi
 
 burn() {
-  local input="$1"; local subs="$2"; local output="$3"
+  local input="$1"; local subs="$2"; local output="$3"; local font_size="$4"
   ffmpeg -hide_banner -loglevel error -y -i "$input" \
-    -vf "subtitles=$(printf '%s' "$subs" | sed "s/'/'\\\\''/g"):force_style='FontName=DejaVu Sans,FontSize=14,Outline=1,Shadow=0,MarginL=180,MarginR=180,MarginV=20,Alignment=2,BorderStyle=1,WrapStyle=2'" \
+    -vf "subtitles=$(printf '%s' "$subs" | sed "s/'/'\\\\''/g"):charenc=UTF-8:force_style='FontName=DejaVu Sans,FontSize=${font_size},PrimaryColour=&H00FFFFFF,OutlineColour=&H00101010,Outline=1,Shadow=0,MarginL=44,MarginR=44,MarginV=14,Alignment=2,BorderStyle=1,WrapStyle=0'" \
     -map 0:v:0 -map 0:a:0 -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p \
     -c:a aac -b:a 192k -t 299 -movflags +faststart "$output"
 }
 
-burn "$MASTER" "$ROOT/subtitles/en.srt" "$DIST/amd-physical-ai-demo-en-subtitled.mp4"
-burn "$MASTER" "$ROOT/subtitles/zh.srt" "$DIST/amd-physical-ai-demo-zh.mp4"
-burn "$MASTER" "$ROOT/subtitles/bilingual.srt" "$DIST/amd-physical-ai-demo-bilingual.mp4"
-
-cp "$DIST/amd-physical-ai-demo-en-subtitled.mp4" "$SITE/assets/videos/amd-physical-ai-demo-en.mp4"
-cp "$DIST/amd-physical-ai-demo-zh.mp4" "$SITE/assets/videos/amd-physical-ai-demo-zh.mp4"
-cp "$DIST/amd-physical-ai-demo-bilingual.mp4" "$SITE/assets/videos/amd-physical-ai-demo-bilingual.mp4"
-cp "$ROOT/subtitles/en.srt" "$SITE/assets/videos/amd-physical-ai-demo.en.srt"
-cp "$ROOT/subtitles/zh.srt" "$SITE/assets/videos/amd-physical-ai-demo.zh.srt"
-cp "$ROOT/subtitles/bilingual.srt" "$SITE/assets/videos/amd-physical-ai-demo.zh-en.srt"
+burn "$MASTER" "$ROOT/subtitles/en.srt" "$DIST/amd-physical-ai-demo-en.mp4" 8
+burn "$MASTER" "$ROOT/subtitles/bilingual.srt" "$DIST/amd-physical-ai-demo-zh.mp4" 7
+burn "$MASTER" "$ROOT/subtitles/bilingual.srt" "$DIST/amd-physical-ai-demo-bilingual.mp4" 7
 
 for output in "$DIST"/amd-physical-ai-demo-*.mp4; do
   ffprobe -v error -show_entries format=duration,size -show_entries stream=width,height,codec_name,r_frame_rate \
     -of default=noprint_wrappers=1 "$output"
 done
 
-printf 'Delivered to %s/assets/videos\n' "$SITE"
+printf 'Rendered film variants to %s\n' "$DIST"

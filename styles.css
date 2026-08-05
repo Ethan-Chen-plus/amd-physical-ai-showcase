@@ -78,14 +78,35 @@ svg { width: 19px; height: 19px; stroke-width: 1.8; }
 .desktop-nav { display: flex; align-items: center; gap: 4px; }
 .desktop-nav { justify-self: center; }
 .desktop-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   padding: 8px 9px;
   color: var(--muted);
   font-size: 13px;
   font-weight: 650;
   text-decoration: none;
   border-radius: 6px;
+  white-space: nowrap;
 }
 .desktop-nav a:hover { color: var(--ink); background: var(--surface-2); }
+.desktop-nav .case-study-link {
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+.desktop-nav .case-study-link:hover { border-color: var(--ink); }
+.case-study-tag {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
 
 .header-actions { justify-self: end; display: flex; gap: 8px; }
 .icon-button {
@@ -561,7 +582,8 @@ footer { padding: 34px 0; background: var(--surface); border-top: 1px solid var(
 .flagship-list li { display: flex; flex-direction: column; gap: 2px; padding-left: 13px; border-left: 2px solid var(--line); }
 .flagship-list strong { font-size: 14px; }
 .flagship-list span { color: var(--muted); font-size: 12px; }
-.flagship-callout .command-button { width: 100%; }
+.flagship-callout-links { display: grid; gap: 8px; }
+.flagship-callout-links .command-button { width: 100%; }
 .showcase-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
 .showcase-strip article { overflow: hidden; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); }
 .showcase-strip video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #08090b; }
@@ -637,6 +659,15 @@ footer { padding: 34px 0; background: var(--surface); border-top: 1px solid var(
   .pacman-stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .pacman-stat-grid > div { min-height: 114px; }
   .pacman-method-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 981px) and (max-width: 1180px) {
+  .site-header { gap: 14px; }
+  .brand-copy, .brand-divider { display: none; }
+  .brand > img { width: 112px; }
+  .desktop-nav { gap: 2px; }
+  .desktop-nav a { padding-inline: 7px; }
+  .case-study-tag { display: none; }
 }
 
 @media (max-width: 680px) {

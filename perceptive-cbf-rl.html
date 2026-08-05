@@ -36,7 +36,7 @@
         <div>
           <span class="section-index">08 / AMD MIGRATION CASE</span>
           <h1>PAC-MAN<br /><span>on AMD</span></h1>
-          <p class="pacman-lead" data-zh="PAC-MAN 将 Unitree G1 的感知安全控制拆成可复用模块：预测来球轨迹、选择垂直躲避方向，并通过时间感知的 CBF 约束投影动作。我们把这条控制链路带到 AMD ROCm 与 MuJoCo，形成可回放、可复现的安全控制案例。" data-en="PAC-MAN turns Unitree G1 safety control into reusable modules: predict the incoming ball path, choose a perpendicular escape, and project the action through a time-aware CBF constraint. We bring that control chain to AMD ROCm and MuJoCo as a replayable, reproducible safety-control case.">PAC-MAN 将 Unitree G1 的感知安全控制拆成可复用模块：预测来球轨迹、选择垂直躲避方向，并通过时间感知的 CBF 约束投影动作。我们把这条控制链路带到 AMD ROCm 与 MuJoCo，形成可回放、可复现的安全控制案例。</p>
+          <p class="pacman-lead" data-zh="PAC-MAN 的上游部署策略把四帧深度历史与 G1 本体状态组装成 960 维观测，经 dodge_link_cbf ONNX actor 输出 29 个关节目标。我们在 AMD 主机与 MuJoCo 中复现这条策略接口，呈现下蹲、侧身与四肢协同的全身闪避。" data-en="PAC-MAN's upstream deployment policy assembles four depth-history frames and G1 proprioception into a 960-D observation, then produces 29 joint targets through the dodge_link_cbf ONNX actor. We reproduce this policy interface on an AMD host with MuJoCo, revealing coordinated ducking, weaving, and whole-body avoidance.">PAC-MAN 的上游部署策略把四帧深度历史与 G1 本体状态组装成 960 维观测，经 dodge_link_cbf ONNX actor 输出 29 个关节目标。我们在 AMD 主机与 MuJoCo 中复现这条策略接口，呈现下蹲、侧身与四肢协同的全身闪避。</p>
           <div class="pacman-actions">
             <a class="command-button primary" href="#evidence"><i data-lucide="play"></i><span data-zh="查看 AMD 回放" data-en="Watch AMD replay">查看 AMD 回放</span></a>
             <a class="command-button" href="https://github.com/lzyang2000/perceptive_cbf_rl" target="_blank" rel="noreferrer"><i data-lucide="github"></i><span data-zh="查看上游项目" data-en="Open upstream project">查看上游项目</span></a>
@@ -45,30 +45,30 @@
         </div>
         <aside class="pacman-hero-note">
           <span class="status-mark verified"></span>
-          <strong data-zh="AMD 安全控制回放" data-en="AMD safety-control replay">AMD 安全控制回放</strong>
-          <div class="pacman-hero-score"><b>8 / 8</b><span data-zh="G1 资产回放" data-en="G1 asset replays">G1 资产回放</span></div>
-          <p data-zh="固定种子回放覆盖来球预测、侧移决策和安全速度投影，并同步保存视频、逐回合 JSON 与运行清单。" data-en="Fixed-seed replays cover ball-path prediction, sidestep decisions, and safe-velocity projection, with video, per-episode JSON, and a run manifest saved together.">固定种子回放覆盖来球预测、侧移决策和安全速度投影，并同步保存视频、逐回合 JSON 与运行清单。</p>
+          <strong data-zh="上游 ONNX 全身策略" data-en="Upstream ONNX whole-body policy">上游 ONNX 全身策略</strong>
+          <div class="pacman-hero-score"><b>960 → 29</b><span data-zh="观测到关节目标" data-en="observation to joint targets">观测到关节目标</span></div>
+          <p data-zh="三种来球条件连续展示头部高度下蹲、肩部侧身和低位全身闪避，并保存完整 observation、action、joint target 与 clearance 轨迹。" data-en="Three projectile conditions show a head-height duck, shoulder weave, and low whole-body dodge while archiving every observation, action, joint target, and clearance sample.">三种来球条件连续展示头部高度下蹲、肩部侧身和低位全身闪避，并保存完整 observation、action、joint target 与 clearance 轨迹。</p>
         </aside>
       </section>
 
       <section class="pacman-band" id="evidence">
         <div class="page-shell">
           <div class="section-heading light">
-            <div><span class="section-index">01 / AMD EVIDENCE</span><h2 data-zh="AMD 可移植 CBF 控制回放" data-en="AMD-portable CBF control replay">AMD 可移植 CBF 控制回放</h2></div>
-            <p data-zh="15 秒长版以三分之四视角、来球侧视和低机位正视连续呈现 G1 左右侧移；同步俯视小窗标出来球预测轨迹、安全区域与实时 clearance。" data-en="A 15-second replay follows left and right G1 sidesteps through three-quarter, projectile-profile, and low-front shots, while a synchronized top-view inset shows the predicted path, safety zone, and live clearance.">15 秒长版以三分之四视角、来球侧视和低机位正视连续呈现 G1 左右侧移；同步俯视小窗标出来球预测轨迹、安全区域与实时 clearance。</p>
+            <div><span class="section-index">01 / AMD EVIDENCE</span><h2 data-zh="上游 ONNX 全身闪避回放" data-en="Upstream ONNX whole-body dodge replay">上游 ONNX 全身闪避回放</h2></div>
+            <p data-zh="12 秒 1080p 回放同时展示三分之四、侧面、正面和策略 I/O：四帧 9×16 深度输入进入 960 维观测，29 个关节目标驱动躯干、手臂与双腿协同响应。" data-en="The 12-second 1080p replay combines three-quarter, profile, front, and policy-I/O views. Four 9x16 depth frames enter the 960-D observation while 29 joint targets coordinate the torso, arms, and legs.">12 秒 1080p 回放同时展示三分之四、侧面、正面和策略 I/O：四帧 9×16 深度输入进入 960 维观测，29 个关节目标驱动躯干、手臂与双腿协同响应。</p>
           </div>
           <div class="pacman-evidence-layout">
             <article class="pacman-video-card">
               <video controls playsinline preload="metadata" poster="assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg">
-                <source src="assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4" type="video/mp4" />
+                <source src="assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4?v=20260805-whole-body" type="video/mp4" />
               </video>
-              <div class="pacman-video-copy"><span>Unitree G1 · MuJoCo/NumPy · 15 s · 3 shots + top-view inset</span><strong data-zh="来球预测、侧移姿态与安全区域" data-en="Ball prediction, sidestep pose, and safety envelope">来球预测、侧移姿态与安全区域</strong></div>
+              <div class="pacman-video-copy"><span>Unitree G1 · upstream ONNX · 12 s · 1080p · 4-view</span><strong data-zh="深度历史、策略输出与全身姿态闪避" data-en="Depth history, policy outputs, and whole-body avoidance">深度历史、策略输出与全身姿态闪避</strong></div>
             </article>
             <div class="pacman-stat-grid">
-              <div><strong>8 / 8</strong><span data-zh="G1 固定 seed 回放" data-en="fixed-seed G1 replays">G1 固定 seed 回放</span></div>
-              <div><strong>0.42 m</strong><span data-zh="最小安全间距" data-en="minimum clearance">最小安全间距</span></div>
-              <div><strong>3.11</strong><span>MuJoCo runtime</span></div>
-              <div><strong>3 + top</strong><span data-zh="展示镜头" data-en="showcase views">展示镜头</span></div>
+              <div><strong>29 / 29</strong><span data-zh="可见运动关节" data-en="moving policy joints">可见运动关节</span></div>
+              <div><strong>960-D</strong><span data-zh="上游观测契约" data-en="upstream observation contract">上游观测契约</span></div>
+              <div><strong>600</strong><span data-zh="ONNX 推理步" data-en="ONNX inference ticks">ONNX 推理步</span></div>
+              <div><strong>4-view</strong><span data-zh="同步展示" data-en="synchronized presentation">同步展示</span></div>
             </div>
           </div>
           <div class="pacman-evidence-links">
@@ -82,14 +82,14 @@
       </section>
 
       <section class="migration-section page-shell" id="method">
-        <div class="section-heading"><div><span class="section-index">02 / CONTROL METHOD</span><h2 data-zh="预测性侧移控制" data-en="Predictive sidestep control">预测性侧移控制</h2></div><p data-zh="我们保留上游控制思想的核心几何关系，并为 AMD 仿真器迁移拆出独立、可测试的控制模块。" data-en="We preserve the upstream control geometry and isolate it as an independently testable module for the AMD simulator port.">我们保留上游控制思想的核心几何关系，并为 AMD 仿真器迁移拆出独立、可测试的控制模块。</p></div>
+        <div class="section-heading"><div><span class="section-index">02 / CONTROL METHOD</span><h2 data-zh="从深度历史到全身关节目标" data-en="From depth history to whole-body joint targets">从深度历史到全身关节目标</h2></div><p data-zh="复现路径直接读取上游部署常量、观测组装函数、ONNX actor、关节顺序和 action scale，并把每次推理保存为可检查轨迹。" data-en="The replay reads the upstream deployment constants, observation assembly, ONNX actor, joint order, and action scale directly, then archives every inference step as an inspectable trace.">复现路径直接读取上游部署常量、观测组装函数、ONNX actor、关节顺序和 action scale，并把每次推理保存为可检查轨迹。</p></div>
         <div class="pacman-method-grid">
-          <article><b>01</b><i data-lucide="scan-eye"></i><h3 data-zh="感知威胁" data-en="Sense threat">感知威胁</h3><p data-zh="从球的位置、速度和高度判断它是否仍在飞行、接近且位于感知半径内。" data-en="Use ball position, velocity, and height to gate airborne, approaching threats within the sensing radius.">从球的位置、速度和高度判断它是否仍在飞行、接近且位于感知半径内。</p></article>
-          <article><b>02</b><i data-lucide="compass"></i><h3 data-zh="预测轨迹" data-en="Predict path">预测轨迹</h3><p data-zh="沿球的水平速度求来球方向，取其垂直方向作为侧移轴，保持机器人与来球轨迹的安全间距。" data-en="Estimate the horizontal heading and use its perpendicular as a sidestep axis that preserves clearance from the incoming path.">沿球的水平速度求来球方向，取其垂直方向作为侧移轴，保持机器人与来球轨迹的安全间距。</p></article>
-          <article><b>03</b><i data-lucide="shield-check"></i><h3 data-zh="安全投影" data-en="Safety projection">安全投影</h3><p data-zh="把 nominal velocity 投影到 CBF 半空间，并用剩余可用时间逐步提高侧移速度。" data-en="Project the nominal velocity onto the CBF half-space and increase sidestep speed as usable time shrinks.">把 nominal velocity 投影到 CBF 半空间，并用剩余可用时间逐步提高侧移速度。</p></article>
-          <article><b>04</b><i data-lucide="video"></i><h3 data-zh="回放档案" data-en="Replay archive">回放档案</h3><p data-zh="每个 seed 同步保存碰撞状态、最小间距和最大过滤速度；长版视频组合三个主镜头与同步俯视轨迹。" data-en="Each seed stores collision state, minimum clearance, and maximum filtered speed; the long-form replay combines three primary shots with a synchronized top-view trajectory.">每个 seed 同步保存碰撞状态、最小间距和最大过滤速度；长版视频组合三个主镜头与同步俯视轨迹。</p></article>
+          <article><b>01</b><i data-lucide="scan-eye"></i><h3 data-zh="四帧深度历史" data-en="Four-frame depth history">四帧深度历史</h3><p data-zh="按上游偏移 0、3、8、18 组装四帧 9×16 深度，并与本体历史同步。" data-en="Assemble four 9x16 depth frames at upstream offsets 0, 3, 8, and 18 alongside proprioceptive history.">按上游偏移 0、3、8、18 组装四帧 9×16 深度，并与本体历史同步。</p></article>
+          <article><b>02</b><i data-lucide="binary"></i><h3 data-zh="960 维观测" data-en="960-D observation">960 维观测</h3><p data-zh="384 维本体历史与 576 维深度历史采用上游 term-major 顺序拼接。" data-en="Concatenate 384-D term-major proprioceptive history with 576-D depth history in upstream order.">384 维本体历史与 576 维深度历史采用上游 term-major 顺序拼接。</p></article>
+          <article><b>03</b><i data-lucide="brain-circuit"></i><h3 data-zh="29 关节策略" data-en="29-joint policy">29 关节策略</h3><p data-zh="dodge_link_cbf.onnx 输出 29 维动作，并按官方 DEFAULT_POS 与 ACTION_SCALE 映射为关节目标。" data-en="dodge_link_cbf.onnx outputs 29 actions mapped to joint targets with official DEFAULT_POS and ACTION_SCALE.">dodge_link_cbf.onnx 输出 29 维动作，并按官方 DEFAULT_POS 与 ACTION_SCALE 映射为关节目标。</p></article>
+          <article><b>04</b><i data-lucide="video"></i><h3 data-zh="策略轨迹档案" data-en="Policy trace archive">策略轨迹档案</h3><p data-zh="NPZ、JSON 与 1080p 视频同步保存 observation、action、joint target、关节位置与几何间距。" data-en="NPZ, JSON, and 1080p video jointly preserve observations, actions, joint targets, joint positions, and geometry clearance.">NPZ、JSON 与 1080p 视频同步保存 observation、action、joint target、关节位置与几何间距。</p></article>
         </div>
-        <div class="pacman-equation" aria-label="CBF projection equation"><code>u_safe = u_nom + max(0, rhs - u_nom · e) · e</code><span>rhs = max(alpha · clearance, clearance / usable_time)</span></div>
+        <div class="pacman-equation" aria-label="ONNX action mapping"><code>target = DEFAULT_POS + action × ACTION_SCALE</code><span>obs[960] → dodge_link_cbf.onnx → action[29]</span></div>
       </section>
 
       <section class="migration-section migration-soft" id="port">
@@ -99,12 +99,12 @@
             <table class="pacman-table">
               <thead><tr><th data-zh="能力" data-en="Capability">能力</th><th data-zh="系统角色" data-en="System role">系统角色</th><th data-zh="AMD 路径" data-en="AMD path">AMD 路径</th><th data-zh="展示内容" data-en="Featured output">展示内容</th></tr></thead>
               <tbody>
-                <tr><td><strong>Predictive CBF</strong></td><td data-zh="来球预测与安全速度约束" data-en="Ball prediction and safe-velocity constraints">来球预测与安全速度约束</td><td><span class="status-pill done" data-zh="ROCm Torch" data-en="ROCm Torch">ROCm Torch</span></td><td data-zh="12 个固定种子回放" data-en="12 fixed-seed replays">12 个固定种子回放</td></tr>
-                <tr><td><strong>Unitree G1</strong></td><td data-zh="机器人本体、关节和场景资产" data-en="Robot body, joints, and scene assets">机器人本体、关节和场景资产</td><td><span class="status-pill done" data-zh="MuJoCo 资产路径" data-en="MuJoCo asset path">MuJoCo 资产路径</span></td><td data-zh="G1 视觉与动作回放" data-en="G1 visual and motion replay">G1 视觉与动作回放</td></tr>
-                <tr><td><strong>MuJoCo replay</strong></td><td data-zh="物理、相机与无窗口渲染" data-en="Physics, cameras, and headless rendering">物理、相机与无窗口渲染</td><td><span class="status-pill done" data-zh="CPU 可移植运行" data-en="portable CPU runtime">CPU 可移植运行</span></td><td data-zh="三镜头 + 俯视小窗 MP4" data-en="three shots + top-view inset MP4">三镜头 + 俯视小窗 MP4</td></tr>
-                <tr><td><strong>AMP locomotion</strong></td><td data-zh="上游 G1 行走先验与策略接口" data-en="Upstream G1 locomotion prior and policy interface">上游 G1 行走先验与策略接口</td><td><span class="status-pill open" data-zh="集成路径" data-en="integration path">集成路径</span> mjlab / rsl_rl</td><td data-zh="控制器接入点与原始仓库" data-en="controller hook and upstream source">控制器接入点与原始仓库</td></tr>
-                <tr><td><strong>Depth perception</strong></td><td data-zh="球体深度观测与 ZED 接口" data-en="Ball-depth observation and ZED interface">球体深度观测与 ZED 接口</td><td><span class="status-pill open" data-zh="传感器接口" data-en="sensor interface">传感器接口</span> depth stream</td><td data-zh="感知输入契约" data-en="perception input contract">感知输入契约</td></tr>
-                <tr><td><strong>G1 deployment</strong></td><td data-zh="Unitree DDS 与 ONNX 控制链路" data-en="Unitree DDS and ONNX control path">Unitree DDS 与 ONNX 控制链路</td><td><span class="status-pill open" data-zh="部署接口" data-en="deployment interface">部署接口</span> hardware path</td><td data-zh="上游部署文档与接口" data-en="upstream deployment docs and interface">上游部署文档与接口</td></tr>
+                <tr><td><strong>ONNX actor</strong></td><td data-zh="上游 960 维观测到 29 维动作" data-en="Upstream 960-D observation to 29-D action">上游 960 维观测到 29 维动作</td><td><span class="status-pill done">ONNX Runtime</span></td><td data-zh="600 次有效推理" data-en="600 valid inference ticks">600 次有效推理</td></tr>
+                <tr><td><strong>Unitree G1</strong></td><td data-zh="官方 MJCF、29 关节顺序与动作缩放" data-en="Official MJCF, 29-joint order, and action scaling">官方 MJCF、29 关节顺序与动作缩放</td><td><span class="status-pill done" data-zh="上游资产" data-en="upstream assets">上游资产</span></td><td data-zh="29 / 29 关节可见运动" data-en="29 / 29 visibly moving joints">29 / 29 关节可见运动</td></tr>
+                <tr><td><strong>Depth history</strong></td><td data-zh="四帧 9×16 来球深度与本体历史" data-en="Four 9x16 projectile-depth frames plus proprio history">四帧 9×16 来球深度与本体历史</td><td><span class="status-pill done" data-zh="协议对齐" data-en="contract aligned">协议对齐</span></td><td data-zh="策略 I/O 可视化" data-en="policy-I/O visualization">策略 I/O 可视化</td></tr>
+                <tr><td><strong>Predictive CBF</strong></td><td data-zh="来球预测与安全速度约束" data-en="Ball prediction and safe-velocity constraints">来球预测与安全速度约束</td><td><span class="status-pill done">ROCm Torch</span></td><td data-zh="12 个固定种子控制回放" data-en="12 fixed-seed control replays">12 个固定种子控制回放</td></tr>
+                <tr><td><strong>MuJoCo replay</strong></td><td data-zh="关节执行、几何间距与无窗口渲染" data-en="Joint execution, geometry clearance, and headless rendering">关节执行、几何间距与无窗口渲染</td><td><span class="status-pill done">EGL</span></td><td>1920×1080 · 30 FPS · 4-view</td></tr>
+                <tr><td><strong>Trace archive</strong></td><td>observation · action · target · qpos · clearance</td><td><span class="status-pill done">NPZ + JSON + SHA</span></td><td data-zh="逐步可检查证据" data-en="step-level inspectable evidence">逐步可检查证据</td></tr>
               </tbody>
             </table>
           </div>
@@ -112,22 +112,21 @@
       </section>
 
       <section class="migration-section page-shell" id="reproduce">
-          <div class="section-heading"><div><span class="section-index">04 / REPRODUCE</span><h2 data-zh="一条命令复现安全回放" data-en="Reproduce the safety replay">一条命令复现安全回放</h2></div><p data-zh="脚本、协议、输出结构和上游 commit 固定在仓库中；同一入口连接 ROCm 张量计算、MuJoCo 回放和逐回合证据。" data-en="The script, protocol, output structure, and upstream commit are fixed in the repository; one entry point connects ROCm tensor computation, MuJoCo replay, and per-episode evidence.">脚本、协议、输出结构和上游 commit 固定在仓库中；同一入口连接 ROCm 张量计算、MuJoCo 回放和逐回合证据。</p></div>
+          <div class="section-heading"><div><span class="section-index">04 / REPRODUCE</span><h2 data-zh="一条命令复现全身策略回放" data-en="Reproduce the whole-body policy replay">一条命令复现全身策略回放</h2></div><p data-zh="同一入口读取固定上游 commit、ONNX 权重和 G1 MJCF，输出 1080p 视频、完整 trace、评估 JSON 与 SHA 清单。" data-en="One entry point reads the pinned upstream commit, ONNX checkpoint, and G1 MJCF, then exports the 1080p film, complete trace, evaluation JSON, and SHA manifest.">同一入口读取固定上游 commit、ONNX 权重和 G1 MJCF，输出 1080p 视频、完整 trace、评估 JSON 与 SHA 清单。</p></div>
         <div class="pacman-reproduce-grid">
           <div class="blog-code"><pre><code>MUJOCO_GL=egl \
   python code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py \
-  --upstream-xml .vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml \
-  --output-dir results/pacman_g1_amd_cinematic \
-  --episodes 8 --duration 5 --fps 30</code></pre></div>
-            <div class="pacman-reproduce-note"><strong data-zh="运行时记录" data-en="Runtime recorded">运行时记录</strong><ul><li><code>MuJoCo = 3.11.0</code></li><li><code>NumPy CBF replay</code></li><li><code>seed = 0..7</code></li><li><code>3 shots + top inset</code> video</li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span data-zh="查看复现代码" data-en="Open reproduction code">查看复现代码</span><i data-lucide="arrow-up-right"></i></a></div>
+  --upstream-root .vendor/perceptive_cbf_rl \
+  --output-dir results/perceptive_cbf_rl_amd</code></pre></div>
+            <div class="pacman-reproduce-note"><strong data-zh="运行时记录" data-en="Runtime recorded">运行时记录</strong><ul><li><code>MuJoCo = 3.11.0</code></li><li><code>ONNX Runtime = 1.23.2</code></li><li><code>obs 960 → action 29</code></li><li><code>1080p · 30 FPS · 4-view</code></li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span data-zh="查看复现代码" data-en="Open reproduction code">查看复现代码</span><i data-lucide="arrow-up-right"></i></a></div>
         </div>
       </section>
 
       <section class="pacman-boundary">
         <div class="page-shell">
-          <span class="section-index">05 / NEXT INTEGRATION</span>
-          <h2 data-zh="从安全控制走向完整 G1 闭环" data-en="From safety control to a complete G1 loop">从安全控制走向完整 G1 闭环</h2>
-          <p data-zh="当前案例已经把预测性 CBF、安全门控、G1 资产和 AMD 回放接口连接起来。下一层集成将把上游 AMP 行走策略、mjlab 动力学、深度感知和 Unitree DDS 接入同一条控制链，沿用这里固定的安全投影与证据格式。" data-en="This case connects predictive CBF, safety gating, G1 assets, and the AMD replay interface. The next integration layer brings the upstream AMP locomotion policy, mjlab dynamics, depth perception, and Unitree DDS into the same control chain while keeping the safety projection and evidence format fixed here.">当前案例已经把预测性 CBF、安全门控、G1 资产和 AMD 回放接口连接起来。下一层集成将把上游 AMP 行走策略、mjlab 动力学、深度感知和 Unitree DDS 接入同一条控制链，沿用这里固定的安全投影与证据格式。</p>
+          <span class="section-index">05 / DEPLOYMENT PATH</span>
+          <h2 data-zh="从策略回放接入完整 G1 闭环" data-en="Connect the policy replay to the complete G1 loop">从策略回放接入完整 G1 闭环</h2>
+          <p data-zh="当前实现固定了部署 actor 的观测历史、29 关节映射、动作缩放与证据格式。完整 G1 系统可在此接口上继续接入上游 mjlab 平衡执行器、ZED 深度感知与 Unitree DDS。" data-en="The current implementation fixes the deployment actor's observation history, 29-joint mapping, action scaling, and evidence format. The complete G1 system can extend this interface with the upstream mjlab balance actuators, ZED depth perception, and Unitree DDS.">当前实现固定了部署 actor 的观测历史、29 关节映射、动作缩放与证据格式。完整 G1 系统可在此接口上继续接入上游 mjlab 平衡执行器、ZED 深度感知与 Unitree DDS。</p>
           <div class="pacman-boundary-links"><a href="https://github.com/lzyang2000/perceptive_cbf_rl" target="_blank" rel="noreferrer">Upstream PAC-MAN <i data-lucide="external-link"></i></a><a href="migrations.html#pacman">All migration evidence <i data-lucide="route"></i></a><a href="index.html">Back to showcase <i data-lucide="arrow-up-right"></i></a></div>
         </div>
       </section>

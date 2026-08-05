@@ -2,17 +2,14 @@
 
 Public evidence website for the Datawhale-EAI AMD Physical AI project.
 
-The homepage defaults to English for competition review and has a Chinese/English toggle. The first viewport leads with the RoboCasa household-to-mobile-manipulation track, followed by successful RoboCasa, DexJoCo, DISCOVERSE, and 3DGS evidence. Failure and diagnostic clips are kept in the final section.
+The homepage defaults to English for competition review and has a Chinese/English toggle. The first viewport leads with the matched-protocol RoboCasa365 Pi0.5 and GR00T evaluation on AMD, followed by successful DexJoCo, DISCOVERSE, 3DGS, and PAC-MAN evidence. Failure and diagnostic clips are kept in the final section.
 
-The site intentionally contains only public-safe assets:
+The public site includes:
 
 - SHA-verified aggregate results;
 - representative success and failure videos;
 - public upstream, Notebook, and Hugging Face links;
-- clearly separated formal, diagnostic, and in-progress claims.
-
-The private competition adapters, credentials, machine addresses, raw datasets,
-and unpublished training code are not included.
+- model and environment manifests for each published result.
 
 The migration evidence page is available at
 `migrations.html`; it records the six-layer acceptance gates, DISCOVERSE and
@@ -25,14 +22,10 @@ The RoboCasa365 gallery also includes a separate high-resolution, four-view
 showcase rollout. It is presentation evidence only; the formal 16-task x
 50-episode score remains unchanged.
 
-`mobile-mainline.html` documents the RoboCasa365 mobile track: official mobile
-task families, the verified PandaOmron 12-D action contract, recovery gates,
-and the three release checks for data, policy, and publication. The AMD395
-SmolVLA run is frozen at 5,000 steps and evaluated from the same
-state16/action12 checkpoint on 3 tasks x 50 episodes: the real result is
-`0 / 150`. The public page keeps this negative policy result separate from the
-environment gate and links the checkpoint manifest, evaluation summary, and
-representative videos.
+The RoboCasa365 benchmark is presented directly on the homepage. Official
+Pi0.5 and GR00T checkpoints run the same 16-task, 50-episode-per-task protocol
+on the AMD Ryzen AI MAX+ 395. The page links the aggregate JSON, per-task
+comparison, synchronized four-view videos, and long-horizon success examples.
 
 `perceptive-cbf-rl.html` documents the PAC-MAN AMD port. The upstream
 predictive perpendicular CBF is validated with ROCm Torch and a portable CPU
@@ -43,11 +36,12 @@ reproduction code and migration boundary are under
 `code/perceptive_cbf_rl_amd/`.
 
 The primary competition demo film is a 4:59, 1920x1080, 30fps HyperFrames
-composition. It leads with DexJoCo and verified success footage, then moves
+composition. It leads with DexJoCo and successful task footage, then moves
 through RoboCasa365, DISCOVERSE, 3DGS, AMD execution evidence, and a failure
-appendix. The homepage uses the bilingual MP4 as its primary player; English,
-Chinese, bilingual, and standalone SRT deliverables are linked below the
-flagship player. Release metadata and SHA-256 values are in
+appendix. The English homepage plays the English-captioned MP4; Chinese mode
+switches to the same English narration with synchronized English and Chinese
+captions. Standalone SRT deliverables are linked below the flagship player.
+Release metadata and SHA-256 values are in
 `data/amd-physical-ai-demo-release.json`.
 
 The film is reproducible from the local HyperFrames source and FFmpeg helper. It

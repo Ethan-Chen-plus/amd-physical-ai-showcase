@@ -1,146 +1,307 @@
 {
-  "schema": "amd-pacman-g1-asset-replay/v1",
-  "status": "g1_asset_replay_complete",
-  "upstream_repository": "https://github.com/lzyang2000/perceptive_cbf_rl",
-  "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
-  "upstream_xml": ".vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml",
-  "runtime": {
-    "backend": "MuJoCo 3.11 portable renderer + NumPy CBF",
-    "platform": "Linux",
-    "official_cuda_mjlab_stack": false
+  "schema": "perceptive-cbf-rl/portable-g1-onnx-whole-body/v2",
+  "status": "complete_onnx_path_fixed_base_replay",
+  "upstream": {
+    "repository": "https://github.com/lzyang2000/perceptive_cbf_rl",
+    "commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
+    "checkpoint": "/data/Data14TB/03competition/amd-physical-ai-showcase/.vendor/perceptive_cbf_rl/deploy/ckpts/dodge_link_cbf.onnx",
+    "checkpoint_sha256": "164f9ea7ce80709942905e4f5436c58c87680f086004176368d3593380f62f9a",
+    "robot_mjcf": "/data/Data14TB/03competition/amd-physical-ai-showcase/.vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/g1.xml",
+    "robot_mjcf_sha256": "d1218577fc77e9ecacdffc9b1d036dbd2575748eb15c1624f6f2032bae893abe"
   },
-  "task": "Unitree G1 predictive perpendicular CBF obstacle-avoidance replay",
+  "policy_contract": {
+    "input_name": "obs",
+    "input_shape": [
+      1,
+      960
+    ],
+    "input_dtype": "tensor(float)",
+    "output_name": "actions",
+    "output_shape": [
+      1,
+      29
+    ],
+    "output_dtype": "tensor(float)",
+    "observation": {
+      "proprio_dim": 384,
+      "proprio_history_frames": 4,
+      "proprio_term_order": [
+        "base_ang_vel",
+        "projected_gravity",
+        "command",
+        "joint_pos_rel",
+        "joint_vel_rel",
+        "last_action"
+      ],
+      "depth_frame_shape": [
+        9,
+        16
+      ],
+      "depth_frame_offsets_newest_to_oldest": [
+        0,
+        3,
+        8,
+        18
+      ],
+      "depth_dim": 576,
+      "depth_near_far_m": [
+        0.1,
+        5.0
+      ],
+      "assembly": "proprio[384] ++ depth[576]"
+    },
+    "action": {
+      "joint_count": 29,
+      "joint_names": [
+        "left_hip_pitch_joint",
+        "left_hip_roll_joint",
+        "left_hip_yaw_joint",
+        "left_knee_joint",
+        "left_ankle_pitch_joint",
+        "left_ankle_roll_joint",
+        "right_hip_pitch_joint",
+        "right_hip_roll_joint",
+        "right_hip_yaw_joint",
+        "right_knee_joint",
+        "right_ankle_pitch_joint",
+        "right_ankle_roll_joint",
+        "waist_yaw_joint",
+        "waist_roll_joint",
+        "waist_pitch_joint",
+        "left_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "left_wrist_roll_joint",
+        "left_wrist_pitch_joint",
+        "left_wrist_yaw_joint",
+        "right_shoulder_pitch_joint",
+        "right_shoulder_roll_joint",
+        "right_shoulder_yaw_joint",
+        "right_elbow_joint",
+        "right_wrist_roll_joint",
+        "right_wrist_pitch_joint",
+        "right_wrist_yaw_joint"
+      ],
+      "mapping": "target = DEFAULT_POS + action * ACTION_SCALE",
+      "joint_limit_clipping": true,
+      "portable_target_filter_alpha": 0.35,
+      "portable_max_joint_speed_rad_s": 3.5
+    }
+  },
   "protocol": {
-    "episodes": 8,
-    "seeds": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7
+    "control_hz": 50,
+    "render_fps": 30,
+    "scenario_duration_s": 4.0,
+    "scenarios": [
+      "high_center",
+      "left_shoulder",
+      "right_low"
     ],
-    "showcase_seeds": [
-      0,
-      1,
-      2
-    ],
-    "segment_duration_s": 5.0,
-    "video_duration_s": 15.0,
+    "synthetic_input": "projected ball-only 9x16 metric depth history",
+    "root_control": "fixed at official default pose; no root translation or sidestep proxy",
     "video_resolution": [
-      1280,
-      720
+      1920,
+      1080
     ],
-    "views": [
-      "THREE-QUARTER",
-      "PROJECTILE PROFILE",
-      "LOW FRONT",
-      "top-view inset"
+    "video_views": [
+      "three-quarter",
+      "profile",
+      "front",
+      "policy I/O"
     ]
   },
   "summary": {
-    "clearance_preserved": 8,
-    "episodes": 8,
-    "min_clearance_m": 0.42238
+    "scenarios": 3,
+    "inference_ticks": 600,
+    "finite_action_ticks": 600,
+    "whole_body_joint_count_ge_0_05rad": 29,
+    "whole_body_joint_count": 29,
+    "minimum_policy_geometry_clearance_m": 0.014431,
+    "minimum_default_pose_geometry_clearance_m": -0.059484,
+    "maximum_depth_conditioned_action_delta_l2": 10.117309,
+    "joint_range_rad": {
+      "left_hip_pitch_joint": 1.263773,
+      "left_hip_roll_joint": 0.738112,
+      "left_hip_yaw_joint": 0.713657,
+      "left_knee_joint": 1.213693,
+      "left_ankle_pitch_joint": 1.249019,
+      "left_ankle_roll_joint": 0.440111,
+      "right_hip_pitch_joint": 1.281142,
+      "right_hip_roll_joint": 0.595291,
+      "right_hip_yaw_joint": 0.606605,
+      "right_knee_joint": 1.078913,
+      "right_ankle_pitch_joint": 1.080474,
+      "right_ankle_roll_joint": 0.425954,
+      "waist_yaw_joint": 0.550143,
+      "waist_roll_joint": 0.625266,
+      "waist_pitch_joint": 0.557443,
+      "left_shoulder_pitch_joint": 1.42458,
+      "left_shoulder_roll_joint": 0.867321,
+      "left_shoulder_yaw_joint": 0.644556,
+      "left_elbow_joint": 1.365029,
+      "left_wrist_roll_joint": 0.502785,
+      "left_wrist_pitch_joint": 0.306332,
+      "left_wrist_yaw_joint": 0.528198,
+      "right_shoulder_pitch_joint": 1.313483,
+      "right_shoulder_roll_joint": 1.20848,
+      "right_shoulder_yaw_joint": 0.670519,
+      "right_elbow_joint": 0.763815,
+      "right_wrist_roll_joint": 0.604375,
+      "right_wrist_pitch_joint": 0.429762,
+      "right_wrist_yaw_joint": 0.416002
+    }
   },
-  "episodes": [
+  "scenarios": [
     {
-      "seed": 0,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.42322,
-      "max_filtered_speed_mps": 1.05,
-      "max_lateral_displacement_m": 0.56653,
-      "threat_steps": 100,
-      "escape_side": 1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+      "name": "high_center",
+      "label": "HEAD-HEIGHT DUCK",
+      "inference_ticks": 200,
+      "finite_actions": true,
+      "active_joint_count_ge_0_05rad": 29,
+      "minimum_policy_clearance_m": 0.028217,
+      "minimum_default_pose_clearance_m": 0.027448,
+      "maximum_depth_action_delta_l2": 10.117309,
+      "mean_visible_ball_pixels": 1.555,
+      "maximum_clipped_targets_per_tick": 5,
+      "joint_range_rad": {
+        "left_hip_pitch_joint": 1.263773,
+        "left_hip_roll_joint": 0.738112,
+        "left_hip_yaw_joint": 0.589864,
+        "left_knee_joint": 1.1343,
+        "left_ankle_pitch_joint": 1.249019,
+        "left_ankle_roll_joint": 0.372922,
+        "right_hip_pitch_joint": 1.281142,
+        "right_hip_roll_joint": 0.595291,
+        "right_hip_yaw_joint": 0.569072,
+        "right_knee_joint": 1.078913,
+        "right_ankle_pitch_joint": 1.080474,
+        "right_ankle_roll_joint": 0.425954,
+        "waist_yaw_joint": 0.488162,
+        "waist_roll_joint": 0.625266,
+        "waist_pitch_joint": 0.557443,
+        "left_shoulder_pitch_joint": 1.42458,
+        "left_shoulder_roll_joint": 0.824875,
+        "left_shoulder_yaw_joint": 0.601264,
+        "left_elbow_joint": 1.365029,
+        "left_wrist_roll_joint": 0.48006,
+        "left_wrist_pitch_joint": 0.306332,
+        "left_wrist_yaw_joint": 0.378307,
+        "right_shoulder_pitch_joint": 1.313483,
+        "right_shoulder_roll_joint": 0.977985,
+        "right_shoulder_yaw_joint": 0.527221,
+        "right_elbow_joint": 0.728901,
+        "right_wrist_roll_joint": 0.542862,
+        "right_wrist_pitch_joint": 0.429762,
+        "right_wrist_yaw_joint": 0.416002
+      }
     },
     {
-      "seed": 1,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.43059,
-      "max_filtered_speed_mps": 1.00279,
-      "max_lateral_displacement_m": 0.50139,
-      "threat_steps": 100,
-      "escape_side": -1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+      "name": "left_shoulder",
+      "label": "LEFT-SHOULDER WEAVE",
+      "inference_ticks": 200,
+      "finite_actions": true,
+      "active_joint_count_ge_0_05rad": 29,
+      "minimum_policy_clearance_m": 0.044687,
+      "minimum_default_pose_clearance_m": 0.075629,
+      "maximum_depth_action_delta_l2": 7.058096,
+      "mean_visible_ball_pixels": 1.395,
+      "maximum_clipped_targets_per_tick": 6,
+      "joint_range_rad": {
+        "left_hip_pitch_joint": 0.775075,
+        "left_hip_roll_joint": 0.65035,
+        "left_hip_yaw_joint": 0.713657,
+        "left_knee_joint": 1.213693,
+        "left_ankle_pitch_joint": 0.845097,
+        "left_ankle_roll_joint": 0.440111,
+        "right_hip_pitch_joint": 0.932228,
+        "right_hip_roll_joint": 0.493384,
+        "right_hip_yaw_joint": 0.606605,
+        "right_knee_joint": 1.074066,
+        "right_ankle_pitch_joint": 0.906301,
+        "right_ankle_roll_joint": 0.379559,
+        "waist_yaw_joint": 0.550143,
+        "waist_roll_joint": 0.460336,
+        "waist_pitch_joint": 0.464887,
+        "left_shoulder_pitch_joint": 0.706168,
+        "left_shoulder_roll_joint": 0.793152,
+        "left_shoulder_yaw_joint": 0.644556,
+        "left_elbow_joint": 0.912017,
+        "left_wrist_roll_joint": 0.502785,
+        "left_wrist_pitch_joint": 0.299788,
+        "left_wrist_yaw_joint": 0.481388,
+        "right_shoulder_pitch_joint": 0.825694,
+        "right_shoulder_roll_joint": 1.099056,
+        "right_shoulder_yaw_joint": 0.670519,
+        "right_elbow_joint": 0.763815,
+        "right_wrist_roll_joint": 0.579167,
+        "right_wrist_pitch_joint": 0.384554,
+        "right_wrist_yaw_joint": 0.262273
+      }
     },
     {
-      "seed": 2,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.43614,
-      "max_filtered_speed_mps": 1.05,
-      "max_lateral_displacement_m": 0.53289,
-      "threat_steps": 100,
-      "escape_side": 1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
-    },
-    {
-      "seed": 3,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.42238,
-      "max_filtered_speed_mps": 1.05,
-      "max_lateral_displacement_m": 0.6034,
-      "threat_steps": 100,
-      "escape_side": -1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
-    },
-    {
-      "seed": 4,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.4291,
-      "max_filtered_speed_mps": 1.05,
-      "max_lateral_displacement_m": 0.55895,
-      "threat_steps": 100,
-      "escape_side": 1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
-    },
-    {
-      "seed": 5,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.43675,
-      "max_filtered_speed_mps": 1.02674,
-      "max_lateral_displacement_m": 0.51337,
-      "threat_steps": 100,
-      "escape_side": -1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
-    },
-    {
-      "seed": 6,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.42386,
-      "max_filtered_speed_mps": 1.05,
-      "max_lateral_displacement_m": 0.53788,
-      "threat_steps": 100,
-      "escape_side": 1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
-    },
-    {
-      "seed": 7,
-      "clearance_preserved": true,
-      "min_clearance_m": 0.42897,
-      "max_filtered_speed_mps": 1.05,
-      "max_lateral_displacement_m": 0.56225,
-      "threat_steps": 100,
-      "escape_side": -1,
-      "duration_s": 5.0,
-      "evaluation_type": "upstream_g1_asset_portable_cbf_replay"
+      "name": "right_low",
+      "label": "RIGHT-LOW WHOLE-BODY DODGE",
+      "inference_ticks": 200,
+      "finite_actions": true,
+      "active_joint_count_ge_0_05rad": 29,
+      "minimum_policy_clearance_m": 0.014431,
+      "minimum_default_pose_clearance_m": -0.059484,
+      "maximum_depth_action_delta_l2": 1.373899,
+      "mean_visible_ball_pixels": 0.47,
+      "maximum_clipped_targets_per_tick": 6,
+      "joint_range_rad": {
+        "left_hip_pitch_joint": 0.744002,
+        "left_hip_roll_joint": 0.651321,
+        "left_hip_yaw_joint": 0.613421,
+        "left_knee_joint": 1.108751,
+        "left_ankle_pitch_joint": 0.836715,
+        "left_ankle_roll_joint": 0.373637,
+        "right_hip_pitch_joint": 0.998475,
+        "right_hip_roll_joint": 0.474037,
+        "right_hip_yaw_joint": 0.513113,
+        "right_knee_joint": 0.986196,
+        "right_ankle_pitch_joint": 0.919564,
+        "right_ankle_roll_joint": 0.348163,
+        "waist_yaw_joint": 0.486726,
+        "waist_roll_joint": 0.471411,
+        "waist_pitch_joint": 0.408571,
+        "left_shoulder_pitch_joint": 0.621452,
+        "left_shoulder_roll_joint": 0.867321,
+        "left_shoulder_yaw_joint": 0.544915,
+        "left_elbow_joint": 0.911265,
+        "left_wrist_roll_joint": 0.284607,
+        "left_wrist_pitch_joint": 0.264151,
+        "left_wrist_yaw_joint": 0.528198,
+        "right_shoulder_pitch_joint": 0.897495,
+        "right_shoulder_roll_joint": 1.20848,
+        "right_shoulder_yaw_joint": 0.438208,
+        "right_elbow_joint": 0.714425,
+        "right_wrist_roll_joint": 0.604375,
+        "right_wrist_pitch_joint": 0.38838,
+        "right_wrist_yaw_joint": 0.220933
+      }
     }
   ],
-  "artifacts": {
-    "video": "unitree-g1-predictive-cbf-amd-replay.mp4"
+  "free_base_dynamic_probe": {
+    "attempted": true,
+    "model": "/data/Data14TB/03competition/amd-physical-ai-showcase/.vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml",
+    "duration_s": 1.6,
+    "actuator_joint_order_matches_policy": true,
+    "initial_root_height_m": 0.793,
+    "minimum_root_height_m": 0.075134,
+    "final_root_height_m": 0.075134,
+    "first_below_0_5m_s": 1.38,
+    "stable": false,
+    "blocker": "The portable generated MJCF exposes raw torque motors but not the upstream mjlab actuator model and learned balance runtime; the default-pose hold collapses before a policy rollout can be interpreted."
   },
-  "boundaries": [
-    "The replay uses the upstream G1 MJCF and mesh assets.",
-    "The portable path does not run upstream AMP training or MuJoCo-Warp.",
-    "The result is a controller and rendering demonstration, not the upstream paper benchmark."
+  "artifacts": {
+    "trace": "g1-onnx-whole-body-trace.npz",
+    "video": "unitree-g1-onnx-whole-body-dodge-1080p.mp4"
+  },
+  "limitations": [
+    "The fixed-base replay validates the complete upstream ONNX input, inference, and 29-joint target path.",
+    "It is not the upstream free-base mjlab/MuJoCo-Warp closed-loop benchmark because the portable MJCF raw-motor hold collapses without that actuator and balance stack.",
+    "The depth source is deterministic synthetic ball-only depth rather than live ZED and EfficientTAM output."
   ]
 }

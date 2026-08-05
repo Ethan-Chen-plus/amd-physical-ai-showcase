@@ -1,7 +1,26 @@
 {
-  "created_at": "2026-08-04T11:15:27.230645+00:00",
-  "command": "code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py --upstream-xml .vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml --output-dir results/pacman_g1_amd_cinematic_final_20260804 --episodes 8 --duration 5 --fps 30",
+  "created_at": "2026-08-05T04:30:40.467735+00:00",
+  "command": "/data/Data14TB/03competition/amd-physical-ai-showcase/code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py --upstream-root /data/Data14TB/03competition/amd-physical-ai-showcase/.vendor/perceptive_cbf_rl --output-dir /data/Data14TB/03competition/amd-physical-ai-showcase/results/perceptive_cbf_rl_amd",
+  "working_directory": "/data/Data14TB/03competition/amd-physical-ai-showcase/code/perceptive_cbf_rl_amd",
   "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
-  "upstream_xml_sha256": "f96a137240a2ed248e115fb6e5253959a54cc23216188ac538456d2ac179b6fd",
-  "video_sha256": "3e0c5c95538616271d3eb9c7ed4ef8ac50c741594684d4245c23b87008d430c7"
+  "checkpoint_sha256": "164f9ea7ce80709942905e4f5436c58c87680f086004176368d3593380f62f9a",
+  "robot_mjcf_sha256": "d1218577fc77e9ecacdffc9b1d036dbd2575748eb15c1624f6f2032bae893abe",
+  "runtime": {
+    "python": "3.11.15",
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "mujoco": "3.11.0",
+    "onnxruntime": "1.23.2",
+    "onnx_providers": [
+      "CPUExecutionProvider"
+    ],
+    "numpy": "2.4.6",
+    "imageio": "2.37.4",
+    "pillow": "12.3.0",
+    "mujoco_gl": "egl"
+  },
+  "outputs_sha256": {
+    "eval_info.json": "38faf8cd03ffea5eae3f4b964e45b62833b4a5fbfa31a29a1a117ae87d858ae8",
+    "g1-onnx-whole-body-trace.npz": "01c3af30ec5336467c6ace97e9ae33a94bac92b2167fe2cf24b7944eaadcd4e4",
+    "unitree-g1-onnx-whole-body-dodge-1080p.mp4": "bea7b2760a71d84688c06f646c2e4ed075274031ff5fe5950432aa4f66e5871a"
+  }
 }

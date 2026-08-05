@@ -6,7 +6,11 @@
     "lint": "hyperframes lint",
     "validate": "hyperframes validate",
     "inspect": "hyperframes inspect --samples 18",
+    "subtitles": "python3 scripts/generate_subtitles.py",
+    "validate:subtitles": "python3 scripts/validate_subtitles.py",
+    "qa:subtitles": "bash scripts/render_subtitle_qa.sh",
     "render": "hyperframes render --output dist/amd-physical-ai-demo-en.mp4 --fps 30 --quality standard",
+    "render:delivery": "bash render_delivery.sh",
     "preview": "hyperframes preview --port 4380"
   },
   "dependencies": {

@@ -1,69 +1,399 @@
 1
-00:00:00,000 --> 00:00:17,490
-Datawhale-EAI builds Physical AI on AMD ROCm.
-Datawhale-EAI 在 AMD ROCm 上构建 Physical AI。
+00:00:00,000 --> 00:00:04,288
+Datawhale EAI builds a reproducible AMD Physical AI stack
+Datawhale EAI 在 AMD 上构建可复现的 Physical AI 栈，
 
 2
-00:00:17,990 --> 00:00:36,460
-One AMD stack connects data, policy, physics, and proof across physical worlds.
-一套 AMD 技术栈，连接数据、策略、物理与结果。
+00:00:04,438 --> 00:00:09,026
+across dexterous hands, household manipulation, simulation, and rendering.
+覆盖灵巧手、家庭操作、仿真与渲染。
 
 3
-00:00:36,960 --> 00:00:58,590
-RoboCasa365 brings household manipulation to a shared mobile benchmark.
-RoboCasa365 将家庭操作带入统一的移动操作基准。
+00:00:09,148 --> 00:00:11,850
+The film begins with a real task outcome,
+影片从真实任务结果出发，
 
 4
-00:00:59,090 --> 00:01:21,230
-Long-horizon traces reveal every step from approach to placement.
-长时序轨迹展示从接近目标到完成放置的每一步。
+00:00:11,850 --> 00:00:17,493
+then follows the evidence back to the code and the machine that produced it.
+再沿证据回溯到代码与运行它的 AMD 设备。
 
 5
-00:01:21,730 --> 00:01:46,650
-DexJoCo brings contact-rich dexterous control to native JAX on AMD ROCm.
-DexJoCo 在 AMD ROCm 原生 JAX 上实现接触丰富的灵巧控制。
+00:00:17,990 --> 00:00:21,915
+One evidence contract follows data, policy, physics, and proof
+一套统一的证据契约贯穿数据、策略、物理与验证，
 
 6
-00:01:47,150 --> 00:02:11,240
-Official tasks and recovery demonstrations turn contact-rich skills into reusable evidence.
-官方任务与恢复演示，把接触丰富的技能整理成可复用证据。
+00:00:21,915 --> 00:00:23,799
+across the complete project.
+并覆盖整个项目。
 
 7
-00:02:11,740 --> 00:02:36,790
-Data becomes policy, policy becomes physics, and physics becomes a result.
-数据形成策略，策略进入物理，物理运行产生结果。
+00:00:24,475 --> 00:00:27,583
+Every result keeps its task definition, model, seed, environment,
+每项结果都绑定任务定义、模型、种子与环境，
 
 8
-00:02:37,290 --> 00:03:01,780
-DISCOVERSE carries expert paths, policy experiments, and multi-view replay onto AMD.
-DISCOVERSE 将专家轨迹、策略实验和多视角回放带到 AMD。
+00:00:27,716 --> 00:00:30,044
+video, metrics, and checksum together,
+同时保存视频、指标与校验值，
 
 9
-00:03:02,280 --> 00:03:23,190
-3D Gaussian Splatting adds high-fidelity rendering and dynamic replay.
-3D Gaussian Splatting 带来高保真渲染与动态回放。
+00:00:30,044 --> 00:00:35,441
+so the viewer can move from a beautiful frame to a reproducible run.
+让精彩画面可以追溯到可复现运行。
 
 10
-00:03:23,690 --> 00:03:49,180
-ROCm versions, GPU metrics, videos, JSON, and SHA travel with every result.
-ROCm 版本、GPU 指标、视频、JSON 与 SHA 随结果保存。
+00:00:36,960 --> 00:00:42,194
+RoboCasa three sixty-five gives us a household manipulation benchmark
+RoboCasa365 提供家庭操作基准，
 
 11
-00:03:49,680 --> 00:04:12,870
-Selected successes lead the story, with every result linked to its source artifact.
-精选成功案例先行，每项结果都链接到原始产物。
+00:00:42,460 --> 00:00:45,521
+with fixed tasks, seeds, videos, and a mobile observation contract.
+包含固定任务、种子、视频与移动观测接口。
 
 12
-00:04:13,370 --> 00:04:27,870
-PAC-MAN predicts the ball; G1 sidesteps safely.
-PAC-MAN 预测来球，G1 安全侧移。
+00:00:46,256 --> 00:00:49,215
+The kitchen scenes make the target concrete:
+厨房场景将目标落实为：
 
 13
-00:04:28,370 --> 00:04:38,630
-Stage traces guide navigation, contact, and recovery.
-阶段轨迹持续优化导航、接触与恢复。
+00:00:49,390 --> 00:00:52,622
+reach, grasp, transport, open, place, and recover.
+接近、抓取、运输、打开、放置与恢复。
 
 14
-00:04:39,130 --> 00:04:58,630
-Code, notebooks, weights, reports, videos, and commands make the work reusable.
-代码、Notebook、权重、报告、视频与命令，让成果可以复用。
+00:00:53,248 --> 00:00:57,056
+The official task boundary stays visible throughout every household trace.
+每条家庭任务轨迹都清晰保留官方任务边界。
+
+15
+00:00:59,090 --> 00:01:03,219
+Long-horizon success traces make the full action sequence inspectable.
+长时序成功轨迹让完整动作序列清晰可查。
+
+16
+00:01:03,877 --> 00:01:07,083
+Packing and restocking show why the trajectory matters:
+打包与补货任务展示了轨迹的重要性：
+
+17
+00:01:07,593 --> 00:01:10,625
+the robot must keep contact, preserve the object,
+机器人需要保持接触并稳定物体，
+
+18
+00:01:10,927 --> 00:01:14,304
+complete several sub-actions, and finish in the correct state.
+再完成多个子动作并到达正确终态。
+
+19
+00:01:14,963 --> 00:01:19,655
+Shorter attempts move quickly to the next evidence clip, keeping the story focused.
+较短的尝试快速切换到下一段证据，让叙事保持紧凑。
+
+20
+00:01:21,730 --> 00:01:25,952
+DexJoCo brings contact-rich dexterous tasks into the same protocol,
+DexJoCo 将接触丰富的灵巧任务纳入同一协议，
+
+21
+00:01:26,405 --> 00:01:28,849
+with native JAX running on AMD ROCm.
+并在 AMD ROCm 上原生运行 JAX。
+
+22
+00:01:28,849 --> 00:01:32,195
+Bimanual assembly, Hanoi, and microwave manipulation
+双手装配、汉诺塔与微波炉操作，
+
+23
+00:01:32,195 --> 00:01:35,743
+put the hand in the difficult part of the problem:
+让灵巧手直面最困难的部分：
+
+24
+00:01:36,286 --> 00:01:40,240
+precise contact, coordinated fingers, and long action sequences.
+精确接触、手指协同与长动作序列。
+
+25
+00:01:40,240 --> 00:01:46,647
+These are the success traces worth giving time to, because the outcome is easy to inspect.
+这些成功轨迹值得完整展示，因为任务结果直观可见。
+
+26
+00:01:47,150 --> 00:01:50,230
+Each result carries its own protocol and denominator.
+每项结果都带有对应的评估协议与分母。
+
+27
+00:01:50,880 --> 00:01:52,642
+Official seeds set the benchmark,
+官方种子用于建立基准，
+
+28
+00:01:52,964 --> 00:01:56,081
+recovery searches answer a separate engineering question,
+恢复搜索用于回答独立的工程问题，
+
+29
+00:01:56,445 --> 00:02:00,256
+and single-task diagnostics explain a specific behavior.
+单任务诊断则用于解释具体行为。
+
+30
+00:02:00,898 --> 00:02:05,361
+The film keeps every claim attached to its source while moving at a steady pace.
+影片以稳定节奏推进，同时让每项结论始终连接原始来源。
+
+31
+00:02:05,987 --> 00:02:08,867
+Every line remains ready for review and reuse.
+每条结果都可供检查与复用。
+
+32
+00:02:11,740 --> 00:02:13,332
+The evidence contract is simple:
+证据契约很清晰：
+
+33
+00:02:13,753 --> 00:02:18,294
+data becomes policy, policy meets physics, and every result becomes proof.
+数据形成策略，策略进入物理环境，每项结果转化为证据。
+
+34
+00:02:18,955 --> 00:02:21,684
+Demonstrations are converted into a standard dataset,
+示范轨迹被转换为标准数据集，
+
+35
+00:02:22,113 --> 00:02:25,050
+the policy is trained or fine-tuned on AMD,
+策略在 AMD 设备上训练或微调，
+
+36
+00:02:25,488 --> 00:02:27,361
+the simulator executes the action loop,
+仿真器执行完整动作闭环，
+
+37
+00:02:27,726 --> 00:02:29,850
+and the evaluator records stage outcomes.
+评估器记录各阶段结果。
+
+38
+00:02:30,566 --> 00:02:36,145
+The final package joins code, a command, a video, a JSON record, and a hash.
+最终交付将代码、命令、视频、JSON 记录与哈希统一关联。
+
+39
+00:02:37,290 --> 00:02:40,545
+DISCOVERSE preserves expert paths, policy experiments,
+迁移后的 DISCOVERSE 保留专家轨迹与策略实验，
+
+40
+00:02:40,863 --> 00:02:43,913
+multi-view rendering, and MP4 output after migration.
+并支持多视角渲染与 MP4 输出。
+
+41
+00:02:43,913 --> 00:02:47,740
+The same scene can be inspected from the task camera,
+同一场景可以从任务相机检查，
+
+42
+00:02:48,026 --> 00:02:50,497
+an external view, and a diagnostic angle.
+也可以切换到外部与诊断视角。
+
+43
+00:02:51,201 --> 00:02:52,709
+That makes migration visible:
+这些视角让迁移成果直观可见：
+
+44
+00:02:53,128 --> 00:02:54,772
+the environment still resets,
+环境能够正常重置，
+
+45
+00:02:55,100 --> 00:02:56,124
+the expert path still runs,
+专家轨迹能够正常执行，
+
+46
+00:02:56,124 --> 00:02:58,676
+the policy loop still produces evidence,
+策略闭环能够持续生成证据，
+
+47
+00:02:58,676 --> 00:03:01,781
+and the video remains useful to a learner.
+视频也能继续服务学习与复现。
+
+48
+00:03:02,280 --> 00:03:05,299
+Three-D Gaussian Splatting and dynamic replay
+3D Gaussian Splatting 与动态回放，
+
+49
+00:03:05,299 --> 00:03:09,109
+turn the renderer itself into visible migration evidence.
+让渲染器本身成为直观的迁移成果。
+
+50
+00:03:09,109 --> 00:03:11,274
+Rendering is a first-class AMD path:
+渲染是完整的 AMD 执行路径：
+
+51
+00:03:11,889 --> 00:03:14,755
+point assets, camera motion, lighting, camera path,
+高斯点资产、相机运动、光照与相机轨迹，
+
+52
+00:03:15,038 --> 00:03:19,390
+and replay output travel through the same reproducibility checks
+回放输出也经过相同的可复现性检查，
+
+53
+00:03:19,390 --> 00:03:21,331
+as the policy, with detail.
+与策略证据保持一致。
+
+54
+00:03:23,690 --> 00:03:27,270
+ROCm versions, GPU identity, memory, throughput, training time,
+每项结果都记录 ROCm 版本、GPU 型号、显存、吞吐与训练时间，
+
+55
+00:03:27,449 --> 00:03:30,858
+JSON, MP4, and SHA travel with every result.
+并同步保存 JSON、MP4 与 SHA。
+
+56
+00:03:30,858 --> 00:03:33,813
+We record the execution path explicitly:
+我们明确记录完整执行路径：
+
+57
+00:03:33,813 --> 00:03:37,656
+PyTorch or JAX, the HIP runtime, the selected GPU,
+包括 PyTorch 或 JAX、HIP 运行时与所用 GPU，
+
+58
+00:03:37,656 --> 00:03:40,785
+the memory footprint, the training command,
+以及显存占用与训练命令，
+
+59
+00:03:41,014 --> 00:03:41,910
+the evaluation command,
+再记录评估命令，
+
+60
+00:03:42,032 --> 00:03:44,306
+and the exact artifact hash.
+最后保存精确的产物哈希。
+
+61
+00:03:44,306 --> 00:03:49,183
+That is how an AMD port becomes evidence rather than a claim.
+由此，AMD 迁移成为可以检查和复现的工程成果。
+
+62
+00:03:49,680 --> 00:03:51,067
+Success leads the story,
+成功案例引领叙事，
+
+63
+00:03:51,360 --> 00:03:53,700
+but the source evidence stays attached behind it:
+背后始终连接原始证据：
+
+64
+00:03:54,203 --> 00:03:56,498
+code, videos, metrics, and checksums.
+代码、视频、指标与校验值。
+
+65
+00:03:57,148 --> 00:03:59,811
+The strongest clips earn a complete moment on screen.
+最具代表性的片段获得完整的屏幕展示时间。
+
+66
+00:04:00,389 --> 00:04:02,855
+Shorter clips answer one question and move on.
+较短片段回答一个问题后立即推进。
+
+67
+00:04:03,474 --> 00:04:05,571
+The website then opens the deeper layer:
+成果网站进一步展开完整技术内容：
+
+68
+00:04:05,920 --> 00:04:09,981
+notebooks, weights, raw evaluation records, environment notes,
+包括 Notebook、权重、原始评估记录与环境说明，
+
+69
+00:04:10,265 --> 00:04:12,869
+and the commands used to reproduce each result.
+以及复现每项结果所需的命令。
+
+70
+00:04:13,370 --> 00:04:18,475
+On AMD, PAC-MAN predictive control turns perception into a whole-body dodge.
+在 AMD 设备上，PAC-MAN 预测控制将感知转化为全身姿态闪避。
+
+71
+00:04:19,086 --> 00:04:21,187
+Unitree G1 tracks the projectile, predicts its path,
+宇树 G1 跟踪来球并预测运动路径，
+
+72
+00:04:21,503 --> 00:04:25,131
+and coordinates its whole body to preserve clearance
+机器人协调全身姿态以保持安全间距，
+
+73
+00:04:25,363 --> 00:04:28,530
+as the threat crosses the scene in real time on AMD.
+并在 AMD 上实时应对穿过场景的威胁。
+
+74
+00:04:29,168 --> 00:04:34,534
+The closing traces then map navigation, contact, release, and recovery into targets.
+结尾轨迹将导航、接触、释放与恢复映射为明确目标。
+
+75
+00:04:35,156 --> 00:04:38,757
+Each stage stays linked to the video and the next control decision.
+每个阶段都与视频证据和下一步控制决策相连。
+
+76
+00:04:39,130 --> 00:04:41,827
+Build it, run it, and show the proof
+完成构建、运行并展示成果，
+
+77
+00:04:42,047 --> 00:04:46,002
+through code, notebooks, weights, reports, videos, and reproducible commands.
+依托代码、Notebook、权重、报告、视频与复现命令。
+
+78
+00:04:46,748 --> 00:04:51,010
+Datawhale-EAI brings the result to AMD ROCm as an open, inspectable project:
+Datawhale-EAI 将成果带到 AMD ROCm，并形成开放、可检查的项目：
+
+79
+00:04:51,010 --> 00:04:55,881
+the next person should be able to run the command, see the motion,
+下一位使用者可以运行命令、看到机器人运动，
+
+80
+00:04:56,156 --> 00:04:58,565
+and understand the success and the next step.
+并理解任务成果与后续方向。

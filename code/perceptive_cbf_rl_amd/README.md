@@ -1,89 +1,74 @@
-# PAC-MAN on AMD: predictive CBF control-path port
+# Unitree G1 whole-body ONNX replay
 
-This folder records the AMD-side port boundary for
-[lzyang2000/perceptive_cbf_rl](https://github.com/lzyang2000/perceptive_cbf_rl).
-The upstream project is a Unitree G1 humanoid dodgeball system built around
-`mjlab`, MuJoCo Warp, AMP and `rsl_rl`; its published hardware result belongs
-to the upstream project and is not reused as an AMD result.
+This directory ports the deployment contract from
+[`lzyang2000/perceptive_cbf_rl`](https://github.com/lzyang2000/perceptive_cbf_rl)
+into a deterministic, portable MuJoCo replay.
 
-## What is reproduced here
+## Implemented path
 
-`amd_pacman_cbf_smoke.py` preserves the upstream predictive perpendicular CBF
-calculation:
+`g1_amd_dodge_replay.py` runs the pinned upstream artifacts directly:
 
-1. estimate the horizontal ball trajectory from position and velocity;
-2. gate threats by airborne state, approach direction and sensing radius;
-3. select a latched perpendicular escape direction;
-4. project the nominal velocity onto the time-aware CBF half-space.
+- `deploy/ckpts/dodge_link_cbf.onnx`;
+- `src/assets/robots/unitree_g1/xmls/g1.xml` and its mesh assets;
+- the upstream 4-frame, term-major proprio history;
+- synthetic ball-only 9x16 metric depth at offsets `(0, 3, 8, 18)`;
+- the exact `384 proprio + 576 depth = 960` observation;
+- ONNX inference with a 29-D output;
+- `target = DEFAULT_POS + action * ACTION_SCALE` in official joint order.
 
-MuJoCo CPU provides a small portable projectile scene and two camera renders.
-PyTorch performs the batched CBF tensor calculation. On the AMD cloud runtime,
-`torch.cuda` is the ROCm device path even though PyTorch keeps the historical
-CUDA API name.
+The generated video contains three synchronized G1 views and one policy-I/O
+view. The policy-I/O view shows all four depth frames and the largest ONNX
+outputs. The trace archive stores every observation, action, joint target,
+joint position, ball position, and geometry-clearance sample.
 
-The output is a **control-path validation**, not a full PAC-MAN policy
-reproduction. It does not claim the upstream G1 AMP training result, the
-`mjlab`/MuJoCo-Warp CUDA simulator, ZED/EfficientTAM deployment, or the
-upstream 19/20 hardware benchmark.
+## Runtime
 
-## Unitree G1 asset replay
-
-The showcase page includes a portable replay using the pinned Unitree G1 MJCF
-and mesh assets. It preserves the predictive perpendicular CBF geometry and
-combines three-quarter, projectile-profile, and low-front shots with a
-synchronized top-view inset. The renderer overlays the predicted projectile
-path, safety envelope, filtered velocity, and live clearance.
-
-Fetch the pinned upstream assets and run the replay with the dedicated AMD
-environment:
+The existing environment is located on the data disk:
 
 ```bash
-git clone --depth 1 https://github.com/lzyang2000/perceptive_cbf_rl.git \
-  .vendor/perceptive_cbf_rl
-git -C .vendor/perceptive_cbf_rl checkout 2d4266978805e8272daa7f029a8bca91cf45e1ba
+uv pip install \
+  --python /data/Data14TB/envs/pacman-g1-replay/bin/python \
+  -r /data/Data14TB/03competition/amd-physical-ai-showcase/code/perceptive_cbf_rl_amd/requirements.txt
+```
 
+Run tests:
+
+```bash
 MUJOCO_GL=egl \
   /data/Data14TB/envs/pacman-g1-replay/bin/python \
-  code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py \
-  --upstream-xml .vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml \
-  --output-dir results/pacman_g1_amd_replay \
-  --episodes 8
+  /data/Data14TB/03competition/amd-physical-ai-showcase/code/perceptive_cbf_rl_amd/test_g1_onnx_replay.py
 ```
 
-The run produces `eval_info.json`, `run_manifest.json`, and
-`unitree-g1-predictive-cbf-amd-replay.mp4`. The public evidence uses eight
-fixed seeds, preserves clearance in 8/8 replays, and records a 0.42 m minimum
-clearance. The 15-second showcase video presents the same run through three
-cinematic shots and a synchronized top-view trajectory.
-
-## AMD run
-
-The reproducible AMD runtime used for the evidence run was:
+Render the complete replay:
 
 ```bash
-/workspace/envs/robowits/bin/python \
-  amd_pacman_cbf_smoke.py \
-  --output-dir /tmp/perceptive_cbf_rl_amd \
-  --episodes 12 \
-  --device rocm
+MUJOCO_GL=egl \
+  /data/Data14TB/envs/pacman-g1-replay/bin/python \
+  /data/Data14TB/03competition/amd-physical-ai-showcase/code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py \
+  --upstream-root /data/Data14TB/03competition/amd-physical-ai-showcase/.vendor/perceptive_cbf_rl \
+  --output-dir /data/Data14TB/03competition/amd-physical-ai-showcase/results/perceptive_cbf_rl_amd
 ```
 
-The command writes:
+Outputs:
 
-- `eval_info.json`: runtime, protocol, per-seed outcomes and boundary labels;
-- `run_manifest.json`: exact command and upstream commit;
-- `pacman-cbf-amd-proxy.mp4`: overview/top-view control-path replay.
+- `unitree-g1-onnx-whole-body-dodge-1080p.mp4`: 1920x1080 multi-view replay;
+- `g1-onnx-whole-body-trace.npz`: complete policy input/output trace;
+- `eval_info.json`: movement, clearance, contract, and limitation evidence;
+- `run_manifest.json`: command, environment versions, artifact SHA256 values.
 
-For a CPU-only development check:
+## Portable simulation boundary
 
-```bash
-python amd_pacman_cbf_smoke.py --device cpu --episodes 2 --no-video
-```
+The upstream generated free-base MJCF exposes raw torque motors, while the
+training and native simulation path uses mjlab/MuJoCo-Warp actuator and balance
+logic. The included dynamic probe applies the baked deployment PD gains to the
+generated free-base model and records whether the nominal stand remains stable.
+When that probe collapses, the evidence replay holds the official free base at
+its nominal pose and applies every one of the 29 ONNX joint targets with a
+documented target filter and rate limit. No root translation is used.
 
-## Full migration boundary
+This mode validates the complete observation, inference, joint-order, scaling,
+target, and rendering path. `eval_info.json` records the free-base probe and the
+portable replay mode separately.
 
-The next engineering step for a full AMD reproduction is to replace the
-upstream CUDA-only `mjlab`/MuJoCo-Warp vector simulator with an AMD-compatible
-batched simulator, then port the G1 AMP training and depth observation path.
-The CBF control term is already isolated and validated independently so that
-simulator work does not obscure safety-logic regressions.
+`amd_pacman_cbf_smoke.py` remains available as a small predictive-CBF tensor
+test; it is independent of the whole-body ONNX replay.

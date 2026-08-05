@@ -1,0 +1,519 @@
+[
+  {
+    "chapter": "01-hook",
+    "chapter_start": 0.0,
+    "wav_duration": 17.493333,
+    "detected_pause_count": 7,
+    "selected_pause_count": 3,
+    "cues": [
+      {
+        "start": 0.0,
+        "end": 4.288,
+        "en": "Datawhale EAI builds a reproducible AMD Physical AI stack"
+      },
+      {
+        "start": 4.438,
+        "end": 9.026,
+        "en": "across dexterous hands, household manipulation, simulation, and rendering."
+      },
+      {
+        "start": 9.148,
+        "end": 11.85,
+        "en": "The film begins with a real task outcome,"
+      },
+      {
+        "start": 11.85,
+        "end": 17.493,
+        "en": "then follows the evidence back to the code and the machine that produced it."
+      }
+    ]
+  },
+  {
+    "chapter": "02-claim",
+    "chapter_start": 17.99,
+    "wav_duration": 17.450667,
+    "detected_pause_count": 8,
+    "selected_pause_count": 4,
+    "cues": [
+      {
+        "start": 17.99,
+        "end": 21.915,
+        "en": "One evidence contract follows data, policy, physics, and proof"
+      },
+      {
+        "start": 21.915,
+        "end": 23.799,
+        "en": "across the complete project."
+      },
+      {
+        "start": 24.475,
+        "end": 27.583,
+        "en": "Every result keeps its task definition, model, seed, environment,"
+      },
+      {
+        "start": 27.716,
+        "end": 30.044,
+        "en": "video, metrics, and checksum together,"
+      },
+      {
+        "start": 30.044,
+        "end": 35.441,
+        "en": "so the viewer can move from a beautiful frame to a reproducible run."
+      }
+    ]
+  },
+  {
+    "chapter": "03-robocasa",
+    "chapter_start": 36.96,
+    "wav_duration": 20.096,
+    "detected_pause_count": 10,
+    "selected_pause_count": 4,
+    "cues": [
+      {
+        "start": 36.96,
+        "end": 42.194,
+        "en": "RoboCasa three sixty-five gives us a household manipulation benchmark"
+      },
+      {
+        "start": 42.46,
+        "end": 45.521,
+        "en": "with fixed tasks, seeds, videos, and a mobile observation contract."
+      },
+      {
+        "start": 46.256,
+        "end": 49.215,
+        "en": "The kitchen scenes make the target concrete:"
+      },
+      {
+        "start": 49.39,
+        "end": 52.622,
+        "en": "reach, grasp, transport, open, place, and recover."
+      },
+      {
+        "start": 53.248,
+        "end": 57.056,
+        "en": "The official task boundary stays visible throughout every household trace."
+      }
+    ]
+  },
+  {
+    "chapter": "04-long-horizon",
+    "chapter_start": 59.09,
+    "wav_duration": 20.565333,
+    "detected_pause_count": 7,
+    "selected_pause_count": 4,
+    "cues": [
+      {
+        "start": 59.09,
+        "end": 63.219,
+        "en": "Long-horizon success traces make the full action sequence inspectable."
+      },
+      {
+        "start": 63.877,
+        "end": 67.083,
+        "en": "Packing and restocking show why the trajectory matters:"
+      },
+      {
+        "start": 67.593,
+        "end": 70.625,
+        "en": "the robot must keep contact, preserve the object,"
+      },
+      {
+        "start": 70.927,
+        "end": 74.305,
+        "en": "complete several sub-actions, and finish in the correct state."
+      },
+      {
+        "start": 74.963,
+        "end": 79.655,
+        "en": "Shorter attempts move quickly to the next evidence clip, keeping the story focused."
+      }
+    ]
+  },
+  {
+    "chapter": "05-dexjoco",
+    "chapter_start": 81.73,
+    "wav_duration": 24.917333,
+    "detected_pause_count": 9,
+    "selected_pause_count": 5,
+    "cues": [
+      {
+        "start": 81.73,
+        "end": 85.952,
+        "en": "DexJoCo brings contact-rich dexterous tasks into the same protocol,"
+      },
+      {
+        "start": 86.405,
+        "end": 88.849,
+        "en": "with native JAX running on AMD ROCm."
+      },
+      {
+        "start": 88.849,
+        "end": 92.195,
+        "en": "Bimanual assembly, Hanoi, and microwave manipulation"
+      },
+      {
+        "start": 92.195,
+        "end": 95.743,
+        "en": "put the hand in the difficult part of the problem:"
+      },
+      {
+        "start": 96.286,
+        "end": 100.24,
+        "en": "precise contact, coordinated fingers, and long action sequences."
+      },
+      {
+        "start": 100.24,
+        "end": 106.647,
+        "en": "These are the success traces worth giving time to, because the outcome is easy to inspect."
+      }
+    ]
+  },
+  {
+    "chapter": "06-protocol",
+    "chapter_start": 107.15,
+    "wav_duration": 21.717333,
+    "detected_pause_count": 8,
+    "selected_pause_count": 5,
+    "cues": [
+      {
+        "start": 107.15,
+        "end": 110.231,
+        "en": "Each result carries its own protocol and denominator."
+      },
+      {
+        "start": 110.88,
+        "end": 112.642,
+        "en": "Official seeds set the benchmark,"
+      },
+      {
+        "start": 112.964,
+        "end": 116.081,
+        "en": "recovery searches answer a separate engineering question,"
+      },
+      {
+        "start": 116.445,
+        "end": 120.256,
+        "en": "and single-task diagnostics explain a specific behavior."
+      },
+      {
+        "start": 120.898,
+        "end": 125.361,
+        "en": "The film keeps every claim attached to its source while moving at a steady pace."
+      },
+      {
+        "start": 125.987,
+        "end": 128.867,
+        "en": "Every line remains ready for review and reuse."
+      }
+    ]
+  },
+  {
+    "chapter": "07-architecture",
+    "chapter_start": 131.74,
+    "wav_duration": 24.405333,
+    "detected_pause_count": 13,
+    "selected_pause_count": 6,
+    "cues": [
+      {
+        "start": 131.74,
+        "end": 133.332,
+        "en": "The evidence contract is simple:"
+      },
+      {
+        "start": 133.753,
+        "end": 138.294,
+        "en": "data becomes policy, policy meets physics, and every result becomes proof."
+      },
+      {
+        "start": 138.955,
+        "end": 141.684,
+        "en": "Demonstrations are converted into a standard dataset,"
+      },
+      {
+        "start": 142.113,
+        "end": 145.05,
+        "en": "the policy is trained or fine-tuned on AMD,"
+      },
+      {
+        "start": 145.488,
+        "end": 147.361,
+        "en": "the simulator executes the action loop,"
+      },
+      {
+        "start": 147.726,
+        "end": 149.85,
+        "en": "and the evaluator records stage outcomes."
+      },
+      {
+        "start": 150.566,
+        "end": 156.145,
+        "en": "The final package joins code, a command, a video, a JSON record, and a hash."
+      }
+    ]
+  },
+  {
+    "chapter": "08-discoverse",
+    "chapter_start": 157.29,
+    "wav_duration": 24.490667,
+    "detected_pause_count": 10,
+    "selected_pause_count": 8,
+    "cues": [
+      {
+        "start": 157.29,
+        "end": 160.545,
+        "en": "DISCOVERSE preserves expert paths, policy experiments,"
+      },
+      {
+        "start": 160.863,
+        "end": 163.913,
+        "en": "multi-view rendering, and MP4 output after migration."
+      },
+      {
+        "start": 163.913,
+        "end": 167.739,
+        "en": "The same scene can be inspected from the task camera,"
+      },
+      {
+        "start": 168.026,
+        "end": 170.497,
+        "en": "an external view, and a diagnostic angle."
+      },
+      {
+        "start": 171.201,
+        "end": 172.709,
+        "en": "That makes migration visible:"
+      },
+      {
+        "start": 173.128,
+        "end": 174.772,
+        "en": "the environment still resets,"
+      },
+      {
+        "start": 175.1,
+        "end": 176.124,
+        "en": "the expert path still runs,"
+      },
+      {
+        "start": 176.124,
+        "end": 178.676,
+        "en": "the policy loop still produces evidence,"
+      },
+      {
+        "start": 178.676,
+        "end": 181.781,
+        "en": "and the video remains useful to a learner."
+      }
+    ]
+  },
+  {
+    "chapter": "09-rendering",
+    "chapter_start": 182.28,
+    "wav_duration": 19.050667,
+    "detected_pause_count": 8,
+    "selected_pause_count": 5,
+    "cues": [
+      {
+        "start": 182.28,
+        "end": 185.299,
+        "en": "Three-D Gaussian Splatting and dynamic replay"
+      },
+      {
+        "start": 185.299,
+        "end": 189.109,
+        "en": "turn the renderer itself into visible migration evidence."
+      },
+      {
+        "start": 189.109,
+        "end": 191.274,
+        "en": "Rendering is a first-class AMD path:"
+      },
+      {
+        "start": 191.889,
+        "end": 194.755,
+        "en": "point assets, camera motion, lighting, camera path,"
+      },
+      {
+        "start": 195.038,
+        "end": 199.39,
+        "en": "and replay output travel through the same reproducibility checks"
+      },
+      {
+        "start": 199.39,
+        "end": 201.331,
+        "en": "as the policy, with detail."
+      }
+    ]
+  },
+  {
+    "chapter": "10-amd",
+    "chapter_start": 203.69,
+    "wav_duration": 25.493333,
+    "detected_pause_count": 12,
+    "selected_pause_count": 7,
+    "cues": [
+      {
+        "start": 203.69,
+        "end": 207.27,
+        "en": "ROCm versions, GPU identity, memory, throughput, training time,"
+      },
+      {
+        "start": 207.449,
+        "end": 210.858,
+        "en": "JSON, MP4, and SHA travel with every result."
+      },
+      {
+        "start": 210.858,
+        "end": 213.813,
+        "en": "We record the execution path explicitly:"
+      },
+      {
+        "start": 213.813,
+        "end": 217.656,
+        "en": "PyTorch or JAX, the HIP runtime, the selected GPU,"
+      },
+      {
+        "start": 217.656,
+        "end": 220.785,
+        "en": "the memory footprint, the training command,"
+      },
+      {
+        "start": 221.014,
+        "end": 221.91,
+        "en": "the evaluation command,"
+      },
+      {
+        "start": 222.032,
+        "end": 224.306,
+        "en": "and the exact artifact hash."
+      },
+      {
+        "start": 224.306,
+        "end": 229.183,
+        "en": "That is how an AMD port becomes evidence rather than a claim."
+      }
+    ]
+  },
+  {
+    "chapter": "11-result",
+    "chapter_start": 229.68,
+    "wav_duration": 23.189333,
+    "detected_pause_count": 11,
+    "selected_pause_count": 7,
+    "cues": [
+      {
+        "start": 229.68,
+        "end": 231.067,
+        "en": "Success leads the story,"
+      },
+      {
+        "start": 231.36,
+        "end": 233.7,
+        "en": "but the source evidence stays attached behind it:"
+      },
+      {
+        "start": 234.203,
+        "end": 236.498,
+        "en": "code, videos, metrics, and checksums."
+      },
+      {
+        "start": 237.148,
+        "end": 239.811,
+        "en": "The strongest clips earn a complete moment on screen."
+      },
+      {
+        "start": 240.389,
+        "end": 242.855,
+        "en": "Shorter clips answer one question and move on."
+      },
+      {
+        "start": 243.474,
+        "end": 245.571,
+        "en": "The website then opens the deeper layer:"
+      },
+      {
+        "start": 245.92,
+        "end": 249.981,
+        "en": "notebooks, weights, raw evaluation records, environment notes,"
+      },
+      {
+        "start": 250.265,
+        "end": 252.869,
+        "en": "and the commands used to reproduce each result."
+      }
+    ]
+  },
+  {
+    "chapter": "12-failure",
+    "chapter_start": 253.37,
+    "wav_duration": 25.386667,
+    "detected_pause_count": 10,
+    "selected_pause_count": 5,
+    "cues": [
+      {
+        "start": 253.37,
+        "end": 258.475,
+        "en": "On AMD, PAC-MAN predictive control turns perception into a whole-body dodge."
+      },
+      {
+        "start": 259.086,
+        "end": 261.187,
+        "en": "Unitree G1 tracks the projectile, predicts its path,"
+      },
+      {
+        "start": 261.503,
+        "end": 265.131,
+        "en": "and coordinates its whole body to preserve clearance"
+      },
+      {
+        "start": 265.363,
+        "end": 268.53,
+        "en": "as the threat crosses the scene in real time on AMD."
+      },
+      {
+        "start": 269.168,
+        "end": 274.534,
+        "en": "The closing traces then map navigation, contact, release, and recovery into targets."
+      },
+      {
+        "start": 275.156,
+        "end": 278.757,
+        "en": "Each stage stays linked to the video and the next control decision."
+      }
+    ]
+  },
+  {
+    "chapter": "13-close",
+    "chapter_start": 279.13,
+    "wav_duration": 19.434667,
+    "detected_pause_count": 9,
+    "selected_pause_count": 4,
+    "cues": [
+      {
+        "start": 279.13,
+        "end": 281.827,
+        "en": "Build it, run it, and show the proof"
+      },
+      {
+        "start": 282.047,
+        "end": 286.002,
+        "en": "through code, notebooks, weights, reports, videos, and reproducible commands."
+      },
+      {
+        "start": 286.748,
+        "end": 291.01,
+        "en": "Datawhale-EAI brings the result to AMD ROCm as an open, inspectable project:"
+      },
+      {
+        "start": 291.01,
+        "end": 295.881,
+        "en": "the next person should be able to run the command, see the motion,"
+      },
+      {
+        "start": 296.156,
+        "end": 298.565,
+        "en": "and understand the success and the next step."
+      }
+    ]
+  }
+]
