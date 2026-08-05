@@ -16,11 +16,20 @@ function applyLanguage(language) {
   const lang = language === "zh" ? "zh" : "en";
   document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
   document.documentElement.dataset.language = lang;
+  const pageTitle = document.documentElement.dataset[lang === "en" ? "pageTitleEn" : "pageTitleZh"];
+  const pageDescription = document.documentElement.dataset[lang === "en" ? "pageDescriptionEn" : "pageDescriptionZh"];
+  if (pageTitle) document.title = pageTitle;
+  if (pageDescription) {
+    document.querySelector('meta[name="description"]')?.setAttribute("content", pageDescription);
+  }
   document.querySelectorAll("[data-zh][data-en]").forEach((element) => {
     element.textContent = element.dataset[lang];
   });
   document.querySelectorAll("[data-zh-title][data-en-title]").forEach((element) => {
     element.title = element.dataset[lang === "en" ? "enTitle" : "zhTitle"];
+  });
+  document.querySelectorAll("[data-zh-aria-label][data-en-aria-label]").forEach((element) => {
+    element.setAttribute("aria-label", element.dataset[lang === "en" ? "enAriaLabel" : "zhAriaLabel"]);
   });
   if (langLabel) langLabel.textContent = lang === "en" ? "中" : "EN";
   localStorage.setItem("evidence-language", lang);

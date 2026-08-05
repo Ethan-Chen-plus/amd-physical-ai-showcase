@@ -1,26 +1,38 @@
 {
-  "created_at": "2026-08-05T04:30:40.467735+00:00",
-  "command": "/data/Data14TB/03competition/amd-physical-ai-showcase/code/perceptive_cbf_rl_amd/g1_amd_dodge_replay.py --upstream-root /data/Data14TB/03competition/amd-physical-ai-showcase/.vendor/perceptive_cbf_rl --output-dir /data/Data14TB/03competition/amd-physical-ai-showcase/results/perceptive_cbf_rl_amd",
-  "working_directory": "/data/Data14TB/03competition/amd-physical-ai-showcase/code/perceptive_cbf_rl_amd",
+  "schema": "perceptive-cbf-rl/upstream-freebase-run/v1",
+  "command": "MUJOCO_GL=egl /data/Data14TB/envs/perceptive-cbf-rl-official/bin/python code/perceptive_cbf_rl_amd/official_freebase_capture.py",
   "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
-  "checkpoint_sha256": "164f9ea7ce80709942905e4f5436c58c87680f086004176368d3593380f62f9a",
-  "robot_mjcf_sha256": "d1218577fc77e9ecacdffc9b1d036dbd2575748eb15c1624f6f2032bae893abe",
+  "task": "Unitree-G1-AMP-Dodge-Depth-Single-BallOnly-Flat",
   "runtime": {
     "python": "3.11.15",
     "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
-    "mujoco": "3.11.0",
+    "mjlab": "1.5.3",
+    "mujoco": "3.10.0",
+    "mujoco_warp": "3.10.0.3",
+    "warp": "1.15.0",
     "onnxruntime": "1.23.2",
-    "onnx_providers": [
-      "CPUExecutionProvider"
+    "renderer": "EGL",
+    "simulation_device": "cuda:0 (upstream reference runtime)"
+  },
+  "policy_contract": {
+    "observation_dim": 960,
+    "action_dim": 29,
+    "frame_offsets": [
+      0,
+      3,
+      8,
+      18
     ],
-    "numpy": "2.4.6",
-    "imageio": "2.37.4",
-    "pillow": "12.3.0",
-    "mujoco_gl": "egl"
+    "control_hz": 50
   },
   "outputs_sha256": {
-    "eval_info.json": "38faf8cd03ffea5eae3f4b964e45b62833b4a5fbfa31a29a1a117ae87d858ae8",
-    "g1-onnx-whole-body-trace.npz": "01c3af30ec5336467c6ace97e9ae33a94bac92b2167fe2cf24b7944eaadcd4e4",
-    "unitree-g1-onnx-whole-body-dodge-1080p.mp4": "bea7b2760a71d84688c06f646c2e4ed075274031ff5fe5950432aa4f66e5871a"
+    "pacman-g1-freebase-dodge-modes-1080p.mp4": "7dcb11a01dccc7040b500ab7b61d8cacaea3d60223885ade1004bc0b48f9a756",
+    "eval_info.json": "8c12cc440aa693ffa627b64309033646d7496aa135e7c1248e116764f7b34fc7",
+    "dodge_link_cbf.onnx": "164f9ea7ce80709942905e4f5436c58c87680f086004176368d3593380f62f9a"
+  },
+  "published_assets": {
+    "video": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",
+    "poster": "assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg",
+    "evaluation": "data/perceptive-cbf-rl-g1/eval_info.json"
   }
 }

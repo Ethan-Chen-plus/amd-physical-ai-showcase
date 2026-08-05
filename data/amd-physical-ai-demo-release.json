@@ -22,17 +22,17 @@
     {
       "path": "assets/videos/amd-physical-ai-demo-en.mp4",
       "language": "English",
-      "sha256": "aadbd3f3b3ee74cf644aac5730336dce4db795feec929456dfb3464bb9faae98"
+      "sha256": "9a01fbca1e699e68bb5b3474a8b15071a7e7b144f9ff662dcd8512020d558037"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
       "language": "English narration with bilingual subtitles for the Chinese page",
-      "sha256": "85a89a80d6b890a61c20330ca9202b1d8dbe7f1c378be0f2ab2fad9749111ad3"
+      "sha256": "1df0607d454724d0c68e91f92538447a11e90d3dade6a4d47fee2d4d62a52642"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
       "language": "English narration with English and Chinese subtitles",
-      "sha256": "85a89a80d6b890a61c20330ca9202b1d8dbe7f1c378be0f2ab2fad9749111ad3"
+      "sha256": "1df0607d454724d0c68e91f92538447a11e90d3dade6a4d47fee2d4d62a52642"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.en.srt",
@@ -51,23 +51,28 @@
     },
     {
       "path": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",
-      "language": "Unitree G1 AMD replay",
-      "sha256": "bea7b2760a71d84688c06f646c2e4ed075274031ff5fe5950432aa4f66e5871a"
+      "language": "Unitree G1 free-base whole-body dodge film",
+      "sha256": "7dcb11a01dccc7040b500ab7b61d8cacaea3d60223885ade1004bc0b48f9a756"
     },
     {
       "path": "assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg",
       "language": "Unitree G1 poster",
-      "sha256": "edba78f7835c07565e89fe193e946e17192029e0d052daa7c099665689b1677d"
+      "sha256": "e8cb64901e1543842529641862a1716b656eb8180249f7e800595d7c2d384c58"
     },
     {
       "path": "data/perceptive-cbf-rl-g1/eval_info.json",
       "language": "Unitree G1 evaluation JSON",
-      "sha256": "38faf8cd03ffea5eae3f4b964e45b62833b4a5fbfa31a29a1a117ae87d858ae8"
+      "sha256": "8c12cc440aa693ffa627b64309033646d7496aa135e7c1248e116764f7b34fc7"
     },
     {
       "path": "data/perceptive-cbf-rl-g1/run_manifest.json",
       "language": "Unitree G1 run manifest",
-      "sha256": "b77bfe4e63031462e875bb7e53650efe0d97aaddb071f202552032092e12324f"
+      "sha256": "07668df3e7563d9d5540b2df0593405806b8d8d032ef0e123d46ea81b7050b65"
+    },
+    {
+      "path": "data/perceptive-cbf-rl-g1/sha256sum.txt",
+      "language": "Unitree G1 free-base artifact checksums",
+      "sha256": "c3bd023532f00c099b65255c301334ba658aa0dc1ecee087af3a615b52edc273"
     }
   ],
   "sequence": [
