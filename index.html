@@ -31,7 +31,7 @@
         <a href="#dexjoco">DexJoCo</a>
         <a href="perceptive-cbf-rl.html" data-zh="安全控制" data-en="Safety control">安全控制</a>
         <a href="migrations.html" data-zh="迁移细节" data-en="Migration">迁移细节</a>
-        <a href="#reproduce" data-zh="复现" data-en="Reproduce">复现</a>
+        <a href="#reproduce" data-zh="训练" data-en="Training">训练</a>
       </nav>
       <div class="header-actions">
         <a class="icon-button" href="https://github.com/Ethan-Chen-plus/amd-physical-ai-showcase" target="_blank" rel="noreferrer" aria-label="打开展示站源码" title="展示站源码">
@@ -47,25 +47,24 @@
     </header>
 
     <main id="top">
-      <section class="intro-band page-shell" aria-labelledby="page-title">
-        <div class="intro-copy">
-          <div class="eyebrow"><span class="live-dot"></span><span data-zh="AMD Radeon + ROCm · 实测证据更新至 2026-08-03" data-en="AMD Radeon + ROCm · Evidence updated 2026-08-03">AMD Radeon + ROCm · 实测证据更新至 2026-08-03</span></div>
-          <h1 id="page-title" data-zh="从家庭仿真到移动操作" data-en="From household simulation to mobile manipulation">从家庭仿真到移动操作</h1>
-            <p data-zh="我们把 AMD Radeon 与 ROCm 上的家庭操作、灵巧手、仿真渲染和安全控制组织成一条可复现的 Physical AI 工作流；RoboCasa365 提供移动操作主线，DexJoCo、DISCOVERSE 与 PAC-MAN 展示不同机器人能力。" data-en="We build a reproducible AMD Radeon + ROCm Physical AI workflow across household manipulation, dexterous hands, simulation rendering, and safety control. RoboCasa365 anchors the mobile track, while DexJoCo, DISCOVERSE, and PAC-MAN extend the system across embodiments.">
-            我们把 AMD Radeon 与 ROCm 上的家庭操作、灵巧手、仿真渲染和安全控制组织成一条可复现的 Physical AI 工作流；RoboCasa365 提供移动操作主线，DexJoCo、DISCOVERSE 与 PAC-MAN 展示不同机器人能力。
-          </p>
-          <div class="intro-actions">
-            <a class="command-button primary" href="#gallery"><i data-lucide="play"></i><span data-zh="查看成功视频" data-en="Watch success videos">查看成功视频</span></a>
-            <a class="command-button" href="mobile-mainline.html"><i data-lucide="route"></i><span data-zh="查看移动主线" data-en="Open mobile track">查看移动主线</span></a>
-          </div>
-        </div>
-        <div class="lead-media">
-          <video id="lead-demo-film" muted autoplay loop playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg">
-            <source src="assets/videos/amd-physical-ai-demo-en.mp4" type="video/mp4" />
-          </video>
-          <div class="lead-caption">
-            <span><strong>AMD Physical AI</strong> · <span data-zh="完整比赛展示片" data-en="competition demo film">完整比赛展示片</span></span>
-            <span class="result-chip success" data-zh="4 分 59 秒" data-en="4:59 master">4:59 master</span>
+      <section class="intro-hero" aria-labelledby="page-title">
+        <div class="intro-band page-shell">
+          <div class="intro-copy">
+            <div class="eyebrow"><span class="live-dot"></span><span data-zh="Datawhale-EAI · AMD Radeon + ROCm" data-en="Datawhale-EAI · AMD Radeon + ROCm">Datawhale-EAI · AMD Radeon + ROCm</span></div>
+            <h1 id="page-title" data-zh="面向移动操作的 AMD Physical AI" data-en="AMD Physical AI for mobile manipulation">面向移动操作的 AMD Physical AI</h1>
+            <p data-zh="以 RoboCasa365 家庭移动操作为主线，连接 DexJoCo 灵巧手、DISCOVERSE 仿真渲染与 PAC-MAN 安全控制，形成从数据、训练到闭环评估的完整工作流。" data-en="A complete workflow from data and training to closed-loop evaluation, anchored by RoboCasa365 household mobile manipulation and extended through DexJoCo dexterity, DISCOVERSE simulation, and PAC-MAN safety control.">
+              以 RoboCasa365 家庭移动操作为主线，连接 DexJoCo 灵巧手、DISCOVERSE 仿真渲染与 PAC-MAN 安全控制，形成从数据、训练到闭环评估的完整工作流。
+            </p>
+            <div class="intro-actions">
+              <a class="command-button primary" href="#flagship"><i data-lucide="play"></i><span data-zh="观看主片" data-en="Watch demo">观看主片</span></a>
+              <a class="command-button hero-secondary" href="mobile-mainline.html"><i data-lucide="route"></i><span data-zh="移动操作基准" data-en="Mobile benchmark">移动操作基准</span></a>
+            </div>
+            <div class="hero-capability-line" aria-label="项目能力范围">
+              <span>RoboCasa365 <b data-zh="移动操作" data-en="Mobile">移动操作</b></span>
+              <span>DexJoCo <b data-zh="灵巧手" data-en="Dexterity">灵巧手</b></span>
+              <span>DISCOVERSE <b data-zh="仿真" data-en="Simulation">仿真</b></span>
+              <span>PAC-MAN <b data-zh="安全控制" data-en="Safety">安全控制</b></span>
+            </div>
           </div>
         </div>
       </section>
@@ -416,12 +415,7 @@
         <div class="section-heading">
           <div>
             <span class="section-index">03 / SUCCESS EVIDENCE</span>
-            <h2 id="gallery-title" data-zh="先看成功案例" data-en="Success cases first">先看成功案例</h2>
-          </div>
-          <div class="segmented-control" role="group" aria-label="筛选视频">
-            <button type="button" class="active" data-filter="all" data-zh="全部" data-en="All">全部</button>
-            <button type="button" data-filter="success" data-zh="成功" data-en="Success">成功</button>
-            <button type="button" data-filter="failure" data-zh="失败" data-en="Failure">失败</button>
+            <h2 id="gallery-title" data-zh="成功案例" data-en="Success cases">成功案例</h2>
           </div>
         </div>
         <div class="media-grid" id="media-grid">
@@ -522,7 +516,7 @@
 
       <section class="section page-shell" id="reproduce" aria-labelledby="reproduce-title">
         <div class="section-heading">
-          <div><span class="section-index">05 / REPRODUCE</span><h2 id="reproduce-title" data-zh="先看成功，再完整训练" data-en="See success, then reproduce">先看成功，再完整训练</h2></div>
+            <div><span class="section-index">05 / TRAINING</span><h2 id="reproduce-title" data-zh="训练" data-en="Training">训练</h2></div>
           <p data-zh="公开教程提供可直接运行的 Notebook、保护权重、配置、严格评估摘要和 SHA256。" data-en="The public tutorial provides runnable notebooks, protected weights, configs, strict evaluation summaries, and SHA256 records.">公开教程提供可直接运行的 Notebook、保护权重、配置、严格评估摘要和 SHA256。</p>
         </div>
         <div class="resource-list">
@@ -540,8 +534,8 @@
       <section class="section failure-section" id="failure-lab" aria-labelledby="failure-title">
         <div class="page-shell">
           <div class="section-heading">
-            <div><span class="section-index">99 / FAILURE LAB</span><h2 id="failure-title" data-zh="最后再看失败与诊断" data-en="Failure cases and diagnosis">最后再看失败与诊断</h2></div>
-            <p data-zh="最后一节汇集边界案例与诊断回放，展示策略在不同任务阶段的行为，并为下一轮优化提供清晰入口。" data-en="The final section gathers boundary cases and diagnostic replays, showing policy behavior across task stages and opening the next round of improvements.">最后一节汇集边界案例与诊断回放，展示策略在不同任务阶段的行为，并为下一轮优化提供清晰入口。</p>
+            <div><span class="section-index">99 / FAILURE CASES</span><h2 id="failure-title" data-zh="失败案例" data-en="Failure cases">失败案例</h2></div>
+            <p data-zh="边界案例与诊断回放呈现策略在导航、接近、接触、抓取和放置阶段的行为，为后续训练提供清晰依据。" data-en="Boundary cases and diagnostic replays reveal policy behavior across navigation, approach, contact, grasp, and placement, providing clear signals for the next training cycle.">边界案例与诊断回放呈现策略在导航、接近、接触、抓取和放置阶段的行为，为后续训练提供清晰依据。</p>
           </div>
           <div class="media-grid">
             <article class="media-card" data-outcome="failure"><video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-failure.jpg"><source src="assets/videos/robocasa-gr00t-showcase-failure.mp4" type="video/mp4" /></video><div class="media-copy"><div><span>RoboCasa365 · GR00T · 4-view showcase</span><h3 data-zh="CloseFridge 失败" data-en="CloseFridge failure">CloseFridge 失败</h3></div><span class="result-chip failure">failure</span></div></article>

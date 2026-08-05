@@ -40,16 +40,6 @@ langToggle?.addEventListener("click", () => {
   applyLanguage(document.documentElement.dataset.language === "en" ? "zh" : "en");
 });
 
-document.querySelectorAll("[data-filter]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    document.querySelectorAll("[data-filter]").forEach((item) => item.classList.toggle("active", item === button));
-    document.querySelectorAll(".media-card").forEach((card) => {
-      card.hidden = filter !== "all" && card.dataset.outcome !== filter;
-    });
-  });
-});
-
 function rateCell(successes, episodes, model) {
   const rate = episodes ? (successes / episodes) * 100 : 0;
   return `
