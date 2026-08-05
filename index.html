@@ -235,7 +235,7 @@
           <article class="project-card">
             <div class="project-card-head">
               <span class="project-icon graphite"><i data-lucide="cpu"></i></span>
-              <span class="result-chip diagnostic">设备证据</span>
+              <span class="result-chip diagnostic">设备设置</span>
             </div>
             <h3>AMD 双设备实验室</h3>
             <p>本地 Ryzen AI MAX+ 395 负责稳定长评估，云端 Radeon Pro W7900 负责大显存训练与迁移验证。</p>
@@ -312,11 +312,11 @@
           </article>
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/restock-success.jpg"><source src="assets/videos/robocasa-recovery/restock-success.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>RestockBowls · 10 episodes</span><h3>补货任务 · 精选成功片段</h3></div><span class="result-chip success">success</span></div>
+            <div class="recovery-card-copy"><div><span>RestockBowls · 10 episodes</span><h3>补货任务 · 成功片段</h3></div><span class="result-chip success">success</span></div>
           </article>
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/pack-success.jpg"><source src="assets/videos/robocasa-recovery/pack-success.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>PackIdenticalLunches · 10 episodes</span><h3>配餐任务 · 精选成功片段</h3></div><span class="result-chip success">success</span></div>
+            <div class="recovery-card-copy"><div><span>PackIdenticalLunches · 10 episodes</span><h3>配餐任务 · 成功片段</h3></div><span class="result-chip success">success</span></div>
           </article>
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/prepare-coffee-failure.jpg"><source src="assets/videos/robocasa-recovery/prepare-coffee-failure.mp4" type="video/mp4" /></video>
@@ -441,33 +441,33 @@
       <section class="section page-shell" id="dexjoco" aria-labelledby="dexjoco-title">
         <div class="section-heading">
           <div><span class="section-index">03 / DEXJOCO MULTI-TASK</span><h2 id="dexjoco-title" data-zh="Pi0.5 成功案例清单" data-en="Pi0.5 success case archive">Pi0.5 成功案例清单</h2></div>
-          <span class="result-chip diagnostic" data-zh="11 个任务 · 精选视频" data-en="11 tasks · selected videos">11 个任务 · 精选视频</span>
+          <span class="result-chip diagnostic" data-zh="11 个任务" data-en="11 tasks">11 个任务</span>
         </div>
-        <p class="section-lead" data-zh="官方 multi-task 权重在 AMD ROCm JAX 0.10 上运行，覆盖 11 个灵巧操作任务。网页精选双手协同、工具操作、精细抓取和长时序接触的代表性视频，完整任务映射与结果 JSON 同步归档。" data-en="Official multi-task weights run on AMD ROCm JAX 0.10 across 11 dexterous manipulation tasks. The page highlights bimanual coordination, tool use, precision grasping, and long-horizon contact, with the complete task map and result JSON archived alongside the videos.">官方 multi-task 权重在 AMD ROCm JAX 0.10 上运行，覆盖 11 个灵巧操作任务。网页精选双手协同、工具操作、精细抓取和长时序接触的代表性视频，完整任务映射与结果 JSON 同步归档。</p>
+        <p class="section-lead" data-zh="官方 multi-task 权重在 AMD ROCm JAX 0.10 上运行，覆盖 11 个灵巧操作任务。网页呈现双手协同、工具操作、精细抓取和长时序接触的任务视频，完整任务映射与结果 JSON 同步归档。" data-en="Official multi-task weights run on AMD ROCm JAX 0.10 across 11 dexterous manipulation tasks. The page presents task videos covering bimanual coordination, tool use, precision grasping, and long-horizon contact, with the complete task map and result JSON archived alongside them.">官方 multi-task 权重在 AMD ROCm JAX 0.10 上运行，覆盖 11 个灵巧操作任务。网页呈现双手协同、工具操作、精细抓取和长时序接触的任务视频，完整任务映射与结果 JSON 同步归档。</p>
         <div class="benchmark-grid dexjoco-score-grid">
           <div class="model-score"><span class="model-kicker">Official multi-task suite</span><strong>11 <small>tasks</small></strong><div class="score-track"><span style="width:100%"></span></div><p>双手协同、工具操作、精细抓取与长时序接触组成完整任务家族。</p></div>
           <div class="model-score pi05-score"><span class="model-kicker">AMD runtime</span><strong>JAX <small>0.10</small></strong><div class="score-track"><span style="width:100%"></span></div><p>官方 Orbax 权重在 AMD ROCm 上原生运行，视频与 JSON 由同一评估入口生成。</p></div>
-          <div class="model-score"><span class="model-kicker">Selected media archive</span><strong>10 <small>traces</small></strong><div class="score-track"><span style="width:90%"></span></div><p>网页精选双手操作、精细接触、工具使用与恢复回放。</p></div>
+          <div class="model-score"><span class="model-kicker">Task media archive</span><strong>10 <small>traces</small></strong><div class="score-track"><span style="width:90%"></span></div><p>网页呈现双手操作、精细接触、工具使用与恢复回放。</p></div>
         </div>
         <div class="task-table-wrap">
           <table class="task-table dexjoco-table">
-            <thead><tr><th>Task</th><th>Capability</th><th>Featured media</th></tr></thead>
+            <thead><tr><th>Task</th><th>Capability</th><th>Task media</th></tr></thead>
             <tbody>
-              <tr><td class="task-name">bimanual_assembly</td><td>two-hand assembly</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
-              <tr><td class="task-name">bimanual_hanoi</td><td>long-horizon placement</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
-              <tr><td class="task-name">bimanual_microwave_cook</td><td>tool + contact coordination</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
-              <tr><td class="task-name">bimanual_photograph</td><td>precision pose control</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
+              <tr><td class="task-name">bimanual_assembly</td><td>two-hand assembly</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
+              <tr><td class="task-name">bimanual_hanoi</td><td>long-horizon placement</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
+              <tr><td class="task-name">bimanual_microwave_cook</td><td>tool + contact coordination</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
+              <tr><td class="task-name">bimanual_photograph</td><td>precision pose control</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
               <tr><td class="task-name">bimanual_unlock_ipad</td><td>fine bimanual manipulation</td><td><a class="inline-link" href="#dexjoco-videos">Task media</a></td></tr>
               <tr><td class="task-name">click_mouse</td><td>fine manipulation</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
               <tr><td class="task-name">fold_glasses</td><td>deformable object handling</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
               <tr><td class="task-name">hammer_nail</td><td>tool use</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
               <tr><td class="task-name">pick_bucket</td><td>grasp and lift</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
               <tr><td class="task-name">pinch_tongs</td><td>precision pinch</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
-              <tr><td class="task-name">water_plant</td><td>pouring and release</td><td><a class="inline-link" href="#dexjoco-videos">View highlight</a></td></tr>
+              <tr><td class="task-name">water_plant</td><td>pouring and release</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
             </tbody>
           </table>
         </div>
-        <div class="dexjoco-video-heading" id="dexjoco-videos"><div><span class="section-index">SELECTED VIDEO ARCHIVE</span><h3>精选任务视频：双手协同、工具操作与精细抓取</h3></div><span>official demos + selected traces</span></div>
+        <div class="dexjoco-video-heading" id="dexjoco-videos"><div><span class="section-index">TASK VIDEO ARCHIVE</span><h3>任务视频：双手协同、工具操作与精细抓取</h3></div><span>official demos + task traces</span></div>
         <div class="dexjoco-video-grid">
           <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/click-mouse.jpg"><source src="assets/videos/dexjoco/official/click-mouse.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>click_mouse</strong></div></article>
           <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/fold-glasses.jpg"><source src="assets/videos/dexjoco/official/fold-glasses.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>fold_glasses</strong></div></article>
