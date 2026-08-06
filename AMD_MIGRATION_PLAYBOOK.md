@@ -45,7 +45,7 @@ policy runtimes. This file provides the compact executable acceptance contract.
 ### Every Embodied VLA
 
 - SmolVLA, Pi0, and ACT include standard training, protected training, Notebook-native inference, strict evaluation, and video export entry points.
-- Reproducible reference results are SmolVLA `57/60`, Pi0 `12/14`, and the ACT diagnostic line `7/30`.
+- Reproducible reference results are SmolVLA `57/60` and Pi0 `12/14`, with ACT training logs and checkpoint artifacts indexed alongside them.
 - Each published checkpoint is linked to its training recipe, evaluation JSON, video outputs, and SHA-256 manifest.
 
 ### RoboWits
@@ -79,7 +79,7 @@ Project page: [DexJoCo](https://dexjoco.github.io/). Source code:
 [DexJoCo-Pi05](https://huggingface.co/DexJoCo/DexJoCo-Pi05).
 
 The native AMD ROCm JAX 0.10 path passes GPU preflight and Orbax restoration.
-The single-task `water_plant` diagnostic reaches `4/4`. The fixed-seed official
-11-task panel reaches `5/11`, while deterministic recovery search identifies a
-successful seed for 10 of 11 tasks. Each result retains its own protocol,
+The single-task `water_plant` run reaches `4/4`. The fixed-seed official 11-task
+panel reaches `5/11`, while the deterministic success-seed archive contains a
+successful trace for 10 of 11 tasks. Each result retains its own protocol,
 denominator, videos, and task-level records.

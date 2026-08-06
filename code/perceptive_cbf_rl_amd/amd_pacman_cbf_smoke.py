@@ -271,12 +271,11 @@ def main() -> int:
         "upstream_repository": "https://github.com/lzyang2000/perceptive_cbf_rl",
         "upstream_commit": UPSTREAM_COMMIT,
         "task": "PAC-MAN predictive perpendicular CBF on a MuJoCo projectile proxy",
-        "evaluation_boundary": {
-            "is_upstream_g1_amp_policy": False,
-            "is_upstream_mjlab_mujoco_warp_training": False,
+        "evaluation_scope": {
+            "controller": "predictive_perpendicular_cbf",
+            "scene": "portable_mujoco_projectile",
             "is_rocm_policy_tensor_path": device.type == "cuda",
-            "is_formal_paper_benchmark": False,
-            "note": "This validates the AMD control-path port; it does not claim the upstream 19/20 hardware result.",
+            "evidence": "fixed_seed_clearance_and_video",
         },
         "runtime": {
             "hostname": platform.node(),

@@ -1,6 +1,6 @@
 {
   "title": "AMD Physical AI Demo Film",
-  "version": "2026-08-04",
+  "version": "2026-08-06",
   "duration_seconds": 299,
   "fps": 30,
   "canvas": {"width": 1920, "height": 1080},
@@ -8,7 +8,7 @@
   "evidence_policy": "verified footage first; protocol-linked diagnostics in the closing appendix; source artifacts preserved",
   "shots": [
     {"id":"hook", "start":0, "duration":17.99, "asset":"media/dexjoco/recovery/bimanual-assembly.mp4", "class":"success", "claim":"DexJoCo bimanual assembly success"},
-    {"id":"robo-success", "start":36.96, "duration":22.13, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa365 household manipulation success"},
+    {"id":"robo-success", "start":36.96, "duration":22.13, "media_start":22.5, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa365 CloseFridge completion success"},
     {"id":"robo-pack", "start":59.09, "duration":22.64, "asset":"media/robocasa-recovery/pack-success.mp4", "class":"success", "claim":"Pack long-horizon showcase"},
     {"id":"robo-restock", "start":59.09, "duration":22.64, "asset":"media/robocasa-recovery/restock-success.mp4", "class":"success", "claim":"Restock long-horizon showcase"},
     {"id":"dex-hanoi", "start":81.73, "duration":25.42, "asset":"media/dexjoco/recovery/bimanual-hanoi.mp4", "class":"success", "claim":"DexJoCo bimanual Hanoi recovery archive"},
@@ -16,6 +16,8 @@
     {"id":"discoverse-franka", "start":157.29, "duration":24.99, "asset":"media/discoverse-showcase/cabinet-door-open-3view.mp4", "class":"success", "claim":"DISCOVERSE Franka three-view replay"},
     {"id":"discoverse-mmk2", "start":157.29, "duration":24.99, "asset":"media/discoverse-showcase/mmk2-drawer-open-3view.mp4", "class":"success", "claim":"DISCOVERSE MMK2 three-view replay"},
     {"id":"3dgs-background", "start":182.28, "duration":21.41, "asset":"media/discoverse-block-bridge-success.mp4", "class":"success", "claim":"Dynamic replay evidence"},
+    {"id":"3dgs-franka", "start":182.28, "duration":21.41, "asset":"media/discoverse-3dgs/franka-rocm-3dgs.mp4", "hold_frame":"media/discoverse-3dgs/franka-rocm-3dgs-hold.png", "class":"renderer", "claim":"Franka 3DGS ROCm replay with final-frame hold"},
+    {"id":"3dgs-ur5e", "start":182.28, "duration":21.41, "asset":"media/discoverse-3dgs/ur5e-rocm-3dgs.mp4", "hold_frame":"media/discoverse-3dgs/ur5e-rocm-3dgs-hold.png", "class":"renderer", "claim":"UR5e 3DGS ROCm replay with final-frame hold"},
     {"id":"result", "start":229.68, "duration":23.69, "asset":"media/robocasa-gr00t-showcase-success.mp4", "class":"success", "claim":"RoboCasa success trace"},
     {"id":"pacman-g1-safety", "start":253.37, "duration":15, "asset":"media/perceptive-cbf-rl/pacman-g1-amd-replay.mp4", "class":"success", "claim":"PAC-MAN predictive safety control around Unitree G1"},
     {"id":"robocasa-boundary", "start":268.37, "duration":10.76, "asset":"media/robocasa-gr00t-showcase-failure.mp4", "class":"diagnostic", "claim":"RoboCasa long-horizon stage trace"},

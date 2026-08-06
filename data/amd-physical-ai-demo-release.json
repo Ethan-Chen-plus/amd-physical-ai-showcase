@@ -22,12 +22,12 @@
     {
       "path": "assets/videos/amd-physical-ai-demo-en.mp4",
       "language": "English",
-      "sha256": "9a01fbca1e699e68bb5b3474a8b15071a7e7b144f9ff662dcd8512020d558037"
+      "sha256": "69a9ba2b476d66452c1a32b0f2a5f9a9223be0e8530c9c0f2643bacad4f0109e"
     },
     {
       "path": "assets/videos/amd-physical-ai-demo.en.srt",
       "language": "English subtitles",
-      "sha256": "fdc85fb6907319c407e0cc0ea6a412c2dc8117f5aac820eaef77b06b032a3b27"
+      "sha256": "fdc79cc7a5b69b716e63b16bee0b2cdd1c1f5610e0d442ed5ab24cc501813f83"
     },
     {
       "path": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",
@@ -55,6 +55,12 @@
       "sha256": "c3bd023532f00c099b65255c301334ba658aa0dc1ecee087af3a615b52edc273"
     }
   ],
+  "qa": {
+    "intro_caption_alignment": "Four phrase timings matched to the narration waveform through 17.493 seconds",
+    "robocasa_segment": "CloseFridge completion sequence from source offset 22.5 seconds",
+    "discoverse_3dgs": "Franka and UR5e final source frames held continuously through the scene transition",
+    "black_frames_in_3dgs_window": 0
+  },
   "sequence": [
     "DexJoCo success hook",
     "AMD ROCm and JAX stack",

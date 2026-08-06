@@ -3,15 +3,15 @@
 Datawhale EAI builds a reproducible AMD Physical AI stack
 
 2
-00:00:04,438 --> 00:00:09,026
+00:00:04,438 --> 00:00:09,780
 across dexterous hands, household manipulation, simulation, and rendering.
 
 3
-00:00:09,148 --> 00:00:11,850
+00:00:10,523 --> 00:00:13,025
 The film begins with a real task outcome,
 
 4
-00:00:11,850 --> 00:00:17,493
+00:00:13,451 --> 00:00:17,493
 then follows the evidence back to the code and the machine that produced it.
 
 5

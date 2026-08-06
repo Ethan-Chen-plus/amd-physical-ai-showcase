@@ -3,8 +3,9 @@
     "chapter": "01-hook",
     "chapter_start": 0.0,
     "wav_duration": 17.493333,
+    "alignment_mode": "manual",
     "detected_pause_count": 7,
-    "selected_pause_count": 3,
+    "selected_pause_count": 0,
     "cues": [
       {
         "start": 0.0,
@@ -13,16 +14,16 @@
       },
       {
         "start": 4.438,
-        "end": 9.026,
+        "end": 9.78,
         "en": "across dexterous hands, household manipulation, simulation, and rendering."
       },
       {
-        "start": 9.148,
-        "end": 11.85,
+        "start": 10.523,
+        "end": 13.025,
         "en": "The film begins with a real task outcome,"
       },
       {
-        "start": 11.85,
+        "start": 13.451,
         "end": 17.493,
         "en": "then follows the evidence back to the code and the machine that produced it."
       }
@@ -32,6 +33,7 @@
     "chapter": "02-claim",
     "chapter_start": 17.99,
     "wav_duration": 17.450667,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 8,
     "selected_pause_count": 4,
     "cues": [
@@ -66,6 +68,7 @@
     "chapter": "03-robocasa",
     "chapter_start": 36.96,
     "wav_duration": 20.096,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 10,
     "selected_pause_count": 4,
     "cues": [
@@ -100,6 +103,7 @@
     "chapter": "04-long-horizon",
     "chapter_start": 59.09,
     "wav_duration": 20.565333,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 7,
     "selected_pause_count": 4,
     "cues": [
@@ -134,6 +138,7 @@
     "chapter": "05-dexjoco",
     "chapter_start": 81.73,
     "wav_duration": 24.917333,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 9,
     "selected_pause_count": 5,
     "cues": [
@@ -173,6 +178,7 @@
     "chapter": "06-protocol",
     "chapter_start": 107.15,
     "wav_duration": 21.717333,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 8,
     "selected_pause_count": 5,
     "cues": [
@@ -212,6 +218,7 @@
     "chapter": "07-architecture",
     "chapter_start": 131.74,
     "wav_duration": 24.405333,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 13,
     "selected_pause_count": 6,
     "cues": [
@@ -256,6 +263,7 @@
     "chapter": "08-discoverse",
     "chapter_start": 157.29,
     "wav_duration": 24.490667,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 10,
     "selected_pause_count": 8,
     "cues": [
@@ -310,6 +318,7 @@
     "chapter": "09-rendering",
     "chapter_start": 182.28,
     "wav_duration": 19.050667,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 8,
     "selected_pause_count": 5,
     "cues": [
@@ -349,6 +358,7 @@
     "chapter": "10-amd",
     "chapter_start": 203.69,
     "wav_duration": 25.493333,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 12,
     "selected_pause_count": 7,
     "cues": [
@@ -398,6 +408,7 @@
     "chapter": "11-result",
     "chapter_start": 229.68,
     "wav_duration": 23.189333,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 11,
     "selected_pause_count": 7,
     "cues": [
@@ -447,6 +458,7 @@
     "chapter": "12-failure",
     "chapter_start": 253.37,
     "wav_duration": 25.386667,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 10,
     "selected_pause_count": 5,
     "cues": [
@@ -486,6 +498,7 @@
     "chapter": "13-close",
     "chapter_start": 279.13,
     "wav_duration": 19.434667,
+    "alignment_mode": "silence-detected",
     "detected_pause_count": 9,
     "selected_pause_count": 4,
     "cues": [

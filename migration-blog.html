@@ -143,19 +143,19 @@ python scripts/evaluate_official.py \
   --checkpoint /path/to/checkpoint \
   --seeds 0 1 2 3 4 \
   --save-video --output results/formal</code></pre></div>
-            <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Gate</th><th>Artifact</th><th>Next step</th></tr></thead><tbody><tr><td>import + backend</td><td>Pinned dependencies and AMD device record</td><td>reset / render</td></tr><tr><td>reset / render</td><td>Frame and MP4 with scene identity</td><td>Policy load</td></tr><tr><td>Policy load</td><td>Checkpoint, tokenizer, stats, and manifest</td><td>Closed loop</td></tr><tr><td>Closed loop</td><td>Actions, stages, videos, and result JSON</td><td>Fixed protocol</td></tr><tr><td>Fixed protocol</td><td>Aggregate metrics and SHA-256</td><td>Publish</td></tr></tbody></table></div>
+            <div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Gate</th><th>Artifact</th><th>Following gate</th></tr></thead><tbody><tr><td>import + backend</td><td>Pinned dependencies and AMD device record</td><td>reset / render</td></tr><tr><td>reset / render</td><td>Frame and MP4 with scene identity</td><td>Policy load</td></tr><tr><td>Policy load</td><td>Checkpoint, tokenizer, stats, and manifest</td><td>Closed loop</td></tr><tr><td>Closed loop</td><td>Actions, stages, videos, and result JSON</td><td>Fixed protocol</td></tr><tr><td>Fixed protocol</td><td>Aggregate metrics and SHA-256</td><td>Publish</td></tr></tbody></table></div>
           </section>
 
           <section class="blog-section blog-section-dark" id="publication">
             <span class="section-index">09 / PUBLICATION</span><h2>A review path from result to reproduction</h2>
             <p>The public package organizes each workstream around five linked objects: source, report, model or checkpoint manifest, evaluation data, and video. A reviewer can start with the film, open the task result, verify the artifact hash, and continue into the exact environment and command.</p>
             <ul class="blog-boundary-list"><li><strong>Source</strong> — <span>versioned adapters, launchers, validators, and notebooks</span></li><li><strong>Runtime</strong> — <span>AMD GPU, ROCm, framework, simulator, and dependency matrix</span></li><li><strong>Results</strong> — <span>fixed protocol, aggregate metrics, stage statistics, and task videos</span></li><li><strong>Integrity</strong> — <span>tagged release, manifests, and SHA-256 verification</span></li></ul>
-            <div class="blog-link-row"><a href="index.html">Open the project showcase →</a><a href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite" target="_blank" rel="noreferrer">Open the source repository →</a><a href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/download/v1.0.1-amd-hackathon-english/datawhale-eai-radeon-physical-ai-technical-report.pdf" target="_blank" rel="noreferrer">Read the technical report →</a></div>
+            <div class="blog-link-row"><a href="index.html">Open the project showcase →</a><a href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite" target="_blank" rel="noreferrer">Open the source repository →</a><a href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/download/v1.0.2-amd-hackathon-final/datawhale-eai-radeon-physical-ai-technical-report.pdf" target="_blank" rel="noreferrer">Read the technical report →</a></div>
           </section>
         </article>
       </div>
     </main>
 
-    <footer><div class="page-shell footer-inner"><div class="footer-brand"><img src="assets/brand/aup-logo.svg" alt="AMD University Program" /><p>Datawhale-EAI · AMD Physical AI Hackathon 2026</p></div><img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" /><p class="footer-note">Simulation, training, inference, rendering, and evaluation on AMD Radeon and ROCm.</p></div></footer>
+    <footer><div class="page-shell footer-inner"><div class="footer-brand"><img src="assets/brand/aup-logo.svg" alt="AMD University Program" /><p>Datawhale-EAI · Kewei Chen · Yayu Long · AMD Physical AI Hackathon 2026</p></div><img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" /><p class="footer-note">Simulation, training, inference, rendering, and evaluation on AMD Radeon and ROCm.</p></div></footer>
   </body>
 </html>

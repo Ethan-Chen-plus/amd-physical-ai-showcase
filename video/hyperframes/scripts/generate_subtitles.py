@@ -189,15 +189,45 @@ def main() -> None:
             int(manifest["silence_threshold_db"]),
             float(manifest["silence_min_duration"]),
         )
-        boundaries = select_boundaries(chapter["cues"], silences, wav_duration)
+
+        manual_fields = [
+            "start" in cue or "end" in cue for cue in chapter["cues"]
+        ]
+        if any(manual_fields) and not all(manual_fields):
+            raise ValueError(
+                f"{chapter_id}: manual timing requires start and end on every cue"
+            )
+        if all(manual_fields):
+            starts = [float(cue["start"]) for cue in chapter["cues"]]
+            ends = [float(cue["end"]) for cue in chapter["cues"]]
+            for index, (local_start, local_end) in enumerate(
+                zip(starts, ends, strict=True), 1
+            ):
+                if local_start < 0 or local_end > wav_duration + 0.02:
+                    raise ValueError(
+                        f"{chapter_id}: cue {index} exceeds narration bounds"
+                    )
+                if local_end <= local_start:
+                    raise ValueError(
+                        f"{chapter_id}: cue {index} has invalid manual timing"
+                    )
+                if index > 1 and local_start < ends[index - 2]:
+                    raise ValueError(
+                        f"{chapter_id}: cue {index} overlaps the previous cue"
+                    )
+            boundaries: list[Silence] = []
+            alignment_mode = "manual"
+        else:
+            boundaries = select_boundaries(chapter["cues"], silences, wav_duration)
+            starts = [0.0] + [silence.end for silence in boundaries]
+            ends = [silence.start for silence in boundaries] + [wav_duration]
+            alignment_mode = "silence-detected"
 
         reconstructed = normalize_text(" ".join(cue["en"] for cue in chapter["cues"]))
         source = normalize_text(narration.read_text(encoding="utf-8"))
         if reconstructed != source:
             raise ValueError(f"{chapter_id}: cues do not reconstruct the narration source")
 
-        starts = [0.0] + [silence.end for silence in boundaries]
-        ends = [silence.start for silence in boundaries] + [wav_duration]
         selected = []
         for cue, local_start, local_end in zip(
             chapter["cues"], starts, ends, strict=True
@@ -224,6 +254,7 @@ def main() -> None:
                 "chapter": chapter_id,
                 "chapter_start": chapter_start,
                 "wav_duration": round(wav_duration, 6),
+                "alignment_mode": alignment_mode,
                 "detected_pause_count": len(silences),
                 "selected_pause_count": len(boundaries),
                 "cues": selected,

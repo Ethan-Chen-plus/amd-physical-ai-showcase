@@ -8,16 +8,24 @@
       "start": 0.0,
       "cues": [
         {
-          "en": "Datawhale EAI builds a reproducible AMD Physical AI stack"
+          "en": "Datawhale EAI builds a reproducible AMD Physical AI stack",
+          "start": 0.0,
+          "end": 4.288
         },
         {
-          "en": "across dexterous hands, household manipulation, simulation, and rendering."
+          "en": "across dexterous hands, household manipulation, simulation, and rendering.",
+          "start": 4.438,
+          "end": 9.780
         },
         {
-          "en": "The film begins with a real task outcome,"
+          "en": "The film begins with a real task outcome,",
+          "start": 10.523,
+          "end": 13.025
         },
         {
-          "en": "then follows the evidence back to the code and the machine that produced it."
+          "en": "then follows the evidence back to the code and the machine that produced it.",
+          "start": 13.451,
+          "end": 17.493
         }
       ]
     },

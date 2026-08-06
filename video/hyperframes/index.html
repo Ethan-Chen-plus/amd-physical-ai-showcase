@@ -164,7 +164,7 @@
         border-radius: 8px;
         background: #0b0d10;
       }
-      .view video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .view video, .view img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       .view-label {
         position: absolute;
         left: 22px;
@@ -271,7 +271,7 @@
         <div class="chip-row"><span class="chip">ROCm</span><span class="chip">LeRobot</span><span class="chip">MuJoCo</span><span class="chip">JAX 0.10</span><span class="chip">PyTorch</span><span class="chip">MP4 + JSON + SHA</span></div>
       </div>
 
-      <video id="robo-video" class="full soft clip" src="media/robocasa-gr00t-showcase-success.mp4" muted playsinline preload="auto" data-start="36.96" data-duration="22.13" data-track-index="1" data-media-start="0"></video>
+      <video id="robo-video" class="full soft clip" src="media/robocasa-gr00t-showcase-success.mp4" muted playsinline preload="auto" data-start="36.96" data-duration="22.13" data-track-index="1" data-media-start="22.5"></video>
       <div id="robo-surface" class="surface clip" data-start="36.96" data-duration="22.13" data-track-index="10">
         <div class="safe"><div class="eyebrow">02 · HOUSEHOLD MANIPULATION</div><h2>RoboCasa365 with a real success trace.</h2><p class="lede">The kitchen benchmark becomes a shared protocol: task, seed, model, video, and result stay tied together.</p></div>
         <div class="score-rail"><div class="score success"><strong>16 tasks</strong><span>RoboCasa365 official set</span></div><div class="score success"><strong>50 eps</strong><span>per task · video enabled</span></div><div class="score"><strong>3 views</strong><span>mobile observation contract</span></div></div>
@@ -315,7 +315,18 @@
       <video id="gs-background" class="full soft clip" src="media/discoverse-block-bridge-success.mp4" muted playsinline preload="auto" data-start="182.28" data-duration="21.41" data-track-index="1"></video>
       <div id="gs-surface" class="surface clip" data-start="182.28" data-duration="21.41" data-track-index="10">
         <div class="safe"><div class="eyebrow">08 · ROCm RENDERER</div><h2>When pixels become evidence.</h2><p class="lede">3D Gaussian Splatting and dynamic replay sit beside the task video, making the migration visible rather than abstract.</p></div>
-        <div class="split" style="height: 430px; max-width: 1100px;"><div class="view"><video id="gs-franka-video" class="contained clip" src="media/discoverse-3dgs/franka-rocm-3dgs.mp4" muted playsinline preload="auto" data-start="182.28" data-duration="8" data-track-index="2"></video><div class="view-label"><b>3DGS</b> · Franka · ROCm</div></div><div class="view"><video id="gs-ur5e-video" class="contained clip" src="media/discoverse-3dgs/ur5e-rocm-3dgs.mp4" muted playsinline preload="auto" data-start="182.28" data-duration="8" data-track-index="3"></video><div class="view-label"><b>3DGS</b> · UR5e · ROCm</div></div></div>
+        <div class="split" style="height: 430px; max-width: 1100px;">
+          <div class="view">
+            <video id="gs-franka-video" class="contained clip" src="media/discoverse-3dgs/franka-rocm-3dgs.mp4" muted playsinline preload="auto" data-start="182.28" data-duration="4" data-track-index="2"></video>
+            <img id="gs-franka-hold" class="contained clip" src="media/discoverse-3dgs/franka-rocm-3dgs-hold.png" alt="" data-start="186.28" data-duration="17.41" data-track-index="2" />
+            <div class="view-label"><b>3DGS</b> · Franka · ROCm</div>
+          </div>
+          <div class="view">
+            <video id="gs-ur5e-video" class="contained clip" src="media/discoverse-3dgs/ur5e-rocm-3dgs.mp4" muted playsinline preload="auto" data-start="182.28" data-duration="4" data-track-index="3"></video>
+            <img id="gs-ur5e-hold" class="contained clip" src="media/discoverse-3dgs/ur5e-rocm-3dgs-hold.png" alt="" data-start="186.28" data-duration="17.41" data-track-index="3" />
+            <div class="view-label"><b>3DGS</b> · UR5e · ROCm</div>
+          </div>
+        </div>
       </div>
 
       <div id="amd-surface" class="surface center graphite clip" data-start="203.69" data-duration="25.99" data-track-index="10">

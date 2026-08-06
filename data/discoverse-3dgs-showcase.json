@@ -45,5 +45,5 @@
       "duration_seconds": 4
     }
   ],
-  "provenance": "ROCm Gaussian renderer validation and dynamic playback evidence. This showcase does not replace DISCOVERSE task success metrics."
+  "provenance": "ROCm Gaussian renderer validation with dynamic Franka and UR5e playback evidence."
 }

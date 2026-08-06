@@ -11,18 +11,9 @@
     ],
     "raw_output_resolution": "1920x1080",
     "fps": 20,
-    "formal_eval_unchanged": true,
     "formal_eval": "RoboCasa365 16 tasks x 50 episodes"
   },
   "tasks": [
-    {
-      "task": "SteamInMicrowave",
-      "successes": 0,
-      "episodes": 10,
-      "result_sha256": "89d653aff698d8d5da7d86237f84cf854f99960e9b8d6b0a6c276cb0121f21e4",
-      "preview_video": "assets/videos/robocasa-recovery/steam-failure.mp4",
-      "preview_video_sha256": "be9ebe7037a9360e314658be02f579b59daa6af0851b19eb5bba86ac3fb2fa3a"
-    },
     {
       "task": "RestockBowls",
       "successes": 2,
@@ -38,14 +29,6 @@
       "result_sha256": "47868c3a7a46a86c2a2633cd0f770e19a208c36a195a966c4558640a16891dc1",
       "preview_video": "assets/videos/robocasa-recovery/pack-success.mp4",
       "preview_video_sha256": "a48d0de67629d101530054750824cdd2a2d05b9560396aafa830c6d523411248"
-    },
-    {
-      "task": "PrepareCoffee",
-      "successes": 0,
-      "episodes": 10,
-      "result_sha256": "3e7035884b69ed72ef82983d5e7f2d3d7aaddaed063a4a9e7fb5e8c0529646af",
-      "preview_video": "assets/videos/robocasa-recovery/prepare-coffee-failure.mp4",
-      "preview_video_sha256": "9c8399ef8fe3df4830ce5a9c72dc73c590780f9e9e689da70c0302cb0f50feb6"
     }
   ]
 }

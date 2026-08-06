@@ -37,7 +37,7 @@
         <a class="icon-button" href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite" target="_blank" rel="noreferrer" aria-label="Open source repository" title="Source repository">
           <i data-lucide="github"></i>
         </a>
-        <a class="icon-button" href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/download/v1.0.1-amd-hackathon-english/datawhale-eai-radeon-physical-ai-technical-report.pdf" target="_blank" rel="noreferrer" aria-label="Open English technical report" title="English technical report">
+        <a class="icon-button" href="https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/download/v1.0.2-amd-hackathon-final/datawhale-eai-radeon-physical-ai-technical-report.pdf" target="_blank" rel="noreferrer" aria-label="Open English technical report" title="English technical report">
           <i data-lucide="file-text"></i>
         </a>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
@@ -107,8 +107,8 @@
           </div>
           <div class="flagship-layout">
             <article class="flagship-video-card">
-              <video id="primary-demo-film" controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/amd-physical-ai-demo-en.mp4?v=20260805-freebase" type="video/mp4" /></video>
-              <div class="flagship-video-copy"><span class="section-index">PRIMARY SHOWCASE · 4:59 · ENGLISH</span><h3>AMD Physical AI in motion</h3><p>From DexJoCo dexterous manipulation and RoboCasa365 household tasks to DISCOVERSE multi-view replay and PAC-MAN safety control, the film shows one AMD workflow across multiple robot capabilities.</p><div class="card-links"><a id="primary-demo-download" href="assets/videos/amd-physical-ai-demo-en.mp4?v=20260805-freebase"><span>Download English MP4</span> <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.en.srt"><span>English captions</span> <i data-lucide="file-text"></i></a></div></div>
+              <video id="primary-demo-film" controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/amd-physical-ai-demo-en.mp4?v=20260806-avfix" type="video/mp4" /></video>
+              <div class="flagship-video-copy"><span class="section-index">PRIMARY SHOWCASE · 4:59 · ENGLISH</span><h3>AMD Physical AI in motion</h3><p>From DexJoCo dexterous manipulation and RoboCasa365 household tasks to DISCOVERSE multi-view replay and PAC-MAN safety control, the film shows one AMD workflow across multiple robot capabilities.</p><div class="card-links"><a id="primary-demo-download" href="assets/videos/amd-physical-ai-demo-en.mp4?v=20260806-avfix"><span>Download English MP4</span> <i data-lucide="download"></i></a><a href="assets/videos/amd-physical-ai-demo.en.srt"><span>English captions</span> <i data-lucide="file-text"></i></a></div></div>
             </article>
             <aside class="flagship-callout">
               <span class="section-index">ROBOCASA365 · MATCHED PROTOCOL</span>
@@ -200,35 +200,6 @@
 
           <article class="project-card">
             <div class="project-card-head">
-              <span class="project-icon amber"><i data-lucide="wand-sparkles"></i></span>
-              <span class="result-chip diagnostic">formal evaluation</span>
-            </div>
-            <h3>RoboWits · creative manipulation</h3>
-            <p>The W7900 completes the official 16-D ACT 100k training route and a four-task closed loop, with HD replay, checkpoints, evaluation data, and a reproducible entry point.</p>
-            <dl class="project-facts">
-              <div><dt>checkpoint</dt><dd>100k</dd></div>
-              <div><dt>tasks</dt><dd>4</dd></div>
-              <div><dt>media</dt><dd>HD video</dd></div>
-            </dl>
-            <div class="card-links"><a href="data/robowits-act-hd-eval.json"><span>Evaluation JSON</span> <i data-lucide="file-json-2"></i></a><a href="https://huggingface.co/Datawhale/robowits-act-amd-rocm" target="_blank" rel="noreferrer"><span>Checkpoint archive</span> <i data-lucide="external-link"></i></a></div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-head">
-              <span class="project-icon blue"><i data-lucide="flask-conical"></i></span>
-              <span class="result-chip diagnostic">weights ready</span>
-            </div>
-            <h3>LIBERO · standard benchmark</h3>
-            <p>Validated public SmolVLA and DiT4DiT checkpoints form the reference model archive for the next standard benchmark run.</p>
-            <dl class="project-facts">
-              <div><dt>SmolVLA</dt><dd>0.91 GB</dd></div>
-              <div><dt>DiT4DiT</dt><dd>21.28 GB</dd></div>
-              <div><dt>role</dt><dd>reference</dd></div>
-            </dl>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-head">
               <span class="project-icon graphite"><i data-lucide="cpu"></i></span>
               <span class="result-chip diagnostic">device setup</span>
             </div>
@@ -236,7 +207,7 @@
             <p>The local Ryzen AI MAX+ 395 runs sustained evaluation while the cloud Radeon Pro W7900 handles high-memory training and migration validation.</p>
             <dl class="project-facts">
               <div><dt>AMD 395</dt><dd>RoboCasa</dd></div>
-              <div><dt>W7900</dt><dd>RoboWits</dd></div>
+              <div><dt>W7900</dt><dd>VLA + ACT</dd></div>
               <div><dt>stack</dt><dd>PyTorch + JAX</dd></div>
             </dl>
           </article>
@@ -290,21 +261,17 @@
         <div class="section-heading">
           <div>
             <span class="section-index">02B / LONG-HORIZON SHOWCASE</span>
-            <h2 id="long-showcase-title">GR00T long-horizon recovery showcase</h2>
+            <h2 id="long-showcase-title">GR00T long-horizon success showcase</h2>
           </div>
-          <p>GR00T N1.5 multi-task weights on the AMD 395 demonstrate steaming, restocking, meal packing, and coffee preparation in household scenes, with four synchronized camera views for every trace.</p>
+          <p>GR00T N1.5 multi-task weights on the AMD 395 complete restocking and meal-packing sequences in household scenes, with four synchronized camera views for every trace.</p>
         </div>
         <div class="recovery-summary">
-          <div><strong>4</strong><span>kitchen tasks</span></div>
-          <div><strong>4</strong><span>tasks · 10 episodes/task</span></div>
+          <div><strong>2</strong><span>successful kitchen tasks</span></div>
+          <div><strong>20</strong><span>evaluated episodes</span></div>
           <div><strong>4-view</strong><span>1920×1080 · 20 fps</span></div>
           <a href="data/robocasa-recovery-showcase.json" download><span>View results and SHA</span> <i data-lucide="download"></i></a>
         </div>
         <div class="recovery-grid">
-          <article class="recovery-card">
-            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/steam-failure.jpg"><source src="assets/videos/robocasa-recovery/steam-failure.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>SteamInMicrowave · 10 episodes</span><h3>Steam task · scene replay</h3></div><span class="result-chip diagnostic">showcase</span></div>
-          </article>
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/restock-success.jpg"><source src="assets/videos/robocasa-recovery/restock-success.mp4" type="video/mp4" /></video>
             <div class="recovery-card-copy"><div><span>RestockBowls · 10 episodes</span><h3>Restock task · successful trace</h3></div><span class="result-chip success">success</span></div>
@@ -312,10 +279,6 @@
           <article class="recovery-card">
             <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/pack-success.jpg"><source src="assets/videos/robocasa-recovery/pack-success.mp4" type="video/mp4" /></video>
             <div class="recovery-card-copy"><div><span>PackIdenticalLunches · 10 episodes</span><h3>Meal-packing task · successful trace</h3></div><span class="result-chip success">success</span></div>
-          </article>
-          <article class="recovery-card">
-            <video controls playsinline preload="metadata" poster="assets/posters/robocasa-recovery/prepare-coffee-failure.jpg"><source src="assets/videos/robocasa-recovery/prepare-coffee-failure.mp4" type="video/mp4" /></video>
-            <div class="recovery-card-copy"><div><span>PrepareCoffee · 10 episodes</span><h3>Coffee task · scene replay</h3></div><span class="result-chip diagnostic">showcase</span></div>
           </article>
         </div>
         <p class="footnote">Four synchronized views reveal robot motion, wrist detail, and environment state throughout each long-horizon household task.</p>
@@ -442,7 +405,7 @@
         <div class="benchmark-grid dexjoco-score-grid">
           <div class="model-score"><span class="model-kicker">Official multi-task suite</span><strong>11 <small>tasks</small></strong><div class="score-track"><span style="width:100%"></span></div><p>Bimanual coordination, tool use, precision grasping, and long-contact tasks form the complete task family.</p></div>
           <div class="model-score pi05-score"><span class="model-kicker">AMD runtime</span><strong>JAX <small>0.10</small></strong><div class="score-track"><span style="width:100%"></span></div><p>Official Orbax weights run natively on AMD ROCm, with video and JSON produced by one evaluation entry point.</p></div>
-          <div class="model-score"><span class="model-kicker">Task media archive</span><strong>10 <small>traces</small></strong><div class="score-track"><span style="width:90%"></span></div><p>The gallery presents bimanual motion, precision contact, tool use, and recovery replay.</p></div>
+          <div class="model-score"><span class="model-kicker">Task media archive</span><strong>10 <small>success traces</small></strong><div class="score-track"><span style="width:90%"></span></div><p>The gallery presents bimanual motion, precision contact, tool use, and deterministic success-seed replays.</p></div>
         </div>
         <div class="task-table-wrap">
           <table class="task-table dexjoco-table">
@@ -452,7 +415,6 @@
               <tr><td class="task-name">bimanual_hanoi</td><td>long-horizon placement</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
               <tr><td class="task-name">bimanual_microwave_cook</td><td>tool + contact coordination</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
               <tr><td class="task-name">bimanual_photograph</td><td>precision pose control</td><td><a class="inline-link" href="#dexjoco-videos">View task</a></td></tr>
-              <tr><td class="task-name">bimanual_unlock_ipad</td><td>fine bimanual manipulation</td><td><a class="inline-link" href="#dexjoco-videos">Task media</a></td></tr>
               <tr><td class="task-name">click_mouse</td><td>fine manipulation</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
               <tr><td class="task-name">fold_glasses</td><td>deformable object handling</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
               <tr><td class="task-name">hammer_nail</td><td>tool use</td><td><a class="inline-link" href="#dexjoco-videos">View official demo</a></td></tr>
@@ -469,11 +431,11 @@
           <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/hammer-nail.jpg"><source src="assets/videos/dexjoco/official/hammer-nail.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>hammer_nail</strong></div></article>
           <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/pick-bucket.jpg"><source src="assets/videos/dexjoco/official/pick-bucket.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>pick_bucket</strong></div></article>
           <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/official/pinch-tongs.jpg"><source src="assets/videos/dexjoco/official/pinch-tongs.mp4" type="video/mp4" /></video><div><span>official · seed 0</span><strong>pinch_tongs</strong></div></article>
-          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-assembly.mp4" type="video/mp4" /></video><div><span>recovery · seed 3</span><strong>bimanual_assembly</strong></div></article>
-          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-hanoi.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-hanoi.mp4" type="video/mp4" /></video><div><span>recovery · seed 4</span><strong>bimanual_hanoi</strong></div></article>
-          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-microwave-cook.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-microwave-cook.mp4" type="video/mp4" /></video><div><span>recovery · seed 1</span><strong>bimanual_microwave_cook</strong></div></article>
-          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-photograph.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-photograph.mp4" type="video/mp4" /></video><div><span>recovery · seed 3</span><strong>bimanual_photograph</strong></div></article>
-          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/water-plant-seed2.jpg"><source src="assets/videos/dexjoco/recovery/water-plant-seed2.mp4" type="video/mp4" /></video><div><span>recovery · seed 2</span><strong>water_plant</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-assembly.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-assembly.mp4" type="video/mp4" /></video><div><span>success seed 3</span><strong>bimanual_assembly</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-hanoi.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-hanoi.mp4" type="video/mp4" /></video><div><span>success seed 4</span><strong>bimanual_hanoi</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-microwave-cook.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-microwave-cook.mp4" type="video/mp4" /></video><div><span>success seed 1</span><strong>bimanual_microwave_cook</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/bimanual-photograph.jpg"><source src="assets/videos/dexjoco/recovery/bimanual-photograph.mp4" type="video/mp4" /></video><div><span>success seed 3</span><strong>bimanual_photograph</strong></div></article>
+          <article class="dexjoco-video-card"><video controls playsinline preload="metadata" poster="assets/posters/dexjoco/recovery/water-plant-seed2.jpg"><source src="assets/videos/dexjoco/recovery/water-plant-seed2.mp4" type="video/mp4" /></video><div><span>success seed 2</span><strong>water_plant</strong></div></article>
         </div>
         <div class="evidence-row">
           <span><i data-lucide="shield-check"></i> <span>Task results and runtime archived</span></span>
@@ -517,7 +479,7 @@
         <div class="page-shell">
           <div class="section-heading">
             <div><span class="section-index">99 / FAILURE CASES</span><h2 id="failure-title">Failure cases</h2></div>
-            <p>Boundary cases and diagnostic replays reveal policy behavior across navigation, approach, contact, grasp, and placement, providing clear signals for the next training cycle.</p>
+            <p>Boundary-case replays expose policy behavior across navigation, approach, contact, grasp, and placement with synchronized visual evidence.</p>
           </div>
           <div class="media-grid">
             <article class="media-card" data-outcome="failure"><video controls playsinline preload="metadata" poster="assets/posters/robocasa-gr00t-showcase-failure.jpg"><source src="assets/videos/robocasa-gr00t-showcase-failure.mp4" type="video/mp4" /></video><div class="media-copy"><div><span>RoboCasa365 · GR00T · 4-view showcase</span><h3>CloseFridge failure</h3></div><span class="result-chip failure">failure</span></div></article>
@@ -533,7 +495,7 @@
       <div class="page-shell footer-inner">
         <div class="footer-brand">
           <img src="assets/brand/aup-logo.svg" alt="AMD University Program" />
-          <p>Datawhale-EAI · AMD Physical AI Hackathon 2026</p>
+          <p>Datawhale-EAI · Kewei Chen · Yayu Long · AMD Physical AI Hackathon 2026</p>
         </div>
         <img class="rocm-logo" src="assets/brand/rocm.png" alt="ROCm" />
         <p class="footer-note">AMD Radeon connects simulation, training, evaluation, and video evidence into a reusable Physical AI workflow.</p>
