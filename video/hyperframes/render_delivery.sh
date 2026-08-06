@@ -57,12 +57,10 @@ burn() {
 }
 
 burn "$MASTER" "$ROOT/subtitles/en.srt" "$DIST/amd-physical-ai-demo-en.mp4" 8
-burn "$MASTER" "$ROOT/subtitles/bilingual.srt" "$DIST/amd-physical-ai-demo-zh.mp4" 7
-burn "$MASTER" "$ROOT/subtitles/bilingual.srt" "$DIST/amd-physical-ai-demo-bilingual.mp4" 7
 
-for output in "$DIST"/amd-physical-ai-demo-*.mp4; do
+for output in "$DIST"/amd-physical-ai-demo-en.mp4; do
   ffprobe -v error -show_entries format=duration,size -show_entries stream=width,height,codec_name,r_frame_rate \
     -of default=noprint_wrappers=1 "$output"
 done
 
-printf 'Rendered film variants to %s\n' "$DIST"
+printf 'Rendered English competition film to %s\n' "$DIST"

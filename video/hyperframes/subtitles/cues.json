@@ -7,158 +7,318 @@
       "id": "01-hook",
       "start": 0.0,
       "cues": [
-        {"en": "Datawhale EAI builds a reproducible AMD Physical AI stack", "zh": "Datawhale EAI 在 AMD 上构建可复现的 Physical AI 栈，"},
-        {"en": "across dexterous hands, household manipulation, simulation, and rendering.", "zh": "覆盖灵巧手、家庭操作、仿真与渲染。"},
-        {"en": "The film begins with a real task outcome,", "zh": "影片从真实任务结果出发，"},
-        {"en": "then follows the evidence back to the code and the machine that produced it.", "zh": "再沿证据回溯到代码与运行它的 AMD 设备。"}
+        {
+          "en": "Datawhale EAI builds a reproducible AMD Physical AI stack"
+        },
+        {
+          "en": "across dexterous hands, household manipulation, simulation, and rendering."
+        },
+        {
+          "en": "The film begins with a real task outcome,"
+        },
+        {
+          "en": "then follows the evidence back to the code and the machine that produced it."
+        }
       ]
     },
     {
       "id": "02-claim",
       "start": 17.99,
       "cues": [
-        {"en": "One evidence contract follows data, policy, physics, and proof", "zh": "一套统一的证据契约贯穿数据、策略、物理与验证，"},
-        {"en": "across the complete project.", "zh": "并覆盖整个项目。"},
-        {"en": "Every result keeps its task definition, model, seed, environment,", "zh": "每项结果都绑定任务定义、模型、种子与环境，"},
-        {"en": "video, metrics, and checksum together,", "zh": "同时保存视频、指标与校验值，"},
-        {"en": "so the viewer can move from a beautiful frame to a reproducible run.", "zh": "让精彩画面可以追溯到可复现运行。"}
+        {
+          "en": "One evidence contract follows data, policy, physics, and proof"
+        },
+        {
+          "en": "across the complete project."
+        },
+        {
+          "en": "Every result keeps its task definition, model, seed, environment,"
+        },
+        {
+          "en": "video, metrics, and checksum together,"
+        },
+        {
+          "en": "so the viewer can move from a beautiful frame to a reproducible run."
+        }
       ]
     },
     {
       "id": "03-robocasa",
       "start": 36.96,
       "cues": [
-        {"en": "RoboCasa three sixty-five gives us a household manipulation benchmark", "zh": "RoboCasa365 提供家庭操作基准，"},
-        {"en": "with fixed tasks, seeds, videos, and a mobile observation contract.", "zh": "包含固定任务、种子、视频与移动观测接口。"},
-        {"en": "The kitchen scenes make the target concrete:", "zh": "厨房场景将目标落实为："},
-        {"en": "reach, grasp, transport, open, place, and recover.", "zh": "接近、抓取、运输、打开、放置与恢复。"},
-        {"en": "The official task boundary stays visible throughout every household trace.", "zh": "每条家庭任务轨迹都清晰保留官方任务边界。"}
+        {
+          "en": "RoboCasa three sixty-five gives us a household manipulation benchmark"
+        },
+        {
+          "en": "with fixed tasks, seeds, videos, and a mobile observation contract."
+        },
+        {
+          "en": "The kitchen scenes make the target concrete:"
+        },
+        {
+          "en": "reach, grasp, transport, open, place, and recover."
+        },
+        {
+          "en": "The official task boundary stays visible throughout every household trace."
+        }
       ]
     },
     {
       "id": "04-long-horizon",
       "start": 59.09,
       "cues": [
-        {"en": "Long-horizon success traces make the full action sequence inspectable.", "zh": "长时序成功轨迹让完整动作序列清晰可查。"},
-        {"en": "Packing and restocking show why the trajectory matters:", "zh": "打包与补货任务展示了轨迹的重要性："},
-        {"en": "the robot must keep contact, preserve the object,", "zh": "机器人需要保持接触并稳定物体，"},
-        {"en": "complete several sub-actions, and finish in the correct state.", "zh": "再完成多个子动作并到达正确终态。"},
-        {"en": "Shorter attempts move quickly to the next evidence clip, keeping the story focused.", "zh": "较短的尝试快速切换到下一段证据，让叙事保持紧凑。"}
+        {
+          "en": "Long-horizon success traces make the full action sequence inspectable."
+        },
+        {
+          "en": "Packing and restocking show why the trajectory matters:"
+        },
+        {
+          "en": "the robot must keep contact, preserve the object,"
+        },
+        {
+          "en": "complete several sub-actions, and finish in the correct state."
+        },
+        {
+          "en": "Shorter attempts move quickly to the next evidence clip, keeping the story focused."
+        }
       ]
     },
     {
       "id": "05-dexjoco",
       "start": 81.73,
       "cues": [
-        {"en": "DexJoCo brings contact-rich dexterous tasks into the same protocol,", "zh": "DexJoCo 将接触丰富的灵巧任务纳入同一协议，"},
-        {"en": "with native JAX running on AMD ROCm.", "zh": "并在 AMD ROCm 上原生运行 JAX。"},
-        {"en": "Bimanual assembly, Hanoi, and microwave manipulation", "zh": "双手装配、汉诺塔与微波炉操作，"},
-        {"en": "put the hand in the difficult part of the problem:", "zh": "让灵巧手直面最困难的部分："},
-        {"en": "precise contact, coordinated fingers, and long action sequences.", "zh": "精确接触、手指协同与长动作序列。"},
-        {"en": "These are the success traces worth giving time to, because the outcome is easy to inspect.", "zh": "这些成功轨迹值得完整展示，因为任务结果直观可见。"}
+        {
+          "en": "DexJoCo brings contact-rich dexterous tasks into the same protocol,"
+        },
+        {
+          "en": "with native JAX running on AMD ROCm."
+        },
+        {
+          "en": "Bimanual assembly, Hanoi, and microwave manipulation"
+        },
+        {
+          "en": "put the hand in the difficult part of the problem:"
+        },
+        {
+          "en": "precise contact, coordinated fingers, and long action sequences."
+        },
+        {
+          "en": "These are the success traces worth giving time to, because the outcome is easy to inspect."
+        }
       ]
     },
     {
       "id": "06-protocol",
       "start": 107.15,
       "cues": [
-        {"en": "Each result carries its own protocol and denominator.", "zh": "每项结果都带有对应的评估协议与分母。"},
-        {"en": "Official seeds set the benchmark,", "zh": "官方种子用于建立基准，"},
-        {"en": "recovery searches answer a separate engineering question,", "zh": "恢复搜索用于回答独立的工程问题，"},
-        {"en": "and single-task diagnostics explain a specific behavior.", "zh": "单任务诊断则用于解释具体行为。"},
-        {"en": "The film keeps every claim attached to its source while moving at a steady pace.", "zh": "影片以稳定节奏推进，同时让每项结论始终连接原始来源。"},
-        {"en": "Every line remains ready for review and reuse.", "zh": "每条结果都可供检查与复用。"}
+        {
+          "en": "Each result carries its own protocol and denominator."
+        },
+        {
+          "en": "Official seeds set the benchmark,"
+        },
+        {
+          "en": "recovery searches answer a separate engineering question,"
+        },
+        {
+          "en": "and single-task diagnostics explain a specific behavior."
+        },
+        {
+          "en": "The film keeps every claim attached to its source while moving at a steady pace."
+        },
+        {
+          "en": "Every line remains ready for review and reuse."
+        }
       ]
     },
     {
       "id": "07-architecture",
       "start": 131.74,
       "cues": [
-        {"en": "The evidence contract is simple:", "zh": "证据契约很清晰："},
-        {"en": "data becomes policy, policy meets physics, and every result becomes proof.", "zh": "数据形成策略，策略进入物理环境，每项结果转化为证据。"},
-        {"en": "Demonstrations are converted into a standard dataset,", "zh": "示范轨迹被转换为标准数据集，"},
-        {"en": "the policy is trained or fine-tuned on AMD,", "zh": "策略在 AMD 设备上训练或微调，"},
-        {"en": "the simulator executes the action loop,", "zh": "仿真器执行完整动作闭环，"},
-        {"en": "and the evaluator records stage outcomes.", "zh": "评估器记录各阶段结果。"},
-        {"en": "The final package joins code, a command, a video, a JSON record, and a hash.", "zh": "最终交付将代码、命令、视频、JSON 记录与哈希统一关联。"}
+        {
+          "en": "The evidence contract is simple:"
+        },
+        {
+          "en": "data becomes policy, policy meets physics, and every result becomes proof."
+        },
+        {
+          "en": "Demonstrations are converted into a standard dataset,"
+        },
+        {
+          "en": "the policy is trained or fine-tuned on AMD,"
+        },
+        {
+          "en": "the simulator executes the action loop,"
+        },
+        {
+          "en": "and the evaluator records stage outcomes."
+        },
+        {
+          "en": "The final package joins code, a command, a video, a JSON record, and a hash."
+        }
       ]
     },
     {
       "id": "08-discoverse",
       "start": 157.29,
       "cues": [
-        {"en": "DISCOVERSE preserves expert paths, policy experiments,", "zh": "迁移后的 DISCOVERSE 保留专家轨迹与策略实验，"},
-        {"en": "multi-view rendering, and MP4 output after migration.", "zh": "并支持多视角渲染与 MP4 输出。"},
-        {"en": "The same scene can be inspected from the task camera,", "zh": "同一场景可以从任务相机检查，"},
-        {"en": "an external view, and a diagnostic angle.", "zh": "也可以切换到外部与诊断视角。"},
-        {"en": "That makes migration visible:", "zh": "这些视角让迁移成果直观可见："},
-        {"en": "the environment still resets,", "zh": "环境能够正常重置，"},
-        {"en": "the expert path still runs,", "zh": "专家轨迹能够正常执行，"},
-        {"en": "the policy loop still produces evidence,", "zh": "策略闭环能够持续生成证据，"},
-        {"en": "and the video remains useful to a learner.", "zh": "视频也能继续服务学习与复现。"}
+        {
+          "en": "DISCOVERSE preserves expert paths, policy experiments,"
+        },
+        {
+          "en": "multi-view rendering, and MP4 output after migration."
+        },
+        {
+          "en": "The same scene can be inspected from the task camera,"
+        },
+        {
+          "en": "an external view, and a diagnostic angle."
+        },
+        {
+          "en": "That makes migration visible:"
+        },
+        {
+          "en": "the environment still resets,"
+        },
+        {
+          "en": "the expert path still runs,"
+        },
+        {
+          "en": "the policy loop still produces evidence,"
+        },
+        {
+          "en": "and the video remains useful to a learner."
+        }
       ]
     },
     {
       "id": "09-rendering",
       "start": 182.28,
       "cues": [
-        {"en": "Three-D Gaussian Splatting and dynamic replay", "zh": "3D Gaussian Splatting 与动态回放，"},
-        {"en": "turn the renderer itself into visible migration evidence.", "zh": "让渲染器本身成为直观的迁移成果。"},
-        {"en": "Rendering is a first-class AMD path:", "zh": "渲染是完整的 AMD 执行路径："},
-        {"en": "point assets, camera motion, lighting, camera path,", "zh": "高斯点资产、相机运动、光照与相机轨迹，"},
-        {"en": "and replay output travel through the same reproducibility checks", "zh": "回放输出也经过相同的可复现性检查，"},
-        {"en": "as the policy, with detail.", "zh": "与策略证据保持一致。"}
+        {
+          "en": "Three-D Gaussian Splatting and dynamic replay"
+        },
+        {
+          "en": "turn the renderer itself into visible migration evidence."
+        },
+        {
+          "en": "Rendering is a first-class AMD path:"
+        },
+        {
+          "en": "point assets, camera motion, lighting, camera path,"
+        },
+        {
+          "en": "and replay output travel through the same reproducibility checks"
+        },
+        {
+          "en": "as the policy, with detail."
+        }
       ]
     },
     {
       "id": "10-amd",
       "start": 203.69,
       "cues": [
-        {"en": "ROCm versions, GPU identity, memory, throughput, training time,", "zh": "每项结果都记录 ROCm 版本、GPU 型号、显存、吞吐与训练时间，"},
-        {"en": "JSON, MP4, and SHA travel with every result.", "zh": "并同步保存 JSON、MP4 与 SHA。"},
-        {"en": "We record the execution path explicitly:", "zh": "我们明确记录完整执行路径："},
-        {"en": "PyTorch or JAX, the HIP runtime, the selected GPU,", "zh": "包括 PyTorch 或 JAX、HIP 运行时与所用 GPU，"},
-        {"en": "the memory footprint, the training command,", "zh": "以及显存占用与训练命令，"},
-        {"en": "the evaluation command,", "zh": "再记录评估命令，"},
-        {"en": "and the exact artifact hash.", "zh": "最后保存精确的产物哈希。"},
-        {"en": "That is how an AMD port becomes evidence rather than a claim.", "zh": "由此，AMD 迁移成为可以检查和复现的工程成果。"}
+        {
+          "en": "ROCm versions, GPU identity, memory, throughput, training time,"
+        },
+        {
+          "en": "JSON, MP4, and SHA travel with every result."
+        },
+        {
+          "en": "We record the execution path explicitly:"
+        },
+        {
+          "en": "PyTorch or JAX, the HIP runtime, the selected GPU,"
+        },
+        {
+          "en": "the memory footprint, the training command,"
+        },
+        {
+          "en": "the evaluation command,"
+        },
+        {
+          "en": "and the exact artifact hash."
+        },
+        {
+          "en": "That is how an AMD port becomes evidence rather than a claim."
+        }
       ]
     },
     {
       "id": "11-result",
       "start": 229.68,
       "cues": [
-        {"en": "Success leads the story,", "zh": "成功案例引领叙事，"},
-        {"en": "but the source evidence stays attached behind it:", "zh": "背后始终连接原始证据："},
-        {"en": "code, videos, metrics, and checksums.", "zh": "代码、视频、指标与校验值。"},
-        {"en": "The strongest clips earn a complete moment on screen.", "zh": "最具代表性的片段获得完整的屏幕展示时间。"},
-        {"en": "Shorter clips answer one question and move on.", "zh": "较短片段回答一个问题后立即推进。"},
-        {"en": "The website then opens the deeper layer:", "zh": "成果网站进一步展开完整技术内容："},
-        {"en": "notebooks, weights, raw evaluation records, environment notes,", "zh": "包括 Notebook、权重、原始评估记录与环境说明，"},
-        {"en": "and the commands used to reproduce each result.", "zh": "以及复现每项结果所需的命令。"}
+        {
+          "en": "Success leads the story,"
+        },
+        {
+          "en": "but the source evidence stays attached behind it:"
+        },
+        {
+          "en": "code, videos, metrics, and checksums."
+        },
+        {
+          "en": "The strongest clips earn a complete moment on screen."
+        },
+        {
+          "en": "Shorter clips answer one question and move on."
+        },
+        {
+          "en": "The website then opens the deeper layer:"
+        },
+        {
+          "en": "notebooks, weights, raw evaluation records, environment notes,"
+        },
+        {
+          "en": "and the commands used to reproduce each result."
+        }
       ]
     },
     {
       "id": "12-failure",
       "start": 253.37,
       "cues": [
-        {"en": "On AMD, PAC-MAN predictive control turns perception into a whole-body dodge.", "zh": "在 AMD 设备上，PAC-MAN 预测控制将感知转化为全身姿态闪避。"},
-        {"en": "Unitree G1 tracks the projectile, predicts its path,", "zh": "宇树 G1 跟踪来球并预测运动路径，"},
-        {"en": "and coordinates its whole body to preserve clearance", "zh": "机器人协调全身姿态以保持安全间距，"},
-        {"en": "as the threat crosses the scene in real time on AMD.", "zh": "并在 AMD 上实时应对穿过场景的威胁。"},
-        {"en": "The closing traces then map navigation, contact, release, and recovery into targets.", "zh": "结尾轨迹将导航、接触、释放与恢复映射为明确目标。"},
-        {"en": "Each stage stays linked to the video and the next control decision.", "zh": "每个阶段都与视频证据和下一步控制决策相连。"}
+        {
+          "en": "On AMD, PAC-MAN predictive control turns perception into a whole-body dodge."
+        },
+        {
+          "en": "Unitree G1 tracks the projectile, predicts its path,"
+        },
+        {
+          "en": "and coordinates its whole body to preserve clearance"
+        },
+        {
+          "en": "as the threat crosses the scene in real time on AMD."
+        },
+        {
+          "en": "The closing traces then map navigation, contact, release, and recovery into targets."
+        },
+        {
+          "en": "Each stage stays linked to the video and the next control decision."
+        }
       ]
     },
     {
       "id": "13-close",
       "start": 279.13,
       "cues": [
-        {"en": "Build it, run it, and show the proof", "zh": "完成构建、运行并展示成果，"},
-        {"en": "through code, notebooks, weights, reports, videos, and reproducible commands.", "zh": "依托代码、Notebook、权重、报告、视频与复现命令。"},
-        {"en": "Datawhale-EAI brings the result to AMD ROCm as an open, inspectable project:", "zh": "Datawhale-EAI 将成果带到 AMD ROCm，并形成开放、可检查的项目："},
-        {"en": "the next person should be able to run the command, see the motion,", "zh": "下一位使用者可以运行命令、看到机器人运动，"},
-        {"en": "and understand the success and the next step.", "zh": "并理解任务成果与后续方向。"}
+        {
+          "en": "Build it, run it, and show the proof"
+        },
+        {
+          "en": "through code, notebooks, weights, reports, videos, and reproducible commands."
+        },
+        {
+          "en": "Datawhale-EAI brings the result to AMD ROCm as an open, inspectable project:"
+        },
+        {
+          "en": "the next person should be able to run the command, see the motion,"
+        },
+        {
+          "en": "and understand the success and the next step."
+        }
       ]
     }
   ]

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-language="en" data-page-title-en="PAC-MAN Whole-Body Dodging · Datawhale-EAI" data-page-title-zh="PAC-MAN 全身体态闪避 · Datawhale-EAI" data-page-description-en="A free-base Unitree G1 whole-body dodge reproduction using the upstream PAC-MAN ONNX policy, motion metrics, and 1080p evidence." data-page-description-zh="基于上游 PAC-MAN ONNX 策略复现 Unitree G1 自由基全身体态闪避，并提供动作指标与 1080p 证据。">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,21 +13,20 @@
   </head>
   <body class="pacman-page">
     <header class="site-header">
-      <a class="brand" href="index.html#top" aria-label="Back to the evidence site" data-en-aria-label="Back to the evidence site" data-zh-aria-label="返回成果站首页">
+      <a class="brand" href="index.html#top" aria-label="Back to the evidence site">
         <img src="assets/brand/aup-logo.svg" alt="AMD University Program" />
         <span class="brand-divider" aria-hidden="true"></span>
         <span class="brand-copy"><strong>Datawhale-EAI</strong><small>Physical AI Evidence Lab</small></span>
       </a>
-      <nav class="desktop-nav" aria-label="PAC-MAN page navigation" data-en-aria-label="PAC-MAN page navigation" data-zh-aria-label="PAC-MAN 页面导航">
-        <a href="#evidence" data-zh="证据" data-en="Evidence">证据</a>
-        <a href="#method" data-zh="方法" data-en="Method">方法</a>
-        <a href="#port" data-zh="系统" data-en="Stack">系统</a>
-        <a href="#reproduce" data-zh="复现" data-en="Reproduce">复现</a>
+      <nav class="desktop-nav" aria-label="PAC-MAN page navigation">
+        <a href="#evidence">Evidence</a>
+        <a href="#method">Method</a>
+        <a href="#port">Stack</a>
+        <a href="#reproduce">Reproduce</a>
       </nav>
       <div class="header-actions">
-        <a class="icon-button" href="index.html" aria-label="Back to the evidence site" data-en-aria-label="Back to the evidence site" data-zh-aria-label="返回成果站" title="Back to the evidence site" data-en-title="Back to the evidence site" data-zh-title="返回成果站"><i data-lucide="arrow-left"></i></a>
-        <button class="icon-button language-button" id="lang-toggle" type="button" aria-label="Switch language" data-en-aria-label="Switch language" data-zh-aria-label="切换中英文" title="Switch language" data-en-title="Switch language" data-zh-title="切换中英文"><i data-lucide="languages"></i><span id="lang-label">中</span></button>
-        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch theme" data-en-aria-label="Switch theme" data-zh-aria-label="切换明暗主题" title="Switch theme" data-en-title="Switch theme" data-zh-title="切换明暗主题"><i data-lucide="moon"></i></button>
+        <a class="icon-button" href="index.html" aria-label="Back to the evidence site" title="Back to the evidence site"><i data-lucide="arrow-left"></i></a>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme"><i data-lucide="moon"></i></button>
       </div>
     </header>
 
@@ -36,73 +35,73 @@
         <div>
           <span class="section-index">08 / AMD MIGRATION CASE</span>
           <h1>PAC-MAN<br /><span>on AMD</span></h1>
-          <p class="pacman-lead" data-zh="PAC-MAN 将四帧来球深度历史与 G1 本体状态组装成 960 维观测，经 dodge_link_cbf ONNX actor 输出 29 个关节目标。机器人保持原地站立，篮球进入视野后自主选择下蹲、向左侧闪或向右侧闪。" data-en="PAC-MAN assembles four projectile-depth frames and G1 proprioception into a 960-D observation, then produces 29 joint targets through the dodge_link_cbf ONNX actor. The robot holds its stance until the ball enters view, then selects a duck, left sidestep, or right sidestep.">PAC-MAN 将四帧来球深度历史与 G1 本体状态组装成 960 维观测，经 dodge_link_cbf ONNX actor 输出 29 个关节目标。机器人保持原地站立，篮球进入视野后自主选择下蹲、向左侧闪或向右侧闪。</p>
+          <p class="pacman-lead">PAC-MAN assembles four projectile-depth frames and G1 proprioception into a 960-D observation, then produces 29 joint targets through the dodge_link_cbf ONNX actor. The robot holds its stance until the ball enters view, then selects a duck, left sidestep, or right sidestep.</p>
           <div class="pacman-actions">
-            <a class="command-button primary" href="#evidence"><i data-lucide="play"></i><span data-zh="观看全身闪避" data-en="Watch whole-body dodging">观看全身闪避</span></a>
-            <a class="command-button" href="https://github.com/lzyang2000/perceptive_cbf_rl" target="_blank" rel="noreferrer"><i data-lucide="github"></i><span data-zh="查看上游项目" data-en="Open upstream project">查看上游项目</span></a>
-            <a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><i data-lucide="file-code-2"></i><span data-zh="打开迁移代码" data-en="Open port code">打开迁移代码</span></a>
+            <a class="command-button primary" href="#evidence"><i data-lucide="play"></i><span>Watch whole-body dodging</span></a>
+            <a class="command-button" href="https://github.com/lzyang2000/perceptive_cbf_rl" target="_blank" rel="noreferrer"><i data-lucide="github"></i><span>Open upstream project</span></a>
+            <a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><i data-lucide="file-code-2"></i><span>Open port code</span></a>
           </div>
         </div>
         <aside class="pacman-hero-note">
           <span class="status-mark verified"></span>
-          <strong data-zh="上游 ONNX 全身策略" data-en="Upstream ONNX whole-body policy">上游 ONNX 全身策略</strong>
-          <div class="pacman-hero-score"><b>960 → 29</b><span data-zh="观测到关节目标" data-en="observation to joint targets">观测到关节目标</span></div>
-          <p data-zh="同一策略在三种来球条件下形成下蹲、右侧闪和左侧闪，零速度命令下完成站立、反应与姿态恢复。" data-en="The same policy produces a duck, right sidestep, and left sidestep across three ball trajectories, completing stance, reaction, and posture recovery under a zero-velocity command.">同一策略在三种来球条件下形成下蹲、右侧闪和左侧闪，零速度命令下完成站立、反应与姿态恢复。</p>
+          <strong>Upstream ONNX whole-body policy</strong>
+          <div class="pacman-hero-score"><b>960 → 29</b><span>observation to joint targets</span></div>
+          <p>The same policy produces a duck, right sidestep, and left sidestep across three ball trajectories, completing stance, reaction, and posture recovery under a zero-velocity command.</p>
         </aside>
       </section>
 
       <section class="pacman-band" id="evidence">
         <div class="page-shell">
           <div class="section-heading light">
-            <div><span class="section-index">01 / WHOLE-BODY DODGING</span><h2 data-zh="原地站立与涌现式闪避" data-en="Standing balance and emergent dodging">原地站立与涌现式闪避</h2></div>
-            <p data-zh="13 秒 1080p 视频依次呈现高位来球触发下蹲、左侧来球触发右闪、右侧来球触发左闪；右上角同步显示策略实际接收的 9×16 来球深度。" data-en="The 13-second 1080p film shows a high ball triggering a duck, a left-side ball triggering a right sidestep, and a right-side ball triggering a left sidestep. The 9x16 projectile depth seen by the policy remains visible throughout.">13 秒 1080p 视频依次呈现高位来球触发下蹲、左侧来球触发右闪、右侧来球触发左闪；右上角同步显示策略实际接收的 9×16 来球深度。</p>
+            <div><span class="section-index">01 / WHOLE-BODY DODGING</span><h2>Standing balance and emergent dodging</h2></div>
+            <p>The 13-second 1080p film shows a high ball triggering a duck, a left-side ball triggering a right sidestep, and a right-side ball triggering a left sidestep. The 9x16 projectile depth seen by the policy remains visible throughout.</p>
           </div>
           <div class="pacman-evidence-layout">
             <article class="pacman-video-card">
               <video controls playsinline preload="metadata" poster="assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg">
                 <source src="assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4?v=20260805-freebase" type="video/mp4" />
               </video>
-              <div class="pacman-video-copy"><span>Unitree G1 · upstream ONNX · free-base · 13 s · 1080p</span><strong data-zh="下蹲、右侧闪、左侧闪" data-en="Duck, sidestep right, sidestep left">下蹲、右侧闪、左侧闪</strong></div>
+              <div class="pacman-video-copy"><span>Unitree G1 · upstream ONNX · free-base · 13 s · 1080p</span><strong>Duck, sidestep right, sidestep left</strong></div>
             </article>
             <div class="pacman-stat-grid">
-              <div><strong>18.8 cm</strong><span data-zh="下蹲高度变化" data-en="duck height change">下蹲高度变化</span></div>
-              <div><strong>25.5 cm</strong><span data-zh="右侧闪横移" data-en="right-sidestep travel">右侧闪横移</span></div>
-              <div><strong>31.0 cm</strong><span data-zh="左侧闪横移" data-en="left-sidestep travel">左侧闪横移</span></div>
-              <div><strong>3 / 3</strong><span data-zh="完整动作模式" data-en="complete dodge modes">完整动作模式</span></div>
+              <div><strong>18.8 cm</strong><span>duck height change</span></div>
+              <div><strong>25.5 cm</strong><span>right-sidestep travel</span></div>
+              <div><strong>31.0 cm</strong><span>left-sidestep travel</span></div>
+              <div><strong>3 / 3</strong><span>complete dodge modes</span></div>
             </div>
           </div>
           <div class="pacman-evidence-links">
-            <a href="data/perceptive-cbf-rl-g1/eval_info.json" download><i data-lucide="file-json-2"></i><span data-zh="下载动作指标" data-en="Download motion metrics">下载动作指标</span></a>
-            <a href="data/perceptive-cbf-rl-g1/run_manifest.json" download><i data-lucide="clipboard-check"></i><span data-zh="下载运行清单" data-en="Download run manifest">下载运行清单</span></a>
-            <a href="data/perceptive-cbf-rl-g1/sha256sum.txt" download><i data-lucide="fingerprint"></i><span data-zh="下载 SHA256" data-en="Download SHA256">下载 SHA256</span></a>
+            <a href="data/perceptive-cbf-rl-g1/eval_info.json" download><i data-lucide="file-json-2"></i><span>Download motion metrics</span></a>
+            <a href="data/perceptive-cbf-rl-g1/run_manifest.json" download><i data-lucide="clipboard-check"></i><span>Download run manifest</span></a>
+            <a href="data/perceptive-cbf-rl-g1/sha256sum.txt" download><i data-lucide="fingerprint"></i><span>Download SHA256</span></a>
           </div>
         </div>
       </section>
 
       <section class="migration-section page-shell" id="method">
-        <div class="section-heading"><div><span class="section-index">02 / CONTROL METHOD</span><h2 data-zh="从深度历史到全身关节目标" data-en="From depth history to whole-body joint targets">从深度历史到全身关节目标</h2></div><p data-zh="复现路径直接连接上游观测组装、ONNX actor、29 关节映射、平衡控制器与自由基动力学。" data-en="The reproduction directly connects the upstream observation assembly, ONNX actor, 29-joint mapping, balance controller, and free-base dynamics.">复现路径直接连接上游观测组装、ONNX actor、29 关节映射、平衡控制器与自由基动力学。</p></div>
+        <div class="section-heading"><div><span class="section-index">02 / CONTROL METHOD</span><h2>From depth history to whole-body joint targets</h2></div><p>The reproduction directly connects the upstream observation assembly, ONNX actor, 29-joint mapping, balance controller, and free-base dynamics.</p></div>
         <div class="pacman-method-grid">
-          <article><b>01</b><i data-lucide="scan-eye"></i><h3 data-zh="四帧深度历史" data-en="Four-frame depth history">四帧深度历史</h3><p data-zh="按上游偏移 0、3、8、18 组装四帧 9×16 深度，并与本体历史同步。" data-en="Assemble four 9x16 depth frames at upstream offsets 0, 3, 8, and 18 alongside proprioceptive history.">按上游偏移 0、3、8、18 组装四帧 9×16 深度，并与本体历史同步。</p></article>
-          <article><b>02</b><i data-lucide="binary"></i><h3 data-zh="960 维观测" data-en="960-D observation">960 维观测</h3><p data-zh="384 维本体历史与 576 维深度历史采用上游 term-major 顺序拼接。" data-en="Concatenate 384-D term-major proprioceptive history with 576-D depth history in upstream order.">384 维本体历史与 576 维深度历史采用上游 term-major 顺序拼接。</p></article>
-          <article><b>03</b><i data-lucide="brain-circuit"></i><h3 data-zh="29 关节策略" data-en="29-joint policy">29 关节策略</h3><p data-zh="dodge_link_cbf.onnx 输出 29 维动作，并按官方 DEFAULT_POS 与 ACTION_SCALE 映射为关节目标。" data-en="dodge_link_cbf.onnx outputs 29 actions mapped to joint targets with official DEFAULT_POS and ACTION_SCALE.">dodge_link_cbf.onnx 输出 29 维动作，并按官方 DEFAULT_POS 与 ACTION_SCALE 映射为关节目标。</p></article>
-          <article><b>04</b><i data-lucide="activity"></i><h3 data-zh="自由基平衡执行" data-en="Free-base balance execution">自由基平衡执行</h3><p data-zh="mjlab 与 MuJoCo-Warp 执行完整动力学，让下蹲、侧闪和姿态恢复发生在同一闭环中。" data-en="mjlab and MuJoCo-Warp execute the complete dynamics so ducking, sidestepping, and posture recovery unfold in one loop.">mjlab 与 MuJoCo-Warp 执行完整动力学，让下蹲、侧闪和姿态恢复发生在同一闭环中。</p></article>
+          <article><b>01</b><i data-lucide="scan-eye"></i><h3>Four-frame depth history</h3><p>Assemble four 9x16 depth frames at upstream offsets 0, 3, 8, and 18 alongside proprioceptive history.</p></article>
+          <article><b>02</b><i data-lucide="binary"></i><h3>960-D observation</h3><p>Concatenate 384-D term-major proprioceptive history with 576-D depth history in upstream order.</p></article>
+          <article><b>03</b><i data-lucide="brain-circuit"></i><h3>29-joint policy</h3><p>dodge_link_cbf.onnx outputs 29 actions mapped to joint targets with official DEFAULT_POS and ACTION_SCALE.</p></article>
+          <article><b>04</b><i data-lucide="activity"></i><h3>Free-base balance execution</h3><p>mjlab and MuJoCo-Warp execute the complete dynamics so ducking, sidestepping, and posture recovery unfold in one loop.</p></article>
         </div>
         <div class="pacman-equation" aria-label="ONNX action mapping"><code>target = DEFAULT_POS + action × ACTION_SCALE</code><span>obs[960] → dodge_link_cbf.onnx → action[29]</span></div>
       </section>
 
       <section class="migration-section migration-soft" id="port">
         <div class="page-shell">
-          <div class="section-heading"><div><span class="section-index">03 / CONTROL STACK</span><h2 data-zh="从预测安全到 Unitree G1" data-en="From predictive safety to Unitree G1">从预测安全到 Unitree G1</h2></div><p data-zh="PAC-MAN 将来球深度、策略推理、G1 资产、平衡控制与自由基动力学组织为同一条系统路径。" data-en="PAC-MAN connects projectile depth, policy inference, G1 assets, balance control, and free-base dynamics along one system path.">PAC-MAN 将来球深度、策略推理、G1 资产、平衡控制与自由基动力学组织为同一条系统路径。</p></div>
+          <div class="section-heading"><div><span class="section-index">03 / CONTROL STACK</span><h2>From predictive safety to Unitree G1</h2></div><p>PAC-MAN connects projectile depth, policy inference, G1 assets, balance control, and free-base dynamics along one system path.</p></div>
           <div class="pacman-table-wrap">
             <table class="pacman-table">
-              <thead><tr><th data-zh="能力" data-en="Capability">能力</th><th data-zh="系统角色" data-en="System role">系统角色</th><th data-zh="AMD 路径" data-en="AMD path">AMD 路径</th><th data-zh="展示内容" data-en="Featured output">展示内容</th></tr></thead>
+              <thead><tr><th>Capability</th><th>System role</th><th>AMD path</th><th>Featured output</th></tr></thead>
               <tbody>
-                <tr><td><strong>ONNX actor</strong></td><td data-zh="上游 960 维观测到 29 维动作" data-en="Upstream 960-D observation to 29-D action">上游 960 维观测到 29 维动作</td><td><span class="status-pill done">ONNX Runtime</span></td><td data-zh="同一策略完成三种动作" data-en="one policy, three responses">同一策略完成三种动作</td></tr>
-                <tr><td><strong>Unitree G1</strong></td><td data-zh="官方 MJCF、29 关节顺序与动作缩放" data-en="Official MJCF, 29-joint order, and action scaling">官方 MJCF、29 关节顺序与动作缩放</td><td><span class="status-pill done" data-zh="上游资产" data-en="upstream assets">上游资产</span></td><td data-zh="自由基站立与恢复" data-en="free-base stance and recovery">自由基站立与恢复</td></tr>
-                <tr><td><strong>Depth history</strong></td><td data-zh="四帧 9×16 来球深度与本体历史" data-en="Four 9x16 projectile-depth frames plus proprio history">四帧 9×16 来球深度与本体历史</td><td><span class="status-pill done" data-zh="协议对齐" data-en="contract aligned">协议对齐</span></td><td data-zh="策略 I/O 可视化" data-en="policy-I/O visualization">策略 I/O 可视化</td></tr>
-                <tr><td><strong>Balance control</strong></td><td data-zh="零速度命令下保持站立并完成姿态恢复" data-en="Maintain stance and recover posture under zero command">零速度命令下保持站立并完成姿态恢复</td><td><span class="status-pill done">mjlab</span></td><td data-zh="3 / 3 零 reset" data-en="3 / 3 zero-reset runs">3 / 3 零 reset</td></tr>
-                <tr><td><strong>Free-base dynamics</strong></td><td data-zh="全身执行、接触与无窗口渲染" data-en="Whole-body execution, contacts, and headless rendering">全身执行、接触与无窗口渲染</td><td><span class="status-pill done">MuJoCo-Warp</span></td><td>1920×1080 · 25 FPS</td></tr>
-                <tr><td><strong>Evidence archive</strong></td><td>motion metrics · video · runtime · checkpoint</td><td><span class="status-pill done">JSON + SHA</span></td><td data-zh="固定版本可复现" data-en="pinned and reproducible">固定版本可复现</td></tr>
+                <tr><td><strong>ONNX actor</strong></td><td>Upstream 960-D observation to 29-D action</td><td><span class="status-pill done">ONNX Runtime</span></td><td>one policy, three responses</td></tr>
+                <tr><td><strong>Unitree G1</strong></td><td>Official MJCF, 29-joint order, and action scaling</td><td><span class="status-pill done">upstream assets</span></td><td>free-base stance and recovery</td></tr>
+                <tr><td><strong>Depth history</strong></td><td>Four 9x16 projectile-depth frames plus proprio history</td><td><span class="status-pill done">contract aligned</span></td><td>policy-I/O visualization</td></tr>
+                <tr><td><strong>Balance control</strong></td><td>Maintain stance and recover posture under zero command</td><td><span class="status-pill done">mjlab</span></td><td>3 / 3 zero-reset runs</td></tr>
+                <tr><td><strong>Free-base dynamics</strong></td><td>Whole-body execution, contacts, and headless rendering</td><td><span class="status-pill done">MuJoCo-Warp</span></td><td>1920×1080 · 25 FPS</td></tr>
+                <tr><td><strong>Evidence archive</strong></td><td>motion metrics · video · runtime · checkpoint</td><td><span class="status-pill done">JSON + SHA</span></td><td>pinned and reproducible</td></tr>
               </tbody>
             </table>
           </div>
@@ -110,26 +109,26 @@
       </section>
 
       <section class="migration-section page-shell" id="reproduce">
-          <div class="section-heading"><div><span class="section-index">04 / REPRODUCE</span><h2 data-zh="一条命令复现三种闪避动作" data-en="Reproduce all three dodge modes">一条命令复现三种闪避动作</h2></div><p data-zh="同一入口读取固定上游 commit、ONNX 权重、G1 资产与官方任务配置，输出 1080p 视频、动作指标、运行清单和 SHA。" data-en="One entry point reads the pinned upstream commit, ONNX checkpoint, G1 assets, and official task configuration, then exports the 1080p film, motion metrics, run manifest, and SHA files.">同一入口读取固定上游 commit、ONNX 权重、G1 资产与官方任务配置，输出 1080p 视频、动作指标、运行清单和 SHA。</p></div>
+          <div class="section-heading"><div><span class="section-index">04 / REPRODUCE</span><h2>Reproduce all three dodge modes</h2></div><p>One entry point reads the pinned upstream commit, ONNX checkpoint, G1 assets, and official task configuration, then exports the 1080p film, motion metrics, run manifest, and SHA files.</p></div>
         <div class="pacman-reproduce-grid">
           <div class="blog-code"><pre><code>MUJOCO_GL=egl \
   PYTHONPATH=.vendor/perceptive_cbf_rl \
   /data/Data14TB/envs/perceptive-cbf-rl-official/bin/python \
   code/perceptive_cbf_rl_amd/official_freebase_capture.py</code></pre></div>
-            <div class="pacman-reproduce-note"><strong data-zh="运行时记录" data-en="Runtime recorded">运行时记录</strong><ul><li><code>mjlab = 1.5.3</code></li><li><code>MuJoCo = 3.10.0</code></li><li><code>MuJoCo-Warp = 3.10.0.3</code></li><li><code>obs 960 → action 29</code></li><li><code>1080p · 25 FPS</code></li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span data-zh="查看复现代码" data-en="Open reproduction code">查看复现代码</span><i data-lucide="arrow-up-right"></i></a></div>
+            <div class="pacman-reproduce-note"><strong>Runtime recorded</strong><ul><li><code>mjlab = 1.5.3</code></li><li><code>MuJoCo = 3.10.0</code></li><li><code>MuJoCo-Warp = 3.10.0.3</code></li><li><code>obs 960 → action 29</code></li><li><code>1080p · 25 FPS</code></li></ul><a class="command-button" href="code/perceptive_cbf_rl_amd/README.md"><span>Open reproduction code</span><i data-lucide="arrow-up-right"></i></a></div>
         </div>
       </section>
 
       <section class="pacman-boundary">
         <div class="page-shell">
           <span class="section-index">05 / DEPLOYMENT PATH</span>
-          <h2 data-zh="从仿真闭环延伸到 G1 部署" data-en="From simulation loop to G1 deployment">从仿真闭环延伸到 G1 部署</h2>
-          <p data-zh="自由基仿真已经连接深度历史、ONNX actor、29 关节映射、平衡执行器和动力学；同一部署契约可继续接入 ZED 深度感知与 Unitree DDS。" data-en="The free-base simulation now connects depth history, the ONNX actor, 29-joint mapping, balance actuators, and dynamics. The same deployment contract extends to ZED depth perception and Unitree DDS.">自由基仿真已经连接深度历史、ONNX actor、29 关节映射、平衡执行器和动力学；同一部署契约可继续接入 ZED 深度感知与 Unitree DDS。</p>
+          <h2>From simulation loop to G1 deployment</h2>
+          <p>The free-base simulation now connects depth history, the ONNX actor, 29-joint mapping, balance actuators, and dynamics. The same deployment contract extends to ZED depth perception and Unitree DDS.</p>
           <div class="pacman-boundary-links"><a href="https://github.com/lzyang2000/perceptive_cbf_rl" target="_blank" rel="noreferrer">Upstream PAC-MAN <i data-lucide="external-link"></i></a><a href="migrations.html#pacman">All migration evidence <i data-lucide="route"></i></a><a href="index.html">Back to showcase <i data-lucide="arrow-up-right"></i></a></div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer"><div class="page-shell footer-inner"><span>Datawhale-EAI · AMD Physical AI Evidence Lab</span><span data-zh="PAC-MAN 全身闪避复现 · 2026-08-05" data-en="PAC-MAN whole-body dodge reproduction · 2026-08-05">PAC-MAN 全身闪避复现 · 2026-08-05</span></div></footer>
+    <footer class="site-footer"><div class="page-shell footer-inner"><span>Datawhale-EAI · AMD Physical AI Evidence Lab</span><span>PAC-MAN whole-body dodge reproduction · 2026-08-05</span></div></footer>
   </body>
 </html>

@@ -2,7 +2,7 @@
 
 Delivery target: 4 minutes 59 seconds, 1920x1080, 30 fps.
 
-The deterministic master uses real experiment footage, on-screen English editorial copy, and a generated editorial blueprint visual for the opening thesis card. The Chinese and bilingual deliveries are created from the same master with UTF-8 SRT tracks. No generated robot footage is used.
+The deterministic master uses real experiment footage, on-screen English editorial copy, and a generated editorial blueprint visual for the opening thesis card. The competition delivery adds phrase-aligned English captions from a UTF-8 SRT track. No generated robot footage is used.
 
 ## Pacing contract
 
@@ -16,7 +16,7 @@ The deterministic master uses real experiment footage, on-screen English editori
 - Voice: Kokoro-82M `af_heart` English voice, rendered one chapter at a time at speed `0.96`.
 - Score: deterministic FFmpeg-generated low-frequency pad with fade-in and fade-out; no external copyrighted music is bundled.
 - Source: `audio/render_audio.sh` and `audio/narration/*.txt`.
-- Final delivery: HyperFrames embeds the mixed WAV into the master, then FFmpeg preserves it in the three subtitled MP4s.
+- Final delivery: HyperFrames embeds the mixed WAV into the master, then FFmpeg adds English captions to the competition MP4.
 - Reproduction: run `HYPERFRAMES_PYTHON=/data/Data14TB/envs/hyperframes-audio/bin/python ./audio/render_audio.sh` before rendering. The downloaded model cache is external to the repository and generated WAVs are ignored.
 
 ## Narration copy

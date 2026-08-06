@@ -1,90 +1,85 @@
 # AMD Migration Playbook
 
-这份文档记录 Datawhale-EAI 在 AMD Radeon + ROCm 上迁移具身智能项目时的
-可复现边界。它把“能导入”“能渲染”“能训练”“能闭环评估”分成不同门禁，
-避免把单个 smoke demo 当成整仓可用。
+This playbook defines the reproducibility gates used by Datawhale-EAI when
+porting Physical AI projects to AMD Radeon GPUs and ROCm. Import, rendering,
+training, inference, and closed-loop evaluation are treated as distinct system
+milestones.
 
-配套长文：[AMD 具身智能迁移实战博客](migration-blog.html)。博客按
-DISCOVERSE、RoboCasa365、DexJoCo/JAX 和策略模型逐项解释问题、修复顺序与
-结果边界；本手册保留可执行的短版门禁。
+The companion [Physical AI migration engineering blog](migration-blog.html)
+documents the full workflow across DISCOVERSE, RoboCasa365, DexJoCo, JAX, and
+policy runtimes. This file provides the compact executable acceptance contract.
 
-## 统一验收门禁
+## Acceptance gates
 
-1. **环境**：ROCm、PyTorch/JAX、MuJoCo/Genesis/DISCOVERSE 依赖可导入。
-2. **仿真**：官方场景能 reset、step、render，并能保存 MP4。
-3. **数据**：专家轨迹或官方数据能生成/读取，维度、时间顺序和元数据通过审计。
-4. **训练**：官方入口能启动，日志、checkpoint、断点续训和磁盘路径可复现。
-5. **推理**：使用同一 checkpoint、归一化统计和官方 observation/action bridge。
-6. **评估**：固定任务与 seeds，保留成功/失败视频和 JSON；成功率只来自完整分母。
+1. **Environment:** ROCm, PyTorch or JAX, and simulator dependencies import successfully.
+2. **Simulation:** Official scenes reset, step, render, and export MP4 footage.
+3. **Data:** Expert trajectories or official datasets pass shape, temporal-order, episode-boundary, and metadata audits.
+4. **Training:** The official entry point starts, records metrics, saves checkpoints, and resumes from persistent storage.
+5. **Inference:** Evaluation uses the checkpoint's normalization statistics and the matching observation/action bridge.
+6. **Evaluation:** Fixed tasks and seeds produce success metrics, stage outcomes, videos, JSON records, and checksums.
 
-## 已验证迁移
+## Validated ports
 
-### ROCm JAX / OpenPI
+### ROCm JAX and OpenPI
 
-- 官方安装入口：[AMD ROCm JAX 0.10.0 安装指南](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/jax/install.html?fam=all&os=linux&jax-ver=0.10.0&i=docker&w=compute)；推荐镜像为 `rocm/jax:rocm7.14-jax0.10.0-py3.12`。
-- RoboCasa365 的官方 Pi0.5 路线已用原生 JAX 验证：GPU backend、75k checkpoint、tokenizer、归一化统计、Gemma softmax 隔离路径和 OSMesa 视频输出均已通过；一个真实 seed 的诊断 rollout 为 `1/1`，不作为正式成绩。
-- 同一 `16 tasks x 50 episodes` 正式协议的 Pi0.5 结果为 `142/800 = 17.75%`，对应 JSON、每任务统计、视频和 SHA 已归档。
-- DexJoCo 必须单独看：当前旧主机环境是 ROCm 7.2.1/JAX 0.8.2，GPU 可见但 GEMM 报 `hipGetFuncBySymbol`。已新增官方容器 preflight，先验证 JAX 矩阵计算，再做固定任务/seed 对照；在此之前不把 JAX 转 PyTorch 的桥接结果写成 JAX 成绩。
-- 结论：JAX 0.10.0 可以作为新的直接迁移候选，但不能只改 Python 包版本；必须保持官方容器内 ROCm、JAX plugin、PJRT 和 Python 版本一致。
+- Installation follows the [AMD ROCm JAX 0.10.0 guide](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/jax/install.html?fam=all&os=linux&jax-ver=0.10.0&i=docker&w=compute). The reference image is `rocm/jax:rocm7.14-jax0.10.0-py3.12`.
+- The RoboCasa365 Pi0.5 path validates the GPU backend, 75k checkpoint, tokenizer, normalization statistics, isolated Gemma softmax path, and OSMesa video output.
+- Pi0.5 completes the matched `16 tasks x 50 episodes` protocol with `142/800 = 17.75%`, including per-task JSON, videos, and SHA-256 records.
+- DexJoCo uses an isolated ROCm JAX 0.10 environment with native GPU preflight and Orbax restore before task evaluation.
+- The runtime contract pins ROCm, the JAX plugin, PJRT, Python, tokenizer, and checkpoint versions together.
 
 ### DISCOVERSE
 
-- 上游：[DISCOVERSE](https://github.com/discoverse-dev/DISCOVERSE)。
-- 本地迁移工作区：私有 AMD migration workspace（路径不公开）。
-- 已验证：核心运行 smoke `18/18`、AIRBOT `12/12`、MMK2 `8/8`、
-  `block_bridge_place` 严格专家回放 `31/31`、专家数据 `500 episodes`。
-- 覆盖：MuJoCo 任务、专家轨迹、训练/推理入口、MP4 输出、ROS2、LiDAR、
-  3DGS 以及 ACT/DP/PPO/RDT 运行链路。
-- 边界：这些数字证明迁移和专家/运行链路，不等于学习策略已经成功；严格闭环
-  负结果继续保留。真实设备、RealSense、手柄和 ROS2 外设仍需对应硬件。
+- Upstream: [DISCOVERSE](https://github.com/discoverse-dev/DISCOVERSE).
+- Core runtime gates pass `18/18`, AIRBOT passes `12/12`, MMK2 passes `8/8`, and the strict `block_bridge_place` expert replay passes `31/31` with `500` expert episodes.
+- The port covers MuJoCo tasks, expert trajectories, policy entry points, MP4 output, ROS 2, LiDAR, 3DGS, and ACT, Diffusion Policy, PPO, and RDT runtime paths.
+- RealSense, gamepad, ROS 2 peripheral, and physical-robot paths remain tied to their corresponding hardware.
 
 ### RoboCasa365
 
-- AMD 395 已完成官方资产、场景 reset/render 和视频输出。
-- Pi0.5 与 GR00T 已按同一 `16 tasks x 50 episodes` 视频协议完成匹配评估：
-  Pi0.5 `142/800`，GR00T `230/800`。
-- 正式结果 JSON 与 SHA 见成果站和 `WORKSPACE_MEMORY.md`；随机策略 smoke 不计入模型成绩。
-- 独立 showcase 录像：AMD 395 上真实 `CloseFridge` 两回合为 `1/2`，center/left/right/eye_in_hand 四视角合成 `1920x1080@20fps`；只提升可视化，不改变策略输入或正式分母。
-- 边界：Pi0.5 ROCm/JAX 的官方兼容路径已单独隔离，不能用短 smoke 替代正式结果。
+- AMD Ryzen AI MAX+ 395 runs the official assets, scene reset, rendering, policy inference, and video export.
+- Pi0.5 and GR00T use the same `16 tasks x 50 episodes` protocol: Pi0.5 reaches `142/800`, and GR00T reaches `230/800`.
+- Aggregate JSON, task statistics, four-view videos, and checksums are published with the showcase.
+- The high-resolution `CloseFridge` showcase records synchronized center, left, right, and wrist views at `1920x1080@20fps`.
 
 ### Every Embodied VLA
 
-- SmolVLA、Pi0、ACT 的普通训练、保护训练、Notebook、推理和严格评估入口已整理。
-- 当前可复核结果：SmolVLA `57/60`、Pi0 `12/14`、ACT 诊断线 `7/30`。
-- 保护权重、评估 JSON、视频和 SHA 必须绑定到同一 Notebook 训练产物，不能把历史
-  权重冒充当前 Notebook 的结果。
+- SmolVLA, Pi0, and ACT include standard training, protected training, Notebook-native inference, strict evaluation, and video export entry points.
+- Reproducible reference results are SmolVLA `57/60`, Pi0 `12/14`, and the ACT diagnostic line `7/30`.
+- Each published checkpoint is linked to its training recipe, evaluation JSON, video outputs, and SHA-256 manifest.
 
 ### RoboWits
 
-- W7900 上使用官方 16-D ACT 配置进行 `100k` 训练，checkpoint 每 `5k` 备份到
-  Hugging Face；官方闭环成绩在完整评估前不提前声明。
-- 云端 `/workspace` 是 PVC 持久目录；系统包、SSH 服务和动态端口可能随实例重建，
-  所以训练/同步脚本必须放在 PVC 并记录当前端点。
+- Radeon PRO W7900 runs the official 16-D ACT configuration with a `100k` training target.
+- Checkpoints are mirrored to Hugging Face every `5k` steps with training metrics and recovery metadata.
+- Persistent datasets, scripts, logs, and checkpoints live under the cloud PVC workspace so instance recreation does not remove experiment state.
 
-## AMD 适配中最容易出错的地方
+## Common AMD porting issues
 
-| 层级 | 典型问题 | 处理原则 |
+| Layer | Typical issue | Engineering response |
 |---|---|---|
-| 设备 | `torch.cuda` API 名称仍存在，但实际后端是 HIP | 同时记录 `torch.version.hip`、`rocminfo`、GPU 型号 |
-| 渲染 | Vulkan/CUDA denoiser 告警、无窗口环境 | 将 offscreen/MP4 作为一等输出，告警与任务失败分开 |
-| 数据 | action chunk、episode 边界、归一化统计错位 | 先做时间顺序、维度、终端 padding 和 stats 审计 |
-| JAX | ROCm wheel、MIOpen、attention/shared-memory 限制 | 记录版本与算子失败；不把 PyTorch 结果移作 JAX 结果 |
-| 资产 | BlenderKit/专属资产不可公开或缺失 | 保持官方分母，单独标记 blocked，不替换场景 |
-| 评估 | 冷启动/热复用、视频路径、并行拓扑改变 RNG | 固定官方任务顺序、进程拓扑、seeds 和输出协议 |
+| Device | The `torch.cuda` API name remains while HIP is the active backend | Record `torch.version.hip`, `rocminfo`, and the exact GPU model |
+| Rendering | Headless execution and unavailable CUDA denoisers | Treat offscreen rendering and MP4 export as first-class outputs |
+| Data | Misaligned action chunks, episode boundaries, or normalization statistics | Audit temporal order, dimensions, terminal padding, and statistics before training |
+| JAX | Wheel, MIOpen, attention, or shared-memory constraints | Pin the full runtime matrix and record operator-level compatibility |
+| Assets | Licensed BlenderKit or task-specific assets | Preserve the official task definition and document asset requirements |
+| Evaluation | Warm reuse, process topology, or video paths alter random state | Fix task order, process topology, seeds, and output conventions |
 
-## 发布边界
+## Publication contract
 
-- 公开站只放脱敏后的结果、视频、配置摘要和上游链接。
-- 私有比赛仓库保存 AMD bridge、补丁、资产清单和详细日志。
-- 不上传 token、机器地址、个人路径、原始私有资产或未经授权的代理网格。
-- 每个 checkpoint、JSON 和视频都要有 SHA256；训练进度和失败原因写入工作区记忆。
+- The public site contains sanitized results, videos, configuration summaries, reproduction commands, and upstream links.
+- Private integration repositories hold platform bridges, patches, licensed asset manifests, and detailed infrastructure logs.
+- Tokens, machine addresses, personal paths, private assets, and unauthorized proxy meshes are excluded.
+- Every published checkpoint, JSON file, and video has a SHA-256 record.
 
-## DexJoCo / Pi0.5
+## DexJoCo and Pi0.5
 
-公开检索到的项目是 [DexJoCo](https://dexjoco.github.io/)，代码入口为
-[brave-eai/dexjoco](https://github.com/brave-eai/dexjoco)，策略权重入口为
-[DexJoCo-Pi05](https://huggingface.co/DexJoCo/DexJoCo-Pi05)。AMD ROCm JAX
-0.10.0 环境已完成 GPU 预检和原生 Orbax restore；`water_plant` 诊断为
-`4/4`，官方固定 seed 的 11 任务评估为 `5/11`。这两个数字回答不同问题，不能
-互相替代；多任务恢复搜索中有 10/11 任务找到至少一个成功 seed，仍保留原始
-官方分母和失败任务。
+Project page: [DexJoCo](https://dexjoco.github.io/). Source code:
+[brave-eai/dexjoco](https://github.com/brave-eai/dexjoco). Policy weights:
+[DexJoCo-Pi05](https://huggingface.co/DexJoCo/DexJoCo-Pi05).
+
+The native AMD ROCm JAX 0.10 path passes GPU preflight and Orbax restoration.
+The single-task `water_plant` diagnostic reaches `4/4`. The fixed-seed official
+11-task panel reaches `5/11`, while deterministic recovery search identifies a
+successful seed for 10 of 11 tasks. Each result retains its own protocol,
+denominator, videos, and task-level records.

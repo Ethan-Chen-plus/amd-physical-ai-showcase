@@ -43,84 +43,53 @@ def parse(path: Path) -> list[dict[str, object]]:
 
 
 def main() -> None:
-    paths = {
-        "en": ROOT / "subtitles" / "en.srt",
-        "zh": ROOT / "subtitles" / "zh.srt",
-        "bilingual": ROOT / "subtitles" / "bilingual.srt",
-    }
-    parsed = {name: parse(path) for name, path in paths.items()}
-    counts = {name: len(cues) for name, cues in parsed.items()}
-    if len(set(counts.values())) != 1:
-        raise ValueError(f"cue count mismatch: {counts}")
+    cues = parse(ROOT / "subtitles" / "en.srt")
 
     maximum_duration = 0.0
     maximum_en = 0
-    maximum_zh = 0
     previous_end = -1.0
-    for index, (en, zh, bilingual) in enumerate(
-        zip(parsed["en"], parsed["zh"], parsed["bilingual"], strict=True), 1
-    ):
-        timing = (en["start"], en["end"])
-        if timing != (zh["start"], zh["end"]) or timing != (
-            bilingual["start"],
-            bilingual["end"],
-        ):
-            raise ValueError(f"cue {index}: language timing mismatch")
-        if en["start"] < previous_end:
+    for index, cue in enumerate(cues, 1):
+        start = float(cue["start"])
+        end = float(cue["end"])
+        if start < previous_end:
             raise ValueError(f"cue {index}: overlaps previous cue")
-        if en["start"] < 0 or en["end"] > FILM_DURATION or en["end"] <= en["start"]:
+        if start < 0 or end > FILM_DURATION or end <= start:
             raise ValueError(f"cue {index}: invalid film bounds")
-        cue_duration = en["end"] - en["start"]
+        cue_duration = end - start
         if cue_duration < 0.75 or cue_duration > 9.0:
             raise ValueError(
                 f"cue {index}: duration {cue_duration:.3f}s outside 0.75-9.0s"
             )
-        if (
-            len(en["lines"]) != 1
-            or len(zh["lines"]) != 1
-            or len(bilingual["lines"]) != 2
-        ):
-            raise ValueError(f"cue {index}: expected 1/1/2 subtitle lines")
-        if bilingual["lines"] != [en["lines"][0], zh["lines"][0]]:
-            raise ValueError(f"cue {index}: bilingual text mismatch")
+        if len(cue["lines"]) != 1:
+            raise ValueError(f"cue {index}: expected one subtitle line")
 
         # A cue is one spoken sentence or clause. Multiple sentence endings
         # indicate that unrelated spoken sentences were combined.
-        sentence_endings = len(re.findall(r"[.!?](?:\s|$)", en["lines"][0]))
+        sentence_endings = len(re.findall(r"[.!?](?:\s|$)", cue["lines"][0]))
         if sentence_endings > 1:
             raise ValueError(f"cue {index}: combines multiple spoken sentences")
 
-        en_length = len(en["lines"][0])
-        zh_length = len(zh["lines"][0])
+        en_length = len(cue["lines"][0])
         if en_length > 90:
             raise ValueError(
                 f"cue {index}: English line exceeds safe text budget ({en_length})"
             )
-        if zh_length > 42:
-            raise ValueError(
-                f"cue {index}: Chinese line exceeds safe text budget ({zh_length})"
-            )
         if en_length / cue_duration > 28:
             raise ValueError(f"cue {index}: English reading speed is too high")
-        if zh_length / cue_duration > 18:
-            raise ValueError(f"cue {index}: Chinese reading speed is too high")
-        previous_end = en["end"]
+        previous_end = end
         maximum_duration = max(maximum_duration, cue_duration)
         maximum_en = max(maximum_en, en_length)
-        maximum_zh = max(maximum_zh, zh_length)
 
     report = {
         "film_duration_seconds": FILM_DURATION,
-        "cue_count": counts["en"],
-        "languages": ["English", "Chinese", "English + Chinese"],
-        "timings_identical": True,
+        "cue_count": len(cues),
+        "language": "English",
         "overlaps": 0,
         "maximum_cue_duration_seconds": round(maximum_duration, 3),
         "maximum_english_characters": maximum_en,
-        "maximum_chinese_characters": maximum_zh,
         "caption_safe_margins_pixels": {"left": 220, "right": 220, "bottom": 52},
         "narration_language": "English",
-        "chinese_delivery_caption_mode": "English + Chinese",
+        "caption_language": "English",
     }
     output = ROOT / "subtitles" / "validation-report.json"
     output.write_text(

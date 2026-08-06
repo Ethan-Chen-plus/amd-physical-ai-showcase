@@ -2,7 +2,7 @@
 
 Public evidence website for the Datawhale-EAI AMD Physical AI project.
 
-The homepage defaults to English for competition review and has a Chinese/English toggle. The first viewport leads with the matched-protocol RoboCasa365 Pi0.5 and GR00T evaluation on AMD, followed by successful DexJoCo, DISCOVERSE, 3DGS, and PAC-MAN evidence. Failure and diagnostic clips are kept in the final section.
+The competition website is delivered entirely in English. The first viewport leads with the matched-protocol RoboCasa365 Pi0.5 and GR00T evaluation on AMD, followed by successful DexJoCo, DISCOVERSE, 3DGS, and PAC-MAN evidence. Failure and diagnostic clips are kept in the final section.
 
 The public site includes:
 
@@ -14,7 +14,7 @@ The public site includes:
 The migration evidence page is available at
 `migrations.html`; it records the six-layer acceptance gates, DISCOVERSE and
 RoboCasa365 evidence, policy boundaries, and the current DexJoCo status without
-exposing private machine paths. The companion long-form Chinese engineering
+exposing private machine paths. The companion long-form engineering
 blog is `migration-blog.html`; it explains the failure modes, repair order,
 evaluation boundaries, and reproduction checklist in detail.
 
@@ -38,9 +38,8 @@ reproduction code and migration boundary are under
 The primary competition demo film is a 4:59, 1920x1080, 30fps HyperFrames
 composition. It leads with DexJoCo and successful task footage, then moves
 through RoboCasa365, DISCOVERSE, 3DGS, AMD execution evidence, and a failure
-appendix. The English homepage plays the English-captioned MP4; Chinese mode
-switches to the same English narration with synchronized English and Chinese
-captions. Standalone SRT deliverables are linked below the flagship player.
+appendix. The homepage plays the English-narrated, English-captioned MP4. The
+standalone English SRT deliverable is linked below the flagship player.
 Release metadata and SHA-256 values are in
 `data/amd-physical-ai-demo-release.json`.
 
@@ -58,18 +57,14 @@ HYPERFRAMES_WORKERS=2 \
 The source storyboard, narration copy, shot manifest, and subtitles are kept
 in `video/hyperframes/`.
 
-The earlier public success reel remains reproducible with the local FFmpeg helpers:
+The earlier public success reel remains reproducible with the local FFmpeg helper:
 
 ```bash
 scripts/build_flagship_reel.sh assets/videos/flagship-reel.mp4
-scripts/burn_bilingual_subtitles.sh \
-  assets/videos/flagship-reel.mp4 \
-  assets/videos/flagship-reel.zh-en.srt \
-  assets/videos/flagship-reel-bilingual.mp4
 ```
 
-The source clips, bilingual subtitle file, generated MP4s, and `SHA256SUMS`
-are kept together so the presentation layer remains traceable.
+The source clips, generated MP4s, English captions, and `SHA256SUMS` are kept
+together so the presentation layer remains traceable.
 
 The DISCOVERSE section includes four isolated official MMK2 example replays on
 AMD Radeon: box pick, drawer open, cabinet door open, and cup to plate. Each task has three native 1920x1080

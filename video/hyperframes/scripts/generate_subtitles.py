@@ -163,16 +163,12 @@ def srt_time(seconds: float) -> str:
     return f"{hours:02d}:{minutes:02d}:{secs:02d},{millis:03d}"
 
 
-def write_srt(path: Path, cues: list[dict[str, object]], language: str) -> None:
+def write_srt(path: Path, cues: list[dict[str, object]]) -> None:
     blocks: list[str] = []
     for index, cue in enumerate(cues, 1):
-        if language == "bilingual":
-            text = f'{cue["en"]}\n{cue["zh"]}'
-        else:
-            text = str(cue[language])
         blocks.append(
             f'{index}\n{srt_time(float(cue["start"]))} --> '
-            f'{srt_time(float(cue["end"]))}\n{text}'
+            f'{srt_time(float(cue["end"]))}\n{cue["en"]}'
         )
     path.write_text("\n\n".join(blocks) + "\n", encoding="utf-8")
 
@@ -214,7 +210,6 @@ def main() -> None:
                     "start": absolute_start,
                     "end": absolute_end,
                     "en": cue["en"],
-                    "zh": cue["zh"],
                 }
             )
             selected.append(
@@ -235,9 +230,7 @@ def main() -> None:
             }
         )
 
-    write_srt(OUT_DIR / "en.srt", output, "en")
-    write_srt(OUT_DIR / "zh.srt", output, "zh")
-    write_srt(OUT_DIR / "bilingual.srt", output, "bilingual")
+    write_srt(OUT_DIR / "en.srt", output)
     (OUT_DIR / "alignment-report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )

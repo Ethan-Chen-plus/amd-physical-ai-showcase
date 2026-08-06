@@ -49,7 +49,7 @@ The formal target is three tasks x 50 episodes. A 10-episode panel is a promotio
 4. Train SmolVLA with a real progress log and checkpoint manifest.
 5. Run the 10-episode promotion panel.
 6. Run the fixed 3 x 50 formal evaluation.
-7. Publish the English submission bundle and bilingual evidence website.
+7. Publish the English submission bundle and English evidence website.
 
 ## AMD Measurement
 
